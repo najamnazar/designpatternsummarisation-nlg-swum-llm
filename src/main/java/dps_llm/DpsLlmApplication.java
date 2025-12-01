@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import common.projectparser.ParseProject;
 import dps_llm.client.LlmClient;
+import dps_llm.client.LlmClientException;
 import dps_llm.config.DotEnvLoader;
 import dps_llm.summary.LlmSummaryService;
 import dps_llm.summary.LlmSummaryService.SummaryStats;
@@ -160,13 +161,21 @@ public class DpsLlmApplication {
                 projectsAttempted++;
                 String relativePath = inputRoot.toPath().relativize(projectDir.toPath()).toString().replace("\\", "/");
                 String projectIdentifier = sanitizeProjectIdentifier(relativePath);
-                SummaryStats stats = processProject(projectDir, relativePath, projectIdentifier, parseProject, jsonWriter, summaryService, csvWriter);
-                totalClasses += stats.getProcessedClasses();
-                totalSuccesses += stats.getSuccessfulSummaries();
-                totalFailures += stats.getFailedSummaries();
-                totalSkipped += stats.getSkippedClasses();
-                if (stats.getSuccessfulSummaries() > 0) {
-                    projectsWithSummaries++;
+                try {
+                    SummaryStats stats = processProject(projectDir, relativePath, projectIdentifier, parseProject, jsonWriter, summaryService, csvWriter);
+                    totalClasses += stats.getProcessedClasses();
+                    totalSuccesses += stats.getSuccessfulSummaries();
+                    totalFailures += stats.getFailedSummaries();
+                    totalSkipped += stats.getSkippedClasses();
+                    if (stats.getSuccessfulSummaries() > 0) {
+                        projectsWithSummaries++;
+                    }
+                } catch (LlmClientException e) {
+                    System.err.println("  LLM error while processing " + relativePath + ": " + e.getMessage());
+                    totalFailures++;
+                } catch (IOException e) {
+                    System.err.println("  IO error while processing " + relativePath + ": " + e.getMessage());
+                    totalFailures++;
                 }
             }
         }
@@ -203,35 +212,50 @@ public class DpsLlmApplication {
                                         ParseProject parseProject,
                                         ObjectWriter jsonWriter,
                                         LlmSummaryService summaryService,
-                                        LlmSummaryWriter csvWriter) {
+                                        LlmSummaryWriter csvWriter) throws IOException, LlmClientException {
+        if (projectDir == null) {
+            throw new IllegalArgumentException("projectDir must not be null");
+        }
+        if (relativePath == null) {
+            throw new IllegalArgumentException("relativePath must not be null");
+        }
+        if (projectIdentifier == null) {
+            throw new IllegalArgumentException("projectIdentifier must not be null");
+        }
+        if (parseProject == null) {
+            throw new IllegalArgumentException("parseProject must not be null");
+        }
+        if (jsonWriter == null) {
+            throw new IllegalArgumentException("jsonWriter must not be null");
+        }
+        if (summaryService == null) {
+            throw new IllegalArgumentException("summaryService must not be null");
+        }
+        if (csvWriter == null) {
+            throw new IllegalArgumentException("csvWriter must not be null");
+        }
+
         System.out.println();
         System.out.println(relativePath);
-        try {
-            HashMap<String, Object> parsedProject = parseProject.parseProject(projectDir, relativePath, false);
-            if (parsedProject.isEmpty()) {
-                System.out.println("  No parseable classes found.");
-                return SummaryStats.empty();
-            }
-
-            jsonWriter.writeValue(new File("output/json-output/llm/" + projectIdentifier + ".json"), parsedProject);
-            SummaryStats stats = summaryService.generateSummaries(parsedProject, projectDir.getName(), projectIdentifier, csvWriter);
-            if (stats.hasResults()) {
-                System.out.printf("  Project summary: %d classes processed, %d summaries generated, %d failed, %d skipped.%n",
-                        stats.getProcessedClasses(),
-                        stats.getSuccessfulSummaries(),
-                        stats.getFailedSummaries(),
-                        stats.getSkippedClasses());
-            } else {
-                System.out.println("  No eligible classes for LLM summarisation.");
-            }
-            return stats;
-        } catch (IOException e) {
-            System.err.println("  IO error while processing " + relativePath + ": " + e.getMessage());
-            return SummaryStats.empty();
-        } catch (Exception e) {
-            System.err.println("  Error while processing " + relativePath + ": " + e.getMessage());
+        
+        HashMap<String, Object> parsedProject = parseProject.parseProject(projectDir, relativePath, false);
+        if (parsedProject == null || parsedProject.isEmpty()) {
+            System.out.println("  No parseable classes found.");
             return SummaryStats.empty();
         }
+
+        jsonWriter.writeValue(new File("output/json-output/llm/" + projectIdentifier + ".json"), parsedProject);
+        SummaryStats stats = summaryService.generateSummaries(parsedProject, projectDir.getName(), projectIdentifier, csvWriter);
+        if (stats.hasResults()) {
+            System.out.printf("  Project summary: %d classes processed, %d summaries generated, %d failed, %d skipped.%n",
+                    stats.getProcessedClasses(),
+                    stats.getSuccessfulSummaries(),
+                    stats.getFailedSummaries(),
+                    stats.getSkippedClasses());
+        } else {
+            System.out.println("  No eligible classes for LLM summarisation.");
+        }
+        return stats;
     }
 
     /**

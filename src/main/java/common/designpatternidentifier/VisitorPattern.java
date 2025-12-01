@@ -7,7 +7,7 @@ import org.apache.commons.collections4.MultiValuedMap;
 import dps_nlg.summarygenerator.messages.DesignPatternClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternInheritClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternMethodMessage;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 // Visitor is a behavioral design pattern that lets you separate algorithms from the objects on which they operate.
 public class VisitorPattern extends DesignPatterns {

@@ -11,7 +11,7 @@ import simplenlg.phrasespec.PPPhraseSpec;
 import simplenlg.phrasespec.SPhraseSpec;
 import simplenlg.phrasespec.VPPhraseSpec;
 import simplenlg.realiser.english.Realiser;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

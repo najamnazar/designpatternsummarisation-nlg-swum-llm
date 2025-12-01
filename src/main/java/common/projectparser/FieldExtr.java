@@ -4,7 +4,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

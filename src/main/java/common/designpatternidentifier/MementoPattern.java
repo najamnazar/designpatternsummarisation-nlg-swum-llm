@@ -7,7 +7,7 @@ import org.apache.commons.collections4.MultiValuedMap;
 import dps_nlg.summarygenerator.messages.DesignPatternClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternInheritClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternMethodMessage;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 // Memento is a behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation
 public class MementoPattern extends DesignPatterns {

@@ -46,8 +46,12 @@ public class LlmSummaryService {
      * Constructs a new summary service with the specified LLM client.
      * 
      * @param llmClient the LLM client for making API requests
+     * @throws IllegalArgumentException if llmClient is null
      */
     public LlmSummaryService(LlmClient llmClient) {
+        if (llmClient == null) {
+            throw new IllegalArgumentException("llmClient must not be null");
+        }
         this.llmClient = llmClient;
     }
 
@@ -68,9 +72,18 @@ public class LlmSummaryService {
     public SummaryStats generateSummaries(HashMap<String, Object> parsedProject,
                                           String projectKey,
                                           String projectDisplayName,
-                                          LlmSummaryWriter writer) throws IOException {
-        if (parsedProject == null || projectKey == null) {
-            return SummaryStats.empty();
+                                          LlmSummaryWriter writer) throws IOException, LlmClientException {
+        if (parsedProject == null) {
+            throw new IllegalArgumentException("parsedProject must not be null");
+        }
+        if (projectKey == null) {
+            throw new IllegalArgumentException("projectKey must not be null");
+        }
+        if (projectDisplayName == null) {
+            throw new IllegalArgumentException("projectDisplayName must not be null");
+        }
+        if (writer == null) {
+            throw new IllegalArgumentException("writer must not be null");
         }
 
         Object projectObject = parsedProject.get(projectKey);
@@ -104,14 +117,8 @@ public class LlmSummaryService {
             processedClasses++;
             ClassFeatureSnapshot snapshot = snapshotOpt.get();
             String userPrompt = promptBuilder.buildUserPrompt(snapshot);
-            Optional<String> summary;
-            try {
-                summary = llmClient.createSummary(promptBuilder.getSystemPrompt(), userPrompt);
-            } catch (LlmClientException e) {
-                System.err.println("LLM request failed for " + projectDisplayName + "/" + className + ": " + e.getMessage());
-                failedSummaries++;
-                continue;
-            }
+            Optional<String> summary = llmClient.createSummary(promptBuilder.getSystemPrompt(), userPrompt);
+            
             if (summary.isEmpty()) {
                 System.err.println("LLM returned no content for " + className + " in project " + projectDisplayName);
                 failedSummaries++;

@@ -1,4 +1,4 @@
-package dps_nlg.utils;
+package common.utils;
 
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver;
@@ -11,43 +11,70 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Factory class for creating configured JavaParser symbol solvers.
+ * Factory class for creating and configuring JavaParser symbol solvers.
  * <p>
- * This class provides a centralized mechanism for creating JavaParser symbol solvers
- * with appropriate type resolvers for analyzing Java projects. It combines reflection,
- * source code, and JAR-based type resolution to enable comprehensive symbol resolution
- * during NLG summarization.
+ * This class provides a centralized mechanism for creating JavaSymbolSolver instances
+ * with appropriate type resolvers for analyzing Java projects. It combines multiple
+ * type resolution strategies (reflection, source code, JAR files) to enable
+ * comprehensive symbol resolution during code analysis.
  * </p>
  * <p>
- * Key responsibilities:
+ * The symbol solver is essential for resolving:
  * <ul>
- *   <li>Create JavaSymbolSolver instances with combined type resolution</li>
- *   <li>Configure ReflectionTypeSolver for standard Java types</li>
- *   <li>Add JavaParserTypeSolver for project source directories</li>
- *   <li>Integrate JarTypeSolver for external library dependencies</li>
- *   <li>Handle IOException when loading JAR files</li>
+ *   <li>Type information across project boundaries</li>
+ *   <li>Inheritance relationships and interface implementations</li>
+ *   <li>Method calls and field references</li>
+ *   <li>Dependencies on external libraries</li>
  * </ul>
  * </p>
+ * <p>
+ * This implementation is shared across NLG, SWUM, and other analysis modules
+ * to ensure consistent symbol resolution behavior throughout the project.
+ * </p>
+ * <p>
+ * Referenced from Java Callgraph project.
+ * </p>
  * 
+ * @author allen
  * @author Najam
  */
 public class SymbolSolverFactory {
-    // referenced from Java Callgraph
+    
     /**
-     * 获取符号推理器，以便获取某个类的具体来源
+     * Creates a configured JavaSymbolSolver combining multiple type resolution strategies.
+     * <p>
+     * The solver is configured with the following priority order:
+     * <ol>
+     *   <li>ReflectionTypeSolver - for JDK classes (most reliable)</li>
+     *   <li>JavaParserTypeSolver - for project source code paths</li>
+     *   <li>JarTypeSolver - for external JAR libraries</li>
+     * </ol>
+     * </p>
+     * <p>
+     * The method gracefully handles missing or invalid paths and provides
+     * diagnostic output to help troubleshoot symbol resolution issues.
+     * </p>
      * 
-     * @param srcPaths
-     * @param libPaths
-     * @return
+     * @param srcPaths list of source code directory paths
+     * @param libPaths list of library directory paths (containing JARs)
+     * @return configured JavaSymbolSolver instance
+     * @throws IOException if JAR file access fails
      */
     public static JavaSymbolSolver getJavaSymbolSolver(List<String> srcPaths, List<String> libPaths) throws IOException {
+        if (srcPaths == null) {
+            srcPaths = new ArrayList<>();
+        }
+        if (libPaths == null) {
+            libPaths = new ArrayList<>();
+        }
+        
         CombinedTypeSolver combinedTypeSolver = new CombinedTypeSolver();
         
         // Add reflection type solver first for JDK classes (most reliable)
-        ReflectionTypeSolver reflectionTypeSolver = new ReflectionTypeSolver(false); // Set false to prevent caching issues
+        ReflectionTypeSolver reflectionTypeSolver = new ReflectionTypeSolver(false);
         combinedTypeSolver.add(reflectionTypeSolver);
         
-        // Enhanced Java parser type solvers with diagnostic output
+        // Add Java parser type solvers with diagnostic output
         List<JavaParserTypeSolver> javaParserTypeSolvers = makeJavaParserTypeSolvers(srcPaths);
         int sourcePathCount = 0;
         for (JavaParserTypeSolver solver : javaParserTypeSolvers) {
@@ -67,29 +94,17 @@ public class SymbolSolverFactory {
             System.out.println("  Added " + jarTypeSolvers.size() + " JAR file(s) for symbol resolution");
         }
         
-        // Add common library type solvers for typical dependencies
-        addCommonLibraryResolvers(combinedTypeSolver);
-        
-        // Configure the symbol solver to be more lenient with unresolved symbols
+        // Create and return the symbol solver
         JavaSymbolSolver symbolSolver = new JavaSymbolSolver(combinedTypeSolver);
         return symbolSolver;
     }
-    
-    /**
-     * Add resolvers for common Java libraries that might be missing
-     */
-    private static void addCommonLibraryResolvers(CombinedTypeSolver combinedTypeSolver) {
-        // Add resolvers for common packages that are often missing
-        // This helps with basic Java collections, utilities, etc.
-        // These are already covered by the main ReflectionTypeSolver, but this ensures consistency
-    }
 
-    // referenced from Java Callgraph
     /**
-     * 获取jar包的符号推理器
+     * Creates JAR type solvers for all JAR files found in the specified library paths.
      * 
-     * @param libPaths
-     * @return
+     * @param libPaths list of library directory paths
+     * @return list of configured JarTypeSolver instances
+     * @throws IOException if JAR file cannot be read
      */
     private static List<JarTypeSolver> makeJarTypeSolvers(List<String> libPaths) throws IOException {
         List<String> jarPaths = Utils.getFilesBySuffixInPaths("jar", libPaths);
@@ -100,16 +115,18 @@ public class SymbolSolverFactory {
         return jarTypeSolvers;
     }
 
-    // referenced from Java Callgraph
     /**
-     * 获取工程源代码src的符号推理器
+     * Creates Java parser type solvers for all valid source directories.
      * 
-     * @param srcPaths
-     * @return
+     * @param srcPaths list of source code directory paths
+     * @return list of configured JavaParserTypeSolver instances
      */
     private static List<JavaParserTypeSolver> makeJavaParserTypeSolvers(List<String> srcPaths) {
         List<JavaParserTypeSolver> javaParserTypeSolvers = new ArrayList<>();
         for (String srcPath : srcPaths) {
+            if (srcPath == null || srcPath.isEmpty()) {
+                continue;
+            }
             File srcDir = new File(srcPath);
             if (srcDir.exists() && srcDir.isDirectory()) {
                 JavaParserTypeSolver typeSolver = new JavaParserTypeSolver(srcDir);
@@ -119,16 +136,15 @@ public class SymbolSolverFactory {
         return javaParserTypeSolvers;
     }
 
-    // referenced from Java Callgraph
     /**
-     * 获取符号推理器
+     * Convenience method to create a symbol solver for single source and library paths.
      * 
-     * @param srcPath
-     * @param libPath
-     * @return
+     * @param srcPath single source code directory path
+     * @param libPath single library directory path
+     * @return configured JavaSymbolSolver instance
+     * @throws IOException if JAR file access fails
      */
     public static JavaSymbolSolver getJavaSymbolSolver(String srcPath, String libPath) throws IOException {
         return getJavaSymbolSolver(Utils.makeListFromOneElement(srcPath), Utils.makeListFromOneElement(libPath));
     }
 }
-

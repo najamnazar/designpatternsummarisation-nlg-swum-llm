@@ -7,7 +7,7 @@ import org.apache.commons.collections4.MultiValuedMap;
 import dps_nlg.summarygenerator.SentenceGenerator;
 import dps_nlg.summarygenerator.messages.DesignPatternClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternMethodMessage;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 // Singleton is a creational design pattern that lets you ensure that a 
 // class has only one instance, while providing a global access point to this instance.

@@ -6,7 +6,7 @@ import org.apache.commons.collections4.MultiValuedMap;
 
 import dps_nlg.summarygenerator.messages.DesignPatternClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternMethodMessage;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 // Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate.
 public class AdapterPattern extends DesignPatterns {

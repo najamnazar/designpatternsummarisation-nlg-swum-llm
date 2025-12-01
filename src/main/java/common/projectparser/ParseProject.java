@@ -13,7 +13,7 @@ import com.github.javaparser.symbolsolver.javaparsermodel.declarations.JavaParse
 import common.designpatternidentifier.CheckPattern;
 
 import dps_nlg.summarygenerator.Summarise;
-import dps_nlg.utils.*;
+import common.utils.*;
 
 import java.io.File;
 import java.io.FileInputStream;

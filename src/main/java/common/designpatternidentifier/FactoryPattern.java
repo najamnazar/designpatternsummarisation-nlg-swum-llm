@@ -7,7 +7,7 @@ import org.apache.commons.collections4.MultiValuedMap;
 import dps_nlg.summarygenerator.messages.DesignPatternClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternInheritClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternMethodMessage;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 // Factory Method is a creational design pattern that provides an interface for 
 // creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.

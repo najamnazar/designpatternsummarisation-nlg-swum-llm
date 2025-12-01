@@ -7,7 +7,7 @@ import org.apache.commons.collections4.MultiValuedMap;
 import dps_nlg.summarygenerator.messages.DesignPatternClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternInheritClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternMethodMessage;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 // Abstract Factory is a creational design pattern that lets
 // you produce families of related objects without specifying their concrete

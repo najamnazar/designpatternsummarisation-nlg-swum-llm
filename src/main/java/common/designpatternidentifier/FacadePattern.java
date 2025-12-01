@@ -6,7 +6,7 @@ import org.apache.commons.collections4.MultiValuedMap;
 
 import dps_nlg.summarygenerator.messages.DesignPatternClassMessage;
 import dps_nlg.summarygenerator.messages.DesignPatternMethodMessage;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 // Facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
 public class FacadePattern extends DesignPatterns {

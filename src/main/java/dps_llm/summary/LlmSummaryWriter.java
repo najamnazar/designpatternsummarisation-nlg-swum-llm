@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
-import common.util.ProjectPathFormatter;
+import common.utils.ProjectPathFormatter;
 
 /**
  * CSV writer for LLM-generated summaries.
@@ -40,8 +40,12 @@ public class LlmSummaryWriter implements AutoCloseable {
      * 
      * @param outputPath the path to the output CSV file
      * @throws IOException if directory creation or file writing fails
+     * @throws IllegalArgumentException if outputPath is null or blank
      */
     public LlmSummaryWriter(String outputPath) throws IOException {
+        if (outputPath == null || outputPath.isBlank()) {
+            throw new IllegalArgumentException("outputPath must not be null or blank");
+        }
         File file = new File(outputPath);
         File parent = file.getParentFile();
         if (parent != null && !parent.exists()) {
@@ -65,8 +69,15 @@ public class LlmSummaryWriter implements AutoCloseable {
      * @param filename the source file name
      * @param summary the generated summary text
      * @throws IOException if writing fails
+     * @throws IllegalArgumentException if projectIdentifier or filename is null
      */
     public synchronized void writeRow(String projectIdentifier, String filename, String summary) throws IOException {
+        if (projectIdentifier == null) {
+            throw new IllegalArgumentException("projectIdentifier must not be null");
+        }
+        if (filename == null) {
+            throw new IllegalArgumentException("filename must not be null");
+        }
         String safeSummary = clean(summary);
         ProjectPathFormatter.Parts parts = ProjectPathFormatter.split(projectIdentifier);
         writer.write(String.format("\"%s\",\"%s\",\"%s\",\"%s\"%n",

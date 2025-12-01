@@ -65,6 +65,22 @@ public class LlmClient {
                      double temperature,
                      String httpReferer,
                      String title) {
+        if (apiUrl == null || apiUrl.isBlank()) {
+            throw new IllegalArgumentException("apiUrl must not be null or blank");
+        }
+        if (apiKey == null || apiKey.isBlank()) {
+            throw new IllegalArgumentException("apiKey must not be null or blank");
+        }
+        if (model == null || model.isBlank()) {
+            throw new IllegalArgumentException("model must not be null or blank");
+        }
+        if (maxOutputTokens <= 0) {
+            throw new IllegalArgumentException("maxOutputTokens must be positive");
+        }
+        if (temperature < 0.0 || temperature > 2.0) {
+            throw new IllegalArgumentException("temperature must be between 0.0 and 2.0");
+        }
+        
         this.apiUrl = apiUrl;
         this.apiKey = apiKey;
         this.model = model;
@@ -90,8 +106,11 @@ public class LlmClient {
      * @throws LlmClientException if the API request fails or returns an error
      */
     public Optional<String> createSummary(String systemPrompt, String userPrompt) throws LlmClientException {
-        if (apiUrl == null || apiUrl.isBlank()) {
-            throw new LlmClientException("LLM configuration incomplete: missing API URL.");
+        if (systemPrompt == null) {
+            throw new IllegalArgumentException("systemPrompt must not be null");
+        }
+        if (userPrompt == null) {
+            throw new IllegalArgumentException("userPrompt must not be null");
         }
 
         try {
@@ -100,11 +119,9 @@ public class LlmClient {
                     .uri(URI.create(apiUrl))
                     .timeout(Duration.ofSeconds(60))
                     .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + apiKey)
                     .POST(HttpRequest.BodyPublishers.ofString(payload));
 
-            if (apiKey != null && !apiKey.isBlank()) {
-                requestBuilder.header("Authorization", "Bearer " + apiKey);
-            }
             if (httpReferer != null && !httpReferer.isBlank()) {
                 requestBuilder.header("HTTP-Referer", httpReferer);
             }

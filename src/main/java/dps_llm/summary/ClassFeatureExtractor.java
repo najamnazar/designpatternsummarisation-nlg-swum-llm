@@ -1,6 +1,6 @@
 package dps_llm.summary;
 
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 import dps_llm.model.ClassFeatureSnapshot;
 
 import java.util.ArrayList;
@@ -57,6 +57,12 @@ public class ClassFeatureExtractor {
                                                   String className,
                                                   HashMap classData,
                                                   List<String> patternInsights) {
+        if (projectName == null || projectName.isBlank()) {
+            throw new IllegalArgumentException("projectName must not be null or blank");
+        }
+        if (className == null || className.isBlank()) {
+            throw new IllegalArgumentException("className must not be null or blank");
+        }
         if (classData == null) {
             return Optional.empty();
         }

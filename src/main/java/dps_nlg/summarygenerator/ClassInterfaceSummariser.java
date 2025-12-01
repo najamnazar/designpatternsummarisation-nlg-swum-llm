@@ -4,7 +4,7 @@ import simplenlg.framework.CoordinatedPhraseElement;
 import simplenlg.framework.NLGFactory;
 import simplenlg.phrasespec.*;
 import simplenlg.realiser.english.Realiser;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

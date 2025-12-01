@@ -79,6 +79,28 @@ public final class ClassFeatureSnapshot {
             int totalMethodCount,
             List<String> interactionNotes,
             List<String> patternInsights) {
+        if (projectName == null || projectName.isBlank()) {
+            throw new IllegalArgumentException("projectName must not be null or blank");
+        }
+        if (className == null || className.isBlank()) {
+            throw new IllegalArgumentException("className must not be null or blank");
+        }
+        if (sourceFile == null || sourceFile.isBlank()) {
+            throw new IllegalArgumentException("sourceFile must not be null or blank");
+        }
+        if (classKind == null || classKind.isBlank()) {
+            throw new IllegalArgumentException("classKind must not be null or blank");
+        }
+        if (totalFieldCount < 0) {
+            throw new IllegalArgumentException("totalFieldCount must not be negative");
+        }
+        if (totalConstructorCount < 0) {
+            throw new IllegalArgumentException("totalConstructorCount must not be negative");
+        }
+        if (totalMethodCount < 0) {
+            throw new IllegalArgumentException("totalMethodCount must not be negative");
+        }
+        
         this.projectName = projectName;
         this.className = className;
         this.sourceFile = sourceFile;

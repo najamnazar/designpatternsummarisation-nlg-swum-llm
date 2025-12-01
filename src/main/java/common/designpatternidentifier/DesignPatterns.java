@@ -4,7 +4,7 @@ import java.util.*;
 import org.apache.commons.collections4.MultiValuedMap;
 
 import dps_nlg.summarygenerator.SentenceGenerator;
-import dps_nlg.utils.Utils;
+import common.utils.Utils;
 
 public abstract class DesignPatterns {
     protected String patternName;

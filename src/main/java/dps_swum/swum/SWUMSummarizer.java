@@ -9,7 +9,7 @@ import dps_swum.swum.context.PatternContextExtractor;
 import dps_swum.swum.grammar.SWUMGrammarParser;
 import dps_swum.swum.model.SWUMStructure;
 
-import common.util.ProjectPathFormatter;
+import common.utils.ProjectPathFormatter;
 
 import java.io.File;
 import java.io.FileWriter;

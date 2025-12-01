@@ -10,8 +10,8 @@ import org.apache.commons.collections4.MultiValuedMap;
 import simplenlg.framework.NLGFactory;
 import simplenlg.lexicon.Lexicon;
 import simplenlg.realiser.english.Realiser;
-import common.util.ProjectPathFormatter;
-import dps_nlg.utils.Utils;
+import common.utils.ProjectPathFormatter;
+import common.utils.Utils;
 
 /**
  * Main summarization orchestrator using Natural Language Generation.
