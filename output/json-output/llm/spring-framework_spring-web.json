@@ -1,0 +1,3021 @@
+{
+	"final_summary" : "",
+	"design_pattern" : [ ],
+	"summary_NLG" : { },
+	"spring-web" : {
+		"ClientHttpRequestFactory" : {
+			"FIELDDETAIL" : [ ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "PUBLIC",
+				"NUMBEROFMETHODCALLS" : 0,
+				"EXTENDSFROM" : [ ],
+				"IMPLEMENTSFROM" : [ ],
+				"CLASSNAME" : "ClientHttpRequestFactory",
+				"ISINTERFACEORNOT" : true,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ "public" ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ ],
+			"VARIABLEDETAIL" : [ ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "createRequest",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ ],
+				"METHODBODYLINETYPE" : [ ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "ClientHttpRequest",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 0,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "uri",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "httpMethod",
+					"PARAMETERTYPE" : "HttpMethod"
+				} ]
+			} ]
+		},
+		"BufferingClientHttpResponseWrapper" : {
+			"FIELDDETAIL" : [ {
+				"FIELDCOMMONTYPE" : "ClientHttpResponse",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "response" ],
+				"FIELDDATATYPE" : "ClientHttpResponse",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "byte @Nullable []",
+				"FIELDMODIFIERTYPE" : [ "private", "volatile" ],
+				"FIELDDECLARATION" : [ "body" ],
+				"FIELDDATATYPE" : "byte",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			} ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "NONE",
+				"NUMBEROFMETHODCALLS" : 6,
+				"EXTENDSFROM" : [ ],
+				"IMPLEMENTSFROM" : [ "ClientHttpResponse" ],
+				"CLASSNAME" : "BufferingClientHttpResponseWrapper",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ "final" ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ {
+				"CONSTRUCTORMODIFIER" : [ ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "response",
+					"PARAMETERTYPE" : "ClientHttpResponse"
+				} ]
+			} ],
+			"VARIABLEDETAIL" : [ {
+				"VARIABLEDECLARATION" : [ "body = this.body" ],
+				"VARIABLECOMMONTYPE" : "byte[]",
+				"VARIABLEELEMENTTYPE" : "byte"
+			} ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "getStatusCode",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "HttpStatusCode",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "getStatusText",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "String",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "getHeaders",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "HttpHeaders",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "getBody",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "InputStream",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "close",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			} ]
+		},
+		"RestTemplate" : {
+			"FIELDDETAIL" : [ {
+				"FIELDCOMMONTYPE" : "ClientRequestObservationConvention",
+				"FIELDMODIFIERTYPE" : [ "private", "static", "final" ],
+				"FIELDDECLARATION" : [ "DEFAULT_OBSERVATION_CONVENTION = new DefaultClientRequestObservationConvention()" ],
+				"FIELDDATATYPE" : "ClientRequestObservationConvention",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "List<HttpMessageConverter<?>>",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "messageConverters = new ArrayList<>()" ],
+				"FIELDDATATYPE" : "List<HttpMessageConverter<?>>",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "ResponseErrorHandler",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "errorHandler = new DefaultResponseErrorHandler()" ],
+				"FIELDDATATYPE" : "ResponseErrorHandler",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "UriTemplateHandler",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "uriTemplateHandler" ],
+				"FIELDDATATYPE" : "UriTemplateHandler",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "ResponseExtractor<HttpHeaders>",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "headersExtractor = new HeadersExtractor()" ],
+				"FIELDDATATYPE" : "ResponseExtractor<HttpHeaders>",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "ObservationRegistry",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "observationRegistry = ObservationRegistry.NOOP" ],
+				"FIELDDATATYPE" : "ObservationRegistry",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "ClientRequestObservationConvention",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "observationConvention" ],
+				"FIELDDATATYPE" : "ClientRequestObservationConvention",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "Type",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "responseType" ],
+				"FIELDDATATYPE" : "Type",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "HttpEntity<?>",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "requestEntity" ],
+				"FIELDDATATYPE" : "HttpEntity<?>",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "delegate" ],
+				"FIELDDATATYPE" : "HttpMessageConverterExtractor<T>",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			} ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "PUBLIC",
+				"NUMBEROFMETHODCALLS" : 290,
+				"EXTENDSFROM" : [ "InterceptingHttpAccessor" ],
+				"IMPLEMENTSFROM" : [ "RestOperations" ],
+				"CLASSNAME" : "RestTemplate",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ "public" ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "requestFactory",
+					"PARAMETERTYPE" : "ClientHttpRequestFactory"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "messageConverters",
+					"PARAMETERTYPE" : "Iterable<HttpMessageConverter<?>>"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "Type",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "Type",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "Type",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			} ],
+			"VARIABLEDETAIL" : [ {
+				"VARIABLEDECLARATION" : [ "uriFactory = new DefaultUriBuilderFactory()" ],
+				"VARIABLECOMMONTYPE" : "DefaultUriBuilderFactory",
+				"VARIABLEELEMENTTYPE" : "DefaultUriBuilderFactory"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = acceptHeaderRequestCallback(responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = new HttpMessageConverterExtractor<>(responseType, getMessageConverters(), logger)" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverterExtractor<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = acceptHeaderRequestCallback(responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = new HttpMessageConverterExtractor<>(responseType, getMessageConverters(), logger)" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverterExtractor<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = acceptHeaderRequestCallback(responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = new HttpMessageConverterExtractor<>(responseType, getMessageConverters(), logger)" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverterExtractor<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = acceptHeaderRequestCallback(responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = acceptHeaderRequestCallback(responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = acceptHeaderRequestCallback(responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "headers = execute(url, HttpMethod.POST, requestCallback, headersExtractor(), uriVariables)" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "headers = execute(url, HttpMethod.POST, requestCallback, headersExtractor(), uriVariables)" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "headers = execute(url, HttpMethod.POST, requestCallback, headersExtractor())" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = new HttpMessageConverterExtractor<>(responseType, getMessageConverters(), logger)" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverterExtractor<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = new HttpMessageConverterExtractor<>(responseType, getMessageConverters(), logger)" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverterExtractor<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = new HttpMessageConverterExtractor<>(responseType, getMessageConverters())" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverterExtractor<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = new HttpMessageConverterExtractor<>(responseType, getMessageConverters(), logger)" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverterExtractor<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = new HttpMessageConverterExtractor<>(responseType, getMessageConverters(), logger)" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverterExtractor<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(request, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = new HttpMessageConverterExtractor<>(responseType, getMessageConverters())" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverterExtractor<T>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverterExtractor<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "headersExtractor = headersExtractor()" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<HttpHeaders>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<HttpHeaders>"
+			}, {
+				"VARIABLEDECLARATION" : [ "headers = execute(url, HttpMethod.OPTIONS, null, headersExtractor, uriVariables)" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "headersExtractor = headersExtractor()" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<HttpHeaders>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<HttpHeaders>"
+			}, {
+				"VARIABLEDECLARATION" : [ "headers = execute(url, HttpMethod.OPTIONS, null, headersExtractor, uriVariables)" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "headersExtractor = headersExtractor()" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<HttpHeaders>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<HttpHeaders>"
+			}, {
+				"VARIABLEDECLARATION" : [ "headers = execute(url, HttpMethod.OPTIONS, null, headersExtractor)" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(requestEntity, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(requestEntity, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(requestEntity, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "type = responseType.getType()" ],
+				"VARIABLECOMMONTYPE" : "Type",
+				"VARIABLEELEMENTTYPE" : "Type"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(requestEntity, type)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(type)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "type = responseType.getType()" ],
+				"VARIABLECOMMONTYPE" : "Type",
+				"VARIABLEELEMENTTYPE" : "Type"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(requestEntity, type)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(type)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "type = responseType.getType()" ],
+				"VARIABLECOMMONTYPE" : "Type",
+				"VARIABLEELEMENTTYPE" : "Type"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(requestEntity, type)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(type)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(entity, responseType)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(responseType)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "type = responseType.getType()" ],
+				"VARIABLECOMMONTYPE" : "Type",
+				"VARIABLEELEMENTTYPE" : "Type"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestCallback = httpEntityCallback(entity, type)" ],
+				"VARIABLECOMMONTYPE" : "RequestCallback",
+				"VARIABLEELEMENTTYPE" : "RequestCallback"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseExtractor = responseEntityExtractor(type)" ],
+				"VARIABLECOMMONTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"VARIABLEELEMENTTYPE" : "ResponseExtractor<ResponseEntity<T>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "url = getUriTemplateHandler().expand(uriTemplate, uriVariables)" ],
+				"VARIABLECOMMONTYPE" : "URI",
+				"VARIABLEELEMENTTYPE" : "URI"
+			}, {
+				"VARIABLEDECLARATION" : [ "url = getUriTemplateHandler().expand(uriTemplate, uriVariables)" ],
+				"VARIABLECOMMONTYPE" : "URI",
+				"VARIABLEELEMENTTYPE" : "URI"
+			}, {
+				"VARIABLEDECLARATION" : [ "request" ],
+				"VARIABLECOMMONTYPE" : "ClientHttpRequest",
+				"VARIABLEELEMENTTYPE" : "ClientHttpRequest"
+			}, {
+				"VARIABLEDECLARATION" : [ "observationContext = new ClientRequestObservationContext(request)" ],
+				"VARIABLECOMMONTYPE" : "ClientRequestObservationContext",
+				"VARIABLEELEMENTTYPE" : "ClientRequestObservationContext"
+			}, {
+				"VARIABLEDECLARATION" : [ "observation = ClientHttpObservationDocumentation.HTTP_CLIENT_EXCHANGES.observation(this.observationConvention, DEFAULT_OBSERVATION_CONVENTION, () -> observationContext, this.observationRegistry).start()" ],
+				"VARIABLECOMMONTYPE" : "Observation",
+				"VARIABLEELEMENTTYPE" : "Observation"
+			}, {
+				"VARIABLEDECLARATION" : [ "response = null" ],
+				"VARIABLECOMMONTYPE" : "ClientHttpResponse",
+				"VARIABLEELEMENTTYPE" : "ClientHttpResponse"
+			}, {
+				"VARIABLEDECLARATION" : [ "accessEx = createResourceAccessException(url, method, ex)" ],
+				"VARIABLECOMMONTYPE" : "ResourceAccessException",
+				"VARIABLEELEMENTTYPE" : "ResourceAccessException"
+			}, {
+				"VARIABLEDECLARATION" : [ "scope = observation.openScope()" ],
+				"VARIABLECOMMONTYPE" : "Observation.Scope",
+				"VARIABLEELEMENTTYPE" : "Observation.Scope"
+			}, {
+				"VARIABLEDECLARATION" : [ "resource = url.toString()" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "errorHandler = getErrorHandler()" ],
+				"VARIABLECOMMONTYPE" : "ResponseErrorHandler",
+				"VARIABLEELEMENTTYPE" : "ResponseErrorHandler"
+			}, {
+				"VARIABLEDECLARATION" : [ "hasError = errorHandler.hasError(response)" ],
+				"VARIABLECOMMONTYPE" : "boolean",
+				"VARIABLEELEMENTTYPE" : "boolean"
+			}, {
+				"VARIABLEDECLARATION" : [ "statusCode = response.getStatusCode()" ],
+				"VARIABLECOMMONTYPE" : "HttpStatusCode",
+				"VARIABLEELEMENTTYPE" : "HttpStatusCode"
+			}, {
+				"VARIABLEDECLARATION" : [ "allSupportedMediaTypes = getMessageConverters().stream().filter(converter -> canReadResponse(this.responseType, converter)).flatMap((HttpMessageConverter<?> converter) -> getSupportedMediaTypes(this.responseType, converter)).distinct().collect(Collectors.toList())" ],
+				"VARIABLECOMMONTYPE" : "List<MediaType>",
+				"VARIABLEELEMENTTYPE" : "List<MediaType>"
+			}, {
+				"VARIABLEDECLARATION" : [ "rawType = (type instanceof ParameterizedType parameterizedType ? parameterizedType.getRawType() : type)" ],
+				"VARIABLECOMMONTYPE" : "Type",
+				"VARIABLEELEMENTTYPE" : "Type"
+			}, {
+				"VARIABLEDECLARATION" : [ "clazz = (rawType instanceof Class<?> rawClass ? rawClass : null)" ],
+				"VARIABLECOMMONTYPE" : "Class<?>",
+				"VARIABLEELEMENTTYPE" : "Class<?>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestBody = this.requestEntity.getBody()" ],
+				"VARIABLECOMMONTYPE" : "Object",
+				"VARIABLEELEMENTTYPE" : "Object"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestBodyClass = requestBody.getClass()" ],
+				"VARIABLECOMMONTYPE" : "Class<?>",
+				"VARIABLEELEMENTTYPE" : "Class<?>"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestBodyType = (this.requestEntity instanceof RequestEntity<?> _requestEntity ? _requestEntity.getType() : requestBodyClass)" ],
+				"VARIABLECOMMONTYPE" : "Type",
+				"VARIABLEELEMENTTYPE" : "Type"
+			}, {
+				"VARIABLEDECLARATION" : [ "httpHeaders = httpRequest.getHeaders()" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestHeaders = this.requestEntity.getHeaders()" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestContentType = requestHeaders.getContentType()" ],
+				"VARIABLECOMMONTYPE" : "MediaType",
+				"VARIABLEELEMENTTYPE" : "MediaType"
+			}, {
+				"VARIABLEDECLARATION" : [ "resolvableType = ResolvableType.forType(requestBodyType)" ],
+				"VARIABLECOMMONTYPE" : "ResolvableType",
+				"VARIABLEELEMENTTYPE" : "ResolvableType"
+			}, {
+				"VARIABLEDECLARATION" : [ "messageConverter" ],
+				"VARIABLECOMMONTYPE" : "HttpMessageConverter<?>",
+				"VARIABLEELEMENTTYPE" : "HttpMessageConverter<?>"
+			}, {
+				"VARIABLEDECLARATION" : [ "message = \"No HttpMessageConverter for \" + requestBodyClass.getName()" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "httpHeaders = httpRequest.getHeaders()" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestHeaders = this.requestEntity.getHeaders()" ],
+				"VARIABLECOMMONTYPE" : "HttpHeaders",
+				"VARIABLEELEMENTTYPE" : "HttpHeaders"
+			}, {
+				"VARIABLEDECLARATION" : [ "body = this.delegate.extractData(response)" ],
+				"VARIABLECOMMONTYPE" : "T",
+				"VARIABLEELEMENTTYPE" : "T"
+			} ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "updateErrorHandlerConverters",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "initUriTemplateHandler",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private", "static" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "DefaultUriBuilderFactory",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setMessageConverters",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "messageConverters",
+					"PARAMETERTYPE" : "List<HttpMessageConverter<?>>"
+				} ]
+			}, {
+				"METHODNAME" : "validateConverters",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 6,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "messageConverters",
+					"PARAMETERTYPE" : "Iterable<HttpMessageConverter<?>>"
+				} ]
+			}, {
+				"METHODNAME" : "getMessageConverters",
+				"NUMBEROFINCOMINGMETHODS" : 27,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "List<HttpMessageConverter<?>>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setErrorHandler",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "errorHandler",
+					"PARAMETERTYPE" : "ResponseErrorHandler"
+				} ]
+			}, {
+				"METHODNAME" : "getErrorHandler",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "ResponseErrorHandler",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setDefaultUriVariables",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "setUriTemplateHandler",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "handler",
+					"PARAMETERTYPE" : "UriTemplateHandler"
+				} ]
+			}, {
+				"METHODNAME" : "getUriTemplateHandler",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "UriTemplateHandler",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setObservationRegistry",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "observationRegistry",
+					"PARAMETERTYPE" : "ObservationRegistry"
+				} ]
+			}, {
+				"METHODNAME" : "getObservationRegistry",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "ObservationRegistry",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setObservationConvention",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "observationConvention",
+					"PARAMETERTYPE" : "ClientRequestObservationConvention"
+				} ]
+			}, {
+				"METHODNAME" : "getObservationConvention",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "ClientRequestObservationConvention",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "getForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "getForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "?>",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "getForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "getForEntity",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "getForEntity",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "getForEntity",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "acceptHeaderRequestCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "headForHeaders",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "HttpHeaders",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "headForHeaders",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "HttpHeaders",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "headForHeaders",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "HttpHeaders",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				} ]
+			}, {
+				"METHODNAME" : "postForLocation",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "URI",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "postForLocation",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "URI",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "postForLocation",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "URI",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "postForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "postForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "postForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "postForEntity",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "postForEntity",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "postForEntity",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "responseEntityExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "put",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "put",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "put",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "patchForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "patchForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "patchForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "httpEntityCallback"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverters"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "delete",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "delete",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "delete",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				} ]
+			}, {
+				"METHODNAME" : "optionsForAllow",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "Set<HttpMethod>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "optionsForAllow",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "Set<HttpMethod>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "optionsForAllow",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "Set<HttpMethod>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				}, {
+					"CALLEECLASS" : "RestTemplate",
+					"CALLEEMETHODNAME" : "headersExtractor"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				} ]
+			}, {
+				"METHODNAME" : "exchange",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "HttpEntity<?>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "exchange",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "HttpEntity<?>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "exchange",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "HttpEntity<?>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "exchange",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 3,
+				"NUMBEROFOUTGOINGMETHODS" : 5,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "HttpEntity<?>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "ParameterizedTypeReference<T>"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "exchange",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 3,
+				"NUMBEROFOUTGOINGMETHODS" : 5,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "HttpEntity<?>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "ParameterizedTypeReference<T>"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "exchange",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 3,
+				"NUMBEROFOUTGOINGMETHODS" : 5,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "HttpEntity<?>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "ParameterizedTypeReference<T>"
+				} ]
+			}, {
+				"METHODNAME" : "exchange",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 7,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "entity",
+					"PARAMETERTYPE" : "RequestEntity<?>"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "exchange",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 3,
+				"NUMBEROFOUTGOINGMETHODS" : 8,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "entity",
+					"PARAMETERTYPE" : "RequestEntity<?>"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "ParameterizedTypeReference<T>"
+				} ]
+			}, {
+				"METHODNAME" : "resolveUrl",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 10,
+				"METHODRETURNTYPE" : "URI",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "entity",
+					"PARAMETERTYPE" : "RequestEntity<?>"
+				} ]
+			}, {
+				"METHODNAME" : "resolveUriTemplate",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "String",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "entity",
+					"PARAMETERTYPE" : "RequestEntity<?>"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "uriTemplate",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "RequestCallback",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "ResponseExtractor<T>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "Object...",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "uriTemplate",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "RequestCallback",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "ResponseExtractor<T>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "?",
+					"PARAMETERTYPE" : "Map<String,"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "RequestCallback",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "ResponseExtractor<T>",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "doExecute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "OTHER", "EXPRESSION", "EXPRESSION", "EXPRESSION", "EXPRESSION", "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 4,
+				"NUMBEROFOUTGOINGMETHODS" : 18,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@SuppressWarnings(\"try\")", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 9,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "HttpMethod",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "RequestCallback",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "ResponseExtractor<T>",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "createResourceAccessException",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private", "static" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 6,
+				"METHODRETURNTYPE" : "ResourceAccessException",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "ex",
+					"PARAMETERTYPE" : "IOException"
+				} ]
+			}, {
+				"METHODNAME" : "handleResponse",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "IF", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 7,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "url",
+					"PARAMETERTYPE" : "URI"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "HttpMethod"
+				}, {
+					"PARAMETERNAME" : "response",
+					"PARAMETERTYPE" : "ClientHttpResponse"
+				} ]
+			}, {
+				"METHODNAME" : "acceptHeaderRequestCallback",
+				"NUMBEROFINCOMINGMETHODS" : 18,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "RequestCallback",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "httpEntityCallback",
+				"NUMBEROFINCOMINGMETHODS" : 45,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "RequestCallback",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "httpEntityCallback",
+				"NUMBEROFINCOMINGMETHODS" : 45,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "put",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "patchForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForObject",
+					"CALLEDCLASS" : "RestTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "RequestCallback",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Type"
+				} ]
+			}, {
+				"METHODNAME" : "responseEntityExtractor",
+				"NUMBEROFINCOMINGMETHODS" : 18,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getForEntity",
+					"CALLEDCLASS" : "RestTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "ResponseExtractor<ResponseEntity<T>>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Type"
+				} ]
+			}, {
+				"METHODNAME" : "headersExtractor",
+				"NUMBEROFINCOMINGMETHODS" : 27,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "headForHeaders",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "headForHeaders",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "headForHeaders",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "optionsForAllow",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "optionsForAllow",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "optionsForAllow",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "headForHeaders",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "headForHeaders",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "headForHeaders",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "optionsForAllow",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "optionsForAllow",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "optionsForAllow",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "headForHeaders",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "headForHeaders",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "headForHeaders",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "optionsForAllow",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "optionsForAllow",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "optionsForAllow",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "postForLocation",
+					"CALLEDCLASS" : "RestTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "ResponseExtractor<HttpHeaders>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "nonNull",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private", "static" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "T",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "doWithRequest",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 14,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "request",
+					"PARAMETERTYPE" : "ClientHttpRequest"
+				} ]
+			}, {
+				"METHODNAME" : "canReadResponse",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "responseType",
+					"PARAMETERTYPE" : "Type"
+				}, {
+					"PARAMETERNAME" : "converter",
+					"PARAMETERTYPE" : "HttpMessageConverter<?>"
+				} ]
+			}, {
+				"METHODNAME" : "getSupportedMediaTypes",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 8,
+				"METHODRETURNTYPE" : "Stream<MediaType>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "type",
+					"PARAMETERTYPE" : "Type"
+				}, {
+					"PARAMETERNAME" : "converter",
+					"PARAMETERTYPE" : "HttpMessageConverter<?>"
+				} ]
+			}, {
+				"METHODNAME" : "doWithRequest",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 35,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override", "@SuppressWarnings({ \"rawtypes\", \"unchecked\" })" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "httpRequest",
+					"PARAMETERTYPE" : "ClientHttpRequest"
+				} ]
+			}, {
+				"METHODNAME" : "logBody",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 5,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "body",
+					"PARAMETERTYPE" : "Object"
+				}, {
+					"PARAMETERNAME" : "MediaType",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "converter",
+					"PARAMETERTYPE" : "HttpMessageConverter<?>"
+				} ]
+			}, {
+				"METHODNAME" : "extractData",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 11,
+				"METHODRETURNTYPE" : "ResponseEntity<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "response",
+					"PARAMETERTYPE" : "ClientHttpResponse"
+				} ]
+			}, {
+				"METHODNAME" : "extractData",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "HttpHeaders",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "response",
+					"PARAMETERTYPE" : "ClientHttpResponse"
+				} ]
+			} ]
+		}
+	}
+}

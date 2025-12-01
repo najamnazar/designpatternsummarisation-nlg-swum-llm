@@ -1,0 +1,117 @@
+{
+	"final_summary" : "HttpRequestHandlerAdapter.java: HttpRequestHandlerAdapter does not have any design pattern.  It is a public class that implements HandlerAdapter. The 2 methods of HttpRequestHandlerAdapter are support (boolean) and handle (ModelAndView). No methods call support and support calls no methods. No methods call handle and handle calls no methods.\n\n\nSimpleControllerHandlerAdapter.java: SimpleControllerHandlerAdapter does not have any design pattern.  It is a public class that implements HandlerAdapter. The 2 methods of SimpleControllerHandlerAdapter are support (boolean) and handle (ModelAndView). No methods call support and support calls no methods. No methods call handle and handle calls no methods.\n\n\n",
+	"spring-webmvc" : {
+		"HttpRequestHandlerAdapter" : {
+			"FIELDDETAIL" : [ ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "PUBLIC",
+				"NUMBEROFMETHODCALLS" : 1,
+				"EXTENDSFROM" : [ ],
+				"IMPLEMENTSFROM" : [ "HandlerAdapter" ],
+				"CLASSNAME" : "HttpRequestHandlerAdapter",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ "public" ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ ],
+			"VARIABLEDETAIL" : [ ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "supports",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "handler",
+					"PARAMETERTYPE" : "Object"
+				} ]
+			}, {
+				"METHODNAME" : "handle",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "ModelAndView",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "request",
+					"PARAMETERTYPE" : "HttpServletRequest"
+				}, {
+					"PARAMETERNAME" : "response",
+					"PARAMETERTYPE" : "HttpServletResponse"
+				}, {
+					"PARAMETERNAME" : "handler",
+					"PARAMETERTYPE" : "Object"
+				} ]
+			} ]
+		},
+		"SimpleControllerHandlerAdapter" : {
+			"FIELDDETAIL" : [ ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "PUBLIC",
+				"NUMBEROFMETHODCALLS" : 1,
+				"EXTENDSFROM" : [ ],
+				"IMPLEMENTSFROM" : [ "HandlerAdapter" ],
+				"CLASSNAME" : "SimpleControllerHandlerAdapter",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ "public" ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ ],
+			"VARIABLEDETAIL" : [ ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "supports",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "handler",
+					"PARAMETERTYPE" : "Object"
+				} ]
+			}, {
+				"METHODNAME" : "handle",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "ModelAndView",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "request",
+					"PARAMETERTYPE" : "HttpServletRequest"
+				}, {
+					"PARAMETERNAME" : "response",
+					"PARAMETERTYPE" : "HttpServletResponse"
+				}, {
+					"PARAMETERNAME" : "handler",
+					"PARAMETERTYPE" : "Object"
+				} ]
+			} ]
+		}
+	},
+	"design_pattern" : [ ],
+	"summary_NLG" : { }
+}

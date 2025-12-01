@@ -1,0 +1,453 @@
+{
+  "project_name" : "summary_NLG",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953606,
+  "class_summaries" : {
+    "ClientHttpRequestFactory" : {
+      "class_name" : "ClientHttpRequestFactory",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "createRequest" : {
+          "method_name" : "createRequest",
+          "return_type" : "ClientHttpRequest",
+          "parameters" : "",
+          "swum_summary" : "This method creates a request and returns an object as part of the Factory pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "Request",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Request))"
+        }
+      },
+      "swum_class_summary" : "The ClientHttpRequestFactory class is part of the Factory pattern and provides methods to create for managing client, request, factory."
+    },
+    "BufferingClientHttpResponseWrapper" : {
+      "class_name" : "BufferingClientHttpResponseWrapper",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getStatusCode" : {
+          "method_name" : "getStatusCode",
+          "return_type" : "HttpStatusCode",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Status Code))"
+        },
+        "getStatusText" : {
+          "method_name" : "getStatusText",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves a text and returns a String.",
+          "swum_actions" : "get",
+          "swum_objects" : "Text",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Status Text))"
+        },
+        "getHeaders" : {
+          "method_name" : "getHeaders",
+          "return_type" : "HttpHeaders",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Headers))"
+        },
+        "getBody" : {
+          "method_name" : "getBody",
+          "return_type" : "InputStream",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Body))"
+        },
+        "close" : {
+          "method_name" : "close",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method closes.",
+          "swum_actions" : "close",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE close)"
+        }
+      },
+      "swum_class_summary" : "The BufferingClientHttpResponseWrapper class and provides methods to get, get, get, get, close for managing client, response."
+    },
+    "RestTemplate" : {
+      "class_name" : "RestTemplate",
+      "class_type" : "class",
+      "method_summaries" : {
+        "updateErrorHandlerConverters" : {
+          "method_name" : "updateErrorHandlerConverters",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method updates.",
+          "swum_actions" : "update",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE update (OBJECT Error Handler Converters))"
+        },
+        "initUriTemplateHandler" : {
+          "method_name" : "initUriTemplateHandler",
+          "return_type" : "DefaultUriBuilderFactory",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE init Uri Template Handler)"
+        },
+        "setMessageConverters" : {
+          "method_name" : "setMessageConverters",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets set, Message.",
+          "swum_actions" : "set",
+          "swum_objects" : "set, Message",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Message Converters))"
+        },
+        "validateConverters" : {
+          "method_name" : "validateConverters",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method validates.",
+          "swum_actions" : "validate",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE validate (OBJECT Converters))"
+        },
+        "getMessageConverters" : {
+          "method_name" : "getMessageConverters",
+          "return_type" : "List<HttpMessageConverter<?>>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves a message and returns a collection.",
+          "swum_actions" : "get",
+          "swum_objects" : "Message",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Message Converters))"
+        },
+        "setErrorHandler" : {
+          "method_name" : "setErrorHandler",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Error Handler))"
+        },
+        "getErrorHandler" : {
+          "method_name" : "getErrorHandler",
+          "return_type" : "ResponseErrorHandler",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Error Handler))"
+        },
+        "setDefaultUriVariables" : {
+          "method_name" : "setDefaultUriVariables",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Default Uri Variables))"
+        },
+        "setUriTemplateHandler" : {
+          "method_name" : "setUriTemplateHandler",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Uri Template Handler))"
+        },
+        "getUriTemplateHandler" : {
+          "method_name" : "getUriTemplateHandler",
+          "return_type" : "UriTemplateHandler",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Uri Template Handler))"
+        },
+        "setObservationRegistry" : {
+          "method_name" : "setObservationRegistry",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Observation Registry))"
+        },
+        "getObservationRegistry" : {
+          "method_name" : "getObservationRegistry",
+          "return_type" : "ObservationRegistry",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Observation Registry))"
+        },
+        "setObservationConvention" : {
+          "method_name" : "setObservationConvention",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Observation Convention))"
+        },
+        "getObservationConvention" : {
+          "method_name" : "getObservationConvention",
+          "return_type" : "ClientRequestObservationConvention",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Observation Convention))"
+        },
+        "getForObject" : {
+          "method_name" : "getForObject",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves an object and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "Object",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT For Object))"
+        },
+        "getForEntity" : {
+          "method_name" : "getForEntity",
+          "return_type" : "ResponseEntity<T>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT For Entity))"
+        },
+        "headForHeaders" : {
+          "method_name" : "headForHeaders",
+          "return_type" : "HttpHeaders",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE head For Headers)"
+        },
+        "postForLocation" : {
+          "method_name" : "postForLocation",
+          "return_type" : "URI",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE post For Location)"
+        },
+        "postForObject" : {
+          "method_name" : "postForObject",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method performs an object and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "Object",
+          "swum_parse_tree" : "(NOUN_PHRASE post For Object)"
+        },
+        "postForEntity" : {
+          "method_name" : "postForEntity",
+          "return_type" : "ResponseEntity<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE post For Entity)"
+        },
+        "put" : {
+          "method_name" : "put",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method puts.",
+          "swum_actions" : "put",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE put)"
+        },
+        "patchForObject" : {
+          "method_name" : "patchForObject",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method performs an object and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "Object",
+          "swum_parse_tree" : "(NOUN_PHRASE patch For Object)"
+        },
+        "delete" : {
+          "method_name" : "delete",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method deletes.",
+          "swum_actions" : "delete",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE delete)"
+        },
+        "optionsForAllow" : {
+          "method_name" : "optionsForAllow",
+          "return_type" : "Set<HttpMethod>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE options For Allow)"
+        },
+        "exchange" : {
+          "method_name" : "exchange",
+          "return_type" : "ResponseEntity<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE exchange)"
+        },
+        "resolveUrl" : {
+          "method_name" : "resolveUrl",
+          "return_type" : "URI",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Url)"
+        },
+        "resolveUriTemplate" : {
+          "method_name" : "resolveUriTemplate",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Uri Template)"
+        },
+        "execute" : {
+          "method_name" : "execute",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method executes and returns an object.",
+          "swum_actions" : "execute",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE execute)"
+        },
+        "doExecute" : {
+          "method_name" : "doExecute",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method executes and returns an object.",
+          "swum_actions" : "Execute",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT do) Execute)"
+        },
+        "createResourceAccessException" : {
+          "method_name" : "createResourceAccessException",
+          "return_type" : "ResourceAccessException",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Resource Access Exception))"
+        },
+        "handleResponse" : {
+          "method_name" : "handleResponse",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method handles a response.",
+          "swum_actions" : "handle",
+          "swum_objects" : "Response",
+          "swum_parse_tree" : "(VERB_PHRASE handle (OBJECT Response))"
+        },
+        "acceptHeaderRequestCallback" : {
+          "method_name" : "acceptHeaderRequestCallback",
+          "return_type" : "RequestCallback",
+          "parameters" : "",
+          "swum_summary" : "This method performs a request and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "Request",
+          "swum_parse_tree" : "(NOUN_PHRASE accept Header Request Callback)"
+        },
+        "httpEntityCallback" : {
+          "method_name" : "httpEntityCallback",
+          "return_type" : "RequestCallback",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE http Entity Callback)"
+        },
+        "responseEntityExtractor" : {
+          "method_name" : "responseEntityExtractor",
+          "return_type" : "ResponseExtractor<ResponseEntity<T>>",
+          "parameters" : "",
+          "swum_summary" : "This method performs a response and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "response",
+          "swum_parse_tree" : "(NOUN_PHRASE response Entity Extractor)"
+        },
+        "headersExtractor" : {
+          "method_name" : "headersExtractor",
+          "return_type" : "ResponseExtractor<HttpHeaders>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE headers Extractor)"
+        },
+        "nonNull" : {
+          "method_name" : "nonNull",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE non Null)"
+        },
+        "doWithRequest" : {
+          "method_name" : "doWithRequest",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs a request.",
+          "swum_actions" : "",
+          "swum_objects" : "Request",
+          "swum_parse_tree" : "(NOUN_PHRASE do With Request)"
+        },
+        "canReadResponse" : {
+          "method_name" : "canReadResponse",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method reads a response and returns a boolean.",
+          "swum_actions" : "Read",
+          "swum_objects" : "Response",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT can) Read (OBJECT Response))"
+        },
+        "getSupportedMediaTypes" : {
+          "method_name" : "getSupportedMediaTypes",
+          "return_type" : "Stream<MediaType>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Supported Media Types))"
+        },
+        "logBody" : {
+          "method_name" : "logBody",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE log Body)"
+        },
+        "extractData" : {
+          "method_name" : "extractData",
+          "return_type" : "HttpHeaders",
+          "parameters" : "",
+          "swum_summary" : "This method performs a data and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(NOUN_PHRASE extract Data)"
+        }
+      },
+      "swum_class_summary" : "The RestTemplate class and provides methods to update, set, validate, get, set, get, set, set, get, set, get, set, get, get, get, get, get, get, get, put, put, put, delete, delete, delete, execute, execute, execute, execute, create, handle, read, get."
+    }
+  },
+  "swum_project_summary" : "This software project contains 3 classes with 47 methods. Primary operations include Execute, Read, close, create, delete. Key objects manipulated are Data, Message, Object, Request, Response.",
+  "design_patterns" : [ ]
+}

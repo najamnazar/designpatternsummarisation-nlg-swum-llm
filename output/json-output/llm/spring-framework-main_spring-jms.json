@@ -1,0 +1,1893 @@
+{
+	"final_summary" : "",
+	"design_pattern" : [ ],
+	"spring-jms" : {
+		"JmsTemplate" : {
+			"FIELDDETAIL" : [ {
+				"FIELDCOMMONTYPE" : "boolean",
+				"FIELDMODIFIERTYPE" : [ "private", "static", "final" ],
+				"FIELDDECLARATION" : [ "MICROMETER_JAKARTA_PRESENT = ClassUtils.isPresent(\"io.micrometer.jakarta9.instrument.jms.JmsInstrumentation\", JmsTemplate.class.getClassLoader())" ],
+				"FIELDDATATYPE" : "boolean",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "JmsTemplateResourceFactory",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "transactionalResourceFactory = new JmsTemplateResourceFactory()" ],
+				"FIELDDATATYPE" : "JmsTemplateResourceFactory",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "Object",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "defaultDestination" ],
+				"FIELDDATATYPE" : "Object",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "MessageConverter",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "messageConverter = new SimpleMessageConverter()" ],
+				"FIELDDATATYPE" : "MessageConverter",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "boolean",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "messageIdEnabled = true" ],
+				"FIELDDATATYPE" : "boolean",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "boolean",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "messageTimestampEnabled = true" ],
+				"FIELDDATATYPE" : "boolean",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "boolean",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "pubSubNoLocal = false" ],
+				"FIELDDATATYPE" : "boolean",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "long",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "receiveTimeout = RECEIVE_TIMEOUT_INDEFINITE_WAIT" ],
+				"FIELDDATATYPE" : "long",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "long",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "deliveryDelay = -1" ],
+				"FIELDDATATYPE" : "long",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "boolean",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "explicitQosEnabled = false" ],
+				"FIELDDATATYPE" : "boolean",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "int",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "deliveryMode = Message.DEFAULT_DELIVERY_MODE" ],
+				"FIELDDATATYPE" : "int",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "int",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "priority = Message.DEFAULT_PRIORITY" ],
+				"FIELDDATATYPE" : "int",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "long",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "timeToLive = Message.DEFAULT_TIME_TO_LIVE" ],
+				"FIELDDATATYPE" : "long",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "ObservationRegistry",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "observationRegistry" ],
+				"FIELDDATATYPE" : "ObservationRegistry",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			} ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "PUBLIC",
+				"NUMBEROFMETHODCALLS" : 251,
+				"EXTENDSFROM" : [ "JmsDestinationAccessor" ],
+				"IMPLEMENTSFROM" : [ "JmsOperations" ],
+				"CLASSNAME" : "JmsTemplate",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ "public" ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "connectionFactory",
+					"PARAMETERTYPE" : "ConnectionFactory"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "original",
+					"PARAMETERTYPE" : "JmsAccessor"
+				} ]
+			} ],
+			"VARIABLEDETAIL" : [ {
+				"VARIABLEDECLARATION" : [ "defaultDestination = getDefaultDestination()" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "name = getDefaultDestinationName()" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "conToClose = null" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "sessionToClose = null" ],
+				"VARIABLECOMMONTYPE" : "Session",
+				"VARIABLEELEMENTTYPE" : "Session"
+			}, {
+				"VARIABLEDECLARATION" : [ "sessionToUse = ConnectionFactoryUtils.doGetTransactionalSession(obtainConnectionFactory(), this.transactionalResourceFactory, startConnection)" ],
+				"VARIABLECOMMONTYPE" : "Session",
+				"VARIABLEELEMENTTYPE" : "Session"
+			}, {
+				"VARIABLEDECLARATION" : [ "defaultDestinationName = getDefaultDestinationName()" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "producer = createProducer(session, destination)" ],
+				"VARIABLECOMMONTYPE" : "MessageProducer",
+				"VARIABLEELEMENTTYPE" : "MessageProducer"
+			}, {
+				"VARIABLEDECLARATION" : [ "destination = resolveDestinationName(session, destinationName)" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "producer = createProducer(session, destination)" ],
+				"VARIABLECOMMONTYPE" : "MessageProducer",
+				"VARIABLEELEMENTTYPE" : "MessageProducer"
+			}, {
+				"VARIABLEDECLARATION" : [ "defaultDestination = getDefaultDestination()" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "destination = resolveDestinationName(session, destinationName)" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "producer = createProducer(session, destination)" ],
+				"VARIABLECOMMONTYPE" : "MessageProducer",
+				"VARIABLEELEMENTTYPE" : "MessageProducer"
+			}, {
+				"VARIABLEDECLARATION" : [ "message = messageCreator.createMessage(session)" ],
+				"VARIABLECOMMONTYPE" : "Message",
+				"VARIABLEELEMENTTYPE" : "Message"
+			}, {
+				"VARIABLEDECLARATION" : [ "defaultDestination = getDefaultDestination()" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "defaultDestination = getDefaultDestination()" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "msg = getMessageConverter().toMessage(message, session)" ],
+				"VARIABLECOMMONTYPE" : "Message",
+				"VARIABLEELEMENTTYPE" : "Message"
+			}, {
+				"VARIABLEDECLARATION" : [ "msg = getMessageConverter().toMessage(message, session)" ],
+				"VARIABLECOMMONTYPE" : "Message",
+				"VARIABLEELEMENTTYPE" : "Message"
+			}, {
+				"VARIABLEDECLARATION" : [ "defaultDestination = getDefaultDestination()" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "defaultDestination = getDefaultDestination()" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "destination = resolveDestinationName(session, destinationName)" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "timeout = getReceiveTimeout()" ],
+				"VARIABLECOMMONTYPE" : "long",
+				"VARIABLEELEMENTTYPE" : "long"
+			}, {
+				"VARIABLEDECLARATION" : [ "connectionFactory = getConnectionFactory()" ],
+				"VARIABLECOMMONTYPE" : "ConnectionFactory",
+				"VARIABLEELEMENTTYPE" : "ConnectionFactory"
+			}, {
+				"VARIABLEDECLARATION" : [ "resourceHolder = null" ],
+				"VARIABLECOMMONTYPE" : "JmsResourceHolder",
+				"VARIABLEELEMENTTYPE" : "JmsResourceHolder"
+			}, {
+				"VARIABLEDECLARATION" : [ "message = receiveFromConsumer(consumer, timeout)" ],
+				"VARIABLECOMMONTYPE" : "Message",
+				"VARIABLEELEMENTTYPE" : "Message"
+			}, {
+				"VARIABLEDECLARATION" : [ "defaultDestination = getDefaultDestination()" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "destination = resolveDestinationName(session, destinationName)" ],
+				"VARIABLECOMMONTYPE" : "Destination",
+				"VARIABLEELEMENTTYPE" : "Destination"
+			}, {
+				"VARIABLEDECLARATION" : [ "responseQueue = null" ],
+				"VARIABLECOMMONTYPE" : "TemporaryQueue",
+				"VARIABLEELEMENTTYPE" : "TemporaryQueue"
+			}, {
+				"VARIABLEDECLARATION" : [ "producer = null" ],
+				"VARIABLECOMMONTYPE" : "MessageProducer",
+				"VARIABLEELEMENTTYPE" : "MessageProducer"
+			}, {
+				"VARIABLEDECLARATION" : [ "consumer = null" ],
+				"VARIABLECOMMONTYPE" : "MessageConsumer",
+				"VARIABLEELEMENTTYPE" : "MessageConsumer"
+			}, {
+				"VARIABLEDECLARATION" : [ "requestMessage = messageCreator.createMessage(session)" ],
+				"VARIABLECOMMONTYPE" : "Message",
+				"VARIABLEELEMENTTYPE" : "Message"
+			}, {
+				"VARIABLEDECLARATION" : [ "con = null" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "session = null" ],
+				"VARIABLECOMMONTYPE" : "Session",
+				"VARIABLEELEMENTTYPE" : "Session"
+			}, {
+				"VARIABLEDECLARATION" : [ "defaultQueue = getDefaultQueue()" ],
+				"VARIABLECOMMONTYPE" : "Queue",
+				"VARIABLEELEMENTTYPE" : "Queue"
+			}, {
+				"VARIABLEDECLARATION" : [ "defaultQueue = getDefaultQueue()" ],
+				"VARIABLECOMMONTYPE" : "Queue",
+				"VARIABLEELEMENTTYPE" : "Queue"
+			}, {
+				"VARIABLEDECLARATION" : [ "browser = createBrowser(session, queue, messageSelector)" ],
+				"VARIABLECOMMONTYPE" : "QueueBrowser",
+				"VARIABLEELEMENTTYPE" : "QueueBrowser"
+			}, {
+				"VARIABLEDECLARATION" : [ "queue = (Queue) getDestinationResolver().resolveDestinationName(session, queueName, false)" ],
+				"VARIABLECOMMONTYPE" : "Queue",
+				"VARIABLEELEMENTTYPE" : "Queue"
+			}, {
+				"VARIABLEDECLARATION" : [ "browser = createBrowser(session, queue, messageSelector)" ],
+				"VARIABLECOMMONTYPE" : "QueueBrowser",
+				"VARIABLEELEMENTTYPE" : "QueueBrowser"
+			}, {
+				"VARIABLEDECLARATION" : [ "producer = doCreateProducer(session, destination)" ],
+				"VARIABLECOMMONTYPE" : "MessageProducer",
+				"VARIABLEELEMENTTYPE" : "MessageProducer"
+			} ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "setDefaultDestination",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "Destination",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "getDefaultDestination",
+				"NUMBEROFINCOMINGMETHODS" : 13,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "getDefaultQueue",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receiveSelected",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receiveSelected",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receiveSelected",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receive",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receive",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receive",
+					"CALLEDCLASS" : "JmsTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "Destination",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "getDefaultQueue",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Queue",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				} ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setDefaultDestinationName",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "getDefaultDestinationName",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "getRequiredDefaultDestinationName",
+					"CALLEDCLASS" : "JmsTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "String",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "getRequiredDefaultDestinationName",
+				"NUMBEROFINCOMINGMETHODS" : 12,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receiveSelected",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receiveSelected",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receiveSelected",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receive",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receive",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "receive",
+					"CALLEDCLASS" : "JmsTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "String",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestinationName"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setMessageConverter",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "messageConverter",
+					"PARAMETERTYPE" : "MessageConverter"
+				} ]
+			}, {
+				"METHODNAME" : "getMessageConverter",
+				"NUMBEROFINCOMINGMETHODS" : 6,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "convertAndSend",
+					"CALLEDCLASS" : "JmsTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "MessageConverter",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setMessageIdEnabled",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "messageIdEnabled",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "isMessageIdEnabled",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setMessageTimestampEnabled",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "messageTimestampEnabled",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "isMessageTimestampEnabled",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setPubSubNoLocal",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "pubSubNoLocal",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "isPubSubNoLocal",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setReceiveTimeout",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "receiveTimeout",
+					"PARAMETERTYPE" : "long"
+				} ]
+			}, {
+				"METHODNAME" : "getReceiveTimeout",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "long",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setDeliveryDelay",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "deliveryDelay",
+					"PARAMETERTYPE" : "long"
+				} ]
+			}, {
+				"METHODNAME" : "getDeliveryDelay",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "long",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setExplicitQosEnabled",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "explicitQosEnabled",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "isExplicitQosEnabled",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setQosSettings",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 8,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 5,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "settings",
+					"PARAMETERTYPE" : "QosSettings"
+				} ]
+			}, {
+				"METHODNAME" : "setDeliveryPersistent",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "deliveryPersistent",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "setDeliveryMode",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "deliveryMode",
+					"PARAMETERTYPE" : "int"
+				} ]
+			}, {
+				"METHODNAME" : "getDeliveryMode",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setPriority",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "priority",
+					"PARAMETERTYPE" : "int"
+				} ]
+			}, {
+				"METHODNAME" : "getPriority",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setTimeToLive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "timeToLive",
+					"PARAMETERTYPE" : "long"
+				} ]
+			}, {
+				"METHODNAME" : "getTimeToLive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "long",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setObservationRegistry",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "ObservationRegistry",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "getObservationRegistry",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "ObservationRegistry",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "SessionCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 14,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@SuppressWarnings(\"resource\")", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "SessionCallback<T>"
+				}, {
+					"PARAMETERNAME" : "startConnection",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "ProducerCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 5,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "Destination",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "ProducerCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 6,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destinationName",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "ProducerCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "send",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "messageCreator",
+					"PARAMETERTYPE" : "MessageCreator"
+				} ]
+			}, {
+				"METHODNAME" : "send",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "messageCreator",
+					"PARAMETERTYPE" : "MessageCreator"
+				} ]
+			}, {
+				"METHODNAME" : "send",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destinationName",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "messageCreator",
+					"PARAMETERTYPE" : "MessageCreator"
+				} ]
+			}, {
+				"METHODNAME" : "doSend",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 10,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				}, {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "messageCreator",
+					"PARAMETERTYPE" : "MessageCreator"
+				} ]
+			}, {
+				"METHODNAME" : "doSend",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "IF", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 7,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "producer",
+					"PARAMETERTYPE" : "MessageProducer"
+				}, {
+					"PARAMETERNAME" : "message",
+					"PARAMETERTYPE" : "Message"
+				} ]
+			}, {
+				"METHODNAME" : "convertAndSend",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverter"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "message",
+					"PARAMETERTYPE" : "Object"
+				} ]
+			}, {
+				"METHODNAME" : "convertAndSend",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "message",
+					"PARAMETERTYPE" : "Object"
+				} ]
+			}, {
+				"METHODNAME" : "convertAndSend",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destinationName",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "message",
+					"PARAMETERTYPE" : "Object"
+				} ]
+			}, {
+				"METHODNAME" : "convertAndSend",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverter"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "message",
+					"PARAMETERTYPE" : "Object"
+				}, {
+					"PARAMETERNAME" : "postProcessor",
+					"PARAMETERTYPE" : "MessagePostProcessor"
+				} ]
+			}, {
+				"METHODNAME" : "convertAndSend",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "message",
+					"PARAMETERTYPE" : "Object"
+				}, {
+					"PARAMETERNAME" : "postProcessor",
+					"PARAMETERTYPE" : "MessagePostProcessor"
+				} ]
+			}, {
+				"METHODNAME" : "convertAndSend",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getMessageConverter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destinationName",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "message",
+					"PARAMETERTYPE" : "Object"
+				}, {
+					"PARAMETERNAME" : "postProcessor",
+					"PARAMETERTYPE" : "MessagePostProcessor"
+				} ]
+			}, {
+				"METHODNAME" : "receive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "receive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				} ]
+			}, {
+				"METHODNAME" : "receive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destinationName",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"METHODNAME" : "receiveSelected",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "receiveSelected",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "receiveSelected",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getDefaultDestination"
+				}, {
+					"CALLEECLASS" : "JmsTemplate",
+					"CALLEEMETHODNAME" : "getRequiredDefaultDestinationName"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destinationName",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "doReceive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				}, {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "doReceive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 13,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				}, {
+					"PARAMETERNAME" : "consumer",
+					"PARAMETERTYPE" : "MessageConsumer"
+				} ]
+			}, {
+				"METHODNAME" : "receiveAndConvert",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Object",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "receiveAndConvert",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Object",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				} ]
+			}, {
+				"METHODNAME" : "receiveAndConvert",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Object",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destinationName",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"METHODNAME" : "receiveSelectedAndConvert",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Object",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "receiveSelectedAndConvert",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Object",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "receiveSelectedAndConvert",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Object",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destinationName",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "doConvertFromMessage",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "Object",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "Message",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "sendAndReceive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "messageCreator",
+					"PARAMETERTYPE" : "MessageCreator"
+				} ]
+			}, {
+				"METHODNAME" : "sendAndReceive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "messageCreator",
+					"PARAMETERTYPE" : "MessageCreator"
+				} ]
+			}, {
+				"METHODNAME" : "sendAndReceive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "destinationName",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "messageCreator",
+					"PARAMETERTYPE" : "MessageCreator"
+				} ]
+			}, {
+				"METHODNAME" : "doSendAndReceive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "EXPRESSION", "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 3,
+				"NUMBEROFOUTGOINGMETHODS" : 14,
+				"METHODRETURNTYPE" : "Message",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 5,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				}, {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "messageCreator",
+					"PARAMETERTYPE" : "MessageCreator"
+				} ]
+			}, {
+				"METHODNAME" : "executeLocal",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 12,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "SessionCallback<T>"
+				}, {
+					"PARAMETERNAME" : "startConnection",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "browse",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "BrowserCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "browse",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "queue",
+					"PARAMETERTYPE" : "Queue"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "BrowserCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "browse",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "queueName",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "BrowserCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "browseSelected",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "BrowserCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "browseSelected",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 5,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "queue",
+					"PARAMETERTYPE" : "Queue"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "BrowserCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "browseSelected",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 7,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "queueName",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "BrowserCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "getConnection",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Connection",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "holder",
+					"PARAMETERTYPE" : "JmsResourceHolder"
+				} ]
+			}, {
+				"METHODNAME" : "getSession",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Session",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "holder",
+					"PARAMETERTYPE" : "JmsResourceHolder"
+				} ]
+			}, {
+				"METHODNAME" : "isSessionLocallyTransacted",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				} ]
+			}, {
+				"METHODNAME" : "createProducer",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 5,
+				"METHODRETURNTYPE" : "MessageProducer",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				}, {
+					"PARAMETERNAME" : "Destination",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "doCreateProducer",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "MessageProducer",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				}, {
+					"PARAMETERNAME" : "Destination",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "createConsumer",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "MessageConsumer",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				}, {
+					"PARAMETERNAME" : "destination",
+					"PARAMETERTYPE" : "Destination"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "createBrowser",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "QueueBrowser",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				}, {
+					"PARAMETERNAME" : "queue",
+					"PARAMETERTYPE" : "Queue"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "getConnection",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Connection",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "holder",
+					"PARAMETERTYPE" : "JmsResourceHolder"
+				} ]
+			}, {
+				"METHODNAME" : "getSession",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Session",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "holder",
+					"PARAMETERTYPE" : "JmsResourceHolder"
+				} ]
+			}, {
+				"METHODNAME" : "createConnection",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Connection",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "createSession",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Session",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "con",
+					"PARAMETERTYPE" : "Connection"
+				} ]
+			}, {
+				"METHODNAME" : "isSynchedLocalTransactionAllowed",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "instrumentSession",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "static" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Session",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "Session"
+				}, {
+					"PARAMETERNAME" : "registry",
+					"PARAMETERTYPE" : "ObservationRegistry"
+				} ]
+			} ]
+		}
+	},
+	"summary_NLG" : { }
+}

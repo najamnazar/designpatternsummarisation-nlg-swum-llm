@@ -1,0 +1,527 @@
+{
+  "project_name" : "spring-jdbc",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953365,
+  "class_summaries" : {
+    "IsolationLevelDataSourceAdapter" : {
+      "class_name" : "IsolationLevelDataSourceAdapter",
+      "class_type" : "class",
+      "method_summaries" : {
+        "setIsolationLevelName" : {
+          "method_name" : "setIsolationLevelName",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Adapter pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Isolation Level Name))"
+        },
+        "setIsolationLevel" : {
+          "method_name" : "setIsolationLevel",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Adapter pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Isolation Level))"
+        },
+        "getIsolationLevel" : {
+          "method_name" : "getIsolationLevel",
+          "return_type" : "Integer",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Adapter pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Isolation Level))"
+        },
+        "doGetConnection" : {
+          "method_name" : "doGetConnection",
+          "return_type" : "Connection",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves a connection and returns an object as part of the Adapter pattern.",
+          "swum_actions" : "Get",
+          "swum_objects" : "Connection",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT do) Get (OBJECT Connection))"
+        },
+        "getCurrentIsolationLevel" : {
+          "method_name" : "getCurrentIsolationLevel",
+          "return_type" : "Integer",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Adapter pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Current Isolation Level))"
+        },
+        "getCurrentReadOnlyFlag" : {
+          "method_name" : "getCurrentReadOnlyFlag",
+          "return_type" : "Boolean",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves operations and returns a boolean as part of the Adapter pattern.",
+          "swum_actions" : "get, Read",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Current Read Only Flag))"
+        }
+      },
+      "swum_class_summary" : "The IsolationLevelDataSourceAdapter class is part of the Adapter pattern and provides methods to set, set, get, get, get, get, read for managing data, adapter."
+    },
+    "JdbcTemplate" : {
+      "class_name" : "JdbcTemplate",
+      "class_type" : "class",
+      "method_summaries" : {
+        "setIgnoreWarnings" : {
+          "method_name" : "setIgnoreWarnings",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Ignore Warnings))"
+        },
+        "isIgnoreWarnings" : {
+          "method_name" : "isIgnoreWarnings",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Ignore Warnings)"
+        },
+        "setFetchSize" : {
+          "method_name" : "setFetchSize",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set, Fetch",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Fetch Size))"
+        },
+        "getFetchSize" : {
+          "method_name" : "getFetchSize",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves operations and returns a number.",
+          "swum_actions" : "get, Fetch",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Fetch Size))"
+        },
+        "setMaxRows" : {
+          "method_name" : "setMaxRows",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Max Rows))"
+        },
+        "getMaxRows" : {
+          "method_name" : "getMaxRows",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Max Rows))"
+        },
+        "setQueryTimeout" : {
+          "method_name" : "setQueryTimeout",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Query Timeout))"
+        },
+        "getQueryTimeout" : {
+          "method_name" : "getQueryTimeout",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Query Timeout))"
+        },
+        "setSkipResultsProcessing" : {
+          "method_name" : "setSkipResultsProcessing",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Skip Results Processing))"
+        },
+        "isSkipResultsProcessing" : {
+          "method_name" : "isSkipResultsProcessing",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Skip Results Processing)"
+        },
+        "setSkipUndeclaredResults" : {
+          "method_name" : "setSkipUndeclaredResults",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Skip Undeclared Results))"
+        },
+        "isSkipUndeclaredResults" : {
+          "method_name" : "isSkipUndeclaredResults",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Skip Undeclared Results)"
+        },
+        "setResultsMapCaseInsensitive" : {
+          "method_name" : "setResultsMapCaseInsensitive",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets set, Map.",
+          "swum_actions" : "set",
+          "swum_objects" : "set, Map",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Results Map Case Insensitive))"
+        },
+        "isResultsMapCaseInsensitive" : {
+          "method_name" : "isResultsMapCaseInsensitive",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs a map and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "Map",
+          "swum_parse_tree" : "(NOUN_PHRASE is Results Map Case Insensitive)"
+        },
+        "execute" : {
+          "method_name" : "execute",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method executes and returns an object.",
+          "swum_actions" : "execute",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE execute)"
+        },
+        "createConnectionProxy" : {
+          "method_name" : "createConnectionProxy",
+          "return_type" : "Connection",
+          "parameters" : "",
+          "swum_summary" : "This method creates a connection and returns an object.",
+          "swum_actions" : "create",
+          "swum_objects" : "Connection",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Connection Proxy))"
+        },
+        "query" : {
+          "method_name" : "query",
+          "return_type" : "List<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a collection.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE query)"
+        },
+        "queryForStream" : {
+          "method_name" : "queryForStream",
+          "return_type" : "Stream<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE query For Stream)"
+        },
+        "queryForMap" : {
+          "method_name" : "queryForMap",
+          "return_type" : "Map<String,Object>",
+          "parameters" : "",
+          "swum_summary" : "This method performs a map and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "Map",
+          "swum_parse_tree" : "(NOUN_PHRASE query For Map)"
+        },
+        "queryForObject" : {
+          "method_name" : "queryForObject",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method performs an object and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "Object",
+          "swum_parse_tree" : "(NOUN_PHRASE query For Object)"
+        },
+        "queryForList" : {
+          "method_name" : "queryForList",
+          "return_type" : "List<Map<String,Object>>",
+          "parameters" : "",
+          "swum_summary" : "This method performs a list and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "List",
+          "swum_parse_tree" : "(NOUN_PHRASE query For List)"
+        },
+        "queryForRowSet" : {
+          "method_name" : "queryForRowSet",
+          "return_type" : "SqlRowSet",
+          "parameters" : "",
+          "swum_summary" : "This method sets Row, Set and returns an object.",
+          "swum_actions" : "Set",
+          "swum_objects" : "Row, Set",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT query For Row) Set)"
+        },
+        "update" : {
+          "method_name" : "update",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method updates and returns a number.",
+          "swum_actions" : "update",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE update)"
+        },
+        "batchUpdate" : {
+          "method_name" : "batchUpdate",
+          "return_type" : "int[][]",
+          "parameters" : "",
+          "swum_summary" : "This method updates and returns a number.",
+          "swum_actions" : "Update",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT batch) Update)"
+        },
+        "call" : {
+          "method_name" : "call",
+          "return_type" : "Map<String,Object>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE call)"
+        },
+        "extractReturnedResults" : {
+          "method_name" : "extractReturnedResults",
+          "return_type" : "Map<String,Object>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE extract Returned Results)"
+        },
+        "extractOutputParameters" : {
+          "method_name" : "extractOutputParameters",
+          "return_type" : "Map<String,Object>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE extract Output Parameters)"
+        },
+        "processResultSet" : {
+          "method_name" : "processResultSet",
+          "return_type" : "Map<String,Object>",
+          "parameters" : "",
+          "swum_summary" : "This method processes a set and returns a String.",
+          "swum_actions" : "process, Set",
+          "swum_objects" : "Set",
+          "swum_parse_tree" : "(VERB_PHRASE process (OBJECT Result Set))"
+        },
+        "getColumnMapRowMapper" : {
+          "method_name" : "getColumnMapRowMapper",
+          "return_type" : "RowMapper<Map<String,Object>>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves Column, Map, Row and returns a String.",
+          "swum_actions" : "get",
+          "swum_objects" : "Column, Map, Row",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Column Map Row Mapper))"
+        },
+        "getSingleColumnRowMapper" : {
+          "method_name" : "getSingleColumnRowMapper",
+          "return_type" : "RowMapper<T>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves Column, Row and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "Column, Row",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Single Column Row Mapper))"
+        },
+        "createResultsMap" : {
+          "method_name" : "createResultsMap",
+          "return_type" : "Map<String,Object>",
+          "parameters" : "",
+          "swum_summary" : "This method creates a map and returns a String.",
+          "swum_actions" : "create",
+          "swum_objects" : "Map",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Results Map))"
+        },
+        "applyStatementSettings" : {
+          "method_name" : "applyStatementSettings",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE apply Statement Settings)"
+        },
+        "newArgPreparedStatementSetter" : {
+          "method_name" : "newArgPreparedStatementSetter",
+          "return_type" : "PreparedStatementSetter",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE new Arg Prepared Statement Setter)"
+        },
+        "newArgTypePreparedStatementSetter" : {
+          "method_name" : "newArgTypePreparedStatementSetter",
+          "return_type" : "PreparedStatementSetter",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE new Arg Type Prepared Statement Setter)"
+        },
+        "handleWarnings" : {
+          "method_name" : "handleWarnings",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method handles.",
+          "swum_actions" : "handle",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE handle (OBJECT Warnings))"
+        },
+        "translateException" : {
+          "method_name" : "translateException",
+          "return_type" : "DataAccessException",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE translate Exception)"
+        },
+        "getSql" : {
+          "method_name" : "getSql",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Sql))"
+        },
+        "result" : {
+          "method_name" : "result",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE result)"
+        },
+        "updateCount" : {
+          "method_name" : "updateCount",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method updates and returns a number.",
+          "swum_actions" : "update",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE update (OBJECT Count))"
+        },
+        "storeGeneratedKeys" : {
+          "method_name" : "storeGeneratedKeys",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method stores.",
+          "swum_actions" : "store",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE store (OBJECT Generated Keys))"
+        },
+        "getPreparedStatementCallback" : {
+          "method_name" : "getPreparedStatementCallback",
+          "return_type" : "PreparedStatementCallback<int[]>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Prepared Statement Callback))"
+        },
+        "invoke" : {
+          "method_name" : "invoke",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE invoke)"
+        },
+        "createPreparedStatement" : {
+          "method_name" : "createPreparedStatement",
+          "return_type" : "PreparedStatement",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Prepared Statement))"
+        },
+        "createCallableStatement" : {
+          "method_name" : "createCallableStatement",
+          "return_type" : "CallableStatement",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Callable Statement))"
+        },
+        "extractData" : {
+          "method_name" : "extractData",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs a data and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(NOUN_PHRASE extract Data)"
+        },
+        "tryAdvance" : {
+          "method_name" : "tryAdvance",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE try Advance)"
+        },
+        "trySplit" : {
+          "method_name" : "trySplit",
+          "return_type" : "Spliterator<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE try Split)"
+        },
+        "estimateSize" : {
+          "method_name" : "estimateSize",
+          "return_type" : "long",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a number.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE estimate Size)"
+        },
+        "characteristics" : {
+          "method_name" : "characteristics",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a number.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE characteristics)"
+        },
+        "stream" : {
+          "method_name" : "stream",
+          "return_type" : "Stream<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE stream)"
+        }
+      },
+      "swum_class_summary" : "The JdbcTemplate class and provides methods to set, set, fetch, get, fetch, set, get, set, get, set, set, set, execute, create, execute, execute, execute, set, update, update, execute, execute, execute, set, set, update, update, update, update, update, update, update, update, update, update, update, execute, execute, process, set, get, get, create, handle, handle, handle, get, update, store, get, create, get, create, get."
+    }
+  },
+  "swum_project_summary" : "This software project contains 2 classes with 56 methods. Primary operations include Fetch, Get, Read, Set, Update. Key objects manipulated are Column, Connection, Data, List, Map.",
+  "design_patterns" : [ ]
+}

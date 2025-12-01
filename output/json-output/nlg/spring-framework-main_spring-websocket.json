@@ -1,0 +1,187 @@
+{
+	"final_summary" : "WebSocketHandlerDecorator.java: WebSocketHandlerDecorator does not have any design pattern.  It is a public class that implements WebSocketHandler. The 9 methods of WebSocketHandlerDecorator are getDelegate (WebSocketHandler), getLastHandler (WebSocketHandler), unwrap (WebSocketHandler), afterConnectionEstablished (void), handleMessage (void), handleTransportError (void), afterConnectionClosed (void), supportsPartialMessages (boolean) and toString (String). Only one method ( getLastHandler method of class WebSocketHandlerDecorator ) calls getDelegate and getDelegate calls no methods. No methods call getLastHandler and getLastHandler calls only one method : getDelegate method of class WebSocketHandlerDecorator. No methods call unwrap and unwrap calls no methods. No methods call afterConnectionEstablished and afterConnectionEstablished calls no methods. No methods call handleMessage and handleMessage calls no methods. No methods call handleTransportError and handleTransportError calls no methods. No methods call afterConnectionClosed and afterConnectionClosed calls no methods. No methods call supportsPartialMessages and supportsPartialMessages calls no methods. No methods call toString and toString calls no methods.\n\n\n",
+	"design_pattern" : [ ],
+	"summary_NLG" : { },
+	"spring-websocket" : {
+		"WebSocketHandlerDecorator" : {
+			"FIELDDETAIL" : [ {
+				"FIELDCOMMONTYPE" : "WebSocketHandler",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "delegate" ],
+				"FIELDDATATYPE" : "WebSocketHandler",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			} ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "PUBLIC",
+				"NUMBEROFMETHODCALLS" : 10,
+				"EXTENDSFROM" : [ ],
+				"IMPLEMENTSFROM" : [ "WebSocketHandler" ],
+				"CLASSNAME" : "WebSocketHandlerDecorator",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ "public" ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "delegate",
+					"PARAMETERTYPE" : "WebSocketHandler"
+				} ]
+			} ],
+			"VARIABLEDETAIL" : [ {
+				"VARIABLEDECLARATION" : [ "result = this.delegate" ],
+				"VARIABLECOMMONTYPE" : "WebSocketHandler",
+				"VARIABLEELEMENTTYPE" : "WebSocketHandler"
+			} ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "getDelegate",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "getLastHandler",
+					"CALLEDCLASS" : "WebSocketHandlerDecorator"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "WebSocketHandler",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "getLastHandler",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "LOOP", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "WebSocketHandler",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "WebSocketHandlerDecorator",
+					"CALLEEMETHODNAME" : "getDelegate"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "unwrap",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public", "static" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "WebSocketHandler",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "handler",
+					"PARAMETERTYPE" : "WebSocketHandler"
+				} ]
+			}, {
+				"METHODNAME" : "afterConnectionEstablished",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "WebSocketSession"
+				} ]
+			}, {
+				"METHODNAME" : "handleMessage",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "WebSocketSession"
+				}, {
+					"PARAMETERNAME" : "message",
+					"PARAMETERTYPE" : "WebSocketMessage<?>"
+				} ]
+			}, {
+				"METHODNAME" : "handleTransportError",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "WebSocketSession"
+				}, {
+					"PARAMETERNAME" : "exception",
+					"PARAMETERTYPE" : "Throwable"
+				} ]
+			}, {
+				"METHODNAME" : "afterConnectionClosed",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "session",
+					"PARAMETERTYPE" : "WebSocketSession"
+				}, {
+					"PARAMETERNAME" : "closeStatus",
+					"PARAMETERTYPE" : "CloseStatus"
+				} ]
+			}, {
+				"METHODNAME" : "supportsPartialMessages",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "toString",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "String",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			} ]
+		}
+	}
+}

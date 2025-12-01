@@ -1,0 +1,148 @@
+{
+  "project_name" : "singleton",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953159,
+  "class_summaries" : {
+    "ThreadSafeDoubleCheckLocking" : {
+      "class_name" : "ThreadSafeDoubleCheckLocking",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getInstance" : {
+          "method_name" : "getInstance",
+          "return_type" : "ThreadSafeDoubleCheckLocking",
+          "parameters" : "",
+          "swum_summary" : "This method returns the singleton instance as part of the singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "Instance",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Instance))"
+        }
+      },
+      "swum_class_summary" : "The ThreadSafeDoubleCheckLocking class acts as a singleton in the singleton pattern and acts as a caretaker in the memento pattern and provides methods to get."
+    },
+    "EnumDirector" : {
+      "class_name" : "EnumDirector",
+      "class_type" : "class",
+      "method_summaries" : {
+        "toString" : {
+          "method_name" : "toString",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs a string and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "String",
+          "swum_parse_tree" : "(NOUN_PHRASE to String)"
+        }
+      },
+      "swum_class_summary" : "The EnumDirector class."
+    },
+    "LazyInitializationDirector" : {
+      "class_name" : "LazyInitializationDirector",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getInstance" : {
+          "method_name" : "getInstance",
+          "return_type" : "LazyInitializationDirector",
+          "parameters" : "",
+          "swum_summary" : "This method returns the singleton instance as part of the singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "Instance",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Instance))"
+        }
+      },
+      "swum_class_summary" : "The LazyInitializationDirector class acts as a singleton in the singleton pattern and acts as an originator in the memento pattern and provides methods to get."
+    },
+    "Director" : {
+      "class_name" : "Director",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getInstance" : {
+          "method_name" : "getInstance",
+          "return_type" : "Director",
+          "parameters" : "",
+          "swum_summary" : "This method returns the singleton instance as part of the singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "Instance",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Instance))"
+        }
+      },
+      "swum_class_summary" : "The Director class acts as a singleton in the singleton pattern and acts as a memento in the memento pattern and provides methods to get."
+    },
+    "ThreadSafeLazyLoadDirector" : {
+      "class_name" : "ThreadSafeLazyLoadDirector",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getInstance" : {
+          "method_name" : "getInstance",
+          "return_type" : "ThreadSafeLazyLoadDirector",
+          "parameters" : "",
+          "swum_summary" : "This method returns the singleton instance as part of the singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "Instance",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Instance))"
+        }
+      },
+      "swum_class_summary" : "The ThreadSafeLazyLoadDirector class acts as a singleton in the singleton pattern and acts as a memento in the memento pattern and provides methods to get."
+    },
+    "Application" : {
+      "class_name" : "Application",
+      "class_type" : "class",
+      "method_summaries" : {
+        "main" : {
+          "method_name" : "main",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE main)"
+        }
+      },
+      "swum_class_summary" : "The Application class."
+    }
+  },
+  "swum_project_summary" : "This software project contains 6 classes with 6 methods. The system implements multiple design patterns including singleton, memento. Primary operations include get. Key objects manipulated are Instance, String.",
+  "design_patterns" : [ {
+    "singleton" : [ "ThreadSafeDoubleCheckLocking", "LazyInitializationDirector", "Director", "ThreadSafeLazyLoadDirector" ]
+  }, {
+    "memento" : {
+      "ThreadSafeDoubleCheckLocking" : {
+        "caretaker" : {
+          "ThreadSafeDoubleCheckLocking" : [ ]
+        },
+        "originator" : {
+          "ThreadSafeDoubleCheckLocking" : [ ]
+        },
+        "concrete_memento" : [ ]
+      },
+      "LazyInitializationDirector" : {
+        "caretaker" : {
+          "LazyInitializationDirector" : [ ]
+        },
+        "originator" : {
+          "LazyInitializationDirector" : [ ]
+        },
+        "concrete_memento" : [ ]
+      },
+      "Director" : {
+        "caretaker" : {
+          "LazyInitializationDirector" : [ ],
+          "Director" : [ ],
+          "ThreadSafeLazyLoadDirector" : [ ]
+        },
+        "originator" : {
+          "Director" : [ ]
+        },
+        "concrete_memento" : [ ]
+      },
+      "ThreadSafeLazyLoadDirector" : {
+        "caretaker" : {
+          "ThreadSafeLazyLoadDirector" : [ ]
+        },
+        "originator" : {
+          "ThreadSafeLazyLoadDirector" : [ ]
+        },
+        "concrete_memento" : [ ]
+      }
+    }
+  } ]
+}

@@ -1,0 +1,151 @@
+{
+  "project_name" : "Facade",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953004,
+  "class_summaries" : {
+    "Codec" : {
+      "class_name" : "Codec",
+      "class_type" : "interface",
+      "method_summaries" : { },
+      "swum_class_summary" : "The Codec class acts as a memento in the memento pattern."
+    },
+    "OggCompressionCodec" : {
+      "class_name" : "OggCompressionCodec",
+      "class_type" : "class",
+      "method_summaries" : { },
+      "swum_class_summary" : "The OggCompressionCodec class acts as a memento in the memento pattern."
+    },
+    "Test" : {
+      "class_name" : "Test",
+      "class_type" : "class",
+      "method_summaries" : {
+        "main" : {
+          "method_name" : "main",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE main)"
+        }
+      },
+      "swum_class_summary" : "The Test class."
+    },
+    "VideoConversionFacade" : {
+      "class_name" : "VideoConversionFacade",
+      "class_type" : "class",
+      "method_summaries" : {
+        "convertVideo" : {
+          "method_name" : "convertVideo",
+          "return_type" : "File",
+          "parameters" : "",
+          "swum_summary" : "This method converts and returns an object as part of the Facade pattern.",
+          "swum_actions" : "convert",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE convert (OBJECT Video))"
+        }
+      },
+      "swum_class_summary" : "The VideoConversionFacade class is part of the Facade pattern and provides methods to convert."
+    },
+    "VideoFile" : {
+      "class_name" : "VideoFile",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getCodecType" : {
+          "method_name" : "getCodecType",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Codec Type))"
+        },
+        "getName" : {
+          "method_name" : "getName",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Name))"
+        }
+      },
+      "swum_class_summary" : "The VideoFile class and provides methods to get, get for managing file."
+    },
+    "AudioMixer" : {
+      "class_name" : "AudioMixer",
+      "class_type" : "class",
+      "method_summaries" : {
+        "fix" : {
+          "method_name" : "fix",
+          "return_type" : "File",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE fix)"
+        }
+      },
+      "swum_class_summary" : "The AudioMixer class."
+    },
+    "CodecFactory" : {
+      "class_name" : "CodecFactory",
+      "class_type" : "class",
+      "method_summaries" : {
+        "extract" : {
+          "method_name" : "extract",
+          "return_type" : "Codec",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object. The CodecFactory class acts as an originator in the memento pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE extract)"
+        }
+      },
+      "swum_class_summary" : "The CodecFactory class acts as an originator in the memento pattern for managing factory."
+    },
+    "MPEG4CompressionCodec" : {
+      "class_name" : "MPEG4CompressionCodec",
+      "class_type" : "class",
+      "method_summaries" : { },
+      "swum_class_summary" : "The MPEG4CompressionCodec class acts as a memento in the memento pattern."
+    },
+    "BitrateReader" : {
+      "class_name" : "BitrateReader",
+      "class_type" : "class",
+      "method_summaries" : {
+        "read" : {
+          "method_name" : "read",
+          "return_type" : "VideoFile",
+          "parameters" : "",
+          "swum_summary" : "This method reads and returns an object.",
+          "swum_actions" : "read",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE read)"
+        },
+        "convert" : {
+          "method_name" : "convert",
+          "return_type" : "VideoFile",
+          "parameters" : "",
+          "swum_summary" : "This method converts and returns an object.",
+          "swum_actions" : "convert",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE convert)"
+        }
+      },
+      "swum_class_summary" : "The BitrateReader class and provides methods to read, convert."
+    }
+  },
+  "swum_project_summary" : "This software project contains 9 classes with 8 methods. The system implements the memento design pattern. Primary operations include convert, get, read.",
+  "design_patterns" : [ {
+    "memento" : {
+      "Codec" : {
+        "caretaker" : { },
+        "originator" : {
+          "CodecFactory" : [ ]
+        },
+        "concrete_memento" : [ "OggCompressionCodec", "MPEG4CompressionCodec" ]
+      }
+    }
+  } ]
+}

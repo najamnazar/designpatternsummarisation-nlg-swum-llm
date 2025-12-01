@@ -1,0 +1,204 @@
+{
+  "project_name" : "Decorator",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555952985,
+  "class_summaries" : {
+    "DataSourceDecorator" : {
+      "class_name" : "DataSourceDecorator",
+      "class_type" : "class",
+      "method_summaries" : {
+        "writeData" : {
+          "method_name" : "writeData",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method writes a data as part of the Decorator pattern.",
+          "swum_actions" : "write",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE write (OBJECT Data))"
+        },
+        "readData" : {
+          "method_name" : "readData",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method reads a data and returns a String as part of the Decorator pattern.",
+          "swum_actions" : "read",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE read (OBJECT Data))"
+        }
+      },
+      "swum_class_summary" : "The DataSourceDecorator class is part of the Decorator pattern and provides methods to write, read for managing data."
+    },
+    "EncryptionDecorator" : {
+      "class_name" : "EncryptionDecorator",
+      "class_type" : "class",
+      "method_summaries" : {
+        "writeData" : {
+          "method_name" : "writeData",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method writes a data as part of the Decorator pattern.",
+          "swum_actions" : "write",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE write (OBJECT Data))"
+        },
+        "readData" : {
+          "method_name" : "readData",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method reads a data and returns a String as part of the Decorator pattern.",
+          "swum_actions" : "read",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE read (OBJECT Data))"
+        },
+        "encode" : {
+          "method_name" : "encode",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE encode)"
+        },
+        "decode" : {
+          "method_name" : "decode",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE decode)"
+        }
+      },
+      "swum_class_summary" : "The EncryptionDecorator class is part of the Decorator pattern and provides methods to write, read."
+    },
+    "Test" : {
+      "class_name" : "Test",
+      "class_type" : "class",
+      "method_summaries" : {
+        "main" : {
+          "method_name" : "main",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE main)"
+        }
+      },
+      "swum_class_summary" : "The Test class."
+    },
+    "CompressionDecorator" : {
+      "class_name" : "CompressionDecorator",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getCompressionLevel" : {
+          "method_name" : "getCompressionLevel",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Decorator pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Compression Level))"
+        },
+        "setCompressionLevel" : {
+          "method_name" : "setCompressionLevel",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Decorator pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Compression Level))"
+        },
+        "writeData" : {
+          "method_name" : "writeData",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method writes a data as part of the Decorator pattern.",
+          "swum_actions" : "write",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE write (OBJECT Data))"
+        },
+        "readData" : {
+          "method_name" : "readData",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method reads a data and returns a String as part of the Decorator pattern.",
+          "swum_actions" : "read",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE read (OBJECT Data))"
+        },
+        "compress" : {
+          "method_name" : "compress",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE compress)"
+        },
+        "decompress" : {
+          "method_name" : "decompress",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE decompress)"
+        }
+      },
+      "swum_class_summary" : "The CompressionDecorator class is part of the Decorator pattern and provides methods to get, set, write, read."
+    },
+    "FileDataSource" : {
+      "class_name" : "FileDataSource",
+      "class_type" : "class",
+      "method_summaries" : {
+        "writeData" : {
+          "method_name" : "writeData",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method writes a data.",
+          "swum_actions" : "write",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE write (OBJECT Data))"
+        },
+        "readData" : {
+          "method_name" : "readData",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method reads a data and returns a String.",
+          "swum_actions" : "read",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE read (OBJECT Data))"
+        }
+      },
+      "swum_class_summary" : "The FileDataSource class and provides methods to write, read for managing file, data."
+    },
+    "DataSource" : {
+      "class_name" : "DataSource",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "writeData" : {
+          "method_name" : "writeData",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method writes a data.",
+          "swum_actions" : "write",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE write (OBJECT Data))"
+        },
+        "readData" : {
+          "method_name" : "readData",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method reads a data and returns a String.",
+          "swum_actions" : "read",
+          "swum_objects" : "Data",
+          "swum_parse_tree" : "(VERB_PHRASE read (OBJECT Data))"
+        }
+      },
+      "swum_class_summary" : "The DataSource class and provides methods to write, read for managing data."
+    }
+  },
+  "swum_project_summary" : "This software project contains 6 classes with 17 methods. Primary operations include get, read, set, write. Key objects manipulated are Data, set.",
+  "design_patterns" : [ ]
+}

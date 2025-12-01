@@ -1,0 +1,59 @@
+{
+  "project_name" : "spring-webmvc",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953616,
+  "class_summaries" : {
+    "HttpRequestHandlerAdapter" : {
+      "class_name" : "HttpRequestHandlerAdapter",
+      "class_type" : "class",
+      "method_summaries" : {
+        "supports" : {
+          "method_name" : "supports",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Adapter pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE supports)"
+        },
+        "handle" : {
+          "method_name" : "handle",
+          "return_type" : "ModelAndView",
+          "parameters" : "",
+          "swum_summary" : "This method handles and returns an object as part of the Adapter pattern.",
+          "swum_actions" : "handle",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE handle)"
+        }
+      },
+      "swum_class_summary" : "The HttpRequestHandlerAdapter class is part of the Adapter pattern and provides methods to handle for managing request, adapter."
+    },
+    "SimpleControllerHandlerAdapter" : {
+      "class_name" : "SimpleControllerHandlerAdapter",
+      "class_type" : "class",
+      "method_summaries" : {
+        "supports" : {
+          "method_name" : "supports",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Adapter pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE supports)"
+        },
+        "handle" : {
+          "method_name" : "handle",
+          "return_type" : "ModelAndView",
+          "parameters" : "",
+          "swum_summary" : "This method handles and returns an object as part of the Adapter pattern.",
+          "swum_actions" : "handle",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE handle)"
+        }
+      },
+      "swum_class_summary" : "The SimpleControllerHandlerAdapter class is part of the Adapter pattern and provides methods to handle for managing adapter."
+    }
+  },
+  "swum_project_summary" : "This software project contains 2 classes with 4 methods. Primary operations include handle.",
+  "design_patterns" : [ ]
+}

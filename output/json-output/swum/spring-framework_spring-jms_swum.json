@@ -1,0 +1,520 @@
+{
+  "project_name" : "spring-jms",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953581,
+  "class_summaries" : {
+    "JmsTemplate" : {
+      "class_name" : "JmsTemplate",
+      "class_type" : "class",
+      "method_summaries" : {
+        "setDefaultDestination" : {
+          "method_name" : "setDefaultDestination",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Default Destination))"
+        },
+        "getDefaultDestination" : {
+          "method_name" : "getDefaultDestination",
+          "return_type" : "Destination",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Default Destination))"
+        },
+        "getDefaultQueue" : {
+          "method_name" : "getDefaultQueue",
+          "return_type" : "Queue",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Default Queue))"
+        },
+        "setDefaultDestinationName" : {
+          "method_name" : "setDefaultDestinationName",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Default Destination Name))"
+        },
+        "getDefaultDestinationName" : {
+          "method_name" : "getDefaultDestinationName",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Default Destination Name))"
+        },
+        "getRequiredDefaultDestinationName" : {
+          "method_name" : "getRequiredDefaultDestinationName",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Required Default Destination Name))"
+        },
+        "setMessageConverter" : {
+          "method_name" : "setMessageConverter",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets set, Message.",
+          "swum_actions" : "set",
+          "swum_objects" : "set, Message",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Message Converter))"
+        },
+        "getMessageConverter" : {
+          "method_name" : "getMessageConverter",
+          "return_type" : "MessageConverter",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves a message and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "Message",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Message Converter))"
+        },
+        "setMessageIdEnabled" : {
+          "method_name" : "setMessageIdEnabled",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets set, Message.",
+          "swum_actions" : "set",
+          "swum_objects" : "set, Message",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Message Id Enabled))"
+        },
+        "isMessageIdEnabled" : {
+          "method_name" : "isMessageIdEnabled",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs a message and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "Message",
+          "swum_parse_tree" : "(NOUN_PHRASE is Message Id Enabled)"
+        },
+        "setMessageTimestampEnabled" : {
+          "method_name" : "setMessageTimestampEnabled",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets set, Message.",
+          "swum_actions" : "set",
+          "swum_objects" : "set, Message",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Message Timestamp Enabled))"
+        },
+        "isMessageTimestampEnabled" : {
+          "method_name" : "isMessageTimestampEnabled",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs a message and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "Message",
+          "swum_parse_tree" : "(NOUN_PHRASE is Message Timestamp Enabled)"
+        },
+        "setPubSubNoLocal" : {
+          "method_name" : "setPubSubNoLocal",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Pub Sub No Local))"
+        },
+        "isPubSubNoLocal" : {
+          "method_name" : "isPubSubNoLocal",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Pub Sub No Local)"
+        },
+        "setReceiveTimeout" : {
+          "method_name" : "setReceiveTimeout",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set, Receive",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Receive Timeout))"
+        },
+        "getReceiveTimeout" : {
+          "method_name" : "getReceiveTimeout",
+          "return_type" : "long",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves operations and returns a number.",
+          "swum_actions" : "get, Receive",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Receive Timeout))"
+        },
+        "setDeliveryDelay" : {
+          "method_name" : "setDeliveryDelay",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Delivery Delay))"
+        },
+        "getDeliveryDelay" : {
+          "method_name" : "getDeliveryDelay",
+          "return_type" : "long",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Delivery Delay))"
+        },
+        "setExplicitQosEnabled" : {
+          "method_name" : "setExplicitQosEnabled",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Explicit Qos Enabled))"
+        },
+        "isExplicitQosEnabled" : {
+          "method_name" : "isExplicitQosEnabled",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Explicit Qos Enabled)"
+        },
+        "setQosSettings" : {
+          "method_name" : "setQosSettings",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Qos Settings))"
+        },
+        "setDeliveryPersistent" : {
+          "method_name" : "setDeliveryPersistent",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Delivery Persistent))"
+        },
+        "setDeliveryMode" : {
+          "method_name" : "setDeliveryMode",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Delivery Mode))"
+        },
+        "getDeliveryMode" : {
+          "method_name" : "getDeliveryMode",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Delivery Mode))"
+        },
+        "setPriority" : {
+          "method_name" : "setPriority",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Priority))"
+        },
+        "getPriority" : {
+          "method_name" : "getPriority",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Priority))"
+        },
+        "setTimeToLive" : {
+          "method_name" : "setTimeToLive",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Time To Live))"
+        },
+        "getTimeToLive" : {
+          "method_name" : "getTimeToLive",
+          "return_type" : "long",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Time To Live))"
+        },
+        "setObservationRegistry" : {
+          "method_name" : "setObservationRegistry",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Observation Registry))"
+        },
+        "getObservationRegistry" : {
+          "method_name" : "getObservationRegistry",
+          "return_type" : "ObservationRegistry",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Observation Registry))"
+        },
+        "execute" : {
+          "method_name" : "execute",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method executes and returns an object.",
+          "swum_actions" : "execute",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE execute)"
+        },
+        "send" : {
+          "method_name" : "send",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sends.",
+          "swum_actions" : "send",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE send)"
+        },
+        "doSend" : {
+          "method_name" : "doSend",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sends.",
+          "swum_actions" : "Send",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT do) Send)"
+        },
+        "convertAndSend" : {
+          "method_name" : "convertAndSend",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method converts operations.",
+          "swum_actions" : "convert, Send",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE convert (OBJECT And Send))"
+        },
+        "receive" : {
+          "method_name" : "receive",
+          "return_type" : "Message",
+          "parameters" : "",
+          "swum_summary" : "This method receives and returns an object.",
+          "swum_actions" : "receive",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE receive)"
+        },
+        "receiveSelected" : {
+          "method_name" : "receiveSelected",
+          "return_type" : "Message",
+          "parameters" : "",
+          "swum_summary" : "This method receives and returns an object.",
+          "swum_actions" : "receive",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE receive (OBJECT Selected))"
+        },
+        "doReceive" : {
+          "method_name" : "doReceive",
+          "return_type" : "Message",
+          "parameters" : "",
+          "swum_summary" : "This method receives and returns an object.",
+          "swum_actions" : "Receive",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT do) Receive)"
+        },
+        "receiveAndConvert" : {
+          "method_name" : "receiveAndConvert",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method receives operations and returns an object.",
+          "swum_actions" : "receive, Convert",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE receive (OBJECT And Convert))"
+        },
+        "receiveSelectedAndConvert" : {
+          "method_name" : "receiveSelectedAndConvert",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method receives operations and returns an object.",
+          "swum_actions" : "receive, Convert",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE receive (OBJECT Selected And Convert))"
+        },
+        "doConvertFromMessage" : {
+          "method_name" : "doConvertFromMessage",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method converts a message and returns an object.",
+          "swum_actions" : "Convert",
+          "swum_objects" : "Message",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT do) Convert (OBJECT From Message))"
+        },
+        "sendAndReceive" : {
+          "method_name" : "sendAndReceive",
+          "return_type" : "Message",
+          "parameters" : "",
+          "swum_summary" : "This method sends operations and returns an object.",
+          "swum_actions" : "send, Receive",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE send (OBJECT And Receive))"
+        },
+        "doSendAndReceive" : {
+          "method_name" : "doSendAndReceive",
+          "return_type" : "Message",
+          "parameters" : "",
+          "swum_summary" : "This method sends operations and returns an object.",
+          "swum_actions" : "Send, Receive",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT do) Send (OBJECT And Receive))"
+        },
+        "executeLocal" : {
+          "method_name" : "executeLocal",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method executes and returns an object.",
+          "swum_actions" : "execute",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE execute (OBJECT Local))"
+        },
+        "browse" : {
+          "method_name" : "browse",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE browse)"
+        },
+        "browseSelected" : {
+          "method_name" : "browseSelected",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE browse Selected)"
+        },
+        "getConnection" : {
+          "method_name" : "getConnection",
+          "return_type" : "Connection",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves a connection and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "Connection",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Connection))"
+        },
+        "getSession" : {
+          "method_name" : "getSession",
+          "return_type" : "Session",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves a session and returns an object.",
+          "swum_actions" : "get",
+          "swum_objects" : "Session",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Session))"
+        },
+        "isSessionLocallyTransacted" : {
+          "method_name" : "isSessionLocallyTransacted",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs a session and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "Session",
+          "swum_parse_tree" : "(NOUN_PHRASE is Session Locally Transacted)"
+        },
+        "createProducer" : {
+          "method_name" : "createProducer",
+          "return_type" : "MessageProducer",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Producer))"
+        },
+        "doCreateProducer" : {
+          "method_name" : "doCreateProducer",
+          "return_type" : "MessageProducer",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object.",
+          "swum_actions" : "Create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT do) Create (OBJECT Producer))"
+        },
+        "createConsumer" : {
+          "method_name" : "createConsumer",
+          "return_type" : "MessageConsumer",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Consumer))"
+        },
+        "createBrowser" : {
+          "method_name" : "createBrowser",
+          "return_type" : "QueueBrowser",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Browser))"
+        },
+        "createConnection" : {
+          "method_name" : "createConnection",
+          "return_type" : "Connection",
+          "parameters" : "",
+          "swum_summary" : "This method creates a connection and returns an object.",
+          "swum_actions" : "create",
+          "swum_objects" : "Connection",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Connection))"
+        },
+        "createSession" : {
+          "method_name" : "createSession",
+          "return_type" : "Session",
+          "parameters" : "",
+          "swum_summary" : "This method creates a session and returns an object.",
+          "swum_actions" : "create",
+          "swum_objects" : "Session",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Session))"
+        },
+        "isSynchedLocalTransactionAllowed" : {
+          "method_name" : "isSynchedLocalTransactionAllowed",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Synched Local Transaction Allowed)"
+        },
+        "instrumentSession" : {
+          "method_name" : "instrumentSession",
+          "return_type" : "Session",
+          "parameters" : "",
+          "swum_summary" : "This method performs a session and returns an object.",
+          "swum_actions" : "",
+          "swum_objects" : "Session",
+          "swum_parse_tree" : "(NOUN_PHRASE instrument Session)"
+        }
+      },
+      "swum_class_summary" : "The JmsTemplate class and provides methods to set, get, get, set, get, get, set, get, set, set, set, set, receive, get, receive, set, get, set, set, set, set, get, set, get, set, get, set, get, execute, execute, execute, execute, execute, send, send, send, send, send, convert, send, convert, send, convert, send, convert, send, convert, send, convert, send, receive, receive, receive, receive, receive, receive, receive, receive, receive, convert, receive, convert, receive, convert, receive, convert, receive, convert, receive, convert, convert, send, receive, send, receive, send, receive, send, receive, execute, get, get, create, create, create, create, get, get, create, create."
+    }
+  },
+  "swum_project_summary" : "This software project contains 1 classes with 56 methods. Primary operations include Convert, Create, Receive, Send, convert. Key objects manipulated are Connection, Message, Session, set.",
+  "design_patterns" : [ ]
+}

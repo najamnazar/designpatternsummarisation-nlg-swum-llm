@@ -1,0 +1,390 @@
+{
+  "project_name" : "summary_NLG",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953079,
+  "class_summaries" : {
+    "YoungSailor" : {
+      "class_name" : "YoungSailor",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getDescription" : {
+          "method_name" : "getDescription",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String. The YoungSailor class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern, acts as a memento in the memento pattern and acts as a product in the factory_method pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Description))"
+        }
+      },
+      "swum_class_summary" : "The YoungSailor class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern, acts as a memento in the memento pattern and acts as a product in the factory_method pattern and provides methods to get."
+    },
+    "OldShip" : {
+      "class_name" : "OldShip",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getDescription" : {
+          "method_name" : "getDescription",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String. The OldShip class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern and acts as a memento in the memento pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Description))"
+        }
+      },
+      "swum_class_summary" : "The OldShip class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern and acts as a memento in the memento pattern and provides methods to get."
+    },
+    "YoungTeamFactory" : {
+      "class_name" : "YoungTeamFactory",
+      "class_type" : "class",
+      "method_summaries" : {
+        "createShip" : {
+          "method_name" : "createShip",
+          "return_type" : "Ship",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the factory_method pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Ship))"
+        },
+        "createCaptain" : {
+          "method_name" : "createCaptain",
+          "return_type" : "Captain",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the factory_method pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Captain))"
+        },
+        "createSailor" : {
+          "method_name" : "createSailor",
+          "return_type" : "Sailor",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the factory_method pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Sailor))"
+        }
+      },
+      "swum_class_summary" : "The YoungTeamFactory class acts as a factory in the abstract_factory pattern, acts as an originator in the memento pattern and acts as a factory in the factory_method pattern and provides methods to create, create, create for managing factory."
+    },
+    "YoungCaptain" : {
+      "class_name" : "YoungCaptain",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getDescription" : {
+          "method_name" : "getDescription",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String. The YoungCaptain class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern and acts as a memento in the memento pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Description))"
+        }
+      },
+      "swum_class_summary" : "The YoungCaptain class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern and acts as a memento in the memento pattern and provides methods to get."
+    },
+    "Captain" : {
+      "class_name" : "Captain",
+      "class_type" : "interface",
+      "method_summaries" : { },
+      "swum_class_summary" : "The Captain class acts as a subscriber in the observer pattern, acts as an abstract product in the abstract_factory pattern and acts as a memento in the memento pattern."
+    },
+    "OldSailor" : {
+      "class_name" : "OldSailor",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getDescription" : {
+          "method_name" : "getDescription",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String. The OldSailor class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern, acts as a memento in the memento pattern and acts as a product in the factory_method pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Description))"
+        }
+      },
+      "swum_class_summary" : "The OldSailor class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern, acts as a memento in the memento pattern and acts as a product in the factory_method pattern and provides methods to get."
+    },
+    "NewShip" : {
+      "class_name" : "NewShip",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getDescription" : {
+          "method_name" : "getDescription",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String. The NewShip class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern and acts as a memento in the memento pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Description))"
+        }
+      },
+      "swum_class_summary" : "The NewShip class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern and acts as a memento in the memento pattern and provides methods to get."
+    },
+    "PermanentTeamFactory" : {
+      "class_name" : "PermanentTeamFactory",
+      "class_type" : "class",
+      "method_summaries" : {
+        "createShip" : {
+          "method_name" : "createShip",
+          "return_type" : "Ship",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the abstract_factory pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Ship))"
+        },
+        "createCaptain" : {
+          "method_name" : "createCaptain",
+          "return_type" : "Captain",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the abstract_factory pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Captain))"
+        },
+        "createSailor" : {
+          "method_name" : "createSailor",
+          "return_type" : "Sailor",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the abstract_factory pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Sailor))"
+        }
+      },
+      "swum_class_summary" : "The PermanentTeamFactory class acts as a factory in the abstract_factory pattern and acts as an originator in the memento pattern and provides methods to create, create, create for managing factory."
+    },
+    "OldCaptain" : {
+      "class_name" : "OldCaptain",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getDescription" : {
+          "method_name" : "getDescription",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String. The OldCaptain class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern and acts as a memento in the memento pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Description))"
+        }
+      },
+      "swum_class_summary" : "The OldCaptain class acts as a subscriber in the observer pattern, acts as a product in the abstract_factory pattern and acts as a memento in the memento pattern and provides methods to get."
+    },
+    "Ship" : {
+      "class_name" : "Ship",
+      "class_type" : "interface",
+      "method_summaries" : { },
+      "swum_class_summary" : "The Ship class acts as a subscriber in the observer pattern, acts as an abstract product in the abstract_factory pattern and acts as a memento in the memento pattern."
+    },
+    "TeamFactory" : {
+      "class_name" : "TeamFactory",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "createShip" : {
+          "method_name" : "createShip",
+          "return_type" : "Ship",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the factory_method pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Ship))"
+        },
+        "createCaptain" : {
+          "method_name" : "createCaptain",
+          "return_type" : "Captain",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the factory_method pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Captain))"
+        },
+        "createSailor" : {
+          "method_name" : "createSailor",
+          "return_type" : "Sailor",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the factory_method pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Sailor))"
+        }
+      },
+      "swum_class_summary" : "The TeamFactory class acts as an originator in the memento pattern and acts as a factory in the factory_method pattern and provides methods to create, create, create for managing factory."
+    },
+    "Application" : {
+      "class_name" : "Application",
+      "class_type" : "class",
+      "method_summaries" : {
+        "createTeam" : {
+          "method_name" : "createTeam",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method creates. The Application class acts as a publisher in the observer pattern and acts as a caretaker in the memento pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Team))"
+        },
+        "main" : {
+          "method_name" : "main",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs. The Application class acts as a publisher in the observer pattern and acts as a caretaker in the memento pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE main)"
+        },
+        "getmShip" : {
+          "method_name" : "getmShip",
+          "return_type" : "Ship",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object. The Application class acts as a publisher in the observer pattern and acts as a caretaker in the memento pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE getm Ship)"
+        },
+        "setmShip" : {
+          "method_name" : "setmShip",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs. The Application class acts as a publisher in the observer pattern and acts as a caretaker in the memento pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE setm Ship)"
+        },
+        "getmCaptain" : {
+          "method_name" : "getmCaptain",
+          "return_type" : "Captain",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object. The Application class acts as a publisher in the observer pattern and acts as a caretaker in the memento pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE getm Captain)"
+        },
+        "setmCaptain" : {
+          "method_name" : "setmCaptain",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs. The Application class acts as a publisher in the observer pattern and acts as a caretaker in the memento pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE setm Captain)"
+        },
+        "getmSailor" : {
+          "method_name" : "getmSailor",
+          "return_type" : "Sailor",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object. The Application class acts as a publisher in the observer pattern and acts as a caretaker in the memento pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE getm Sailor)"
+        },
+        "setmSailor" : {
+          "method_name" : "setmSailor",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs. The Application class acts as a publisher in the observer pattern and acts as a caretaker in the memento pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE setm Sailor)"
+        }
+      },
+      "swum_class_summary" : "The Application class acts as a publisher in the observer pattern and acts as a caretaker in the memento pattern and provides methods to create."
+    },
+    "Member" : {
+      "class_name" : "Member",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "getDescription" : {
+          "method_name" : "getDescription",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Description))"
+        }
+      },
+      "swum_class_summary" : "The Member class and provides methods to get."
+    },
+    "Sailor" : {
+      "class_name" : "Sailor",
+      "class_type" : "interface",
+      "method_summaries" : { },
+      "swum_class_summary" : "The Sailor class acts as a subscriber in the observer pattern, acts as an abstract product in the abstract_factory pattern, acts as a memento in the memento pattern and acts as an abstract product in the factory_method pattern."
+    }
+  },
+  "swum_project_summary" : "This software project contains 14 classes with 24 methods. The system implements multiple design patterns including observer, abstract_factory, memento, factory_method. Primary operations include create, get.",
+  "design_patterns" : [ {
+    "factory_method" : {
+      "YoungTeamFactory" : {
+        "concrete_product" : [ "YoungSailor", "OldSailor" ],
+        "abstract_product" : "Sailor",
+        "concrete_factory" : [ "TeamFactory", "TeamFactory" ]
+      }
+    }
+  }, {
+    "abstract_factory" : {
+      "TeamFactory" : {
+        "abstract_product" : {
+          "Ship" : [ "OldShip", "NewShip" ],
+          "Captain" : [ "YoungCaptain", "OldCaptain" ],
+          "Sailor" : [ "YoungSailor", "OldSailor" ]
+        },
+        "concrete_factory" : [ "YoungTeamFactory", "PermanentTeamFactory" ]
+      }
+    }
+  }, {
+    "observer" : {
+      "Ship" : {
+        "concrete_observer" : [ "OldShip", "NewShip" ],
+        "publisher" : {
+          "Application" : [ ]
+        }
+      },
+      "Captain" : {
+        "concrete_observer" : [ "YoungCaptain", "OldCaptain" ],
+        "publisher" : {
+          "Application" : [ ]
+        }
+      },
+      "Sailor" : {
+        "concrete_observer" : [ "YoungSailor", "OldSailor" ],
+        "publisher" : {
+          "Application" : [ ]
+        }
+      }
+    }
+  }, {
+    "memento" : {
+      "Ship" : {
+        "caretaker" : {
+          "Application" : [ ]
+        },
+        "originator" : {
+          "TeamFactory" : [ "YoungTeamFactory", "PermanentTeamFactory" ]
+        },
+        "concrete_memento" : [ "OldShip", "NewShip" ]
+      },
+      "Captain" : {
+        "caretaker" : {
+          "Application" : [ ]
+        },
+        "originator" : {
+          "TeamFactory" : [ "YoungTeamFactory", "PermanentTeamFactory" ]
+        },
+        "concrete_memento" : [ "YoungCaptain", "OldCaptain" ]
+      },
+      "Sailor" : {
+        "caretaker" : {
+          "Application" : [ ]
+        },
+        "originator" : {
+          "TeamFactory" : [ "YoungTeamFactory", "PermanentTeamFactory" ]
+        },
+        "concrete_memento" : [ "YoungSailor", "OldSailor" ]
+      }
+    }
+  } ]
+}

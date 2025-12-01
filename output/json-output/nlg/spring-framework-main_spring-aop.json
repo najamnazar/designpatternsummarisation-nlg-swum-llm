@@ -1,0 +1,117 @@
+{
+	"final_summary" : "MethodBeforeAdviceAdapter.java: MethodBeforeAdviceAdapter does not have any design pattern.  It is a class that implements AdvisorAdapter and Serializable. The 2 methods of MethodBeforeAdviceAdapter are supportsAdvice (boolean) and getInterceptor (MethodInterceptor). No methods call supportsAdvice and supportsAdvice calls no methods. No methods call getInterceptor and getInterceptor calls no methods.\n\n\nScopedProxyBeanDefinitionDecorator.java: ScopedProxyBeanDefinitionDecorator does not have any design pattern.  It is a class that implements BeanDefinitionDecorator. The only method of ScopedProxyBeanDefinitionDecorator is decorate (BeanDefinitionHolder). No methods call decorate and decorate calls no methods.\n\n\n",
+	"design_pattern" : [ ],
+	"summary_NLG" : { },
+	"spring-aop" : {
+		"MethodBeforeAdviceAdapter" : {
+			"FIELDDETAIL" : [ ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "NONE",
+				"NUMBEROFMETHODCALLS" : 1,
+				"EXTENDSFROM" : [ ],
+				"IMPLEMENTSFROM" : [ "AdvisorAdapter", "Serializable" ],
+				"CLASSNAME" : "MethodBeforeAdviceAdapter",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ ],
+			"VARIABLEDETAIL" : [ {
+				"VARIABLEDECLARATION" : [ "advice = (MethodBeforeAdvice) advisor.getAdvice()" ],
+				"VARIABLECOMMONTYPE" : "MethodBeforeAdvice",
+				"VARIABLEELEMENTTYPE" : "MethodBeforeAdvice"
+			} ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "supportsAdvice",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "advice",
+					"PARAMETERTYPE" : "Advice"
+				} ]
+			}, {
+				"METHODNAME" : "getInterceptor",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "MethodInterceptor",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "advisor",
+					"PARAMETERTYPE" : "Advisor"
+				} ]
+			} ]
+		},
+		"ScopedProxyBeanDefinitionDecorator" : {
+			"FIELDDETAIL" : [ {
+				"FIELDCOMMONTYPE" : "String",
+				"FIELDMODIFIERTYPE" : [ "private", "static", "final" ],
+				"FIELDDECLARATION" : [ "PROXY_TARGET_CLASS = \"proxy-target-class\"" ],
+				"FIELDDATATYPE" : "String",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			} ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "NONE",
+				"NUMBEROFMETHODCALLS" : 10,
+				"EXTENDSFROM" : [ ],
+				"IMPLEMENTSFROM" : [ "BeanDefinitionDecorator" ],
+				"CLASSNAME" : "ScopedProxyBeanDefinitionDecorator",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ ],
+			"VARIABLEDETAIL" : [ {
+				"VARIABLEDECLARATION" : [ "proxyTargetClass = true" ],
+				"VARIABLECOMMONTYPE" : "boolean",
+				"VARIABLEELEMENTTYPE" : "boolean"
+			}, {
+				"VARIABLEDECLARATION" : [ "holder = ScopedProxyUtils.createScopedProxy(definition, parserContext.getRegistry(), proxyTargetClass)" ],
+				"VARIABLECOMMONTYPE" : "BeanDefinitionHolder",
+				"VARIABLEELEMENTTYPE" : "BeanDefinitionHolder"
+			}, {
+				"VARIABLEDECLARATION" : [ "targetBeanName = ScopedProxyUtils.getTargetBeanName(definition.getBeanName())" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			} ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "decorate",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "EXPRESSION", "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 3,
+				"NUMBEROFOUTGOINGMETHODS" : 10,
+				"METHODRETURNTYPE" : "BeanDefinitionHolder",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 6,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "node",
+					"PARAMETERTYPE" : "Node"
+				}, {
+					"PARAMETERNAME" : "definition",
+					"PARAMETERTYPE" : "BeanDefinitionHolder"
+				}, {
+					"PARAMETERNAME" : "parserContext",
+					"PARAMETERTYPE" : "ParserContext"
+				} ]
+			} ]
+		}
+	}
+}

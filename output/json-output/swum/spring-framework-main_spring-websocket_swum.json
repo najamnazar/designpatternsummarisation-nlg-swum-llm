@@ -1,0 +1,97 @@
+{
+  "project_name" : "summary_NLG",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953459,
+  "class_summaries" : {
+    "WebSocketHandlerDecorator" : {
+      "class_name" : "WebSocketHandlerDecorator",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getDelegate" : {
+          "method_name" : "getDelegate",
+          "return_type" : "WebSocketHandler",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Decorator pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Delegate))"
+        },
+        "getLastHandler" : {
+          "method_name" : "getLastHandler",
+          "return_type" : "WebSocketHandler",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Decorator pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Last Handler))"
+        },
+        "unwrap" : {
+          "method_name" : "unwrap",
+          "return_type" : "WebSocketHandler",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE unwrap)"
+        },
+        "afterConnectionEstablished" : {
+          "method_name" : "afterConnectionEstablished",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs a connection as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Connection",
+          "swum_parse_tree" : "(NOUN_PHRASE after Connection Established)"
+        },
+        "handleMessage" : {
+          "method_name" : "handleMessage",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method handles a message as part of the Decorator pattern.",
+          "swum_actions" : "handle",
+          "swum_objects" : "Message",
+          "swum_parse_tree" : "(VERB_PHRASE handle (OBJECT Message))"
+        },
+        "handleTransportError" : {
+          "method_name" : "handleTransportError",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method handles as part of the Decorator pattern.",
+          "swum_actions" : "handle",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE handle (OBJECT Transport Error))"
+        },
+        "afterConnectionClosed" : {
+          "method_name" : "afterConnectionClosed",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs a connection as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Connection",
+          "swum_parse_tree" : "(NOUN_PHRASE after Connection Closed)"
+        },
+        "supportsPartialMessages" : {
+          "method_name" : "supportsPartialMessages",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE supports Partial Messages)"
+        },
+        "toString" : {
+          "method_name" : "toString",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs a string and returns a String as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "String",
+          "swum_parse_tree" : "(NOUN_PHRASE to String)"
+        }
+      },
+      "swum_class_summary" : "The WebSocketHandlerDecorator class is part of the Decorator pattern and provides methods to get, get, handle, handle."
+    }
+  },
+  "swum_project_summary" : "This software project contains 1 classes with 9 methods. Primary operations include get, handle. Key objects manipulated are Connection, Message, String.",
+  "design_patterns" : [ ]
+}

@@ -1,0 +1,146 @@
+{
+  "project_name" : "Visitor",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953062,
+  "class_summaries" : {
+    "ComputerPart" : {
+      "class_name" : "ComputerPart",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "accept" : {
+          "method_name" : "accept",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs. The ComputerPart class acts as a visitor in the visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE accept)"
+        }
+      },
+      "swum_class_summary" : "The ComputerPart class acts as a visitor in the visitor pattern."
+    },
+    "Monitor" : {
+      "class_name" : "Monitor",
+      "class_type" : "class",
+      "method_summaries" : {
+        "accept" : {
+          "method_name" : "accept",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method accepts visitor as part of the visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE accept)"
+        }
+      },
+      "swum_class_summary" : "The Monitor class acts as a concrete element in the visitor pattern."
+    },
+    "Mouse" : {
+      "class_name" : "Mouse",
+      "class_type" : "class",
+      "method_summaries" : {
+        "accept" : {
+          "method_name" : "accept",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method accepts visitor as part of the visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE accept)"
+        }
+      },
+      "swum_class_summary" : "The Mouse class acts as a concrete element in the visitor pattern."
+    },
+    "ComputerPartDisplayVisitor" : {
+      "class_name" : "ComputerPartDisplayVisitor",
+      "class_type" : "class",
+      "method_summaries" : {
+        "visit" : {
+          "method_name" : "visit",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method visits element as part of the visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit)"
+        }
+      },
+      "swum_class_summary" : "The ComputerPartDisplayVisitor class acts as a visitor in the visitor pattern."
+    },
+    "Test" : {
+      "class_name" : "Test",
+      "class_type" : "class",
+      "method_summaries" : {
+        "main" : {
+          "method_name" : "main",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE main)"
+        }
+      },
+      "swum_class_summary" : "The Test class."
+    },
+    "Keyboard" : {
+      "class_name" : "Keyboard",
+      "class_type" : "class",
+      "method_summaries" : {
+        "accept" : {
+          "method_name" : "accept",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method accepts visitor as part of the visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE accept)"
+        }
+      },
+      "swum_class_summary" : "The Keyboard class acts as a concrete element in the visitor pattern."
+    },
+    "Computer" : {
+      "class_name" : "Computer",
+      "class_type" : "class",
+      "method_summaries" : {
+        "accept" : {
+          "method_name" : "accept",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method accepts visitor as part of the visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE accept)"
+        }
+      },
+      "swum_class_summary" : "The Computer class acts as a concrete element in the visitor pattern."
+    },
+    "ComputerPartVisitor" : {
+      "class_name" : "ComputerPartVisitor",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "visit" : {
+          "method_name" : "visit",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method visits element as part of the visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit)"
+        }
+      },
+      "swum_class_summary" : "The ComputerPartVisitor class acts as a visitor in the visitor pattern."
+    }
+  },
+  "swum_project_summary" : "This software project contains 8 classes with 8 methods. The system implements the visitor design pattern.",
+  "design_patterns" : [ {
+    "visitor" : {
+      "ComputerPart" : {
+        "concrete_element" : [ "Monitor", "Mouse", "Keyboard", "Computer" ],
+        "visitor" : {
+          "ComputerPartVisitor" : [ "ComputerPartDisplayVisitor" ]
+        }
+      }
+    }
+  } ]
+}

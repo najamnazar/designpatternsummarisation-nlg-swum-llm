@@ -1,0 +1,3724 @@
+{
+	"final_summary" : "",
+	"spring-jdbc" : {
+		"IsolationLevelDataSourceAdapter" : {
+			"FIELDDETAIL" : [ {
+				"FIELDCOMMONTYPE" : "Map<String, Integer>",
+				"FIELDMODIFIERTYPE" : [ "static", "final" ],
+				"FIELDDECLARATION" : [ "constants = Map.of(\"ISOLATION_DEFAULT\", TransactionDefinition.ISOLATION_DEFAULT, \"ISOLATION_READ_UNCOMMITTED\", TransactionDefinition.ISOLATION_READ_UNCOMMITTED, \"ISOLATION_READ_COMMITTED\", TransactionDefinition.ISOLATION_READ_COMMITTED, \"ISOLATION_REPEATABLE_READ\", TransactionDefinition.ISOLATION_REPEATABLE_READ, \"ISOLATION_SERIALIZABLE\", TransactionDefinition.ISOLATION_SERIALIZABLE)" ],
+				"FIELDDATATYPE" : "Map<String, Integer>",
+				"FIELDACCESSSPECIFIER" : "NONE"
+			}, {
+				"FIELDCOMMONTYPE" : "Integer",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "isolationLevel" ],
+				"FIELDDATATYPE" : "Integer",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			} ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "PUBLIC",
+				"NUMBEROFMETHODCALLS" : 15,
+				"EXTENDSFROM" : [ "UserCredentialsDataSourceAdapter" ],
+				"IMPLEMENTSFROM" : [ ],
+				"CLASSNAME" : "IsolationLevelDataSourceAdapter",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ "public" ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ ],
+			"VARIABLEDETAIL" : [ {
+				"VARIABLEDECLARATION" : [ "isolationLevel = constants.get(constantName)" ],
+				"VARIABLECOMMONTYPE" : "Integer",
+				"VARIABLEELEMENTTYPE" : "Integer"
+			}, {
+				"VARIABLEDECLARATION" : [ "con = super.doGetConnection(username, password)" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "readOnlyToUse = getCurrentReadOnlyFlag()" ],
+				"VARIABLECOMMONTYPE" : "Boolean",
+				"VARIABLEELEMENTTYPE" : "Boolean"
+			}, {
+				"VARIABLEDECLARATION" : [ "isolationLevelToUse = getCurrentIsolationLevel()" ],
+				"VARIABLECOMMONTYPE" : "Integer",
+				"VARIABLEELEMENTTYPE" : "Integer"
+			}, {
+				"VARIABLEDECLARATION" : [ "isolationLevelToUse = TransactionSynchronizationManager.getCurrentTransactionIsolationLevel()" ],
+				"VARIABLECOMMONTYPE" : "Integer",
+				"VARIABLEELEMENTTYPE" : "Integer"
+			}, {
+				"VARIABLEDECLARATION" : [ "txReadOnly = TransactionSynchronizationManager.isCurrentTransactionReadOnly()" ],
+				"VARIABLECOMMONTYPE" : "boolean",
+				"VARIABLEELEMENTTYPE" : "boolean"
+			} ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "setIsolationLevelName",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public", "final" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "IsolationLevelDataSourceAdapter",
+					"CALLEEMETHODNAME" : "setIsolationLevel"
+				} ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "constantName",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"METHODNAME" : "setIsolationLevel",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "setIsolationLevelName",
+					"CALLEDCLASS" : "IsolationLevelDataSourceAdapter"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "isolationLevel",
+					"PARAMETERTYPE" : "int"
+				} ]
+			}, {
+				"METHODNAME" : "getIsolationLevel",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "getCurrentIsolationLevel",
+					"CALLEDCLASS" : "IsolationLevelDataSourceAdapter"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "Integer",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "doGetConnection",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "IF", "EXPRESSION", "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 3,
+				"NUMBEROFOUTGOINGMETHODS" : 5,
+				"METHODRETURNTYPE" : "Connection",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "IsolationLevelDataSourceAdapter",
+					"CALLEEMETHODNAME" : "getCurrentReadOnlyFlag"
+				}, {
+					"CALLEECLASS" : "IsolationLevelDataSourceAdapter",
+					"CALLEEMETHODNAME" : "getCurrentIsolationLevel"
+				} ],
+				"NUMBEROFMETHODLINES" : 6,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "getCurrentIsolationLevel",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "doGetConnection",
+					"CALLEDCLASS" : "IsolationLevelDataSourceAdapter"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Integer",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "IsolationLevelDataSourceAdapter",
+					"CALLEEMETHODNAME" : "getIsolationLevel"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "getCurrentReadOnlyFlag",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "doGetConnection",
+					"CALLEDCLASS" : "IsolationLevelDataSourceAdapter"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Boolean",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ ]
+			} ]
+		},
+		"JdbcTemplate" : {
+			"FIELDDETAIL" : [ {
+				"FIELDCOMMONTYPE" : "String",
+				"FIELDMODIFIERTYPE" : [ "private", "static", "final" ],
+				"FIELDDECLARATION" : [ "RETURN_RESULT_SET_PREFIX = \"#result-set-\"" ],
+				"FIELDDATATYPE" : "String",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "String",
+				"FIELDMODIFIERTYPE" : [ "private", "static", "final" ],
+				"FIELDDECLARATION" : [ "RETURN_UPDATE_COUNT_PREFIX = \"#update-count-\"" ],
+				"FIELDDATATYPE" : "String",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "boolean",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "ignoreWarnings = true" ],
+				"FIELDDATATYPE" : "boolean",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "int",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "fetchSize = -1" ],
+				"FIELDDATATYPE" : "int",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "int",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "maxRows = -1" ],
+				"FIELDDATATYPE" : "int",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "int",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "queryTimeout = -1" ],
+				"FIELDDATATYPE" : "int",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "boolean",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "skipResultsProcessing = false" ],
+				"FIELDDATATYPE" : "boolean",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "boolean",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "skipUndeclaredResults = false" ],
+				"FIELDDATATYPE" : "boolean",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "boolean",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "resultsMapCaseInsensitive = false" ],
+				"FIELDDATATYPE" : "boolean",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "String",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "currSql" ],
+				"FIELDDATATYPE" : "String",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "Connection",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "target" ],
+				"FIELDDATATYPE" : "Connection",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "String",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "sql" ],
+				"FIELDDATATYPE" : "String",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "String",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "callString" ],
+				"FIELDDATATYPE" : "String",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "RowCallbackHandler",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "rch" ],
+				"FIELDDATATYPE" : "RowCallbackHandler",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "int",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "maxRows" ],
+				"FIELDDATATYPE" : "int",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "ResultSet",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "rs" ],
+				"FIELDDATATYPE" : "ResultSet",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "RowMapper<T>",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "rowMapper" ],
+				"FIELDDATATYPE" : "RowMapper<T>",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "int",
+				"FIELDMODIFIERTYPE" : [ "private", "final" ],
+				"FIELDDECLARATION" : [ "maxRows" ],
+				"FIELDDATATYPE" : "int",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			}, {
+				"FIELDCOMMONTYPE" : "int",
+				"FIELDMODIFIERTYPE" : [ "private" ],
+				"FIELDDECLARATION" : [ "rowNum = 0" ],
+				"FIELDDATATYPE" : "int",
+				"FIELDACCESSSPECIFIER" : "PRIVATE"
+			} ],
+			"CLASSORINTERFACEDETAIL" : [ {
+				"CLASSACCESSSPECIFIER" : "PUBLIC",
+				"NUMBEROFMETHODCALLS" : 470,
+				"EXTENDSFROM" : [ "JdbcAccessor" ],
+				"IMPLEMENTSFROM" : [ "JdbcOperations" ],
+				"CLASSNAME" : "JdbcTemplate",
+				"ISINTERFACEORNOT" : false,
+				"CLASSTYPEPARAMS" : [ ],
+				"ISABSTRACTORNOT" : false,
+				"CLASSMODIFIERTYPE" : [ "public" ]
+			} ],
+			"CONSTRUCTORDETAIL" : [ {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "dataSource",
+					"PARAMETERTYPE" : "DataSource"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "dataSource",
+					"PARAMETERTYPE" : "DataSource"
+				}, {
+					"PARAMETERNAME" : "lazyInit",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "original",
+					"PARAMETERTYPE" : "JdbcAccessor"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "target",
+					"PARAMETERTYPE" : "Connection"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "callString",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "rch",
+					"PARAMETERTYPE" : "RowCallbackHandler"
+				}, {
+					"PARAMETERNAME" : "maxRows",
+					"PARAMETERTYPE" : "int"
+				} ]
+			}, {
+				"CONSTRUCTORMODIFIER" : [ "public" ],
+				"CONSTRUCTORPARAMETER" : [ {
+					"PARAMETERNAME" : "rs",
+					"PARAMETERTYPE" : "ResultSet"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				}, {
+					"PARAMETERNAME" : "maxRows",
+					"PARAMETERTYPE" : "int"
+				} ]
+			} ],
+			"VARIABLEDETAIL" : [ {
+				"VARIABLEDECLARATION" : [ "con = DataSourceUtils.getConnection(obtainDataSource())" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "sql = getSql(action)" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "conToUse = createConnectionProxy(con)" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "con = DataSourceUtils.getConnection(obtainDataSource())" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "stmt = null" ],
+				"VARIABLECOMMONTYPE" : "Statement",
+				"VARIABLEELEMENTTYPE" : "Statement"
+			}, {
+				"VARIABLEDECLARATION" : [ "sql = getSql(action)" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "result = action.doInStatement(stmt)" ],
+				"VARIABLECOMMONTYPE" : "T",
+				"VARIABLEELEMENTTYPE" : "T"
+			}, {
+				"VARIABLEDECLARATION" : [ "rs = null" ],
+				"VARIABLECOMMONTYPE" : "ResultSet",
+				"VARIABLEELEMENTTYPE" : "ResultSet"
+			}, {
+				"VARIABLEDECLARATION" : [ "rs = stmt.executeQuery(sql)" ],
+				"VARIABLECOMMONTYPE" : "ResultSet",
+				"VARIABLEELEMENTTYPE" : "ResultSet"
+			}, {
+				"VARIABLEDECLARATION" : [ "con = stmt.getConnection()" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "results = query(sql, rowMapper)" ],
+				"VARIABLECOMMONTYPE" : "List<T>",
+				"VARIABLEELEMENTTYPE" : "List<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "rows = stmt.executeUpdate(sql)" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "rowsAffected = new int[sql.length]" ],
+				"VARIABLECOMMONTYPE" : "int[]",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "i = 0" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "sqlStmt" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "batchExceptionSql = null" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "i = 0" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "result = execute(new BatchUpdateStatementCallback(), true)" ],
+				"VARIABLECOMMONTYPE" : "int[]",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "sql = getSql(psc)" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "con = DataSourceUtils.getConnection(obtainDataSource())" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "ps = null" ],
+				"VARIABLECOMMONTYPE" : "PreparedStatement",
+				"VARIABLEELEMENTTYPE" : "PreparedStatement"
+			}, {
+				"VARIABLEDECLARATION" : [ "sql = getSql(psc)" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "result = action.doInPreparedStatement(ps)" ],
+				"VARIABLECOMMONTYPE" : "T",
+				"VARIABLEELEMENTTYPE" : "T"
+			}, {
+				"VARIABLEDECLARATION" : [ "rs = null" ],
+				"VARIABLECOMMONTYPE" : "ResultSet",
+				"VARIABLEELEMENTTYPE" : "ResultSet"
+			}, {
+				"VARIABLEDECLARATION" : [ "rs = ps.executeQuery()" ],
+				"VARIABLECOMMONTYPE" : "ResultSet",
+				"VARIABLEELEMENTTYPE" : "ResultSet"
+			}, {
+				"VARIABLEDECLARATION" : [ "con = ps.getConnection()" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "results = query(sql, args, argTypes, new RowMapperResultSetExtractor<>(rowMapper, 1))" ],
+				"VARIABLECOMMONTYPE" : "List<T>",
+				"VARIABLEELEMENTTYPE" : "List<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "results = query(sql, newArgPreparedStatementSetter(args), new RowMapperResultSetExtractor<>(rowMapper, 1))" ],
+				"VARIABLECOMMONTYPE" : "List<T>",
+				"VARIABLEELEMENTTYPE" : "List<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "results = query(sql, newArgPreparedStatementSetter(args), new RowMapperResultSetExtractor<>(rowMapper, 1))" ],
+				"VARIABLECOMMONTYPE" : "List<T>",
+				"VARIABLEELEMENTTYPE" : "List<T>"
+			}, {
+				"VARIABLEDECLARATION" : [ "rows = ps.executeUpdate()" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "rows = ps.executeUpdate()" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "result = execute(psc, getPreparedStatementCallback(pss, generatedKeyHolder))" ],
+				"VARIABLECOMMONTYPE" : "int[]",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "batchSize = pss.getBatchSize()" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "result = execute(sql, getPreparedStatementCallback(pss, null))" ],
+				"VARIABLECOMMONTYPE" : "int[]",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "values = batchArgs.get(i)" ],
+				"VARIABLECOMMONTYPE" : "Object[]",
+				"VARIABLEELEMENTTYPE" : "Object"
+			}, {
+				"VARIABLEDECLARATION" : [ "colIndex = 0" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "colType" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "value" ],
+				"VARIABLECOMMONTYPE" : "Object",
+				"VARIABLEELEMENTTYPE" : "Object"
+			}, {
+				"VARIABLEDECLARATION" : [ "result = execute(sql, (PreparedStatementCallback<int[][]>) ps -> {\r\n    List<int[]> rowsAffected = new ArrayList<>();\r\n    try {\r\n        boolean batchSupported = JdbcUtils.supportsBatchUpdates(ps.getConnection());\r\n        int n = 0;\r\n        for (T obj : batchArgs) {\r\n            pss.setValues(ps, obj);\r\n            n++;\r\n            if (batchSupported) {\r\n                ps.addBatch();\r\n                if (n % batchSize == 0 || n == batchArgs.size()) {\r\n                    if (logger.isTraceEnabled()) {\r\n                        int batchIdx = (n % batchSize == 0) ? n / batchSize : (n / batchSize) + 1;\r\n                        int items = n - ((n % batchSize == 0) ? n / batchSize - 1 : (n / batchSize)) * batchSize;\r\n                        logger.trace(\"Sending SQL batch update #\" + batchIdx + \" with \" + items + \" items\");\r\n                    }\r\n                    try {\r\n                        int[] updateCounts = ps.executeBatch();\r\n                        rowsAffected.add(updateCounts);\r\n                    } catch (BatchUpdateException ex) {\r\n                        throw new AggregatedBatchUpdateException(rowsAffected.toArray(int[][]::new), ex);\r\n                    }\r\n                }\r\n            } else {\r\n                int i = ps.executeUpdate();\r\n                rowsAffected.add(new int[] { i });\r\n            }\r\n        }\r\n        int[][] result1 = new int[rowsAffected.size()][];\r\n        for (int i = 0; i < result1.length; i++) {\r\n            result1[i] = rowsAffected.get(i);\r\n        }\r\n        return result1;\r\n    } finally {\r\n        if (pss instanceof ParameterDisposer parameterDisposer) {\r\n            parameterDisposer.cleanupParameters();\r\n        }\r\n    }\r\n})" ],
+				"VARIABLECOMMONTYPE" : "int[][]",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "sql = getSql(csc)" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "con = DataSourceUtils.getConnection(obtainDataSource())" ],
+				"VARIABLECOMMONTYPE" : "Connection",
+				"VARIABLEELEMENTTYPE" : "Connection"
+			}, {
+				"VARIABLEDECLARATION" : [ "cs = null" ],
+				"VARIABLECOMMONTYPE" : "CallableStatement",
+				"VARIABLEELEMENTTYPE" : "CallableStatement"
+			}, {
+				"VARIABLEDECLARATION" : [ "sql = getSql(csc)" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "result = action.doInCallableStatement(cs)" ],
+				"VARIABLECOMMONTYPE" : "T",
+				"VARIABLEELEMENTTYPE" : "T"
+			}, {
+				"VARIABLEDECLARATION" : [ "updateCountParameters = new ArrayList<>()" ],
+				"VARIABLECOMMONTYPE" : "List<SqlParameter>",
+				"VARIABLEELEMENTTYPE" : "List<SqlParameter>"
+			}, {
+				"VARIABLEDECLARATION" : [ "resultSetParameters = new ArrayList<>()" ],
+				"VARIABLECOMMONTYPE" : "List<SqlParameter>",
+				"VARIABLEELEMENTTYPE" : "List<SqlParameter>"
+			}, {
+				"VARIABLEDECLARATION" : [ "callParameters = new ArrayList<>()" ],
+				"VARIABLECOMMONTYPE" : "List<SqlParameter>",
+				"VARIABLEELEMENTTYPE" : "List<SqlParameter>"
+			}, {
+				"VARIABLEDECLARATION" : [ "parameter" ],
+				"VARIABLECOMMONTYPE" : "SqlParameter",
+				"VARIABLEELEMENTTYPE" : "SqlParameter"
+			}, {
+				"VARIABLEDECLARATION" : [ "result = execute(csc, cs -> {\r\n    boolean retVal = cs.execute();\r\n    int updateCount = cs.getUpdateCount();\r\n    if (logger.isTraceEnabled()) {\r\n        logger.trace(\"CallableStatement.execute() returned '\" + retVal + \"'\");\r\n        logger.trace(\"CallableStatement.getUpdateCount() returned \" + updateCount);\r\n    }\r\n    Map<String, @Nullable Object> resultsMap = createResultsMap();\r\n    if (retVal || updateCount != -1) {\r\n        resultsMap.putAll(extractReturnedResults(cs, updateCountParameters, resultSetParameters, updateCount));\r\n    }\r\n    resultsMap.putAll(extractOutputParameters(cs, callParameters));\r\n    return resultsMap;\r\n})" ],
+				"VARIABLECOMMONTYPE" : "Map<String, @Nullable Object>",
+				"VARIABLEELEMENTTYPE" : "Map<String, @Nullable Object>"
+			}, {
+				"VARIABLEDECLARATION" : [ "results = new LinkedHashMap<>(4)" ],
+				"VARIABLECOMMONTYPE" : "Map<String, @Nullable Object>",
+				"VARIABLEELEMENTTYPE" : "Map<String, @Nullable Object>"
+			}, {
+				"VARIABLEDECLARATION" : [ "rsIndex = 0" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "updateIndex = 0" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "moreResults" ],
+				"VARIABLECOMMONTYPE" : "boolean",
+				"VARIABLEELEMENTTYPE" : "boolean"
+			}, {
+				"VARIABLEDECLARATION" : [ "undeclaredName = RETURN_UPDATE_COUNT_PREFIX + (updateIndex + 1)" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "ucParam = (SqlReturnUpdateCount) updateCountParameters.get(updateIndex)" ],
+				"VARIABLECOMMONTYPE" : "SqlReturnUpdateCount",
+				"VARIABLEELEMENTTYPE" : "SqlReturnUpdateCount"
+			}, {
+				"VARIABLEDECLARATION" : [ "declaredUcName = ucParam.getName()" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "rsName = RETURN_RESULT_SET_PREFIX + (rsIndex + 1)" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "undeclaredRsParam = new SqlReturnResultSet(rsName, getColumnMapRowMapper())" ],
+				"VARIABLECOMMONTYPE" : "SqlReturnResultSet",
+				"VARIABLEELEMENTTYPE" : "SqlReturnResultSet"
+			}, {
+				"VARIABLEDECLARATION" : [ "declaredRsParam = (SqlReturnResultSet) resultSetParameters.get(rsIndex)" ],
+				"VARIABLECOMMONTYPE" : "SqlReturnResultSet",
+				"VARIABLEELEMENTTYPE" : "SqlReturnResultSet"
+			}, {
+				"VARIABLEDECLARATION" : [ "results = CollectionUtils.newLinkedHashMap(parameters.size())" ],
+				"VARIABLECOMMONTYPE" : "Map<String, @Nullable Object>",
+				"VARIABLEELEMENTTYPE" : "Map<String, @Nullable Object>"
+			}, {
+				"VARIABLEDECLARATION" : [ "sqlColIndex = 1" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "returnType = outParam.getSqlReturnType()" ],
+				"VARIABLECOMMONTYPE" : "SqlReturnType",
+				"VARIABLEELEMENTTYPE" : "SqlReturnType"
+			}, {
+				"VARIABLEDECLARATION" : [ "out = cs.getObject(sqlColIndex)" ],
+				"VARIABLECOMMONTYPE" : "Object",
+				"VARIABLEELEMENTTYPE" : "Object"
+			}, {
+				"VARIABLEDECLARATION" : [ "rsName = outParam.getName()" ],
+				"VARIABLECOMMONTYPE" : "String",
+				"VARIABLEELEMENTTYPE" : "String"
+			}, {
+				"VARIABLEDECLARATION" : [ "rsParam = new SqlReturnResultSet(rsName, getColumnMapRowMapper())" ],
+				"VARIABLECOMMONTYPE" : "SqlReturnResultSet",
+				"VARIABLEELEMENTTYPE" : "SqlReturnResultSet"
+			}, {
+				"VARIABLEDECLARATION" : [ "out = returnType.getTypeValue(cs, sqlColIndex, outParam.getSqlType(), outParam.getTypeName())" ],
+				"VARIABLECOMMONTYPE" : "Object",
+				"VARIABLEELEMENTTYPE" : "Object"
+			}, {
+				"VARIABLEDECLARATION" : [ "param" ],
+				"VARIABLECOMMONTYPE" : "SqlParameter",
+				"VARIABLEELEMENTTYPE" : "SqlParameter"
+			}, {
+				"VARIABLEDECLARATION" : [ "data = param.getResultSetExtractor().extractData(rs)" ],
+				"VARIABLECOMMONTYPE" : "Object",
+				"VARIABLEELEMENTTYPE" : "Object"
+			}, {
+				"VARIABLEDECLARATION" : [ "rch = param.getRowCallbackHandler()" ],
+				"VARIABLECOMMONTYPE" : "RowCallbackHandler",
+				"VARIABLEELEMENTTYPE" : "RowCallbackHandler"
+			}, {
+				"VARIABLEDECLARATION" : [ "rowMapper = param.getRowMapper()" ],
+				"VARIABLECOMMONTYPE" : "RowMapper<? extends @Nullable Object>",
+				"VARIABLEELEMENTTYPE" : "RowMapper<? extends @Nullable Object>"
+			}, {
+				"VARIABLEDECLARATION" : [ "data = (new RowMapperResultSetExtractor<>(rowMapper)).extractData(rs)" ],
+				"VARIABLECOMMONTYPE" : "Object",
+				"VARIABLEELEMENTTYPE" : "Object"
+			}, {
+				"VARIABLEDECLARATION" : [ "fetchSize = getFetchSize()" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "maxRows = getMaxRows()" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "warningToLog = stmt.getWarnings()" ],
+				"VARIABLECOMMONTYPE" : "SQLWarning",
+				"VARIABLEELEMENTTYPE" : "SQLWarning"
+			}, {
+				"VARIABLEDECLARATION" : [ "dae = getExceptionTranslator().translate(task, sql, ex)" ],
+				"VARIABLECOMMONTYPE" : "DataAccessException",
+				"VARIABLEELEMENTTYPE" : "DataAccessException"
+			}, {
+				"VARIABLEDECLARATION" : [ "generatedKeys = generatedKeyHolder.getKeyList()" ],
+				"VARIABLECOMMONTYPE" : "List<Map<String, Object>>",
+				"VARIABLEELEMENTTYPE" : "List<Map<String, Object>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "keys = ps.getGeneratedKeys()" ],
+				"VARIABLECOMMONTYPE" : "ResultSet",
+				"VARIABLEELEMENTTYPE" : "ResultSet"
+			}, {
+				"VARIABLEDECLARATION" : [ "rse = new RowMapperResultSetExtractor<>(getColumnMapRowMapper(), rowsExpected)" ],
+				"VARIABLECOMMONTYPE" : "RowMapperResultSetExtractor<Map<String, Object>>",
+				"VARIABLEELEMENTTYPE" : "RowMapperResultSetExtractor<Map<String, Object>>"
+			}, {
+				"VARIABLEDECLARATION" : [ "batchSize = pss.getBatchSize()" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "ipss = (pss instanceof InterruptibleBatchPreparedStatementSetter ibpss ? ibpss : null)" ],
+				"VARIABLECOMMONTYPE" : "InterruptibleBatchPreparedStatementSetter",
+				"VARIABLEELEMENTTYPE" : "InterruptibleBatchPreparedStatementSetter"
+			}, {
+				"VARIABLEDECLARATION" : [ "rowsAffected = new ArrayList<>()" ],
+				"VARIABLECOMMONTYPE" : "List<Integer>",
+				"VARIABLEELEMENTTYPE" : "List<Integer>"
+			}, {
+				"VARIABLEDECLARATION" : [ "i = 0" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "rowsAffectedArray = new int[rowsAffected.size()]" ],
+				"VARIABLECOMMONTYPE" : "int[]",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "i = 0" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "i = 0" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "results = ps.executeBatch()" ],
+				"VARIABLECOMMONTYPE" : "int[]",
+				"VARIABLEELEMENTTYPE" : "int"
+			}, {
+				"VARIABLEDECLARATION" : [ "retVal = method.invoke(this.target, args)" ],
+				"VARIABLECOMMONTYPE" : "Object",
+				"VARIABLEELEMENTTYPE" : "Object"
+			}, {
+				"VARIABLEDECLARATION" : [ "processed = 0" ],
+				"VARIABLECOMMONTYPE" : "int",
+				"VARIABLEELEMENTTYPE" : "int"
+			} ],
+			"METHODDETAIL" : [ {
+				"METHODNAME" : "setIgnoreWarnings",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "ignoreWarnings",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "isIgnoreWarnings",
+				"NUMBEROFINCOMINGMETHODS" : 3,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setFetchSize",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "fetchSize",
+					"PARAMETERTYPE" : "int"
+				} ]
+			}, {
+				"METHODNAME" : "getFetchSize",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "applyStatementSettings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setMaxRows",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "maxRows",
+					"PARAMETERTYPE" : "int"
+				} ]
+			}, {
+				"METHODNAME" : "getMaxRows",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "applyStatementSettings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setQueryTimeout",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "queryTimeout",
+					"PARAMETERTYPE" : "int"
+				} ]
+			}, {
+				"METHODNAME" : "getQueryTimeout",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "applyStatementSettings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setSkipResultsProcessing",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "skipResultsProcessing",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "isSkipResultsProcessing",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setSkipUndeclaredResults",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "skipUndeclaredResults",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "isSkipUndeclaredResults",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "setResultsMapCaseInsensitive",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "resultsMapCaseInsensitive",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "isResultsMapCaseInsensitive",
+				"NUMBEROFINCOMINGMETHODS" : 1,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "createResultsMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 11,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "ConnectionCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "createConnectionProxy",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Connection",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "con",
+					"PARAMETERTYPE" : "Connection"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 16,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "StatementCallback<T>"
+				}, {
+					"PARAMETERNAME" : "closeResources",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "StatementCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "IF", "OTHER", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 4,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "IF", "OTHER", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 8,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 5,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rse",
+					"PARAMETERTYPE" : "ResultSetExtractor<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rch",
+					"PARAMETERTYPE" : "RowCallbackHandler"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForStream",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "OTHER", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 10,
+				"METHODRETURNTYPE" : "Stream<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForMap",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "Map<String,Object>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"METHODNAME" : "queryForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "requiredType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForList",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "elementType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForList",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "List<Map<String,Object>>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"METHODNAME" : "queryForRowSet",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "SqlRowSet",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"METHODNAME" : "update",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "OTHER", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 8,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgTypePreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				} ]
+			}, {
+				"METHODNAME" : "batchUpdate",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "OTHER", "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 17,
+				"METHODRETURNTYPE" : "int[]",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				}, {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				} ],
+				"NUMBEROFMETHODLINES" : 6,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String..."
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "IF", "EXPRESSION", "EXPRESSION", "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 22,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 6,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "PreparedStatementCallback<T>"
+				}, {
+					"PARAMETERNAME" : "closeResources",
+					"PARAMETERTYPE" : "boolean"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "PreparedStatementCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "PreparedStatementCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 8,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "PreparedStatementSetter",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rse",
+					"PARAMETERTYPE" : "ResultSetExtractor<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "rse",
+					"PARAMETERTYPE" : "ResultSetExtractor<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "PreparedStatementSetter",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rse",
+					"PARAMETERTYPE" : "ResultSetExtractor<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				}, {
+					"PARAMETERNAME" : "rse",
+					"PARAMETERTYPE" : "ResultSetExtractor<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Deprecated(since = \"5.3\")", "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rse",
+					"PARAMETERTYPE" : "ResultSetExtractor<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rse",
+					"PARAMETERTYPE" : "ResultSetExtractor<T>"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "rch",
+					"PARAMETERTYPE" : "RowCallbackHandler"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "PreparedStatementSetter",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rch",
+					"PARAMETERTYPE" : "RowCallbackHandler"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				}, {
+					"PARAMETERNAME" : "rch",
+					"PARAMETERTYPE" : "RowCallbackHandler"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Deprecated(since = \"5.3\")", "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rch",
+					"PARAMETERTYPE" : "RowCallbackHandler"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rch",
+					"PARAMETERTYPE" : "RowCallbackHandler"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "PreparedStatementSetter",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Deprecated(since = \"5.3\")", "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "query",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "queryForStream",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 12,
+				"METHODRETURNTYPE" : "Stream<T>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "PreparedStatementSetter",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForStream",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Stream<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForStream",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Stream<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "PreparedStatementSetter",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForStream",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Stream<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "queryForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Deprecated(since = \"5.3\")", "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "rowMapper",
+					"PARAMETERTYPE" : "RowMapper<T>"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "queryForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				}, {
+					"PARAMETERNAME" : "requiredType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Deprecated(since = \"5.3\")", "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "requiredType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForObject",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "requiredType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "queryForMap",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "Map<String,Object>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				} ]
+			}, {
+				"METHODNAME" : "queryForMap",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "Map<String,Object>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "queryForList",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				}, {
+					"PARAMETERNAME" : "elementType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForList",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Deprecated(since = \"5.3\")", "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "elementType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "queryForList",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "List<T>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "elementType",
+					"PARAMETERTYPE" : "Class<T>"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "queryForList",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "List<Map<String,Object>>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				} ]
+			}, {
+				"METHODNAME" : "queryForList",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "List<Map<String,Object>>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getSingleColumnRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getColumnMapRowMapper"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "queryForRowSet",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "SqlRowSet",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				} ]
+			}, {
+				"METHODNAME" : "queryForRowSet",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "SqlRowSet",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "update",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 8,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgTypePreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "PreparedStatementSetter",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "update",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgTypePreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				} ]
+			}, {
+				"METHODNAME" : "update",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 12,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgTypePreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "generatedKeyHolder",
+					"PARAMETERTYPE" : "KeyHolder"
+				} ]
+			}, {
+				"METHODNAME" : "update",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgTypePreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "PreparedStatementSetter",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "update",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgTypePreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				} ]
+			}, {
+				"METHODNAME" : "update",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgPreparedStatementSetter"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "newArgTypePreparedStatementSetter"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "Object@Nullable",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "batchUpdate",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "int[]",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				}, {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				} ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "psc",
+					"PARAMETERTYPE" : "PreparedStatementCreator"
+				}, {
+					"PARAMETERNAME" : "pss",
+					"PARAMETERTYPE" : "BatchPreparedStatementSetter"
+				}, {
+					"PARAMETERNAME" : "generatedKeyHolder",
+					"PARAMETERTYPE" : "KeyHolder"
+				} ]
+			}, {
+				"METHODNAME" : "batchUpdate",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "IF", "EXPRESSION", "IF", "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 6,
+				"METHODRETURNTYPE" : "int[]",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				}, {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				} ],
+				"NUMBEROFMETHODLINES" : 6,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "pss",
+					"PARAMETERTYPE" : "BatchPreparedStatementSetter"
+				} ]
+			}, {
+				"METHODNAME" : "batchUpdate",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "int[]",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				}, {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "batchArgs",
+					"PARAMETERTYPE" : "List<Object[]>"
+				} ]
+			}, {
+				"METHODNAME" : "batchUpdate",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 7,
+				"METHODRETURNTYPE" : "int[]",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				}, {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				} ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "batchArgs",
+					"PARAMETERTYPE" : "List<Object[]>"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				} ]
+			}, {
+				"METHODNAME" : "batchUpdate",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "IF", "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 19,
+				"METHODRETURNTYPE" : "int[][]",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				}, {
+					"CALLEECLASS" : "BatchUpdateStatementCallback",
+					"CALLEEMETHODNAME" : "appendSql"
+				} ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "sql",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "batchArgs",
+					"PARAMETERTYPE" : "Collection<T>"
+				}, {
+					"PARAMETERNAME" : "batchSize",
+					"PARAMETERTYPE" : "int"
+				}, {
+					"PARAMETERNAME" : "pss",
+					"PARAMETERTYPE" : "ParameterizedPreparedStatementSetter<T>"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "IF", "EXPRESSION", "EXPRESSION", "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 22,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 6,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "csc",
+					"PARAMETERTYPE" : "CallableStatementCreator"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "CallableStatementCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "execute",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "callString",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "action",
+					"PARAMETERTYPE" : "CallableStatementCallback<T>"
+				} ]
+			}, {
+				"METHODNAME" : "call",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "LOOP", "EXPRESSION", "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 4,
+				"NUMBEROFOUTGOINGMETHODS" : 16,
+				"METHODRETURNTYPE" : "Map<String,Object>",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 7,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "csc",
+					"PARAMETERTYPE" : "CallableStatementCreator"
+				}, {
+					"PARAMETERNAME" : "declaredParameters",
+					"PARAMETERTYPE" : "List<SqlParameter>"
+				} ]
+			}, {
+				"METHODNAME" : "extractReturnedResults",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "EXPRESSION", "EXPRESSION", "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 4,
+				"NUMBEROFOUTGOINGMETHODS" : 25,
+				"METHODRETURNTYPE" : "Map<String,Object>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 6,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "cs",
+					"PARAMETERTYPE" : "CallableStatement"
+				}, {
+					"PARAMETERNAME" : "List<SqlParameter>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "List<SqlParameter>",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "updateCount",
+					"PARAMETERTYPE" : "int"
+				} ]
+			}, {
+				"METHODNAME" : "extractOutputParameters",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "LOOP", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 23,
+				"METHODRETURNTYPE" : "Map<String,Object>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 4,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "cs",
+					"PARAMETERTYPE" : "CallableStatement"
+				}, {
+					"PARAMETERNAME" : "parameters",
+					"PARAMETERTYPE" : "List<SqlParameter>"
+				} ]
+			}, {
+				"METHODNAME" : "processResultSet",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "IF", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 17,
+				"METHODRETURNTYPE" : "Map<String,Object>",
+				"METHODOVERRIDE" : [ "// See https://github.com/uber/NullAway/issues/950\r\n@SuppressWarnings(\"NullAway\")" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "ResultSet",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "param",
+					"PARAMETERTYPE" : "ResultSetSupportingSqlParameter"
+				} ]
+			}, {
+				"METHODNAME" : "getColumnMapRowMapper",
+				"NUMBEROFINCOMINGMETHODS" : 30,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "queryForMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForMap",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "RowMapper<Map<String,Object>>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "getSingleColumnRowMapper",
+				"NUMBEROFINCOMINGMETHODS" : 60,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForObject",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "RowMapper<T>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "requiredType",
+					"PARAMETERTYPE" : "Class<T>"
+				} ]
+			}, {
+				"METHODNAME" : "createResultsMap",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Map<String,Object>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "isResultsMapCaseInsensitive"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "applyStatementSettings",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "IF", "EXPRESSION", "IF", "EXPRESSION" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 7,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getFetchSize"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getMaxRows"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "getQueryTimeout"
+				} ],
+				"NUMBEROFMETHODLINES" : 5,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "stmt",
+					"PARAMETERTYPE" : "Statement"
+				} ]
+			}, {
+				"METHODNAME" : "newArgPreparedStatementSetter",
+				"NUMBEROFINCOMINGMETHODS" : 31,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForList",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForRowSet",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForRowSet",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "queryForRowSet",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "PreparedStatementSetter",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "newArgTypePreparedStatementSetter",
+				"NUMBEROFINCOMINGMETHODS" : 7,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "update",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "PreparedStatementSetter",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "Object",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "argTypes",
+					"PARAMETERTYPE" : "int[]"
+				} ]
+			}, {
+				"METHODNAME" : "handleWarnings",
+				"NUMBEROFINCOMINGMETHODS" : 6,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 5,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "handleWarnings"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "isIgnoreWarnings"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "handleWarnings"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "stmt",
+					"PARAMETERTYPE" : "Statement"
+				}, {
+					"PARAMETERNAME" : "ex",
+					"PARAMETERTYPE" : "SQLException"
+				} ]
+			}, {
+				"METHODNAME" : "handleWarnings",
+				"NUMBEROFINCOMINGMETHODS" : 6,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 10,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "handleWarnings"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "isIgnoreWarnings"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "handleWarnings"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "stmt",
+					"PARAMETERTYPE" : "Statement"
+				} ]
+			}, {
+				"METHODNAME" : "handleWarnings",
+				"NUMBEROFINCOMINGMETHODS" : 6,
+				"INCOMINGMETHOD" : [ {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				}, {
+					"CALLEDMETHODNAME" : "handleWarnings",
+					"CALLEDCLASS" : "JdbcTemplate"
+				} ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "handleWarnings"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "isIgnoreWarnings"
+				}, {
+					"CALLEECLASS" : "JdbcTemplate",
+					"CALLEEMETHODNAME" : "handleWarnings"
+				} ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "SQLWarning",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "translateException",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "protected" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "DataAccessException",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "task",
+					"PARAMETERTYPE" : "String"
+				}, {
+					"PARAMETERNAME" : "String",
+					"PARAMETERTYPE" : "@Nullable"
+				}, {
+					"PARAMETERNAME" : "ex",
+					"PARAMETERTYPE" : "SQLException"
+				} ]
+			}, {
+				"METHODNAME" : "getSql",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private", "static" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "String",
+				"METHODOVERRIDE" : [ "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "obj",
+					"PARAMETERTYPE" : "Object"
+				} ]
+			}, {
+				"METHODNAME" : "result",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private", "static" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "T",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "T",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "updateCount",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private", "static" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 2,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "Integer",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "storeGeneratedKeys",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "EXPRESSION", "IF" ],
+				"NUMBEROFMETHODVARIABLES" : 2,
+				"NUMBEROFOUTGOINGMETHODS" : 7,
+				"METHODRETURNTYPE" : "void",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "generatedKeyHolder",
+					"PARAMETERTYPE" : "KeyHolder"
+				}, {
+					"PARAMETERNAME" : "ps",
+					"PARAMETERTYPE" : "PreparedStatement"
+				}, {
+					"PARAMETERNAME" : "rowsExpected",
+					"PARAMETERTYPE" : "int"
+				} ]
+			}, {
+				"METHODNAME" : "getPreparedStatementCallback",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "private" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 18,
+				"METHODRETURNTYPE" : "PreparedStatementCallback<int[]>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "pss",
+					"PARAMETERTYPE" : "BatchPreparedStatementSetter"
+				}, {
+					"PARAMETERNAME" : "KeyHolder",
+					"PARAMETERTYPE" : "@Nullable"
+				} ]
+			}, {
+				"METHODNAME" : "invoke",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 9,
+				"METHODRETURNTYPE" : "Object",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "proxy",
+					"PARAMETERTYPE" : "Object"
+				}, {
+					"PARAMETERNAME" : "method",
+					"PARAMETERTYPE" : "Method"
+				}, {
+					"PARAMETERNAME" : "args",
+					"PARAMETERTYPE" : "Object[]"
+				} ]
+			}, {
+				"METHODNAME" : "createPreparedStatement",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "PreparedStatement",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "con",
+					"PARAMETERTYPE" : "Connection"
+				} ]
+			}, {
+				"METHODNAME" : "getSql",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "String",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "createCallableStatement",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "CallableStatement",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "con",
+					"PARAMETERTYPE" : "Connection"
+				} ]
+			}, {
+				"METHODNAME" : "getSql",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "String",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "extractData",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "EXPRESSION", "LOOP", "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 1,
+				"NUMBEROFOUTGOINGMETHODS" : 2,
+				"METHODRETURNTYPE" : "Object",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 3,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "rs",
+					"PARAMETERTYPE" : "ResultSet"
+				} ]
+			}, {
+				"METHODNAME" : "tryAdvance",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "OTHER" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 3,
+				"METHODRETURNTYPE" : "boolean",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ {
+					"PARAMETERNAME" : "super",
+					"PARAMETERTYPE" : "Consumer<?"
+				} ]
+			}, {
+				"METHODNAME" : "trySplit",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "Spliterator<T>",
+				"METHODOVERRIDE" : [ "@Override", "@Nullable" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "estimateSize",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "long",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "characteristics",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 0,
+				"METHODRETURNTYPE" : "int",
+				"METHODOVERRIDE" : [ "@Override" ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			}, {
+				"METHODNAME" : "stream",
+				"NUMBEROFINCOMINGMETHODS" : 0,
+				"INCOMINGMETHOD" : [ ],
+				"METHODMODIFIERTYPE" : [ "public" ],
+				"METHODBODYLINETYPE" : [ "RETURN" ],
+				"NUMBEROFMETHODVARIABLES" : 0,
+				"NUMBEROFOUTGOINGMETHODS" : 1,
+				"METHODRETURNTYPE" : "Stream<T>",
+				"METHODOVERRIDE" : [ ],
+				"OUTGOINGMETHOD" : [ ],
+				"NUMBEROFMETHODLINES" : 1,
+				"METHODPARAMETER" : [ ]
+			} ]
+		}
+	},
+	"design_pattern" : [ ],
+	"summary_NLG" : { }
+}

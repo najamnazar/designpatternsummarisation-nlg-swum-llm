@@ -1,0 +1,150 @@
+AbdurRKhalid_Abstract Factory|Application.java
+AbdurRKhalid_Abstract Factory|Button.java
+AbdurRKhalid_Abstract Factory|CheckBox.java
+AbdurRKhalid_Abstract Factory|GUIFactory.java
+AbdurRKhalid_Abstract Factory|MacOSButton.java
+AbdurRKhalid_Abstract Factory|MacOSCheckBox.java
+AbdurRKhalid_Abstract Factory|MacOSFactory.java
+AbdurRKhalid_Abstract Factory|Test.java
+AbdurRKhalid_Abstract Factory|WindowsButton.java
+AbdurRKhalid_Abstract Factory|WindowsCheckBox.java
+AbdurRKhalid_Abstract Factory|WindowsOSFactory.java
+AbdurRKhalid_Adapter|RoundHole.java
+AbdurRKhalid_Adapter|RoundPeg.java
+AbdurRKhalid_Adapter|SquarePeg.java
+AbdurRKhalid_Adapter|SquarePegAdapter.java
+AbdurRKhalid_Adapter|Test.java
+AbdurRKhalid_Decorator|CompressionDecorator.java
+AbdurRKhalid_Decorator|DataSource.java
+AbdurRKhalid_Decorator|DataSourceDecorator.java
+AbdurRKhalid_Decorator|EncryptionDecorator.java
+AbdurRKhalid_Decorator|FileDataSource.java
+AbdurRKhalid_Decorator|Test.java
+AbdurRKhalid_Facade|AudioMixer.java
+AbdurRKhalid_Facade|BitrateReader.java
+AbdurRKhalid_Facade|Codec.java
+AbdurRKhalid_Facade|CodecFactory.java
+AbdurRKhalid_Facade|MPEG4CompressionCodec.java
+AbdurRKhalid_Facade|OggCompressionCodec.java
+AbdurRKhalid_Facade|Test.java
+AbdurRKhalid_Facade|VideoConversionFacade.java
+AbdurRKhalid_Facade|VideoFile.java
+AbdurRKhalid_Factory Method|Button.java
+AbdurRKhalid_Factory Method|Dialog.java
+AbdurRKhalid_Factory Method|HtmlButton.java
+AbdurRKhalid_Factory Method|HtmlDialog.java
+AbdurRKhalid_Factory Method|Test.java
+AbdurRKhalid_Factory Method|WindowsButton.java
+AbdurRKhalid_Factory Method|WindowsDialog.java
+AbdurRKhalid_Memento|TextEditor.java
+AbdurRKhalid_Memento|TextWindow.java
+AbdurRKhalid_Memento|TextWindowState.java
+AbdurRKhalid_Observer|Editor.java
+AbdurRKhalid_Observer|EmailNotificationListener.java
+AbdurRKhalid_Observer|EventListener.java
+AbdurRKhalid_Observer|EventManager.java
+AbdurRKhalid_Observer|LogOpenListener.java
+AbdurRKhalid_Singleton|Singleton.java
+AbdurRKhalid_Singleton|Test.java
+AbdurRKhalid_Visitor|Computer.java
+AbdurRKhalid_Visitor|ComputerPart.java
+AbdurRKhalid_Visitor|ComputerPartDisplayVisitor.java
+AbdurRKhalid_Visitor|ComputerPartVisitor.java
+AbdurRKhalid_Visitor|Keyboard.java
+AbdurRKhalid_Visitor|Monitor.java
+AbdurRKhalid_Visitor|Mouse.java
+AbdurRKhalid_Visitor|Test.java
+JamesZBL_abstract-factory|Application.java
+JamesZBL_abstract-factory|Captain.java
+JamesZBL_abstract-factory|Member.java
+JamesZBL_abstract-factory|NewShip.java
+JamesZBL_abstract-factory|OldCaptain.java
+JamesZBL_abstract-factory|OldSailor.java
+JamesZBL_abstract-factory|OldShip.java
+JamesZBL_abstract-factory|PermanentTeamFactory.java
+JamesZBL_abstract-factory|Sailor.java
+JamesZBL_abstract-factory|Ship.java
+JamesZBL_abstract-factory|TeamFactory.java
+JamesZBL_abstract-factory|YoungCaptain.java
+JamesZBL_abstract-factory|YoungSailor.java
+JamesZBL_abstract-factory|YoungTeamFactory.java
+JamesZBL_adapter|Application.java
+JamesZBL_adapter|Bus.java
+JamesZBL_adapter|BusAdapter.java
+JamesZBL_adapter|Car.java
+JamesZBL_adapter|Driver.java
+JamesZBL_decorator|Application.java
+JamesZBL_decorator|CarpenterOperation.java
+JamesZBL_decorator|HammerSmithOperation.java
+JamesZBL_decorator|Operation.java
+JamesZBL_facade|Application.java
+JamesZBL_facade|CourseFacade.java
+JamesZBL_facade|CourseParticipator.java
+JamesZBL_facade|CourseStudent.java
+JamesZBL_facade|CourseTeacher.java
+JamesZBL_factory-method|Application.java
+JamesZBL_factory-method|ChineseCook.java
+JamesZBL_factory-method|ChineseFood.java
+JamesZBL_factory-method|Cook.java
+JamesZBL_factory-method|Food.java
+JamesZBL_factory-method|FoodType.java
+JamesZBL_factory-method|WesternCook.java
+JamesZBL_factory-method|WesternFood.java
+JamesZBL_memento|Application.java
+JamesZBL_memento|Flower.java
+JamesZBL_memento|FlowerType.java
+JamesZBL_memento|Plant.java
+JamesZBL_observer|Application.java
+JamesZBL_observer|Northern.java
+JamesZBL_observer|Southern.java
+JamesZBL_observer|Time.java
+JamesZBL_observer|TimeObserver.java
+JamesZBL_observer|TimePoint.java
+JamesZBL_singleton|Application.java
+JamesZBL_singleton|Director.java
+JamesZBL_singleton|EnumDirector.java
+JamesZBL_singleton|LazyInitializationDirector.java
+JamesZBL_singleton|ThreadSafeDoubleCheckLocking.java
+JamesZBL_singleton|ThreadSafeLazyLoadDirector.java
+JamesZBL_visitor|Application.java
+JamesZBL_visitor|Boss.java
+JamesZBL_visitor|BossVisitor.java
+JamesZBL_visitor|Engineer.java
+JamesZBL_visitor|EngineerVisitor.java
+JamesZBL_visitor|Manager.java
+JamesZBL_visitor|ManagerVisitor.java
+JamesZBL_visitor|Unit.java
+JamesZBL_visitor|UnitVisitor.java
+spring-framework-main_spring-aop|MethodBeforeAdviceAdapter.java
+spring-framework-main_spring-aop|ScopedProxyBeanDefinitionDecorator.java
+spring-framework-main_spring-beans|AutowireCapableBeanFactory.java
+spring-framework-main_spring-beans|BeanDefinitionVisitor.java
+spring-framework-main_spring-beans|BeanFactory.java
+spring-framework-main_spring-beans|DefaultListableBeanFactory.java
+spring-framework-main_spring-beans|DefaultSingletonBeanRegistry.java
+spring-framework-main_spring-beans|HierarchicalBeanFactory.java
+spring-framework-main_spring-beans|ListableBeanFactory.java
+spring-framework-main_spring-beans|SingletonBeanRegistry.java
+spring-framework-main_spring-beans|SmartInitializingSingleton.java
+spring-framework-main_spring-context-support|AdaptableJobFactory.java
+spring-framework-main_spring-context-support|CronTriggerFactoryBean.java
+spring-framework-main_spring-context-support|JobDetailFactoryBean.java
+spring-framework-main_spring-context-support|MethodInvokingJobDetailFactoryBean.java
+spring-framework-main_spring-context-support|SchedulerFactoryBean.java
+spring-framework-main_spring-context-support|SingletonSupplier.java
+spring-framework-main_spring-context|AbstractApplicationEventMulticaster.java
+spring-framework-main_spring-context|ApplicationEventPublisher.java
+spring-framework-main_spring-context|ApplicationListener.java
+spring-framework-main_spring-context|SimpleApplicationEventMulticaster.java
+spring-framework-main_spring-jdbc|IsolationLevelDataSourceAdapter.java
+spring-framework-main_spring-jdbc|JdbcTemplate.java
+spring-framework-main_spring-jms|JmsTemplate.java
+spring-framework-main_spring-tx|AbstractTransactionStatus.java
+spring-framework-main_spring-tx|SavepointManager.java
+spring-framework-main_spring-tx|TransactionTemplate.java
+spring-framework-main_spring-web|BufferingClientHttpResponseWrapper.java
+spring-framework-main_spring-web|ClientHttpRequestFactory.java
+spring-framework-main_spring-web|RestTemplate.java
+spring-framework-main_spring-webmvc|HttpRequestHandlerAdapter.java
+spring-framework-main_spring-webmvc|SimpleControllerHandlerAdapter.java
+spring-framework-main_spring-websocket|WebSocketHandlerDecorator.java

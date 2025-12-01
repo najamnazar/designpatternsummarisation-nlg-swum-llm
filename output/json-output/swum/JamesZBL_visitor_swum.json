@@ -1,0 +1,252 @@
+{
+  "project_name" : "summary_NLG",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953174,
+  "class_summaries" : {
+    "Boss" : {
+      "class_name" : "Boss",
+      "class_type" : "class",
+      "method_summaries" : {
+        "beVisited" : {
+          "method_name" : "beVisited",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE be Visited)"
+        },
+        "toString" : {
+          "method_name" : "toString",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs a string and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "String",
+          "swum_parse_tree" : "(NOUN_PHRASE to String)"
+        }
+      },
+      "swum_class_summary" : "The Boss class."
+    },
+    "Engineer" : {
+      "class_name" : "Engineer",
+      "class_type" : "class",
+      "method_summaries" : {
+        "beVisited" : {
+          "method_name" : "beVisited",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE be Visited)"
+        },
+        "toString" : {
+          "method_name" : "toString",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs a string and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "String",
+          "swum_parse_tree" : "(NOUN_PHRASE to String)"
+        }
+      },
+      "swum_class_summary" : "The Engineer class."
+    },
+    "ManagerVisitor" : {
+      "class_name" : "ManagerVisitor",
+      "class_type" : "class",
+      "method_summaries" : {
+        "visitEngineer" : {
+          "method_name" : "visitEngineer",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Engineer)"
+        },
+        "visitBoss" : {
+          "method_name" : "visitBoss",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Boss)"
+        },
+        "visitManager" : {
+          "method_name" : "visitManager",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Manager)"
+        }
+      },
+      "swum_class_summary" : "The ManagerVisitor class is part of the Visitor pattern."
+    },
+    "UnitVisitor" : {
+      "class_name" : "UnitVisitor",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "visitEngineer" : {
+          "method_name" : "visitEngineer",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Engineer)"
+        },
+        "visitBoss" : {
+          "method_name" : "visitBoss",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Boss)"
+        },
+        "visitManager" : {
+          "method_name" : "visitManager",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Manager)"
+        }
+      },
+      "swum_class_summary" : "The UnitVisitor class is part of the Visitor pattern."
+    },
+    "BossVisitor" : {
+      "class_name" : "BossVisitor",
+      "class_type" : "class",
+      "method_summaries" : {
+        "visitEngineer" : {
+          "method_name" : "visitEngineer",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Engineer)"
+        },
+        "visitBoss" : {
+          "method_name" : "visitBoss",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Boss)"
+        },
+        "visitManager" : {
+          "method_name" : "visitManager",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Manager)"
+        }
+      },
+      "swum_class_summary" : "The BossVisitor class is part of the Visitor pattern."
+    },
+    "EngineerVisitor" : {
+      "class_name" : "EngineerVisitor",
+      "class_type" : "class",
+      "method_summaries" : {
+        "visitEngineer" : {
+          "method_name" : "visitEngineer",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Engineer)"
+        },
+        "visitBoss" : {
+          "method_name" : "visitBoss",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Boss)"
+        },
+        "visitManager" : {
+          "method_name" : "visitManager",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Manager)"
+        }
+      },
+      "swum_class_summary" : "The EngineerVisitor class is part of the Visitor pattern."
+    },
+    "Manager" : {
+      "class_name" : "Manager",
+      "class_type" : "class",
+      "method_summaries" : {
+        "beVisited" : {
+          "method_name" : "beVisited",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE be Visited)"
+        },
+        "toString" : {
+          "method_name" : "toString",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs a string and returns a String.",
+          "swum_actions" : "",
+          "swum_objects" : "String",
+          "swum_parse_tree" : "(NOUN_PHRASE to String)"
+        }
+      },
+      "swum_class_summary" : "The Manager class."
+    },
+    "Unit" : {
+      "class_name" : "Unit",
+      "class_type" : "class",
+      "method_summaries" : {
+        "beVisited" : {
+          "method_name" : "beVisited",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE be Visited)"
+        }
+      },
+      "swum_class_summary" : "The Unit class."
+    },
+    "Application" : {
+      "class_name" : "Application",
+      "class_type" : "class",
+      "method_summaries" : {
+        "main" : {
+          "method_name" : "main",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE main)"
+        }
+      },
+      "swum_class_summary" : "The Application class."
+    }
+  },
+  "swum_project_summary" : "This software project contains 9 classes with 20 methods. Key objects manipulated are String.",
+  "design_patterns" : [ ]
+}

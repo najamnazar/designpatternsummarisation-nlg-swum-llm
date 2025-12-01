@@ -1,0 +1,50 @@
+{
+  "project_name" : "summary_NLG",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953468,
+  "class_summaries" : {
+    "MethodBeforeAdviceAdapter" : {
+      "class_name" : "MethodBeforeAdviceAdapter",
+      "class_type" : "class",
+      "method_summaries" : {
+        "supportsAdvice" : {
+          "method_name" : "supportsAdvice",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Adapter pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE supports Advice)"
+        },
+        "getInterceptor" : {
+          "method_name" : "getInterceptor",
+          "return_type" : "MethodInterceptor",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Adapter pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Interceptor))"
+        }
+      },
+      "swum_class_summary" : "The MethodBeforeAdviceAdapter class is part of the Adapter pattern and provides methods to get for managing method, adapter."
+    },
+    "ScopedProxyBeanDefinitionDecorator" : {
+      "class_name" : "ScopedProxyBeanDefinitionDecorator",
+      "class_type" : "class",
+      "method_summaries" : {
+        "decorate" : {
+          "method_name" : "decorate",
+          "return_type" : "BeanDefinitionHolder",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Decorator pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE decorate)"
+        }
+      },
+      "swum_class_summary" : "The ScopedProxyBeanDefinitionDecorator class is part of the Decorator pattern."
+    }
+  },
+  "swum_project_summary" : "This software project contains 2 classes with 3 methods. Primary operations include get.",
+  "design_patterns" : [ ]
+}

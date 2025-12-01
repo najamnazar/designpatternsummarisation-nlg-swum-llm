@@ -1,0 +1,84 @@
+{
+  "project_name" : "Memento",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1764555953037,
+  "class_summaries" : {
+    "TextEditor" : {
+      "class_name" : "TextEditor",
+      "class_type" : "class",
+      "method_summaries" : {
+        "hitSave" : {
+          "method_name" : "hitSave",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method saves.",
+          "swum_actions" : "Save",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT hit) Save)"
+        },
+        "hitUndo" : {
+          "method_name" : "hitUndo",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE hit Undo)"
+        }
+      },
+      "swum_class_summary" : "The TextEditor class and provides methods to save for managing text."
+    },
+    "TextWindow" : {
+      "class_name" : "TextWindow",
+      "class_type" : "class",
+      "method_summaries" : {
+        "addText" : {
+          "method_name" : "addText",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method adds a text.",
+          "swum_actions" : "add",
+          "swum_objects" : "Text",
+          "swum_parse_tree" : "(VERB_PHRASE add (OBJECT Text))"
+        },
+        "save" : {
+          "method_name" : "save",
+          "return_type" : "TextWindowState",
+          "parameters" : "",
+          "swum_summary" : "This method saves and returns an object.",
+          "swum_actions" : "save",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE save)"
+        },
+        "restore" : {
+          "method_name" : "restore",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE restore)"
+        }
+      },
+      "swum_class_summary" : "The TextWindow class and provides methods to add, save for managing text, window."
+    },
+    "TextWindowState" : {
+      "class_name" : "TextWindowState",
+      "class_type" : "class",
+      "method_summaries" : {
+        "getText" : {
+          "method_name" : "getText",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves a text and returns a String.",
+          "swum_actions" : "get",
+          "swum_objects" : "Text",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Text))"
+        }
+      },
+      "swum_class_summary" : "The TextWindowState class and provides methods to get for managing text, window."
+    }
+  },
+  "swum_project_summary" : "This software project contains 3 classes with 6 methods. Primary operations include Save, add, get, save. Key objects manipulated are Text.",
+  "design_patterns" : [ ]
+}
