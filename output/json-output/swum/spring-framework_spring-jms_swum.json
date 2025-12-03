@@ -1,7 +1,7 @@
 {
   "project_name" : "spring-jms",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953581,
+  "generated_timestamp" : 1764651605752,
   "class_summaries" : {
     "JmsTemplate" : {
       "class_name" : "JmsTemplate",

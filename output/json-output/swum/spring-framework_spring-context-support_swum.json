@@ -1,7 +1,7 @@
 {
   "project_name" : "summary_NLG",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953517,
+  "generated_timestamp" : 1764651605706,
   "class_summaries" : {
     "CronTriggerFactoryBean" : {
       "class_name" : "CronTriggerFactoryBean",

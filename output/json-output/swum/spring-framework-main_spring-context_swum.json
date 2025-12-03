@@ -1,7 +1,7 @@
 {
   "project_name" : "summary_NLG",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953347,
+  "generated_timestamp" : 1764651605554,
   "class_summaries" : {
     "SimpleApplicationEventMulticaster" : {
       "class_name" : "SimpleApplicationEventMulticaster",

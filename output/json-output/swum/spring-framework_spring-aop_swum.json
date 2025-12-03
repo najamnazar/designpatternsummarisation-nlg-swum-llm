@@ -1,7 +1,7 @@
 {
   "project_name" : "summary_NLG",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953468,
+  "generated_timestamp" : 1764651605661,
   "class_summaries" : {
     "MethodBeforeAdviceAdapter" : {
       "class_name" : "MethodBeforeAdviceAdapter",

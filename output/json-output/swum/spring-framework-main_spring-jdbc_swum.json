@@ -1,7 +1,7 @@
 {
   "project_name" : "spring-jdbc",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953365,
+  "generated_timestamp" : 1764651605570,
   "class_summaries" : {
     "IsolationLevelDataSourceAdapter" : {
       "class_name" : "IsolationLevelDataSourceAdapter",

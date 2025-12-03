@@ -1,7 +1,7 @@
 {
   "project_name" : "spring-tx",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953593,
+  "generated_timestamp" : 1764651605763,
   "class_summaries" : {
     "SavepointManager" : {
       "class_name" : "SavepointManager",

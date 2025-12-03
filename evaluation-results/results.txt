@@ -1,327 +1,37 @@
-================================================================================
-DESIGN PATTERN SUMMARIZER - DETAILED EVALUATION RESULTS
-================================================================================
+============================================================
+OVERALL ANALYSIS
+============================================================
 
-Evaluation Date: December 1, 2025
-Evaluation Type: Generated Summaries vs Human-Written Summaries
+ method  projects_evaluated  classes_evaluated avg_cosine avg_bert_precision avg_bert_recall avg_bert_f1 combined_score cosine_std bert_f1_std
+    NLG                   3                148     0.1647             0.8268          0.8564      0.8409         0.5028     0.0774      0.0239
+   SWUM                   3                148     0.2369             0.8778          0.8585      0.8674         0.5522     0.1096      0.0234
+dps_llm                   3                148     0.3327             0.8611          0.8906      0.8755         0.6041     0.1193      0.0178
 
-This evaluation compares three automatic summary generation methods (NLG, SWUM, 
-and LLM) against human-written summaries from the DPS Human Summaries dataset.
+Detailed Metrics by Method:
 
-================================================================================
-OVERALL SUMMARY
-================================================================================
+NLG
+  Projects Evaluated: 3
+  Classes Evaluated: 148
+  Avg Cosine Similarity: 0.1647
+  Avg BERT Precision: 0.8268
+  Avg BERT Recall: 0.8564
+  Avg BERT F1: 0.8409
+  Combined Score: 0.5028
 
-Total Classes Evaluated: 148
-Human Summaries Used: 150 unique entries
-Methods Compared: NLG, SWUM, LLM
+SWUM
+  Projects Evaluated: 3
+  Classes Evaluated: 148
+  Avg Cosine Similarity: 0.2369
+  Avg BERT Precision: 0.8778
+  Avg BERT Recall: 0.8585
+  Avg BERT F1: 0.8674
+  Combined Score: 0.5522
 
-Performance Ranking (by Combined Score):
-1. LLM   - 0.6041 (Best)
-2. SWUM  - 0.5522
-3. NLG   - 0.5028
-
-================================================================================
-SUMMARY SCORES: GENERATED vs HUMAN
-================================================================================
-
-NLG vs Human:
-  Cosine Similarity:    0.1647 ± 0.0774
-  BERT Precision:       0.8268
-  BERT Recall:          0.8564
-  BERT F1:              0.8409 ± 0.0239
-  Combined Score:       0.5028
-
-SWUM vs Human:
-  Cosine Similarity:    0.2369 ± 0.1096
-  BERT Precision:       0.8778
-  BERT Recall:          0.8585
-  BERT F1:              0.8674 ± 0.0234
-  Combined Score:       0.5522
-
-LLM vs Human:
-  Cosine Similarity:    0.3327 ± 0.1193
-  BERT Precision:       0.8611
-  BERT Recall:          0.8906
-  BERT F1:              0.8755 ± 0.0178
-  Combined Score:       0.6041
-
-================================================================================
-METHOD 1: NLG (Natural Language Generation)
-================================================================================
-
-Classes Evaluated: 148
-Projects Evaluated: 3
-
-METRICS:
---------
-Cosine Similarity:
-  Average:  0.1647
-  Std Dev:  0.0774
-  
-BERT Score:
-  Precision: 0.8268
-  Recall:    0.8564
-  F1 Score:  0.8409
-  Std Dev:   0.0239
-
-Combined Score (Avg of Cosine & BERT F1): 0.5028
-
-ANALYSIS:
----------
-NLG shows the lowest cosine similarity (0.1647), indicating that the vocabulary
-and word choice differ significantly from human summaries. However, it achieves
-decent BERT scores (0.84), suggesting semantic similarity despite lexical 
-differences. The low combined score reflects that NLG-generated summaries use
-different phrasing than humans would naturally write.
-
-TOP 5 CLASSES BY BERT F1:
-1. TextWindowState.java (AbdurRKhalid) - F1: 0.8850
-2. OggCompressionCodec.java (AbdurRKhalid) - F1: 0.8804
-3. RoundPeg.java (AbdurRKhalid) - F1: 0.8790
-4. EmailNotificationListener.java (AbdurRKhalid) - F1: 0.8785
-5. TimeObserver.java (JamesZBL) - F1: 0.8785
-
-BOTTOM 5 CLASSES BY BERT F1:
-1. JmsTemplate (Spring Framework) - F1: 0.7819
-2. JDBCTemplate (Spring Framework) - F1: 0.7834
-3. Application.java (JamesZBL) - F1: 0.7872
-4. BeanDefinitionVisitor (Spring Framework) - F1: 0.7903
-5. RestTemplate (Spring Framework) - F1: 0.7954
-
-================================================================================
-METHOD 2: SWUM (Software Word Use Model)
-================================================================================
-
-Classes Evaluated: 148
-Projects Evaluated: 3
-
-METRICS:
---------
-Cosine Similarity:
-  Average:  0.2369
-  Std Dev:  0.1096
-  
-BERT Score:
-  Precision: 0.8778
-  Recall:    0.8585
-  F1 Score:  0.8674
-  Std Dev:   0.0234
-
-Combined Score (Avg of Cosine & BERT F1): 0.5522
-
-ANALYSIS:
----------
-SWUM achieves moderate cosine similarity (0.2369), showing better lexical 
-alignment with human summaries than NLG. The highest BERT precision (0.8778)
-indicates SWUM summaries contain accurate information, though recall is slightly
-lower. SWUM's strength lies in extracting and describing software concepts using
-natural programming terminology, resulting in more human-like descriptions.
-
-TOP 5 CLASSES BY BERT F1:
-1. Time.java (JamesZBL) - F1: 0.9084
-2. Monitor.java (AbdurRKhalid) - F1: 0.9063
-3. EventManager.java (AbdurRKhalid) - F1: 0.9058
-4. Keyboard.java (AbdurRKhalid) - F1: 0.9051
-5. ComputerPartDisplayVisitor.java (AbdurRKhalid) - F1: 0.9050
-
-BOTTOM 5 CLASSES BY BERT F1:
-1. JmsTemplate (Spring Framework) - F1: 0.7723
-2. DefaultListableBeanFactory (Spring Framework) - F1: 0.7827
-3. JDBCTemplate (Spring Framework) - F1: 0.7834
-4. RestTemplate (Spring Framework) - F1: 0.8007
-5. SchedulerFactoryBean (Spring Framework) - F1: 0.8193
-
-================================================================================
-METHOD 3: LLM (Large Language Model)
-================================================================================
-
-Classes Evaluated: 148
-Projects Evaluated: 3
-
-METRICS:
---------
-Cosine Similarity:
-  Average:  0.3327
-  Std Dev:  0.1193
-  
-BERT Score:
-  Precision: 0.8611
-  Recall:    0.8906
-  F1 Score:  0.8755
-  Std Dev:   0.0178
-
-Combined Score (Avg of Cosine & BERT F1): 0.6041
-
-ANALYSIS:
----------
-LLM demonstrates the highest performance across all metrics. With the best 
-cosine similarity (0.3327), LLM-generated summaries use vocabulary and phrasing
-closest to human writers. The balanced BERT scores (precision: 0.8611, recall:
-0.8906) indicate comprehensive and accurate summaries. LLM's ability to 
-understand context and generate natural language explanations makes it the most
-effective method for producing human-like design pattern summaries.
-
-TOP 5 CLASSES BY BERT F1:
-1. TextWindowState.java (AbdurRKhalid) - F1: 0.9097
-2. UnitVisitor.java (JamesZBL) - F1: 0.9095
-3. TimeObserver.java (JamesZBL) - F1: 0.9069
-4. Plant.java (JamesZBL) - F1: 0.9035
-5. TeamFactory.java (JamesZBL) - F1: 0.9020
-
-BOTTOM 5 CLASSES BY BERT F1:
-1. Application.java (JamesZBL) - F1: 0.8246
-2. Application.java (JamesZBL) - F1: 0.8301
-3. Test.java (AbdurRKhalid) - F1: 0.8314
-4. Application.java (JamesZBL) - F1: 0.8348
-5. Application.java (JamesZBL) - F1: 0.8366
-
-================================================================================
-COMPARATIVE ANALYSIS
-================================================================================
-
-COSINE SIMILARITY COMPARISON:
-------------------------------
-LLM:   0.3327  ████████████████████ (Best - 102% higher than NLG)
-SWUM:  0.2369  ██████████████       (44% higher than NLG)
-NLG:   0.1647  ██████████           (Baseline)
-
-BERT F1 COMPARISON:
--------------------
-LLM:   0.8755  █████████████████    (Best - 4.1% higher than NLG)
-SWUM:  0.8674  ████████████████     (3.2% higher than NLG)
-NLG:   0.8409  ███████████████      (Baseline)
-
-COMBINED SCORE COMPARISON:
---------------------------
-LLM:   0.6041  ████████████████████ (Best - 20.1% higher than NLG)
-SWUM:  0.5522  ██████████████████   (9.8% higher than NLG)
-NLG:   0.5028  ████████████████     (Baseline)
-
-================================================================================
-PROJECT-LEVEL BREAKDOWN
-================================================================================
-
-AbdurRKhalid Project (55 classes):
-  - NLG:  Avg Cosine: 0.1863, Avg BERT F1: 0.8502, Combined: 0.5182
-  - SWUM: Avg Cosine: 0.2802, Avg BERT F1: 0.8769, Combined: 0.5785
-  - LLM:  Avg Cosine: 0.3750, Avg BERT F1: 0.8787, Combined: 0.6268
-
-JamesZBL Project (60 classes):
-  - NLG:  Avg Cosine: 0.1956, Avg BERT F1: 0.8429, Combined: 0.5192
-  - SWUM: Avg Cosine: 0.2548, Avg BERT F1: 0.8654, Combined: 0.5601
-  - LLM:  Avg Cosine: 0.3479, Avg BERT F1: 0.8759, Combined: 0.6119
-
-Spring Framework Project (33 classes):
-  - NLG:  Avg Cosine: 0.0727, Avg BERT F1: 0.8220, Combined: 0.4473
-  - SWUM: Avg Cosine: 0.1324, Avg BERT F1: 0.8552, Combined: 0.4938
-  - LLM:  Avg Cosine: 0.2347, Avg BERT F1: 0.8694, Combined: 0.5521
-
-================================================================================
-KEY FINDINGS
-================================================================================
-
-1. LLM SUPERIORITY IN LEXICAL ALIGNMENT:
-   LLM achieves 2x the cosine similarity of NLG, demonstrating superior
-   vocabulary and phrasing alignment with human-written summaries.
-
-2. SWUM'S PRECISION ADVANTAGE:
-   SWUM has the highest BERT precision (0.8778), indicating highly accurate
-   information extraction despite lower lexical similarity.
-
-3. PERFORMANCE VARIES BY PROJECT COMPLEXITY:
-   All methods perform better on academic examples (AbdurRKhalid, JamesZBL)
-   than on enterprise code (Spring Framework), with cosine scores dropping
-   significantly for Spring Framework classes.
-
-4. SEMANTIC vs LEXICAL GAP:
-   The gap between BERT scores (0.84-0.88) and cosine similarity (0.16-0.33)
-   highlights that all methods capture semantic meaning but differ in word
-   choice and phrasing style.
-
-5. LLM'S BALANCED APPROACH:
-   LLM achieves the best balance between lexical similarity and semantic
-   accuracy, making it most suitable for generating human-like summaries.
-
-6. DUPLICATE HANDLING:
-   20 duplicate filename entries across projects (e.g., Test.java, 
-   Application.java) were matched using positional indexing, ensuring
-   1-to-1 alignment between human and generated summaries.
-
-================================================================================
-RECOMMENDATIONS
-================================================================================
-
-FOR AUTOMATED DOCUMENTATION:
-- Use LLM for generating documentation that will be read by humans
-- LLM summaries require minimal post-editing
-
-FOR CODE ANALYSIS TOOLS:
-- SWUM is effective for internal tools where precision matters most
-- Higher BERT precision makes SWUM reliable for automated analysis
-
-FOR ENTERPRISE CODE:
-- All methods struggle with complex Spring Framework classes
-- Consider hybrid approach: LLM for high-level + SWUM for technical details
-
-FOR RESEARCH & COMPARISON:
-- NLG provides a baseline for evaluating newer approaches
-- Useful for understanding minimum viable summary generation
-
-HYBRID APPROACH:
-- Combine methods: Use LLM for high-level descriptions and SWUM
-  for technical details and method-level documentation
-
-================================================================================
-METHODOLOGY
-================================================================================
-
-Evaluation Metrics:
-1. Cosine Similarity: Measures lexical overlap using TF-IDF vectors
-2. BERT Score: Measures semantic similarity using contextual embeddings
-   - Precision: Accuracy of generated content
-   - Recall: Coverage of human-written content
-   - F1: Harmonic mean of precision and recall
-3. Combined Score: Average of Cosine Similarity and BERT F1
-
-Dataset:
-- Human Summaries: 150 manually written summaries of design pattern classes
-- Generated Summaries: 150 automatically generated summaries per method
-- Matched Pairs: 148 (1-to-1 alignment with duplicate filename handling)
-
-Projects:
-- AbdurRKhalid: 55 classes - Design pattern examples
-- JamesZBL: 60 classes - Additional pattern implementations
-- Spring Framework: 33 classes - Real-world enterprise patterns
-
-Normalization:
-- Project identifiers normalized to lowercase with hyphen separators
-- Filename extensions removed for matching
-- Duplicate filenames matched using positional indexing
-
-================================================================================
-FILES GENERATED
-================================================================================
-
-CSV Files (Class-Level Scores):
-- nlg_vs_human_class_scores.csv   (148 rows)
-- swum_vs_human_class_scores.csv  (148 rows)
-- llm_vs_human_class_scores.csv   (148 rows)
-
-CSV Files (Project-Level Aggregates):
-- nlg_vs_human_project_scores.csv  (3 projects)
-- swum_vs_human_project_scores.csv (3 projects)
-- llm_vs_human_project_scores.csv  (3 projects)
-
-Summary Files:
-- overall_comparison.csv          (Method comparison)
-- evaluation_summary.txt          (Concise summary)
-- results.txt                     (This detailed report)
-
-Visualizations:
-- methods_comparison.png          (All metrics by method)
-- metrics_comparison.png          (Cosine vs BERT F1)
-
-================================================================================
-END OF REPORT
-================================================================================
+dps_llm (Mixtral-8x22B)
+  Projects Evaluated: 3
+  Classes Evaluated: 148
+  Avg Cosine Similarity: 0.3327
+  Avg BERT Precision: 0.8611
+  Avg BERT Recall: 0.8906
+  Avg BERT F1: 0.8755
+  Combined Score: 0.6041

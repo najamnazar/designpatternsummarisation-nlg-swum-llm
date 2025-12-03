@@ -5,24 +5,24 @@ EVALUATION SUMMARY: Generated vs Human Summaries
 
 NLG:
   Classes Evaluated: 148
-  Avg Cosine Similarity: 0.1647 (±0.0774)
+  Avg Cosine Similarity: 0.1647 (Â±0.0774)
   Avg BERT Precision: 0.8268
   Avg BERT Recall: 0.8564
-  Avg BERT F1: 0.8409 (±0.0239)
+  Avg BERT F1: 0.8409 (Â±0.0239)
   Combined Score: 0.5028
 
 SWUM:
   Classes Evaluated: 148
-  Avg Cosine Similarity: 0.2369 (±0.1096)
+  Avg Cosine Similarity: 0.2369 (Â±0.1096)
   Avg BERT Precision: 0.8778
   Avg BERT Recall: 0.8585
-  Avg BERT F1: 0.8674 (±0.0234)
+  Avg BERT F1: 0.8674 (Â±0.0234)
   Combined Score: 0.5522
 
-LLM:
+dps_llm (Mixtral-8x22B):
   Classes Evaluated: 148
-  Avg Cosine Similarity: 0.3327 (±0.1193)
+  Avg Cosine Similarity: 0.3327 (Â±0.1193)
   Avg BERT Precision: 0.8611
   Avg BERT Recall: 0.8906
-  Avg BERT F1: 0.8755 (±0.0178)
+  Avg BERT F1: 0.8755 (Â±0.0178)
   Combined Score: 0.6041

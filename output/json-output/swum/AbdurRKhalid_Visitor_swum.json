@@ -1,7 +1,7 @@
 {
   "project_name" : "Visitor",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953062,
+  "generated_timestamp" : 1764651605368,
   "class_summaries" : {
     "ComputerPart" : {
       "class_name" : "ComputerPart",

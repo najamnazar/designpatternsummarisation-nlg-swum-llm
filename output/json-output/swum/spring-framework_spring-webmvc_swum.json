@@ -1,7 +1,7 @@
 {
   "project_name" : "spring-webmvc",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953616,
+  "generated_timestamp" : 1764651605786,
   "class_summaries" : {
     "HttpRequestHandlerAdapter" : {
       "class_name" : "HttpRequestHandlerAdapter",

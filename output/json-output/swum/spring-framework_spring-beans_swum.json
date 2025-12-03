@@ -1,7 +1,7 @@
 {
   "project_name" : "spring-beans",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953489,
+  "generated_timestamp" : 1764651605681,
   "class_summaries" : {
     "SmartInitializingSingleton" : {
       "class_name" : "SmartInitializingSingleton",

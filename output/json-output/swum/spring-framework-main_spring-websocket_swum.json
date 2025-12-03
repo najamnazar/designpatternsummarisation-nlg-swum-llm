@@ -1,7 +1,7 @@
 {
   "project_name" : "summary_NLG",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764555953459,
+  "generated_timestamp" : 1764651605651,
   "class_summaries" : {
     "WebSocketHandlerDecorator" : {
       "class_name" : "WebSocketHandlerDecorator",
