@@ -1,0 +1,72 @@
+**********************
+PowerShell transcript start
+Start time: 20251205170007
+Username: NAJAM\najam
+RunAs User: NAJAM\najam
+Configuration Name: 
+Machine: NAJAM (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\najam\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 23376
+PSVersion: 7.5.4
+PSEdition: Core
+GitCommitId: 7.5.4
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is d:/repo/designpatternsummariser/evaluation-results/ranking_console_output.txt
+======================================================================
+
+Ranking Summary by Criterion:
+----------------------------------------------------------------------
+(Shows how often each corpus ranked 1st, 2nd, or 3rd for each criterion)
+
+ACCURACY:
+  Corpus A: 1 first, 89 second, 59 third
+  Corpus B: 139 first, 0 second, 10 third
+  Corpus C: 9 first, 60 second, 80 third
+
+CONCISENESS:
+  Corpus A: 91 first, 18 second, 40 third
+  Corpus B: 55 first, 5 second, 89 third
+  Corpus C: 3 first, 126 second, 20 third
+
+ADEQUACY:
+  Corpus A: 7 first, 100 second, 42 third
+  Corpus B: 142 first, 4 second, 3 third
+  Corpus C: 0 first, 45 second, 104 third
+
+CODE_CONTEXT:
+  Corpus A: 2 first, 91 second, 56 third
+  Corpus B: 142 first, 3 second, 4 third
+  Corpus C: 5 first, 55 second, 89 third
+
+DESIGN_PATTERNS:
+  Corpus A: 8 first, 102 second, 37 third
+  Corpus B: 128 first, 1 second, 18 third
+  Corpus C: 11 first, 44 second, 92 third
+
+----------------------------------------------------------------------
+Overall Average Points (3=1st, 2=2nd, 1=3rd per criterion):
+  Corpus A: 1.83
+  Corpus B: 2.64
+  Corpus C: 1.52
+
+----------------------------------------------------------------------
+Winner Distribution:
+  B: 132/149 (88.6%)
+  C: 5/149 (3.4%)
+  B, C: 5/149 (3.4%)
+  A: 5/149 (3.4%)
+  A, B: 2/149 (1.3%)
+
+----------------------------------------------------------------------
+Entries skipped due to missing summaries: 1
+  A, B, C: 1
+**********************
+PowerShell transcript end
+End time: 20251205172758
+**********************

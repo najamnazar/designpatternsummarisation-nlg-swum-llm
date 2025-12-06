@@ -25,11 +25,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 from transformers import logging as hf_logging
 
 try:
-    import requests
-except ImportError:
-    requests = None
-
-try:
     from dotenv import load_dotenv
     # Load .env file from project root (parent directory of python/)
     env_path = Path(__file__).parent.parent / '.env'
@@ -117,166 +112,6 @@ class MetricsCalculator:
         except Exception as exc:  # noqa: BLE001 - propagate with context
             raise RuntimeError("BERTScore computation failed") from exc
         return precision.cpu().numpy(), recall.cpu().numpy(), f1.cpu().numpy()
-
-
-class LLMRanker:
-    """Uses Llama3 via OpenRouter API to rank generated summaries against human references."""
-
-    def __init__(self, api_key: Optional[str] = None, model: str = "meta-llama/llama-3.1-70b-instruct") -> None:
-        self.api_key = api_key or os.getenv("OPENROUTER_API_KEY")
-        self.model = model
-        self.base_url = "https://openrouter.ai/api/v1/chat/completions"
-        self._availability_checked = False
-        
-        # Don't print warnings here - will be handled when is_available() is called
-
-    def is_available(self) -> bool:
-        """Check if the ranker can be used."""
-        available = bool(self.api_key and requests)
-        
-        if not self._availability_checked:
-            self._availability_checked = True
-            if not self.api_key:
-                print("\nINFO: OPENROUTER_API_KEY not found. LLM ranking will be skipped.")
-                print("      To enable ranking, set OPENROUTER_API_KEY in .env file or environment.")
-            elif requests is None:
-                print("\nINFO: 'requests' library not installed. LLM ranking will be skipped.")
-                print("      Install with: pip install requests")
-        
-        return available
-
-    def rank_summaries(
-        self,
-        human_summary: str,
-        nlg_summary: str,
-        swum_summary: str,
-        llm_summary: str,
-        filename: str = "",
-    ) -> Dict[str, any]:
-        """
-        Ask Llama3 to rank the three generated summaries (NLG, SWUM, LLM) against the human reference.
-        
-        Returns a dict with:
-            - ranking: List[str] - Ordered list of methods from best to worst (e.g., ['LLM', 'SWUM', 'NLG'])
-            - reasoning: str - LLM's explanation for the ranking
-            - error: Optional[str] - Error message if ranking failed
-        """
-        if not self.is_available():
-            return {"ranking": [], "reasoning": "LLM ranking not available", "error": "API key or requests library missing"}
-
-        prompt = self._build_ranking_prompt(human_summary, nlg_summary, swum_summary, llm_summary, filename)
-        
-        try:
-            headers = {
-                "Authorization": f"Bearer {self.api_key}",
-                "Content-Type": "application/json",
-            }
-            
-            payload = {
-                "model": self.model,
-                "messages": [
-                    {"role": "user", "content": prompt}
-                ],
-                "temperature": 0.1,  # Low temperature for consistency
-                "max_tokens": 512,
-            }
-            
-            response = requests.post(self.base_url, json=payload, headers=headers, timeout=30)
-            response.raise_for_status()
-            
-            result = response.json()
-            content = result["choices"][0]["message"]["content"].strip()
-            
-            # Parse the ranking from the response
-            ranking, reasoning = self._parse_ranking_response(content)
-            
-            return {
-                "ranking": ranking,
-                "reasoning": reasoning,
-                "error": None,
-            }
-            
-        except Exception as exc:
-            return {
-                "ranking": [],
-                "reasoning": "",
-                "error": str(exc),
-            }
-
-    def _build_ranking_prompt(
-        self,
-        human_summary: str,
-        nlg_summary: str,
-        swum_summary: str,
-        llm_summary: str,
-        filename: str,
-    ) -> str:
-        """Build the prompt for ranking summaries."""
-        file_info = f" for the class '{filename}'" if filename else ""
-        
-        return f"""You are an expert code documentation evaluator. Given a human-written reference summary and three automatically generated summaries{file_info}, rank the generated summaries from BEST to WORST based on their similarity to the human reference.
-
-Consider:
-1. Semantic similarity - Does it capture the same meaning?
-2. Completeness - Does it cover the key points?
-3. Accuracy - Is the information correct?
-4. Clarity - Is it well-expressed?
-
-**Human Reference Summary:**
-{human_summary}
-
-**Generated Summary A (NLG):**
-{nlg_summary}
-
-**Generated Summary B (SWUM):**
-{swum_summary}
-
-**Generated Summary C (LLM):**
-{llm_summary}
-
-Provide your ranking in this exact format:
-RANKING: [First, Second, Third]
-REASONING: Your brief explanation
-
-Example:
-RANKING: [LLM, SWUM, NLG]
-REASONING: LLM captures all key concepts with proper context. SWUM identifies main patterns but lacks detail. NLG misses the design pattern context."""
-
-    def _parse_ranking_response(self, content: str) -> Tuple[List[str], str]:
-        """Parse the LLM's ranking response."""
-        ranking = []
-        reasoning = ""
-        
-        lines = content.split('\n')
-        for i, line in enumerate(lines):
-            if line.strip().startswith("RANKING:"):
-                # Extract ranking list
-                ranking_str = line.split("RANKING:", 1)[1].strip()
-                # Parse [First, Second, Third] format
-                ranking_str = ranking_str.strip('[]')
-                ranking = [r.strip() for r in ranking_str.split(',')]
-            elif line.strip().startswith("REASONING:"):
-                # Get reasoning - may span multiple lines
-                reasoning = line.split("REASONING:", 1)[1].strip()
-                # Collect remaining lines as part of reasoning
-                if i + 1 < len(lines):
-                    reasoning += ' ' + ' '.join(lines[i+1:])
-                break
-        
-        # Validate ranking contains expected methods
-        valid_methods = {'NLG', 'SWUM', 'LLM'}
-        if not ranking or not all(r.upper() in valid_methods for r in ranking):
-            # Fallback parsing - look for method names in order
-            content_upper = content.upper()
-            ranking = []
-            for method in ['NLG', 'SWUM', 'LLM']:
-                if method in content_upper:
-                    idx = content_upper.index(method)
-                    ranking.append((idx, method))
-            ranking.sort()
-            ranking = [m for _, m in ranking]
-        
-        return ranking, reasoning.strip()
 
 
 class SummaryDataLoader:
@@ -662,7 +497,6 @@ class SummaryEvaluationPipeline:
         self.loader = SummaryDataLoader()
         self.metrics = MetricsCalculator()
         self.visualizer = VisualizationManager(self.metrics)
-        self.llm_ranker = LLMRanker()  # Initialize LLM ranker
 
     def run(self) -> None:
         print(f"\n{'='*60}")
@@ -707,9 +541,6 @@ class SummaryEvaluationPipeline:
             print("\nNo evaluation results generated.")
             return
 
-        # Perform LLM-based ranking if available
-        self._perform_llm_ranking(results)
-
         self._save_overall_comparison(results)
         print("\nCreating violin plot visualizations (30 seconds)...")
         self.visualizer.create_visualizations(results, self.config.output_dir)
@@ -724,123 +555,6 @@ class SummaryEvaluationPipeline:
         except Exception as exc:  # noqa: BLE001
             print(f"ERROR loading human summaries: {exc}")
             return None
-
-    def _perform_llm_ranking(self, results: List[MethodEvaluationResult]) -> None:
-        """Use LLM to rank the three summary methods against human references."""
-        if not self.llm_ranker.is_available():
-            return
-
-        print(f"\n{'='*60}")
-        print("LLM-Based Summary Ranking (Llama3-70B)")
-        print(f"{'='*60}")
-        print(f"Using model: {self.llm_ranker.model}")
-        print(f"API endpoint: {self.llm_ranker.base_url}")
-        
-        # Find the merged dataframes for each method
-        method_dfs = {result.method: result.merged for result in results}
-        
-        # Check we have all three methods
-        if not all(method in method_dfs for method in ['NLG', 'SWUM', 'dps_llm']):
-            print("WARNING: Need all three methods (NLG, SWUM, dps_llm) for ranking. Skipping.")
-            return
-
-        # Merge all three on the match_key to find common files
-        nlg_df = method_dfs['NLG'][['match_key', 'filename_human', 'base_project_human', 'summary_human', 'summary_method']].copy()
-        nlg_df.rename(columns={'summary_method': 'summary_nlg'}, inplace=True)
-        
-        swum_df = method_dfs['SWUM'][['match_key', 'summary_method']].copy()
-        swum_df.rename(columns={'summary_method': 'summary_swum'}, inplace=True)
-        
-        llm_df = method_dfs['dps_llm'][['match_key', 'summary_method']].copy()
-        llm_df.rename(columns={'summary_method': 'summary_llm'}, inplace=True)
-
-        # Inner join to get files present in all three methods
-        combined = nlg_df.merge(swum_df, on='match_key', how='inner')
-        combined = combined.merge(llm_df, on='match_key', how='inner')
-
-        if combined.empty:
-            print("WARNING: No common files found across all three methods. Skipping ranking.")
-            return
-
-        print(f"Found {len(combined)} files common to all three methods")
-        print("Calling Llama3 API for ranking...")
-
-        rankings_data = []
-        # Use smaller sample for quick testing - set to 5 for now, can increase to 20 later
-        sample_size = min(5, len(combined))  # Rank a sample to avoid excessive API calls
-        
-        print(f"\nRanking {sample_size} files (this may take 30-60 seconds)...")
-        for idx, (_, row) in enumerate(combined.head(sample_size).iterrows()):
-            print(f"  [{idx + 1}/{sample_size}] Ranking: {row['filename_human']}...")
-            
-            ranking_result = self.llm_ranker.rank_summaries(
-                human_summary=row['summary_human'],
-                nlg_summary=row['summary_nlg'],
-                swum_summary=row['summary_swum'],
-                llm_summary=row['summary_llm'],
-                filename=row['filename_human'],
-            )
-            
-            if ranking_result['error']:
-                print(f"    ✗ ERROR: {ranking_result['error']}")
-                continue
-            
-            rankings_data.append({
-                'base_project': row['base_project_human'],
-                'filename': row['filename_human'],
-                'human_summary': row['summary_human'],
-                'nlg_summary': row['summary_nlg'],
-                'swum_summary': row['summary_swum'],
-                'llm_summary': row['summary_llm'],
-                'ranking': ', '.join(ranking_result['ranking']),
-                'first_place': ranking_result['ranking'][0] if ranking_result['ranking'] else '',
-                'second_place': ranking_result['ranking'][1] if len(ranking_result['ranking']) > 1 else '',
-                'third_place': ranking_result['ranking'][2] if len(ranking_result['ranking']) > 2 else '',
-                'nlg_score': self._calculate_ranking_score('NLG', ranking_result['ranking']),
-                'swum_score': self._calculate_ranking_score('SWUM', ranking_result['ranking']),
-                'llm_score': self._calculate_ranking_score('LLM', ranking_result['ranking']),
-                'reasoning': ranking_result['reasoning'],
-            })
-            
-            print(f"    Result: {', '.join(ranking_result['ranking'])}")
-
-        if not rankings_data:
-            print("No rankings were successfully generated.")
-            return
-
-        # Save rankings to CSV
-        rankings_df = pd.DataFrame(rankings_data)
-        ranking_csv = self.config.output_dir / 'llm_summary_rankings.csv'
-        rankings_df.to_csv(ranking_csv, index=False)
-        print(f"\nSaved LLM rankings: {ranking_csv}")
-
-        # Compute statistics
-        first_place_counts = rankings_df['first_place'].value_counts()
-        print("\nRanking Results (First Place):")
-        for method, count in first_place_counts.items():
-            percentage = (count / len(rankings_df)) * 100
-            print(f"  {method}: {count}/{len(rankings_df)} ({percentage:.1f}%)")
-        
-        # Compute average scores
-        print("\nAverage Ranking Scores (3=best, 1=worst):")
-        for method in ['NLG', 'SWUM', 'LLM']:
-            score_col = f'{method.lower()}_score'
-            if score_col in rankings_df.columns:
-                avg_score = rankings_df[score_col].mean()
-                print(f"  {method}: {avg_score:.2f}")
-
-    def _calculate_ranking_score(self, method: str, ranking: List[str]) -> int:
-        """Calculate score for a method based on its position in ranking (3=1st, 2=2nd, 1=3rd, 0=not ranked)."""
-        try:
-            # Normalize method names for comparison
-            normalized_ranking = [r.strip().upper() for r in ranking]
-            normalized_method = method.strip().upper()
-            
-            position = normalized_ranking.index(normalized_method)
-            # 1st place = 3 points, 2nd = 2 points, 3rd = 1 point
-            return 3 - position
-        except (ValueError, AttributeError):
-            return 0  # Method not found in ranking
 
     def _save_overall_comparison(self, results: List[MethodEvaluationResult]) -> None:
         overall_df = pd.DataFrame(result.metrics for result in results)
