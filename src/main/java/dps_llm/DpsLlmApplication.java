@@ -45,7 +45,7 @@ import java.util.Map;
  */
 public class DpsLlmApplication {
 
-    private static final String LLM_SUMMARY_PATH = "output/summary-output/llm_summaries.csv";
+    private static final String DEFAULT_LLM_SUMMARY_PATH = "output/summary-output/llm_summaries.csv";
     private static final String DEFAULT_API_URL = "https://openrouter.ai/api/v1/chat/completions";
     private static final String DEFAULT_MODEL = "mistralai/mixtral-8x22b-instruct";
 
@@ -156,7 +156,15 @@ public class DpsLlmApplication {
         int totalFailures = 0;
         int totalSkipped = 0;
 
-        try (LlmSummaryWriter csvWriter = new LlmSummaryWriter(LLM_SUMMARY_PATH)) {
+        // Resolve output CSV path (env/.env takes precedence; fallback to JVM property; else default)
+        String configuredOutput = resolveValue(dotEnv, "LLM_SUMMARY_PATH");
+        if (configuredOutput == null) {
+            String sysProp = System.getProperty("llm.summary.path");
+            configuredOutput = firstNonBlank(sysProp);
+        }
+        String outputCsvPath = configuredOutput != null ? configuredOutput : DEFAULT_LLM_SUMMARY_PATH;
+
+        try (LlmSummaryWriter csvWriter = new LlmSummaryWriter(outputCsvPath)) {
             for (File projectDir : projectDirs) {
                 projectsAttempted++;
                 String relativePath = inputRoot.toPath().relativize(projectDir.toPath()).toString().replace("\\", "/");
@@ -187,7 +195,7 @@ public class DpsLlmApplication {
         System.out.printf("  Summaries generated: %d%n", totalSuccesses);
         System.out.printf("  Failed summaries: %d%n", totalFailures);
         System.out.printf("  Classes skipped: %d%n", totalSkipped);
-        System.out.println("LLM summaries written to " + LLM_SUMMARY_PATH);
+        System.out.println("LLM summaries written to " + outputCsvPath);
     }
 
     /**

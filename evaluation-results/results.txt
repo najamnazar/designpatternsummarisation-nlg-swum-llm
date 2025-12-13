@@ -3,35 +3,84 @@ OVERALL ANALYSIS
 ============================================================
 
  method  projects_evaluated  classes_evaluated avg_cosine avg_bert_precision avg_bert_recall avg_bert_f1 combined_score cosine_std bert_f1_std
-    NLG                   3                148     0.1647             0.8268          0.8564      0.8409         0.5028     0.0774      0.0239
-   SWUM                   3                148     0.2369             0.8778          0.8585      0.8674         0.5522     0.1096      0.0234
-dps_llm                   3                148     0.3327             0.8611          0.8906      0.8755         0.6041     0.1193      0.0178
+    NLG                   3                150     0.1637             0.8275          0.8567      0.8414         0.5026     0.0776      0.0235
+   SWUM                   3                150     0.2452             0.8854          0.8588      0.8715         0.5583     0.0990      0.0168
+dps_llm                   3                150     0.3365             0.8624          0.8910      0.8763         0.6064     0.1269      0.0173
 
 Detailed Metrics by Method:
 
 NLG
   Projects Evaluated: 3
-  Classes Evaluated: 148
-  Avg Cosine Similarity: 0.1647
-  Avg BERT Precision: 0.8268
-  Avg BERT Recall: 0.8564
-  Avg BERT F1: 0.8409
-  Combined Score: 0.5028
+  Classes Evaluated: 150
+  Avg Cosine Similarity: 0.1637
+  Avg BERT Precision: 0.8275
+  Avg BERT Recall: 0.8567
+  Avg BERT F1: 0.8414
+  Combined Score: 0.5026
 
 SWUM
   Projects Evaluated: 3
-  Classes Evaluated: 148
-  Avg Cosine Similarity: 0.2369
-  Avg BERT Precision: 0.8778
-  Avg BERT Recall: 0.8585
-  Avg BERT F1: 0.8674
-  Combined Score: 0.5522
+  Classes Evaluated: 150
+  Avg Cosine Similarity: 0.2452
+  Avg BERT Precision: 0.8854
+  Avg BERT Recall: 0.8588
+  Avg BERT F1: 0.8715
+  Combined Score: 0.5583
 
 dps_llm (Mixtral-8x22B)
   Projects Evaluated: 3
-  Classes Evaluated: 148
-  Avg Cosine Similarity: 0.3327
-  Avg BERT Precision: 0.8611
-  Avg BERT Recall: 0.8906
-  Avg BERT F1: 0.8755
-  Combined Score: 0.6041
+  Classes Evaluated: 150
+  Avg Cosine Similarity: 0.3365
+  Avg BERT Precision: 0.8624
+  Avg BERT Recall: 0.8910
+  Avg BERT F1: 0.8763
+  Combined Score: 0.6064
+
+
+
+======================================================================
+AGGREGATE STATISTICS
+======================================================================
+
+Ranking Summary by Criterion:
+----------------------------------------------------------------------
+(Shows how often each corpus ranked 1st, 2nd, or 3rd for each criterion)
+
+ACCURACY:
+  Corpus A: 3 first, 79 second, 67 third
+  Corpus B: 137 first, 3 second, 9 third
+  Corpus C: 9 first, 67 second, 73 third
+
+CONCISENESS:
+  Corpus A: 114 first, 11 second, 25 third
+  Corpus B: 32 first, 10 second, 108 third
+  Corpus C: 4 first, 129 second, 17 third
+
+ADEQUACY:
+  Corpus A: 6 first, 100 second, 44 third
+  Corpus B: 142 first, 3 second, 5 third
+  Corpus C: 2 first, 47 second, 101 third
+
+CODE_CONTEXT:
+  Corpus A: 3 first, 87 second, 60 third
+  Corpus B: 137 first, 3 second, 10 third
+  Corpus C: 10 first, 60 second, 80 third
+
+DESIGN_PATTERNS:
+  Corpus A: 14 first, 94 second, 38 third
+  Corpus B: 121 first, 3 second, 22 third
+  Corpus C: 11 first, 49 second, 86 third
+
+----------------------------------------------------------------------
+Overall Average Points (3=1st, 2=2nd, 1=3rd per criterion):
+  Corpus A: 1.86
+  Corpus B: 2.54
+  Corpus C: 1.56
+
+----------------------------------------------------------------------
+Winner Distribution:
+  B: 130/150 (86.7%)
+  C: 9/150 (6.0%)
+  A: 6/150 (4.0%)
+  B, C: 4/150 (2.7%)
+  A, B: 1/150 (0.7%)

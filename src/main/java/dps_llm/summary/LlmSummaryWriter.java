@@ -55,7 +55,7 @@ public class LlmSummaryWriter implements AutoCloseable {
         }
         
         this.writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8);
-        writer.write("Project Name,Folder Name,File Name,Summary\n");
+        writer.write("Project,Folder Name,File Name,Summary\n");
     }
 
     /**

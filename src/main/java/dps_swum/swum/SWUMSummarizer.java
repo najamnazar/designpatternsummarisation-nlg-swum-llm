@@ -148,7 +148,7 @@ public class SWUMSummarizer {
             
             // Write CSV header
             if (!csvHeaderWritten) {
-                csvWriter.write("Project Name,Folder Name,File Name,Summary\n");
+                csvWriter.write("Project,Folder Name,File Name,Summary\n");
                 csvHeaderWritten = true;
             }
             

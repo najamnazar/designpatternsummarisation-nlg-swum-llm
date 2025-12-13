@@ -1,0 +1,17 @@
+Conciseness by Design Pattern (Corpus B)
+Lower word counts and words/sentence indicate higher conciseness.
+Entries that cannot be mapped to a known design pattern are excluded. Case, hyphen,
+and camel-case variants (e.g., 'facade' vs 'Facade', 'factory-method' vs
+'FactoryMethod') are merged.
+
+Pattern          | Count | AvgWords | MedianWords | StdWords | AvgChars | AvgWords/Sent | AvgTTR
+------------------------------------------------------------------------------------------------
+Adapter          |    14 |    49.79 |       49.00 |     9.09 |   299.71 |         17.01 |   0.79
+Visitor          |    19 |    51.63 |       51.00 |     6.09 |   315.11 |         16.99 |   0.79
+Observer         |    14 |    53.21 |       51.00 |     7.52 |   328.14 |         16.12 |   0.78
+Memento          |    10 |    53.30 |       53.50 |     7.78 |   324.70 |         15.52 |   0.76
+Facade           |    18 |    54.50 |       53.00 |     6.92 |   354.44 |         15.91 |   0.79
+Decorator        |    14 |    56.64 |       57.50 |     7.75 |   365.57 |         16.40 |   0.77
+Abstract Factory |    29 |    57.00 |       57.00 |     9.11 |   358.07 |         16.95 |   0.77
+Factory Method   |    20 |    58.25 |       57.00 |     7.18 |   354.25 |         16.38 |   0.76
+Singleton        |    13 |    59.92 |       58.00 |     9.53 |   382.54 |         16.14 |   0.79

@@ -11,9 +11,13 @@ This script ranks summaries from three different methods (A, B, C) based on 5 cr
 Each criterion is evaluated via LLM (Llama) rankings from most relevant (1) to least relevant (3).
 """
 
+import io
+import json
 import os
 import re
 import sys
+from contextlib import redirect_stdout
+
 import pandas as pd
 import requests
 from pathlib import Path
@@ -44,7 +48,7 @@ def build_match_key(project: str, filename: str) -> str:
 
 class MultiCriteriaRanker:
     """Ranks summaries using multiple criteria via LLM API."""
-    
+
     CRITERIA = {
         'accuracy': 'accuracy',
         'conciseness': 'conciseness',
@@ -52,84 +56,17 @@ class MultiCriteriaRanker:
         'code_context': 'context',
         'design_patterns': 'pattern'
     }
-    
-    def __init__(self, api_key):
-        """Initialize ranker with API key."""
+
+    def __init__(self, api_key: str, api_url: str, model: str, prompts: dict[str, str], max_tokens: int) -> None:
+        """Initialise ranker with API configuration and prompt templates."""
+        # Prompts are provided externally via JSON so updates do not require code edits.
+        self.prompts = prompts
         self.api_key = api_key
-        self.api_url = "https://openrouter.ai/api/v1/chat/completions"
-        self.model = "meta-llama/llama-3.1-70b-instruct"
-        
-    def _build_accuracy_prompt(self, human_summary, summary_a, summary_b, summary_c):
-        """Build prompt for accuracy criterion."""
-        return f"""Evaluate the accuracy of each generated summary against the gold summary.
+        self.api_url = api_url
+        self.model = model
+        self.max_tokens = max_tokens
 
-Gold summary:
-{human_summary}
-
-Generated summaries:
-1. {summary_a}
-2. {summary_b}
-3. {summary_c}
-
-Rank the generated summaries from most accurate (1) to least accurate (3). Output only the ranking."""
-    
-    def _build_conciseness_prompt(self, human_summary, summary_a, summary_b, summary_c):
-        """Build prompt for conciseness criterion."""
-        return f"""Evaluate the conciseness of each generated summary against the gold summary.
-
-Gold summary:
-{human_summary}
-
-Generated summaries:
-1. {summary_a}
-2. {summary_b}
-3. {summary_c}
-
-Rank the summaries from most concise (1) to least concise (3). Output only the ranking."""
-    
-    def _build_adequacy_prompt(self, human_summary, summary_a, summary_b, summary_c):
-        """Build prompt for adequacy criterion."""
-        return f"""Evaluate the adequacy of each generated summary against the gold summary.
-
-Gold summary:
-{human_summary}
-
-Generated summaries:
-1. {summary_a}
-2. {summary_b}
-3. {summary_c}
-
-Rank the summaries from most adequate (1) to least adequate (3). Output only the ranking."""
-    
-    def _build_context_prompt(self, human_summary, summary_a, summary_b, summary_c):
-        """Build prompt for context criterion."""
-        return f"""Evaluate how well each generated summary captures the context present in the gold summary.
-
-Gold summary:
-{human_summary}
-
-Generated summaries:
-1. {summary_a}
-2. {summary_b}
-3. {summary_c}
-
-Rank the summaries from best at capturing context (1) to worst (3). Output only the ranking."""
-    
-    def _build_pattern_prompt(self, human_summary, summary_a, summary_b, summary_c):
-        """Build prompt for design pattern criterion."""
-        return f"""Evaluate how well each generated summary conveys the pattern described in the gold summary.
-
-Gold summary:
-{human_summary}
-
-Generated summaries:
-1. {summary_a}
-2. {summary_b}
-3. {summary_c}
-
-Rank the summaries from best at conveying the pattern (1) to worst (3). Output only the ranking."""
-    
-    def rank_single_criterion(self, human_summary, summary_a, summary_b, summary_c, 
+    def rank_single_criterion(self, human_summary, summary_a, summary_b, summary_c,
                              criterion_name, criterion_key):
         """
         Rank three summaries on a single criterion using LLM.
@@ -138,31 +75,29 @@ Rank the summaries from best at conveying the pattern (1) to worst (3). Output o
             dict: Rankings for each method (1=best, 3=worst) and reasoning
         """
         # Build criterion-specific prompt using dedicated methods
-        if criterion_key == 'accuracy':
-            prompt = self._build_accuracy_prompt(human_summary, summary_a, summary_b, summary_c)
-        elif criterion_key == 'conciseness':
-            prompt = self._build_conciseness_prompt(human_summary, summary_a, summary_b, summary_c)
-        elif criterion_key == 'adequacy':
-            prompt = self._build_adequacy_prompt(human_summary, summary_a, summary_b, summary_c)
-        elif criterion_key == 'context':
-            prompt = self._build_context_prompt(human_summary, summary_a, summary_b, summary_c)
-        elif criterion_key == 'pattern':
-            prompt = self._build_pattern_prompt(human_summary, summary_a, summary_b, summary_c)
-        else:
-            prompt = f"""Rank summaries 1, 2, 3 from best to worst. Output only the ranking."""
+        template = self.prompts.get(criterion_name)
+        if not template:
+            template = "Rank summaries 1, 2, 3 from best to worst. Output only the ranking."
+        prompt = template.format(
+            human_summary=human_summary,
+            summary_a=summary_a,
+            summary_b=summary_b,
+            summary_c=summary_c,
+        )
 
         
         headers = {
             "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         }
-        
+
         data = {
             "model": self.model,
             "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.0,  # Deterministic
-            "max_tokens": 50  # Short output expected
+            "temperature": 0.0,
         }
+        if self.max_tokens is not None:
+            data["max_tokens"] = self.max_tokens
         
         # Simple retry loop to reduce transient failures
         attempts = 0
@@ -338,16 +273,51 @@ class SummaryRankingPipeline:
             self.results_dir = (base_dir / self.results_dir).resolve()
 
         self.results_dir.mkdir(parents=True, exist_ok=True)
+        self.aggregate_stats_text = ""
         
         # Load API key
         env_path = base_dir / '.env'
         load_dotenv(env_path)
+
         api_key = os.getenv('OPENROUTER_API_KEY')
-        
         if not api_key:
             raise ValueError("OPENROUTER_API_KEY not found in .env file")
-        
-        self.ranker = MultiCriteriaRanker(api_key)
+
+        api_url = os.getenv('RANK_SUMMARIES_API_URL')
+        if not api_url:
+            raise ValueError("RANK_SUMMARIES_API_URL not found in .env file")
+
+        model = os.getenv('RANK_SUMMARIES_MODEL')
+        if not model:
+            raise ValueError("RANK_SUMMARIES_MODEL not found in .env file")
+
+        max_tokens_raw = os.getenv('RANK_SUMMARIES_MAX_TOKENS', '50')
+        try:
+            max_tokens = int(max_tokens_raw)
+        except ValueError as exc:
+            raise ValueError("RANK_SUMMARIES_MAX_TOKENS must be an integer") from exc
+
+        prompts_path = base_dir / 'src' / 'main' / 'resources' / 'prompts.json'
+        if not prompts_path.exists():
+            raise FileNotFoundError(f"Prompt file not found: {prompts_path}")
+
+        with open(prompts_path, 'r', encoding='utf-8') as prompt_file:
+            prompts_data = json.load(prompt_file)
+        if not isinstance(prompts_data, dict):
+            raise ValueError("prompts.json must contain a top-level JSON object")
+
+        # Summary ranking templates live under the "summary_ranking" key so LLM wording stays editable outside code.
+        ranking_prompts = prompts_data.get('summary_ranking')
+        if not isinstance(ranking_prompts, dict):
+            raise ValueError("prompts.json is missing the summary_ranking section required by rank_summaries.py")
+
+        self.ranker = MultiCriteriaRanker(
+            api_key=api_key,
+            api_url=api_url,
+            model=model,
+            prompts=ranking_prompts,
+            max_tokens=max_tokens,
+        )
         
     def load_summaries(self):
         """Load and normalise summaries from all data sources."""
@@ -374,6 +344,8 @@ class SummaryRankingPipeline:
         # Ensure required columns are present
         required_method_cols = {'project_name', 'file_name', 'summary'}
         for label, df in [('A.csv', self.df_a), ('B.csv', self.df_b), ('C.csv', self.df_c)]:
+            if 'project' in df.columns and 'project_name' not in df.columns:
+                df['project_name'] = df['project']
             missing = required_method_cols - set(df.columns)
             if missing:
                 raise ValueError(f"Missing columns {missing} in {label}")
@@ -562,21 +534,28 @@ class SummaryRankingPipeline:
         print(f"Total records processed: {len(results)}")
         
         # Calculate aggregate statistics
-        self._print_aggregate_statistics(results_df)
+        aggregate_text = self._print_aggregate_statistics(results_df)
+        self.aggregate_stats_text = aggregate_text
         
         return results_df
     
     def _print_aggregate_statistics(self, df):
         """Print aggregate statistics across all ranked samples."""
-        print("\n" + "="*70)
-        print("AGGREGATE STATISTICS")
-        print("="*70)
+        lines: list[str] = []
+
+        def emit(line: str = "") -> None:
+            print(line)
+            lines.append(line)
+
+        emit("\n" + "=" * 70)
+        emit("AGGREGATE STATISTICS")
+        emit("=" * 70)
 
         ranked_df = df[df['status'] == 'ranked'].copy()
 
         if ranked_df.empty:
-            print("No ranked samples available to summarise.")
-            return
+            emit("No ranked samples available to summarise.")
+            return "\n".join(lines)
 
         # Ensure numeric columns are treated as such
         for col in ['avg_points_a', 'avg_points_b', 'avg_points_c']:
@@ -584,12 +563,12 @@ class SummaryRankingPipeline:
 
         criteria = ['accuracy', 'conciseness', 'adequacy', 'code_context', 'design_patterns']
 
-        print("\nRanking Summary by Criterion:")
-        print("-" * 70)
-        print("(Shows how often each corpus ranked 1st, 2nd, or 3rd for each criterion)")
+        emit("\nRanking Summary by Criterion:")
+        emit("-" * 70)
+        emit("(Shows how often each corpus ranked 1st, 2nd, or 3rd for each criterion)")
 
         for criterion in criteria:
-            print(f"\n{criterion.upper()}:")
+            emit(f"\n{criterion.upper()}:")
 
             first_col = f'{criterion}_rank_1st'
             second_col = f'{criterion}_rank_2nd'
@@ -604,36 +583,56 @@ class SummaryRankingPipeline:
                     first_cnt = first_counts.get(corpus_num, 0)
                     second_cnt = second_counts.get(corpus_num, 0)
                     third_cnt = third_counts.get(corpus_num, 0)
-                    print(f"  Corpus {corpus_name}: {first_cnt} first, {second_cnt} second, {third_cnt} third")
+                    emit(f"  Corpus {corpus_name}: {first_cnt} first, {second_cnt} second, {third_cnt} third")
 
-        print("\n" + "-" * 70)
-        print("Overall Average Points (3=1st, 2=2nd, 1=3rd per criterion):")
-        print(f"  Corpus A: {ranked_df['avg_points_a'].mean():.2f}")
-        print(f"  Corpus B: {ranked_df['avg_points_b'].mean():.2f}")
-        print(f"  Corpus C: {ranked_df['avg_points_c'].mean():.2f}")
+        emit("\n" + "-" * 70)
+        emit("Overall Average Points (3=1st, 2=2nd, 1=3rd per criterion):")
+        emit(f"  Corpus A: {ranked_df['avg_points_a'].mean():.2f}")
+        emit(f"  Corpus B: {ranked_df['avg_points_b'].mean():.2f}")
+        emit(f"  Corpus C: {ranked_df['avg_points_c'].mean():.2f}")
 
-        print("\n" + "-" * 70)
-        print("Winner Distribution:")
+        emit("\n" + "-" * 70)
+        emit("Winner Distribution:")
         winner_counts = ranked_df['winner'].value_counts()
         for winner, count in winner_counts.items():
             percentage = (count / len(ranked_df)) * 100
-            print(f"  {winner}: {count}/{len(ranked_df)} ({percentage:.1f}%)")
+            emit(f"  {winner}: {count}/{len(ranked_df)} ({percentage:.1f}%)")
 
         missing_df = df[df['status'] != 'ranked']
         if not missing_df.empty:
-            print("\n" + "-" * 70)
-            print("Entries skipped due to missing summaries: {}".format(len(missing_df)))
+            emit("\n" + "-" * 70)
+            emit("Entries skipped due to missing summaries: {}".format(len(missing_df)))
             breakdown = missing_df['missing_methods'].value_counts(dropna=False)
             for label, count in breakdown.items():
                 label_display = label if label else 'Unknown'
-                print(f"  {label_display}: {count}")
+                emit(f"  {label_display}: {count}")
+
+        return "\n".join(lines)
 
 
 def main():
     """Main entry point."""
     try:
         pipeline = SummaryRankingPipeline()
-        pipeline.run()
+        console_buffer = io.StringIO()
+        with redirect_stdout(console_buffer):
+            pipeline.run()
+
+        console_output = console_buffer.getvalue()
+        print(console_output, end="")
+
+        console_file = pipeline.results_dir / 'ranking_console_ouput.txt'
+        with open(console_file, 'w', encoding='utf-8') as fh:
+            fh.write(console_output)
+
+        aggregate_text = getattr(pipeline, 'aggregate_stats_text', '')
+        if aggregate_text:
+            results_txt = pipeline.base_dir / 'evaluation-results' / 'results.txt'
+            with open(results_txt, 'a', encoding='utf-8') as fh:
+                fh.write("\n\n")
+                fh.write(aggregate_text)
+                if not aggregate_text.endswith("\n"):
+                    fh.write("\n")
         
     except Exception as e:
         print(f"\nERROR: {str(e)}")

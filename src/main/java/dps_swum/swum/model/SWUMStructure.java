@@ -4,7 +4,11 @@ import dps_swum.swum.context.PatternContext;
 import dps_swum.swum.context.MethodPatternContext;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Represents a complete SWUM parse structure for a method or class.
@@ -284,7 +288,13 @@ public class SWUMStructure {
             }
             
             if (!actions.isEmpty()) {
-                summary.append(" and provides methods to ").append(String.join(", ", actions).toLowerCase());
+                // Use semantic grouping if there are many actions (10+ suggests complex class)
+                if (actions.size() >= 10) {
+                    String groupedSummary = generateSemanticActionSummary(actions);
+                    summary.append(" ").append(groupedSummary);
+                } else {
+                    summary.append(" and provides methods to ").append(String.join(", ", actions).toLowerCase());
+                }
             }
             
             if (!objects.isEmpty()) {
@@ -317,6 +327,112 @@ public class SWUMStructure {
             return null;
         }
         return actions.get(0);
+    }
+    
+    /**
+     * Groups actions into semantic categories and generates a summary
+     * for classes with many methods (10+)
+     */
+    private String generateSemanticActionSummary(List<String> actions) {
+        // Count occurrences of each action
+        Map<String, Integer> actionCounts = new LinkedHashMap<>();
+        for (String action : actions) {
+            String lowerAction = action.toLowerCase();
+            actionCounts.put(lowerAction, actionCounts.getOrDefault(lowerAction, 0) + 1);
+        }
+        
+        // Categorize actions into semantic groups
+        Map<String, Integer> categories = new LinkedHashMap<>();
+        int totalMethods = actions.size();
+        
+        for (Map.Entry<String, Integer> entry : actionCounts.entrySet()) {
+            String action = entry.getKey();
+            int count = entry.getValue();
+            
+            // Map actions to semantic categories
+            String category = categorizeAction(action);
+            categories.put(category, categories.getOrDefault(category, 0) + count);
+        }
+        
+        // Build summary based on categories
+        StringBuilder summary = new StringBuilder();
+        summary.append("provides ");
+        
+        // Get top categories
+        List<Map.Entry<String, Integer>> sortedCategories = categories.entrySet().stream()
+            .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
+            .collect(Collectors.toList());
+        
+        if (sortedCategories.size() == 1) {
+            Map.Entry<String, Integer> category = sortedCategories.get(0);
+            summary.append(category.getValue()).append(" methods for ")
+                   .append(category.getKey());
+        } else if (sortedCategories.size() == 2) {
+            summary.append(sortedCategories.get(0).getValue()).append(" methods for ")
+                   .append(sortedCategories.get(0).getKey())
+                   .append(" and ").append(sortedCategories.get(1).getValue())
+                   .append(" for ").append(sortedCategories.get(1).getKey());
+        } else if (sortedCategories.size() >= 3) {
+            summary.append(totalMethods).append(" methods including ")
+                   .append(sortedCategories.get(0).getKey()).append(", ")
+                   .append(sortedCategories.get(1).getKey());
+            if (sortedCategories.size() > 3) {
+                summary.append(", ").append(sortedCategories.get(2).getKey())
+                       .append(" and other operations");
+            } else {
+                summary.append(" and ").append(sortedCategories.get(2).getKey());
+            }
+        }
+        
+        return summary.toString();
+    }
+    
+    /**
+     * Maps an action verb to a semantic category
+     */
+    private String categorizeAction(String action) {
+        // Retrieval operations
+        if (action.matches("get|fetch|retrieve|obtain|find|read|load")) {
+            return "retrieval";
+        }
+        
+        // Storage/modification operations
+        if (action.matches("set|put|store|save|write|update|modify|edit|change")) {
+            return "storage and modification";
+        }
+        
+        // Creation operations
+        if (action.matches("create|make|build|construct|generate|produce|add|insert|append")) {
+            return "creation";
+        }
+        
+        // Deletion operations
+        if (action.matches("delete|remove|clear|clean|drop|destroy")) {
+            return "deletion";
+        }
+        
+        // Validation/verification operations
+        if (action.matches("check|verify|validate|test|ensure|confirm")) {
+            return "validation";
+        }
+        
+        // Registration/lifecycle operations (common in singleton/factory patterns)
+        if (action.matches("register|unregister|initialize|start|stop|close|open")) {
+            return "registration and lifecycle";
+        }
+        
+        // Processing operations
+        if (action.matches("process|handle|execute|run|perform|invoke")) {
+            return "processing";
+        }
+        
+        // Notification/communication operations
+        if (action.matches("notify|send|receive|publish|subscribe|broadcast")) {
+            return "notification";
+        }
+        
+        // Default: use the action itself
+        return action + " operations";
     }
     
     /**

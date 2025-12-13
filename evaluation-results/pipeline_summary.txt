@@ -1,15 +1,15 @@
 === SWUM Processing Summary ===
 
-Projects processed: 38
+Projects processed: 27
 SWUM output directory: D:\repo\designpatternsummariser\output\json-output\swum
 
 Sample outputs:
-- AbdurRKhalid_Abstract Factory_swum.json
+- AbdurRKhalid_AbstractFactory_swum.json
 - AbdurRKhalid_Adapter_swum.json
 - AbdurRKhalid_Decorator_swum.json
 - AbdurRKhalid_Facade_swum.json
-- AbdurRKhalid_Factory Method_swum.json
-- ... (33 more)
+- AbdurRKhalid_FactoryMethod_swum.json
+- ... (22 more)
 
 Next steps:
 - Review generated SWUM summaries under output/json-output/ (*_swum.json files).

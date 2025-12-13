@@ -30,6 +30,11 @@ from nltk.translate.bleu_score import SmoothingFunction, sentence_bleu
 from nltk.translate.nist_score import sentence_nist
 from rouge_score import rouge_scorer
 
+try:  # Optional Hugging Face evaluate fallback
+    import evaluate as hf_evaluate
+except Exception:  # pragma: no cover - evaluate is optional
+    hf_evaluate = None  # type: ignore[misc]
+
 try:  # FrugalScore is optional but recommended
     from frugalscore import FrugalScore
 except Exception:  # pragma: no cover - fallback path when dependency missing
@@ -253,12 +258,19 @@ def load_nlg_summaries(csv_path: Path) -> pd.DataFrame:
 _smoothing = SmoothingFunction().method3
 _rouge = rouge_scorer.RougeScorer(['rougeL'], use_stemmer=True)
 _frugal = None
+_frugal_metric = None
 if FrugalScore is not None:  # pragma: no branch - executed when dependency exists
     try:
         _frugal = FrugalScore()
     except Exception as exc:  # pragma: no cover - frugalscore optional failures
         warnings.warn(f"Unable to initialise FrugalScore ({exc}). Metric will be NaN.")
         _frugal = None
+elif hf_evaluate is not None:  # pragma: no branch
+    try:
+        _frugal_metric = hf_evaluate.load("frugalscore")
+    except Exception as exc:  # pragma: no cover - evaluate fallback failures
+        warnings.warn(f"Unable to load frugalscore metric via evaluate ({exc}). Metric will be NaN.")
+        _frugal_metric = None
 else:  # pragma: no cover
     warnings.warn("frugalscore package not installed; FrugalScore metric will be NaN.")
 
@@ -301,16 +313,28 @@ def compute_rouge_l(reference_text: str, candidate_text: str) -> float:
 
 
 def compute_frugalscore(reference_text: str, candidate_text: str) -> float:
-    if _frugal is None:
-        return float('nan')
-    try:
-        score = _frugal.score([candidate_text], [reference_text])
-        if isinstance(score, (list, tuple)):
-            score = score[0]
-        return float(score)
-    except Exception as exc:
-        warnings.warn(f"FrugalScore failed for a sample ({exc}). Returning NaN.")
-        return float('nan')
+    if _frugal is not None:
+        try:
+            score = _frugal.score([candidate_text], [reference_text])
+            if isinstance(score, (list, tuple)):
+                score = score[0]
+            return float(score)
+        except Exception as exc:
+            warnings.warn(f"FrugalScore failed for a sample ({exc}). Returning NaN.")
+            return float('nan')
+    if _frugal_metric is not None:
+        try:
+            result = _frugal_metric.compute(predictions=[candidate_text], references=[reference_text])
+            # evaluate returns a dict, extract the first numeric value
+            if isinstance(result, dict):
+                value = next(iter(result.values()))
+                if isinstance(value, (list, tuple)):
+                    value = value[0]
+                return float(value)
+        except Exception as exc:
+            warnings.warn(f"Evaluate frugalscore failed for a sample ({exc}). Returning NaN.")
+            return float('nan')
+    return float('nan')
 
 
 ###############################################################################
@@ -423,7 +447,7 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         '--nlg-csv',
         type=Path,
-        default=Path('output/summary-output/dps_nlg.csv'),
+        default=Path('output/summary-output/nlg_summaries.csv'),
         help='Path to the NLG summaries CSV output.',
     )
     parser.add_argument(

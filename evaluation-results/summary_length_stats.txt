@@ -1,0 +1,8 @@
+Summary Length Statistics (words and non-whitespace characters)
+Shows averages and ranges for each source file.
+
+Source         | Count | AvgWords | MinWords | MaxWords | AvgChars | MinChars | MaxChars
+----------------------------------------------------------------------------------------
+swum_summaries |   150 |    18.45 |        3 |       97 |    97.68 |       13 |      588
+llm_summaries  |   150 |    65.09 |       46 |       88 |   401.15 |      288 |      534
+dps_nlg        |   150 |    70.01 |       14 |      153 |   446.84 |       78 |      934

@@ -1,0 +1,60 @@
+Evaluation of B1..B5 vs Human Summaries
+============================================================
+
+Per-Iteration Statistics:
+------------------------------------------------------------
+Iteration 1:
+  Cosine Similarity: min=0.0475, max=0.6002, avg=0.3264
+  BERTScore F1:      min=0.8234, max=0.9263, avg=0.8754
+
+Iteration 2:
+  Cosine Similarity: min=0.0460, max=0.5923, avg=0.3251
+  BERTScore F1:      min=0.8273, max=0.9138, avg=0.8749
+
+Iteration 3:
+  Cosine Similarity: min=0.0467, max=0.6344, avg=0.3302
+  BERTScore F1:      min=0.8254, max=0.9233, avg=0.8753
+
+Iteration 4:
+  Cosine Similarity: min=0.0518, max=0.6189, avg=0.3319
+  BERTScore F1:      min=0.8245, max=0.9275, avg=0.8746
+
+Iteration 5:
+  Cosine Similarity: min=0.0392, max=0.6099, avg=0.3268
+  BERTScore F1:      min=0.8240, max=0.9105, avg=0.8750
+
+Iteration Overall:
+  Cosine Similarity: min=0.0392, max=0.6344, avg=0.3281
+  BERTScore F1:      min=0.8234, max=0.9275, avg=0.8750
+
+
+
+======================================================================
+RANKING RESULTS (A vs B1-B5 vs C)
+======================================================================
+
+Per-Iteration Summary:
+----------------------------------------------------------------------
+
+Iteration 1 (A vs B1 vs C):  Ranked: 150, Skipped: 0  Average Points: A=9.10, B=12.89, C=7.73
+  Ranking by Criterion:    ACCURACY:      Corpus A: 4 first, 83 second, 63 third      Corpus B: 137 first, 2 second, 11 third      Corpus C: 9 first, 65 second, 76 third    CONCISENESS:      Corpus A: 93 first, 13 second, 44 third      Corpus B: 56 first, 5 second, 89 third      Corpus C: 1 first, 132 second, 17 third    ADEQUACY:      Corpus A: 7 first, 95 second, 48 third      Corpus B: 140 first, 4 second, 6 third      Corpus C: 3 first, 51 second, 96 third    CODE_CONTEXT:      Corpus A: 1 first, 98 second, 49 third      Corpus B: 136 first, 2 second, 10 third      Corpus C: 11 first, 48 second, 89 third    DESIGN_PATTERNS:      Corpus A: 12 first, 99 second, 34 third      Corpus B: 118 first, 3 second, 24 third      Corpus C: 15 first, 43 second, 87 third
+Iteration 2 (A vs B2 vs C):  Ranked: 150, Skipped: 0  Average Points: A=9.14, B=12.96, C=7.74
+  Ranking by Criterion:    ACCURACY:      Corpus A: 5 first, 76 second, 69 third      Corpus B: 139 first, 1 second, 10 third      Corpus C: 6 first, 73 second, 71 third    CONCISENESS:      Corpus A: 100 first, 15 second, 35 third      Corpus B: 50 first, 4 second, 96 third      Corpus C: 0 first, 131 second, 19 third    ADEQUACY:      Corpus A: 4 first, 97 second, 49 third      Corpus B: 144 first, 2 second, 4 third      Corpus C: 2 first, 51 second, 97 third    CODE_CONTEXT:      Corpus A: 3 first, 90 second, 57 third      Corpus B: 139 first, 2 second, 9 third      Corpus C: 8 first, 58 second, 84 third    DESIGN_PATTERNS:      Corpus A: 11 first, 101 second, 34 third      Corpus B: 121 first, 3 second, 22 third      Corpus C: 14 first, 42 second, 90 third
+Iteration 3 (A vs B3 vs C):  Ranked: 150, Skipped: 0  Average Points: A=9.19, B=12.85, C=7.72
+  Ranking by Criterion:    ACCURACY:      Corpus A: 2 first, 82 second, 65 third      Corpus B: 140 first, 0 second, 9 third      Corpus C: 7 first, 67 second, 75 third    CONCISENESS:      Corpus A: 105 first, 12 second, 33 third      Corpus B: 43 first, 5 second, 102 third      Corpus C: 2 first, 133 second, 15 third    ADEQUACY:      Corpus A: 6 first, 98 second, 45 third      Corpus B: 140 first, 4 second, 5 third      Corpus C: 3 first, 47 second, 99 third    CODE_CONTEXT:      Corpus A: 2 first, 97 second, 50 third      Corpus B: 135 first, 2 second, 12 third      Corpus C: 12 first, 50 second, 87 third    DESIGN_PATTERNS:      Corpus A: 9 first, 97 second, 41 third      Corpus B: 127 first, 3 second, 17 third      Corpus C: 11 first, 47 second, 89 third
+Iteration 4 (A vs B4 vs C):  Ranked: 150, Skipped: 0  Average Points: A=9.13, B=13.01, C=7.61
+  Ranking by Criterion:    ACCURACY:      Corpus A: 3 first, 78 second, 69 third      Corpus B: 141 first, 3 second, 6 third      Corpus C: 6 first, 69 second, 75 third    CONCISENESS:      Corpus A: 97 first, 18 second, 35 third      Corpus B: 50 first, 4 second, 96 third      Corpus C: 3 first, 128 second, 19 third    ADEQUACY:      Corpus A: 2 first, 97 second, 50 third      Corpus B: 147 first, 1 second, 1 third      Corpus C: 0 first, 51 second, 98 third    CODE_CONTEXT:      Corpus A: 1 first, 97 second, 51 third      Corpus B: 140 first, 1 second, 8 third      Corpus C: 8 first, 51 second, 90 third    DESIGN_PATTERNS:      Corpus A: 13 first, 104 second, 29 third      Corpus B: 120 first, 3 second, 23 third      Corpus C: 13 first, 39 second, 94 third
+Iteration 5 (A vs B5 vs C):  Ranked: 149, Skipped: 1  Average Points: A=9.33, B=12.60, C=7.83
+  Ranking by Criterion:    ACCURACY:      Corpus A: 4 first, 78 second, 66 third      Corpus B: 132 first, 4 second, 12 third      Corpus C: 12 first, 66 second, 70 third    CONCISENESS:      Corpus A: 111 first, 12 second, 26 third      Corpus B: 35 first, 2 second, 112 third      Corpus C: 3 first, 135 second, 11 third    ADEQUACY:      Corpus A: 8 first, 104 second, 35 third      Corpus B: 138 first, 4 second, 5 third      Corpus C: 1 first, 39 second, 107 third    CODE_CONTEXT:      Corpus A: 3 first, 89 second, 56 third      Corpus B: 132 first, 5 second, 11 third      Corpus C: 13 first, 54 second, 81 third    DESIGN_PATTERNS:      Corpus A: 8 first, 100 second, 39 third      Corpus B: 122 first, 5 second, 20 third      Corpus C: 17 first, 42 second, 88 third
+----------------------------------------------------------------------
+Aggregate Statistics (Min/Max/Avg across all 5 iterations):
+----------------------------------------------------------------------
+Overall Average Points:  Corpus A: min=9.10, max=9.33, avg=9.18  Corpus B: min=12.60, max=13.01, avg=12.86  Corpus C: min=7.61, max=7.83, avg=7.73
+
+Ranking by Criterion (Min/Max/Avg across iterations):
+  ACCURACY:    Corpus A:      1st: min=2.0, max=5.0, avg=3.6      2nd: min=76.0, max=83.0, avg=79.4      3rd: min=63.0, max=69.0, avg=66.4    Corpus B:      1st: min=132.0, max=141.0, avg=137.8      2nd: min=0.0, max=4.0, avg=2.0      3rd: min=6.0, max=12.0, avg=9.6    Corpus C:      1st: min=6.0, max=12.0, avg=8.0      2nd: min=65.0, max=73.0, avg=68.0      3rd: min=70.0, max=76.0, avg=73.4
+  CONCISENESS:    Corpus A:      1st: min=93.0, max=111.0, avg=101.2      2nd: min=12.0, max=18.0, avg=14.0      3rd: min=26.0, max=44.0, avg=34.6    Corpus B:      1st: min=35.0, max=56.0, avg=46.8      2nd: min=2.0, max=5.0, avg=4.0      3rd: min=89.0, max=112.0, avg=99.0    Corpus C:      1st: min=0.0, max=3.0, avg=1.8      2nd: min=128.0, max=135.0, avg=131.8      3rd: min=11.0, max=19.0, avg=16.2
+  ADEQUACY:    Corpus A:      1st: min=2.0, max=8.0, avg=5.4      2nd: min=95.0, max=104.0, avg=98.2      3rd: min=35.0, max=50.0, avg=45.4    Corpus B:      1st: min=138.0, max=147.0, avg=141.8      2nd: min=1.0, max=4.0, avg=3.0      3rd: min=1.0, max=6.0, avg=4.2    Corpus C:      1st: min=0.0, max=3.0, avg=1.8      2nd: min=39.0, max=51.0, avg=47.8      3rd: min=96.0, max=107.0, avg=99.4
+  CODE_CONTEXT:    Corpus A:      1st: min=1.0, max=3.0, avg=2.0      2nd: min=89.0, max=98.0, avg=94.2      3rd: min=49.0, max=57.0, avg=52.6    Corpus B:      1st: min=132.0, max=140.0, avg=136.4      2nd: min=1.0, max=5.0, avg=2.4      3rd: min=8.0, max=12.0, avg=10.0    Corpus C:      1st: min=8.0, max=13.0, avg=10.4      2nd: min=48.0, max=58.0, avg=52.2      3rd: min=81.0, max=90.0, avg=86.2
+  DESIGN_PATTERNS:    Corpus A:      1st: min=8.0, max=13.0, avg=10.6      2nd: min=97.0, max=104.0, avg=100.2      3rd: min=29.0, max=41.0, avg=35.4    Corpus B:      1st: min=118.0, max=127.0, avg=121.6      2nd: min=3.0, max=5.0, avg=3.4      3rd: min=17.0, max=24.0, avg=21.2    Corpus C:      1st: min=11.0, max=17.0, avg=14.0      2nd: min=39.0, max=47.0, avg=42.6      3rd: min=87.0, max=94.0, avg=89.6
+======================================================================

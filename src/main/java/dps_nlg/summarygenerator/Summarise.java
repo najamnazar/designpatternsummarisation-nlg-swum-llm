@@ -174,12 +174,12 @@ public class Summarise {
                 summaryOutputDir.mkdirs();
             }
             
-            File csvFile = new File("output/summary-output/dps_nlg.csv");
+            File csvFile = new File("output/summary-output/nlg_summaries.csv");
             csvWriter = new FileWriter(csvFile, false); // false = overwrite existing file
             
             // Write CSV header
             if (!csvHeaderWritten) {
-                csvWriter.write("Project Name,Folder Name,File Name,Summary\n");
+                csvWriter.write("Project,Folder Name,File Name,Summary\n");
                 csvHeaderWritten = true;
             }
             

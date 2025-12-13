@@ -139,7 +139,7 @@ public class LlmClient {
             Thread.currentThread().interrupt();
             throw new LlmClientException("LLM request interrupted", e);
         } catch (IOException e) {
-            throw new LlmClientException("LLM request error: " + e.getMessage(), e);
+            throw new LlmClientException("LLM request error: " + (e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName()), e);
         }
     }
 

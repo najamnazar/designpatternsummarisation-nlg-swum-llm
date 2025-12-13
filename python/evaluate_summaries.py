@@ -42,13 +42,13 @@ hf_logging.set_verbosity_error()
 
 
 def normalize_project_identifier(value: str) -> str:
-    """Normalize project identifiers (case-fold, replace spaces, keep alphanumerics and hyphens)."""
+    """Normalize project identifiers (case-fold, remove all special characters including hyphens)."""
     if not isinstance(value, str):
         return ""
     cleaned = value.strip().lower()
-    cleaned = re.sub(r"[\s_]+", "-", cleaned)
-    cleaned = re.sub(r"[^a-z0-9\-]+", "", cleaned)
-    return re.sub(r"-+", "-", cleaned)
+    # Remove all non-alphanumeric characters (including hyphens, spaces, underscores)
+    cleaned = re.sub(r"[^a-z0-9]+", "", cleaned)
+    return cleaned
 
 
 def normalize_filename(value: str) -> str:
@@ -135,8 +135,14 @@ class SummaryDataLoader:
             if missing:
                 raise ValueError(f"Missing required column(s) {missing} in {csv_path}")
 
-            result = df[['Project', 'File Name', 'Human Summary', 'URL']].copy()
-            result.columns = ['base_project', 'filename', 'summary', 'url']
+            # Include Design Pattern column if available for folder matching
+            cols_to_load = ['Project', 'File Name', 'Human Summary', 'URL']
+            if 'Design Pattern' in df.columns:
+                cols_to_load.append('Design Pattern')
+                
+            result = df[cols_to_load].copy()
+            result.columns = ['base_project', 'filename', 'summary', 'url'] + (['design_pattern'] if 'Design Pattern' in df.columns else [])
+            
             for column in ['base_project', 'filename', 'summary', 'url']:
                 result[column] = result[column].astype(str).str.strip()
 
@@ -144,8 +150,15 @@ class SummaryDataLoader:
                 lambda row: extract_full_project_path_from_url(row['url'], row['base_project']),
                 axis=1,
             )
+            
+            # Extract folder from Design Pattern column if available
+            if 'design_pattern' in result.columns:
+                result['folder'] = result['design_pattern'].astype(str).str.strip()
+            else:
+                result['folder'] = ''
+            
             result = result[result['summary'].str.len() > 0]
-            return result[['project', 'base_project', 'filename', 'summary']]
+            return result[['project', 'base_project', 'filename', 'folder', 'summary']]
         except Exception:
             raise
 
@@ -263,8 +276,20 @@ class SummaryEvaluator:
         method_df['normalized_base_project'] = method_df['base_project'].apply(normalize_project_identifier)
         human_df['normalized_filename'] = human_df['filename'].apply(normalize_filename)
         method_df['normalized_filename'] = method_df['filename'].apply(normalize_filename)
-        human_df['match_key'] = human_df['normalized_base_project'] + '::' + human_df['normalized_filename']
-        method_df['match_key'] = method_df['normalized_base_project'] + '::' + method_df['normalized_filename']
+        
+        # Include folder information in match key for better duplicate handling
+        if 'folder' in human_df.columns:
+            human_df['normalized_folder'] = human_df['folder'].fillna('').apply(lambda x: normalize_project_identifier(str(x)) if x else '')
+        else:
+            human_df['normalized_folder'] = ''
+            
+        if 'folder' in method_df.columns:
+            method_df['normalized_folder'] = method_df['folder'].fillna('').apply(lambda x: normalize_project_identifier(str(x)) if x else '')
+        else:
+            method_df['normalized_folder'] = ''
+        
+        human_df['match_key'] = human_df['normalized_base_project'] + '::' + human_df['normalized_folder'] + '::' + human_df['normalized_filename']
+        method_df['match_key'] = method_df['normalized_base_project'] + '::' + method_df['normalized_folder'] + '::' + method_df['normalized_filename']
         human_df['dup_index'] = human_df.groupby('match_key').cumcount()
         method_df['dup_index'] = method_df.groupby('match_key').cumcount()
 
@@ -654,7 +679,7 @@ def parse_arguments(argv: Optional[List[str]]) -> argparse.Namespace:
     parser.add_argument(
         '--nlg-csv',
         type=Path,
-        default=Path('output/summary-output/dps_nlg.csv'),
+        default=Path('output/summary-output/nlg_summaries.csv'),
         help='Path to NLG summaries CSV file',
     )
     parser.add_argument(

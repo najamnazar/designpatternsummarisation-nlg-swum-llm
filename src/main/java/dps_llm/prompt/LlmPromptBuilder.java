@@ -19,6 +19,7 @@ import java.util.StringJoiner;
  *   <li>Format class features into structured user prompts</li>
  *   <li>Include relevant context like inheritance, methods, and patterns</li>
  *   <li>Enforce summary length and style constraints via prompting</li>
+ *   <li>The summaries should be concise, factual, and objective</li>
  * </ul>
  * </p>
  * 
@@ -26,11 +27,26 @@ import java.util.StringJoiner;
  */
 public class LlmPromptBuilder {
 
-    private static final String SYSTEM_PROMPT = "You are a senior software analyst who writes concise, factual "
-            + "summaries of Java classes. Use only the supplied structural facts to describe each class in a "
-            + "single paragraph no longer than 50 words. Highlight the class responsibilities, key collaborators, "
-            + "and any explicit design-pattern roles. Do not invent behaviour or reference missing information. "
-            + "Write in third person with an objective tone.";
+    private final PromptManager promptManager;
+    private final String systemPromptAlias;
+    
+    /**
+     * Constructs a new LlmPromptBuilder with default prompt alias.
+     * Uses "SENIOR_ANALYST_CONCISE" as the default system prompt.
+     */
+    public LlmPromptBuilder() {
+        this("SENIOR_ANALYST_50_WORDS");
+    }
+    
+    /**
+     * Constructs a new LlmPromptBuilder with a specific prompt alias.
+     * 
+     * @param systemPromptAlias the alias of the system prompt to use
+     */
+    public LlmPromptBuilder(String systemPromptAlias) {
+        this.promptManager = PromptManager.getInstance();
+        this.systemPromptAlias = systemPromptAlias;
+    }
 
     /**
      * Returns the system prompt that configures LLM behavior.
@@ -43,7 +59,7 @@ public class LlmPromptBuilder {
      * @return the system-level instruction prompt
      */
     public String getSystemPrompt() {
-        return SYSTEM_PROMPT;
+        return promptManager.getPrompt(systemPromptAlias);
     }
 
     /**
