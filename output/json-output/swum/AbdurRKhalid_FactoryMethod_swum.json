@@ -1,0 +1,175 @@
+{
+  "project_name" : "FactoryMethod",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1765511727146,
+  "class_summaries" : {
+    "WindowsButton" : {
+      "class_name" : "WindowsButton",
+      "class_type" : "class",
+      "method_summaries" : {
+        "render" : {
+          "method_name" : "render",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method renders. The WindowsButton class acts as a memento in the memento pattern and acts as a product in the factory_method pattern.",
+          "swum_actions" : "render",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE render)"
+        },
+        "onClick" : {
+          "method_name" : "onClick",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs. The WindowsButton class acts as a memento in the memento pattern and acts as a product in the factory_method pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE on Click)"
+        }
+      },
+      "swum_class_summary" : "The WindowsButton class acts as a memento in the memento pattern and acts as a product in the factory_method pattern and provides methods to render for managing button."
+    },
+    "Button" : {
+      "class_name" : "Button",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "render" : {
+          "method_name" : "render",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method renders. The Button class acts as a memento in the memento pattern and acts as an abstract product in the factory_method pattern.",
+          "swum_actions" : "render",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE render)"
+        },
+        "onClick" : {
+          "method_name" : "onClick",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs. The Button class acts as a memento in the memento pattern and acts as an abstract product in the factory_method pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE on Click)"
+        }
+      },
+      "swum_class_summary" : "The Button class acts as a memento in the memento pattern and acts as an abstract product in the factory_method pattern and provides methods to render for managing button."
+    },
+    "Test" : {
+      "class_name" : "Test",
+      "class_type" : "class",
+      "method_summaries" : {
+        "main" : {
+          "method_name" : "main",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE main)"
+        }
+      },
+      "swum_class_summary" : "The Test class."
+    },
+    "Dialog" : {
+      "class_name" : "Dialog",
+      "class_type" : "class",
+      "method_summaries" : {
+        "renderWindow" : {
+          "method_name" : "renderWindow",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method renders a window. The Dialog class acts as an originator in the memento pattern and acts as a factory in the factory_method pattern.",
+          "swum_actions" : "render",
+          "swum_objects" : "Window",
+          "swum_parse_tree" : "(VERB_PHRASE render (OBJECT Window))"
+        },
+        "createButton" : {
+          "method_name" : "createButton",
+          "return_type" : "Button",
+          "parameters" : "",
+          "swum_summary" : "This method creates product objects as part of the factory_method pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "Button",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Button))"
+        }
+      },
+      "swum_class_summary" : "The Dialog class acts as an originator in the memento pattern and acts as a factory in the factory_method pattern and provides methods to render, create for managing dialog."
+    },
+    "WindowsDialog" : {
+      "class_name" : "WindowsDialog",
+      "class_type" : "class",
+      "method_summaries" : {
+        "createButton" : {
+          "method_name" : "createButton",
+          "return_type" : "Button",
+          "parameters" : "",
+          "swum_summary" : "This method creates a button and returns an object. The WindowsDialog class acts as an originator in the memento pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "Button",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Button))"
+        }
+      },
+      "swum_class_summary" : "The WindowsDialog class acts as an originator in the memento pattern and provides methods to create for managing dialog."
+    },
+    "HtmlDialog" : {
+      "class_name" : "HtmlDialog",
+      "class_type" : "class",
+      "method_summaries" : {
+        "createButton" : {
+          "method_name" : "createButton",
+          "return_type" : "Button",
+          "parameters" : "",
+          "swum_summary" : "This method creates a button and returns an object. The HtmlDialog class acts as an originator in the memento pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "Button",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Button))"
+        }
+      },
+      "swum_class_summary" : "The HtmlDialog class acts as an originator in the memento pattern and provides methods to create for managing dialog."
+    },
+    "HtmlButton" : {
+      "class_name" : "HtmlButton",
+      "class_type" : "class",
+      "method_summaries" : {
+        "render" : {
+          "method_name" : "render",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method renders. The HtmlButton class acts as a memento in the memento pattern and acts as a product in the factory_method pattern.",
+          "swum_actions" : "render",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE render)"
+        },
+        "onClick" : {
+          "method_name" : "onClick",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs. The HtmlButton class acts as a memento in the memento pattern and acts as a product in the factory_method pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE on Click)"
+        }
+      },
+      "swum_class_summary" : "The HtmlButton class acts as a memento in the memento pattern and acts as a product in the factory_method pattern and provides methods to render for managing button."
+    }
+  },
+  "swum_project_summary" : "This software project contains 7 classes with 11 methods. The system implements multiple design patterns including memento, factory_method. Primary operations include create, render. Key objects manipulated are Button, Window.",
+  "design_patterns" : [ {
+    "factory_method" : {
+      "Dialog" : {
+        "concrete_product" : [ "WindowsButton", "HtmlButton" ],
+        "abstract_product" : "Button",
+        "concrete_factory" : [ "Dialog", "Dialog" ]
+      }
+    }
+  }, {
+    "memento" : {
+      "Button" : {
+        "caretaker" : { },
+        "originator" : {
+          "Dialog" : [ "WindowsDialog", "HtmlDialog" ]
+        },
+        "concrete_memento" : [ "WindowsButton", "HtmlButton" ]
+      }
+    }
+  } ]
+}

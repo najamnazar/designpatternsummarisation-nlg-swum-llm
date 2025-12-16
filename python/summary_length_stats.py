@@ -199,11 +199,22 @@ class SummaryLengthAnalyzer:
 
 def main() -> None:
     repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-    files = {
-        "dps_nlg": os.path.join(repo_root, "output", "summary-output", "dps_nlg.csv"),
-        "llm_summaries": os.path.join(repo_root, "output", "summary-output", "llm_summaries.csv"),
-        "swum_summaries": os.path.join(repo_root, "output", "summary-output", "swum_summaries.csv"),
-    }
+    def resolve_summary_file(*relative_names: str) -> Tuple[str, str]:
+        base_dir = os.path.join(repo_root, "output", "summary-output")
+        for name in relative_names:
+            candidate = os.path.join(base_dir, name)
+            if os.path.exists(candidate):
+                label = os.path.splitext(name)[0]
+                return label, candidate
+        joined = ", ".join(relative_names)
+        raise FileNotFoundError(f"None of the candidate summary files exist: {joined}")
+
+    resolved_sources = [
+        resolve_summary_file("dps_nlg.csv", "nlg_summaries.csv"),
+        resolve_summary_file("llm_summaries.csv"),
+        resolve_summary_file("swum_summaries.csv"),
+    ]
+    files = {label: path for label, path in resolved_sources}
     out_path = os.path.join(repo_root, "evaluation-results", "summary_length_stats.txt")
 
     analyzer = SummaryLengthAnalyzer(files, out_path)

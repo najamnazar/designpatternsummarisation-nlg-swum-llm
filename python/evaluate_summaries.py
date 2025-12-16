@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Summary Evaluation Against Human Summaries
-Evaluates NLG, SWUM, and dps_llm (Mixtral) summaries against human-written summaries
+Evaluates NLG, SWUM, and LLM (Mixtral) summaries against human-written summaries
 using Cosine Similarity and BERTScore with violin plot visualizations.
 
 This module now follows an object-oriented design to encapsulate the data-loading, evaluation,
@@ -246,7 +246,7 @@ class EvaluationConfig:
         return [
             ('NLG', self.nlg_csv),
             ('SWUM', self.swum_csv),
-            ('dps_llm', self.dps_llm_csv),
+            ('LLM (Mixtral)', self.dps_llm_csv),
         ]
 
 
@@ -446,7 +446,7 @@ class VisualizationManager:
         colors = {
             'NLG': '#e74c3c',
             'SWUM': '#3498db',
-            'dps_llm': '#f39c12',
+            'LLM (Mixtral)': '#f39c12',
         }
 
         sns.violinplot(
@@ -540,8 +540,6 @@ class SummaryEvaluationPipeline:
 
         for method_name, csv_path in self.config.method_sources():
             display_name = method_name
-            if method_name == 'dps_llm':
-                display_name = 'dps_llm (Mixtral)'
 
             if not csv_path.exists():
                 print(f"WARNING: {display_name} CSV not found: {csv_path}")
@@ -598,7 +596,7 @@ class SummaryEvaluationPipeline:
                 handle.write("=" * 60 + "\n\n")
                 for result in results:
                     method_info = ""
-                    if result.method == 'dps_llm':
+                    if result.method == 'LLM (Mixtral)':
                         method_info = " (Mixtral-8x22B)"
                     metrics = result.metrics
                     handle.write(f"\n{result.method}{method_info}:\n")
@@ -635,7 +633,7 @@ class SummaryEvaluationPipeline:
                 handle.write("\n\nDetailed Metrics by Method:\n")
                 for result in results:
                     method_info = ""
-                    if result.method == 'dps_llm':
+                    if result.method == 'LLM (Mixtral)':
                         method_info = " (Mixtral-8x22B)"
                     metrics = result.metrics
                     handle.write(f"\n{result.method}{method_info}\n")
@@ -692,7 +690,7 @@ def parse_arguments(argv: Optional[List[str]]) -> argparse.Namespace:
         '--dps-llm-csv',
         type=Path,
         default=Path('output/summary-output/llm_summaries.csv'),
-        help='Path to dps_llm (Mixtral) summaries CSV file',
+        help='Path to LLM (Mixtral) summaries CSV file',
     )
     parser.add_argument(
         '--output-dir',

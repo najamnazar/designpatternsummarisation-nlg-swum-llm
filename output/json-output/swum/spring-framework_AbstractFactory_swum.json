@@ -1,0 +1,271 @@
+{
+  "project_name" : "summary_NLG",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1765511727283,
+  "class_summaries" : {
+    "ClientHttpRequestFactory" : {
+      "class_name" : "ClientHttpRequestFactory",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "createRequest" : {
+          "method_name" : "createRequest",
+          "return_type" : "ClientHttpRequest",
+          "parameters" : "",
+          "swum_summary" : "This method creates a request and returns an object as part of the Factory pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "Request",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Request))"
+        }
+      },
+      "swum_class_summary" : "The ClientHttpRequestFactory class is part of the Factory pattern and provides methods to create for managing client, request, factory."
+    },
+    "AutowireCapableBeanFactory" : {
+      "class_name" : "AutowireCapableBeanFactory",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "createBean" : {
+          "method_name" : "createBean",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object as part of the Factory pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Bean))"
+        },
+        "autowireBean" : {
+          "method_name" : "autowireBean",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE autowire Bean)"
+        },
+        "configureBean" : {
+          "method_name" : "configureBean",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE configure Bean)"
+        },
+        "autowire" : {
+          "method_name" : "autowire",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE autowire)"
+        },
+        "autowireBeanProperties" : {
+          "method_name" : "autowireBeanProperties",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE autowire Bean Properties)"
+        },
+        "applyBeanPropertyValues" : {
+          "method_name" : "applyBeanPropertyValues",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE apply Bean Property Values)"
+        },
+        "initializeBean" : {
+          "method_name" : "initializeBean",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE initialize Bean)"
+        },
+        "applyBeanPostProcessorsBeforeInitialization" : {
+          "method_name" : "applyBeanPostProcessorsBeforeInitialization",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE apply Bean Post Processors Before Initialization)"
+        },
+        "applyBeanPostProcessorsAfterInitialization" : {
+          "method_name" : "applyBeanPostProcessorsAfterInitialization",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE apply Bean Post Processors After Initialization)"
+        },
+        "destroyBean" : {
+          "method_name" : "destroyBean",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE destroy Bean)"
+        },
+        "resolveNamedBean" : {
+          "method_name" : "resolveNamedBean",
+          "return_type" : "NamedBeanHolder<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Named Bean)"
+        },
+        "resolveBeanByName" : {
+          "method_name" : "resolveBeanByName",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Bean By Name)"
+        },
+        "resolveDependency" : {
+          "method_name" : "resolveDependency",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Dependency)"
+        }
+      },
+      "swum_class_summary" : "The AutowireCapableBeanFactory class is part of the Factory pattern and provides methods to create, create for managing factory."
+    },
+    "HierarchicalBeanFactory" : {
+      "class_name" : "HierarchicalBeanFactory",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "getParentBeanFactory" : {
+          "method_name" : "getParentBeanFactory",
+          "return_type" : "BeanFactory",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves a factory and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "Factory",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Parent Bean Factory))"
+        },
+        "containsLocalBean" : {
+          "method_name" : "containsLocalBean",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE contains Local Bean)"
+        }
+      },
+      "swum_class_summary" : "The HierarchicalBeanFactory class is part of the Factory pattern and provides methods to get for managing factory."
+    },
+    "ListableBeanFactory" : {
+      "class_name" : "ListableBeanFactory",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "containsBeanDefinition" : {
+          "method_name" : "containsBeanDefinition",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE contains Bean Definition)"
+        },
+        "getBeanDefinitionCount" : {
+          "method_name" : "getBeanDefinitionCount",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Definition Count))"
+        },
+        "getBeanDefinitionNames" : {
+          "method_name" : "getBeanDefinitionNames",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Definition Names))"
+        },
+        "getBeanProvider" : {
+          "method_name" : "getBeanProvider",
+          "return_type" : "ObjectProvider<T>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Provider))"
+        },
+        "getBeanNamesForType" : {
+          "method_name" : "getBeanNamesForType",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Names For Type))"
+        },
+        "getBeansOfType" : {
+          "method_name" : "getBeansOfType",
+          "return_type" : "Map<String,T>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Beans Of Type))"
+        },
+        "getBeanNamesForAnnotation" : {
+          "method_name" : "getBeanNamesForAnnotation",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Names For Annotation))"
+        },
+        "getBeansWithAnnotation" : {
+          "method_name" : "getBeansWithAnnotation",
+          "return_type" : "Map<String,Object>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Beans With Annotation))"
+        },
+        "findAnnotationOnBean" : {
+          "method_name" : "findAnnotationOnBean",
+          "return_type" : "A",
+          "parameters" : "",
+          "swum_summary" : "This method finds and returns an object as part of the Factory pattern.",
+          "swum_actions" : "find",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE find (OBJECT Annotation On Bean))"
+        },
+        "findAllAnnotationsOnBean" : {
+          "method_name" : "findAllAnnotationsOnBean",
+          "return_type" : "Set<A>",
+          "parameters" : "",
+          "swum_summary" : "This method finds and returns an object as part of the Factory pattern.",
+          "swum_actions" : "find",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE find (OBJECT All Annotations On Bean))"
+        }
+      },
+      "swum_class_summary" : "The ListableBeanFactory class is part of the Factory pattern provides 15 methods for retrieval for managing factory."
+    }
+  },
+  "swum_project_summary" : "This software project contains 4 classes with 26 methods. Primary operations include create, find, get. Key objects manipulated are Factory, Request.",
+  "design_patterns" : [ ]
+}

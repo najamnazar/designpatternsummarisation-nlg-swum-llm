@@ -19,7 +19,7 @@ SWUM:
   Avg BERT F1: 0.8715 (±0.0168)
   Combined Score: 0.5583
 
-dps_llm (Mixtral-8x22B):
+LLM (Mixtral) (Mixtral-8x22B):
   Classes Evaluated: 150
   Avg Cosine Similarity: 0.3365 (±0.1269)
   Avg BERT Precision: 0.8624

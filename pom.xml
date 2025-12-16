@@ -82,6 +82,15 @@
                             <mainClass>dps_llm.DpsLlmApplication</mainClass>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>prompt-demo</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>dps_llm.prompt.PromptConfigurationExample</mainClass>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>

@@ -1,7 +1,7 @@
 {
   "project_name" : "Decorator",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764651605293,
+  "generated_timestamp" : 1765511727123,
   "class_summaries" : {
     "DataSourceDecorator" : {
       "class_name" : "DataSourceDecorator",

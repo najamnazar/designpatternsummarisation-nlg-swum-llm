@@ -1,0 +1,230 @@
+{
+  "project_name" : "Visitor",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1765511727423,
+  "class_summaries" : {
+    "BeanDefinitionVisitor" : {
+      "class_name" : "BeanDefinitionVisitor",
+      "class_type" : "class",
+      "method_summaries" : {
+        "visitBeanDefinition" : {
+          "method_name" : "visitBeanDefinition",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Bean Definition)"
+        },
+        "visitParentName" : {
+          "method_name" : "visitParentName",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Parent Name)"
+        },
+        "visitBeanClassName" : {
+          "method_name" : "visitBeanClassName",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs a class as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Class",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Bean Class Name)"
+        },
+        "visitFactoryBeanName" : {
+          "method_name" : "visitFactoryBeanName",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs a factory as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Factory",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Factory Bean Name)"
+        },
+        "visitFactoryMethodName" : {
+          "method_name" : "visitFactoryMethodName",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs Factory, Method as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Factory, Method",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Factory Method Name)"
+        },
+        "visitScope" : {
+          "method_name" : "visitScope",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Scope)"
+        },
+        "visitPropertyValues" : {
+          "method_name" : "visitPropertyValues",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Property Values)"
+        },
+        "visitIndexedArgumentValues" : {
+          "method_name" : "visitIndexedArgumentValues",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Indexed Argument Values)"
+        },
+        "visitGenericArgumentValues" : {
+          "method_name" : "visitGenericArgumentValues",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Generic Argument Values)"
+        },
+        "resolveValue" : {
+          "method_name" : "resolveValue",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs a value and returns an object as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Value",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Value)"
+        },
+        "visitArray" : {
+          "method_name" : "visitArray",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs an array as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Array",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Array)"
+        },
+        "visitList" : {
+          "method_name" : "visitList",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs a list as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "List",
+          "swum_parse_tree" : "(NOUN_PHRASE visit List)"
+        },
+        "visitSet" : {
+          "method_name" : "visitSet",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Visitor pattern.",
+          "swum_actions" : "Set",
+          "swum_objects" : "Set",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT visit) Set)"
+        },
+        "visitMap" : {
+          "method_name" : "visitMap",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs a map as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Map",
+          "swum_parse_tree" : "(NOUN_PHRASE visit Map)"
+        },
+        "resolveStringValue" : {
+          "method_name" : "resolveStringValue",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs String, Value and returns a String as part of the Visitor pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "String, Value",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve String Value)"
+        }
+      },
+      "swum_class_summary" : "The BeanDefinitionVisitor class is part of the Visitor pattern and provides methods to set."
+    },
+    "BeanFactory" : {
+      "class_name" : "BeanFactory",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "getBean" : {
+          "method_name" : "getBean",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean))"
+        },
+        "getBeanProvider" : {
+          "method_name" : "getBeanProvider",
+          "return_type" : "ObjectProvider<T>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Provider))"
+        },
+        "containsBean" : {
+          "method_name" : "containsBean",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE contains Bean)"
+        },
+        "isSingleton" : {
+          "method_name" : "isSingleton",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Singleton)"
+        },
+        "isPrototype" : {
+          "method_name" : "isPrototype",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Prototype)"
+        },
+        "isTypeMatch" : {
+          "method_name" : "isTypeMatch",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Type Match)"
+        },
+        "getType" : {
+          "method_name" : "getType",
+          "return_type" : "Class<?>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Type))"
+        },
+        "getAliases" : {
+          "method_name" : "getAliases",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Aliases))"
+        }
+      },
+      "swum_class_summary" : "The BeanFactory class is part of the Factory pattern provides 11 methods for retrieval for managing factory."
+    }
+  },
+  "swum_project_summary" : "This software project contains 2 classes with 23 methods. Primary operations include Set, get. Key objects manipulated are Array, Class, Factory, List, Map.",
+  "design_patterns" : [ ]
+}

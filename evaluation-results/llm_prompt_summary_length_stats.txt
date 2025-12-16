@@ -1,0 +1,24 @@
+Prompt-Specific LLM Summary Length Statistics
+Each section mirrors summary_length_stats.py but focuses on a single CSV.
+Lengths are reported in words (tokens) and non-whitespace characters.
+
+=== llm_summaries_2 ===
+Source          | Count | AvgWords | MinWords | MaxWords | AvgChars | MinChars | MaxChars
+-----------------------------------------------------------------------------------------
+llm_summaries_2 |   151 |    20.52 |       14 |       35 |   142.70 |       84 |      215
+
+=== llm_summaries_40 ===
+Source           | Count | AvgWords | MinWords | MaxWords | AvgChars | MinChars | MaxChars
+------------------------------------------------------------------------------------------
+llm_summaries_40 |   151 |    35.14 |       23 |       48 |   228.87 |      160 |      338
+
+=== llm_summaries_60 ===
+Source           | Count | AvgWords | MinWords | MaxWords | AvgChars | MinChars | MaxChars
+------------------------------------------------------------------------------------------
+llm_summaries_60 |   151 |    51.38 |       38 |       66 |   322.66 |      233 |      436
+
+=== llm_summaries_80 ===
+Source           | Count | AvgWords | MinWords | MaxWords | AvgChars | MinChars | MaxChars
+------------------------------------------------------------------------------------------
+llm_summaries_80 |   151 |    65.91 |       47 |       86 |   406.16 |      307 |      544
+

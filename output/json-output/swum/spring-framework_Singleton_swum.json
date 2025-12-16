@@ -1,0 +1,1412 @@
+{
+  "project_name" : "Singleton",
+  "swum_version" : "1.0",
+  "generated_timestamp" : 1765511727402,
+  "class_summaries" : {
+    "SmartInitializingSingleton" : {
+      "class_name" : "SmartInitializingSingleton",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "afterSingletonsInstantiated" : {
+          "method_name" : "afterSingletonsInstantiated",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE after Singletons Instantiated)"
+        }
+      },
+      "swum_class_summary" : "The SmartInitializingSingleton class is part of the Singleton pattern."
+    },
+    "DefaultSingletonBeanRegistry" : {
+      "class_name" : "DefaultSingletonBeanRegistry",
+      "class_type" : "class",
+      "method_summaries" : {
+        "registerSingleton" : {
+          "method_name" : "registerSingleton",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE register Singleton)"
+        },
+        "addSingleton" : {
+          "method_name" : "addSingleton",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method adds as part of the Singleton pattern.",
+          "swum_actions" : "add",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE add (OBJECT Singleton))"
+        },
+        "addSingletonFactory" : {
+          "method_name" : "addSingletonFactory",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method adds a factory as part of the Singleton pattern.",
+          "swum_actions" : "add",
+          "swum_objects" : "Factory",
+          "swum_parse_tree" : "(VERB_PHRASE add (OBJECT Singleton Factory))"
+        },
+        "addSingletonCallback" : {
+          "method_name" : "addSingletonCallback",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method adds as part of the Singleton pattern.",
+          "swum_actions" : "add",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE add (OBJECT Singleton Callback))"
+        },
+        "getSingleton" : {
+          "method_name" : "getSingleton",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Singleton))"
+        },
+        "checkDependentWaitingThreads" : {
+          "method_name" : "checkDependentWaitingThreads",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method checks and returns a boolean as part of the Singleton pattern.",
+          "swum_actions" : "check",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE check (OBJECT Dependent Waiting Threads))"
+        },
+        "isCurrentThreadAllowedToHoldSingletonLock" : {
+          "method_name" : "isCurrentThreadAllowedToHoldSingletonLock",
+          "return_type" : "Boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Current Thread Allowed To Hold Singleton Lock)"
+        },
+        "onSuppressedException" : {
+          "method_name" : "onSuppressedException",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE on Suppressed Exception)"
+        },
+        "removeSingleton" : {
+          "method_name" : "removeSingleton",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method removes as part of the Singleton pattern.",
+          "swum_actions" : "remove",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE remove (OBJECT Singleton))"
+        },
+        "containsSingleton" : {
+          "method_name" : "containsSingleton",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE contains Singleton)"
+        },
+        "getSingletonNames" : {
+          "method_name" : "getSingletonNames",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Singleton Names))"
+        },
+        "getSingletonCount" : {
+          "method_name" : "getSingletonCount",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Singleton Count))"
+        },
+        "setCurrentlyInCreation" : {
+          "method_name" : "setCurrentlyInCreation",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Singleton pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Currently In Creation))"
+        },
+        "isCurrentlyInCreation" : {
+          "method_name" : "isCurrentlyInCreation",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Currently In Creation)"
+        },
+        "isActuallyInCreation" : {
+          "method_name" : "isActuallyInCreation",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Actually In Creation)"
+        },
+        "isSingletonCurrentlyInCreation" : {
+          "method_name" : "isSingletonCurrentlyInCreation",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Singleton Currently In Creation)"
+        },
+        "beforeSingletonCreation" : {
+          "method_name" : "beforeSingletonCreation",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE before Singleton Creation)"
+        },
+        "afterSingletonCreation" : {
+          "method_name" : "afterSingletonCreation",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE after Singleton Creation)"
+        },
+        "registerDisposableBean" : {
+          "method_name" : "registerDisposableBean",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE register Disposable Bean)"
+        },
+        "registerContainedBean" : {
+          "method_name" : "registerContainedBean",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE register Contained Bean)"
+        },
+        "registerDependentBean" : {
+          "method_name" : "registerDependentBean",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE register Dependent Bean)"
+        },
+        "isDependent" : {
+          "method_name" : "isDependent",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Dependent)"
+        },
+        "hasDependentBean" : {
+          "method_name" : "hasDependentBean",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE has Dependent Bean)"
+        },
+        "getDependentBeans" : {
+          "method_name" : "getDependentBeans",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Dependent Beans))"
+        },
+        "getDependenciesForBean" : {
+          "method_name" : "getDependenciesForBean",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Dependencies For Bean))"
+        },
+        "destroySingletons" : {
+          "method_name" : "destroySingletons",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE destroy Singletons)"
+        },
+        "clearSingletonCache" : {
+          "method_name" : "clearSingletonCache",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method clears as part of the Singleton pattern.",
+          "swum_actions" : "clear",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE clear (OBJECT Singleton Cache))"
+        },
+        "destroySingleton" : {
+          "method_name" : "destroySingleton",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE destroy Singleton)"
+        },
+        "destroyBean" : {
+          "method_name" : "destroyBean",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE destroy Bean)"
+        },
+        "getSingletonMutex" : {
+          "method_name" : "getSingletonMutex",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Singleton Mutex))"
+        }
+      },
+      "swum_class_summary" : "The DefaultSingletonBeanRegistry class is part of the Singleton pattern provides 15 methods including retrieval, creation, deletion and other operations."
+    },
+    "DefaultListableBeanFactory" : {
+      "class_name" : "DefaultListableBeanFactory",
+      "class_type" : "class",
+      "method_summaries" : {
+        "setSerializationId" : {
+          "method_name" : "setSerializationId",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Factory pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Serialization Id))"
+        },
+        "getSerializationId" : {
+          "method_name" : "getSerializationId",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Serialization Id))"
+        },
+        "setAllowBeanDefinitionOverriding" : {
+          "method_name" : "setAllowBeanDefinitionOverriding",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Factory pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Allow Bean Definition Overriding))"
+        },
+        "isAllowBeanDefinitionOverriding" : {
+          "method_name" : "isAllowBeanDefinitionOverriding",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Allow Bean Definition Overriding)"
+        },
+        "setAllowEagerClassLoading" : {
+          "method_name" : "setAllowEagerClassLoading",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets set, Class as part of the Factory pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set, Class",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Allow Eager Class Loading))"
+        },
+        "isAllowEagerClassLoading" : {
+          "method_name" : "isAllowEagerClassLoading",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs a class and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Class",
+          "swum_parse_tree" : "(NOUN_PHRASE is Allow Eager Class Loading)"
+        },
+        "setBootstrapExecutor" : {
+          "method_name" : "setBootstrapExecutor",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Factory pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Bootstrap Executor))"
+        },
+        "getBootstrapExecutor" : {
+          "method_name" : "getBootstrapExecutor",
+          "return_type" : "Executor",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bootstrap Executor))"
+        },
+        "setDependencyComparator" : {
+          "method_name" : "setDependencyComparator",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Factory pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Dependency Comparator))"
+        },
+        "getDependencyComparator" : {
+          "method_name" : "getDependencyComparator",
+          "return_type" : "Comparator<Object>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Dependency Comparator))"
+        },
+        "setAutowireCandidateResolver" : {
+          "method_name" : "setAutowireCandidateResolver",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method sets a set as part of the Factory pattern.",
+          "swum_actions" : "set",
+          "swum_objects" : "set",
+          "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Autowire Candidate Resolver))"
+        },
+        "getAutowireCandidateResolver" : {
+          "method_name" : "getAutowireCandidateResolver",
+          "return_type" : "AutowireCandidateResolver",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Autowire Candidate Resolver))"
+        },
+        "copyConfigurationFrom" : {
+          "method_name" : "copyConfigurationFrom",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method copies as part of the Factory pattern.",
+          "swum_actions" : "copy",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE copy (OBJECT Configuration From))"
+        },
+        "getBean" : {
+          "method_name" : "getBean",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean))"
+        },
+        "getBeanProvider" : {
+          "method_name" : "getBeanProvider",
+          "return_type" : "ObjectProvider<T>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Provider))"
+        },
+        "containsBeanDefinition" : {
+          "method_name" : "containsBeanDefinition",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE contains Bean Definition)"
+        },
+        "getBeanDefinitionCount" : {
+          "method_name" : "getBeanDefinitionCount",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Definition Count))"
+        },
+        "getBeanDefinitionNames" : {
+          "method_name" : "getBeanDefinitionNames",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Definition Names))"
+        },
+        "resolveBean" : {
+          "method_name" : "resolveBean",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Bean)"
+        },
+        "beanNamesForStream" : {
+          "method_name" : "beanNamesForStream",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE bean Names For Stream)"
+        },
+        "getBeanNamesForType" : {
+          "method_name" : "getBeanNamesForType",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Names For Type))"
+        },
+        "doGetBeanNamesForType" : {
+          "method_name" : "doGetBeanNamesForType",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "Get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE (SUBJECT do) Get (OBJECT Bean Names For Type))"
+        },
+        "isSingleton" : {
+          "method_name" : "isSingleton",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Singleton)"
+        },
+        "requiresEagerInitForType" : {
+          "method_name" : "requiresEagerInitForType",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE requires Eager Init For Type)"
+        },
+        "getBeansOfType" : {
+          "method_name" : "getBeansOfType",
+          "return_type" : "Map<String,T>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Beans Of Type))"
+        },
+        "getBeanNamesForAnnotation" : {
+          "method_name" : "getBeanNamesForAnnotation",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Names For Annotation))"
+        },
+        "getBeansWithAnnotation" : {
+          "method_name" : "getBeansWithAnnotation",
+          "return_type" : "Map<String,Object>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Beans With Annotation))"
+        },
+        "findAnnotationOnBean" : {
+          "method_name" : "findAnnotationOnBean",
+          "return_type" : "A",
+          "parameters" : "",
+          "swum_summary" : "This method finds and returns an object as part of the Factory pattern.",
+          "swum_actions" : "find",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE find (OBJECT Annotation On Bean))"
+        },
+        "findAllAnnotationsOnBean" : {
+          "method_name" : "findAllAnnotationsOnBean",
+          "return_type" : "Set<A>",
+          "parameters" : "",
+          "swum_summary" : "This method finds and returns an object as part of the Factory pattern.",
+          "swum_actions" : "find",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE find (OBJECT All Annotations On Bean))"
+        },
+        "registerResolvableDependency" : {
+          "method_name" : "registerResolvableDependency",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE register Resolvable Dependency)"
+        },
+        "isAutowireCandidate" : {
+          "method_name" : "isAutowireCandidate",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Autowire Candidate)"
+        },
+        "getBeanDefinition" : {
+          "method_name" : "getBeanDefinition",
+          "return_type" : "BeanDefinition",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Definition))"
+        },
+        "getBeanNamesIterator" : {
+          "method_name" : "getBeanNamesIterator",
+          "return_type" : "Iterator<String>",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Bean Names Iterator))"
+        },
+        "clearMergedBeanDefinition" : {
+          "method_name" : "clearMergedBeanDefinition",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method clears as part of the Factory pattern.",
+          "swum_actions" : "clear",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE clear (OBJECT Merged Bean Definition))"
+        },
+        "clearMetadataCache" : {
+          "method_name" : "clearMetadataCache",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method clears as part of the Factory pattern.",
+          "swum_actions" : "clear",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE clear (OBJECT Metadata Cache))"
+        },
+        "freezeConfiguration" : {
+          "method_name" : "freezeConfiguration",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE freeze Configuration)"
+        },
+        "isConfigurationFrozen" : {
+          "method_name" : "isConfigurationFrozen",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Configuration Frozen)"
+        },
+        "isBeanEligibleForMetadataCaching" : {
+          "method_name" : "isBeanEligibleForMetadataCaching",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Bean Eligible For Metadata Caching)"
+        },
+        "obtainInstanceFromSupplier" : {
+          "method_name" : "obtainInstanceFromSupplier",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method obtains an instance and returns an object as part of the Factory pattern.",
+          "swum_actions" : "obtain",
+          "swum_objects" : "Instance",
+          "swum_parse_tree" : "(VERB_PHRASE obtain (OBJECT Instance From Supplier))"
+        },
+        "cacheMergedBeanDefinition" : {
+          "method_name" : "cacheMergedBeanDefinition",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE cache Merged Bean Definition)"
+        },
+        "checkMergedBeanDefinition" : {
+          "method_name" : "checkMergedBeanDefinition",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method checks as part of the Factory pattern.",
+          "swum_actions" : "check",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE check (OBJECT Merged Bean Definition))"
+        },
+        "isCurrentThreadAllowedToHoldSingletonLock" : {
+          "method_name" : "isCurrentThreadAllowedToHoldSingletonLock",
+          "return_type" : "Boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Current Thread Allowed To Hold Singleton Lock)"
+        },
+        "prepareSingletonBootstrap" : {
+          "method_name" : "prepareSingletonBootstrap",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE prepare Singleton Bootstrap)"
+        },
+        "preInstantiateSingletons" : {
+          "method_name" : "preInstantiateSingletons",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE pre Instantiate Singletons)"
+        },
+        "preInstantiateSingleton" : {
+          "method_name" : "preInstantiateSingleton",
+          "return_type" : "CompletableFuture<?>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE pre Instantiate Singleton)"
+        },
+        "instantiateSingletonInBackgroundThread" : {
+          "method_name" : "instantiateSingletonInBackgroundThread",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE instantiate Singleton In Background Thread)"
+        },
+        "instantiateSingleton" : {
+          "method_name" : "instantiateSingleton",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE instantiate Singleton)"
+        },
+        "getThreadNamePrefix" : {
+          "method_name" : "getThreadNamePrefix",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Thread Name Prefix))"
+        },
+        "registerBeanDefinition" : {
+          "method_name" : "registerBeanDefinition",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE register Bean Definition)"
+        },
+        "logBeanDefinitionOverriding" : {
+          "method_name" : "logBeanDefinitionOverriding",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE log Bean Definition Overriding)"
+        },
+        "removeBeanDefinition" : {
+          "method_name" : "removeBeanDefinition",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method removes as part of the Factory pattern.",
+          "swum_actions" : "remove",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE remove (OBJECT Bean Definition))"
+        },
+        "resetBeanDefinition" : {
+          "method_name" : "resetBeanDefinition",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE reset Bean Definition)"
+        },
+        "isBeanDefinitionOverridable" : {
+          "method_name" : "isBeanDefinitionOverridable",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Bean Definition Overridable)"
+        },
+        "allowAliasOverriding" : {
+          "method_name" : "allowAliasOverriding",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE allow Alias Overriding)"
+        },
+        "checkForAliasCircle" : {
+          "method_name" : "checkForAliasCircle",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method checks as part of the Factory pattern.",
+          "swum_actions" : "check",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE check (OBJECT For Alias Circle))"
+        },
+        "addSingleton" : {
+          "method_name" : "addSingleton",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method adds as part of the Factory pattern.",
+          "swum_actions" : "add",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE add (OBJECT Singleton))"
+        },
+        "registerSingleton" : {
+          "method_name" : "registerSingleton",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE register Singleton)"
+        },
+        "destroySingletons" : {
+          "method_name" : "destroySingletons",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE destroy Singletons)"
+        },
+        "destroySingleton" : {
+          "method_name" : "destroySingleton",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE destroy Singleton)"
+        },
+        "removeManualSingletonName" : {
+          "method_name" : "removeManualSingletonName",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method removes as part of the Factory pattern.",
+          "swum_actions" : "remove",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE remove (OBJECT Manual Singleton Name))"
+        },
+        "updateManualSingletonNames" : {
+          "method_name" : "updateManualSingletonNames",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method updates as part of the Factory pattern.",
+          "swum_actions" : "update",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE update (OBJECT Manual Singleton Names))"
+        },
+        "clearByTypeCache" : {
+          "method_name" : "clearByTypeCache",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method clears as part of the Factory pattern.",
+          "swum_actions" : "clear",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE clear (OBJECT By Type Cache))"
+        },
+        "resolveNamedBean" : {
+          "method_name" : "resolveNamedBean",
+          "return_type" : "NamedBeanHolder<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Named Bean)"
+        },
+        "resolveDependency" : {
+          "method_name" : "resolveDependency",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Dependency)"
+        },
+        "doResolveDependency" : {
+          "method_name" : "doResolveDependency",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE do Resolve Dependency)"
+        },
+        "resolveInstance" : {
+          "method_name" : "resolveInstance",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs an instance and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Instance",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Instance)"
+        },
+        "resolveMultipleBeans" : {
+          "method_name" : "resolveMultipleBeans",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Multiple Beans)"
+        },
+        "resolveMultipleBeansFallback" : {
+          "method_name" : "resolveMultipleBeansFallback",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Multiple Beans Fallback)"
+        },
+        "resolveMultipleBeanCollection" : {
+          "method_name" : "resolveMultipleBeanCollection",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs a collection and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Collection",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Multiple Bean Collection)"
+        },
+        "resolveMultipleBeanMap" : {
+          "method_name" : "resolveMultipleBeanMap",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs a map and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Map",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Multiple Bean Map)"
+        },
+        "indicatesArrayCollectionOrMap" : {
+          "method_name" : "indicatesArrayCollectionOrMap",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs Array, Collection, Map and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Array, Collection, Map",
+          "swum_parse_tree" : "(NOUN_PHRASE indicates Array Collection Or Map)"
+        },
+        "isRequired" : {
+          "method_name" : "isRequired",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Required)"
+        },
+        "adaptDependencyComparator" : {
+          "method_name" : "adaptDependencyComparator",
+          "return_type" : "Comparator<Object>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE adapt Dependency Comparator)"
+        },
+        "adaptOrderComparator" : {
+          "method_name" : "adaptOrderComparator",
+          "return_type" : "Comparator<Object>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE adapt Order Comparator)"
+        },
+        "createFactoryAwareOrderSourceProvider" : {
+          "method_name" : "createFactoryAwareOrderSourceProvider",
+          "return_type" : "OrderComparator.OrderSourceProvider",
+          "parameters" : "",
+          "swum_summary" : "This method creates a factory and returns an object as part of the Factory pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "Factory",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Factory Aware Order Source Provider))"
+        },
+        "findAutowireCandidates" : {
+          "method_name" : "findAutowireCandidates",
+          "return_type" : "Map<String,Object>",
+          "parameters" : "",
+          "swum_summary" : "This method finds and returns a String as part of the Factory pattern.",
+          "swum_actions" : "find",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE find (OBJECT Autowire Candidates))"
+        },
+        "addCandidateEntry" : {
+          "method_name" : "addCandidateEntry",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method adds as part of the Factory pattern.",
+          "swum_actions" : "add",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE add (OBJECT Candidate Entry))"
+        },
+        "determineAutowireCandidate" : {
+          "method_name" : "determineAutowireCandidate",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE determine Autowire Candidate)"
+        },
+        "determinePrimaryCandidate" : {
+          "method_name" : "determinePrimaryCandidate",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE determine Primary Candidate)"
+        },
+        "determineHighestPriorityCandidate" : {
+          "method_name" : "determineHighestPriorityCandidate",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE determine Highest Priority Candidate)"
+        },
+        "isPrimary" : {
+          "method_name" : "isPrimary",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Primary)"
+        },
+        "isFallback" : {
+          "method_name" : "isFallback",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Fallback)"
+        },
+        "getPriority" : {
+          "method_name" : "getPriority",
+          "return_type" : "Integer",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Priority))"
+        },
+        "determineDefaultCandidate" : {
+          "method_name" : "determineDefaultCandidate",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a String as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE determine Default Candidate)"
+        },
+        "matchesBeanName" : {
+          "method_name" : "matchesBeanName",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE matches Bean Name)"
+        },
+        "isSelfReference" : {
+          "method_name" : "isSelfReference",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Self Reference)"
+        },
+        "hasPrimaryConflict" : {
+          "method_name" : "hasPrimaryConflict",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE has Primary Conflict)"
+        },
+        "raiseNoMatchingBeanFound" : {
+          "method_name" : "raiseNoMatchingBeanFound",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE raise No Matching Bean Found)"
+        },
+        "checkBeanNotOfRequiredType" : {
+          "method_name" : "checkBeanNotOfRequiredType",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method checks as part of the Factory pattern.",
+          "swum_actions" : "check",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE check (OBJECT Bean Not Of Required Type))"
+        },
+        "createOptionalDependency" : {
+          "method_name" : "createOptionalDependency",
+          "return_type" : "Optional<?>",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object as part of the Factory pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Optional Dependency))"
+        },
+        "getOrder" : {
+          "method_name" : "getOrder",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Order))"
+        },
+        "toString" : {
+          "method_name" : "toString",
+          "return_type" : "String",
+          "parameters" : "",
+          "swum_summary" : "This method performs a string and returns a String as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "String",
+          "swum_parse_tree" : "(NOUN_PHRASE to String)"
+        },
+        "readObject" : {
+          "method_name" : "readObject",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method reads an object as part of the Factory pattern.",
+          "swum_actions" : "read",
+          "swum_objects" : "Object",
+          "swum_parse_tree" : "(VERB_PHRASE read (OBJECT Object))"
+        },
+        "writeReplace" : {
+          "method_name" : "writeReplace",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method writes and returns an object as part of the Factory pattern.",
+          "swum_actions" : "write",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE write (OBJECT Replace))"
+        },
+        "readResolve" : {
+          "method_name" : "readResolve",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method reads and returns an object as part of the Factory pattern.",
+          "swum_actions" : "read",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE read (OBJECT Resolve))"
+        },
+        "usesStandardBeanLookup" : {
+          "method_name" : "usesStandardBeanLookup",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE uses Standard Bean Lookup)"
+        },
+        "isOrdered" : {
+          "method_name" : "isOrdered",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE is Ordered)"
+        },
+        "getObject" : {
+          "method_name" : "getObject",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves an object and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "Object",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Object))"
+        },
+        "getIfAvailable" : {
+          "method_name" : "getIfAvailable",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT If Available))"
+        },
+        "ifAvailable" : {
+          "method_name" : "ifAvailable",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE if Available)"
+        },
+        "getIfUnique" : {
+          "method_name" : "getIfUnique",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT If Unique))"
+        },
+        "ifUnique" : {
+          "method_name" : "ifUnique",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE if Unique)"
+        },
+        "getValue" : {
+          "method_name" : "getValue",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves a value and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "Value",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Value))"
+        },
+        "resolveValue" : {
+          "method_name" : "resolveValue",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method performs a value and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "Value",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Value)"
+        },
+        "stream" : {
+          "method_name" : "stream",
+          "return_type" : "Stream<Object>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE stream)"
+        },
+        "orderedStream" : {
+          "method_name" : "orderedStream",
+          "return_type" : "Stream<Object>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE ordered Stream)"
+        },
+        "resolveStream" : {
+          "method_name" : "resolveStream",
+          "return_type" : "Stream<Object>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE resolve Stream)"
+        },
+        "createDependencyProvider" : {
+          "method_name" : "createDependencyProvider",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method creates and returns an object as part of the Factory pattern.",
+          "swum_actions" : "create",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Dependency Provider))"
+        },
+        "get" : {
+          "method_name" : "get",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get)"
+        },
+        "getOrderSource" : {
+          "method_name" : "getOrderSource",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Factory pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Order Source))"
+        }
+      },
+      "swum_class_summary" : "The DefaultListableBeanFactory class is part of the Factory pattern provides 64 methods including retrieval, storage and modification, deletion and other operations for managing factory."
+    },
+    "SingletonSupplier" : {
+      "class_name" : "SingletonSupplier",
+      "class_type" : "class",
+      "method_summaries" : {
+        "get" : {
+          "method_name" : "get",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get)"
+        },
+        "obtain" : {
+          "method_name" : "obtain",
+          "return_type" : "T",
+          "parameters" : "",
+          "swum_summary" : "This method obtains and returns an object as part of the Singleton pattern.",
+          "swum_actions" : "obtain",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE obtain)"
+        },
+        "of" : {
+          "method_name" : "of",
+          "return_type" : "SingletonSupplier<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE of)"
+        },
+        "ofNullable" : {
+          "method_name" : "ofNullable",
+          "return_type" : "SingletonSupplier<T>",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns an object as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE of Nullable)"
+        }
+      },
+      "swum_class_summary" : "The SingletonSupplier class is part of the Singleton pattern and provides methods to get, obtain."
+    },
+    "SingletonBeanRegistry" : {
+      "class_name" : "SingletonBeanRegistry",
+      "class_type" : "interface",
+      "method_summaries" : {
+        "registerSingleton" : {
+          "method_name" : "registerSingleton",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method performs as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE register Singleton)"
+        },
+        "addSingletonCallback" : {
+          "method_name" : "addSingletonCallback",
+          "return_type" : "void",
+          "parameters" : "",
+          "swum_summary" : "This method adds as part of the Singleton pattern.",
+          "swum_actions" : "add",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE add (OBJECT Singleton Callback))"
+        },
+        "getSingleton" : {
+          "method_name" : "getSingleton",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Singleton))"
+        },
+        "containsSingleton" : {
+          "method_name" : "containsSingleton",
+          "return_type" : "boolean",
+          "parameters" : "",
+          "swum_summary" : "This method performs and returns a boolean as part of the Singleton pattern.",
+          "swum_actions" : "",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(NOUN_PHRASE contains Singleton)"
+        },
+        "getSingletonNames" : {
+          "method_name" : "getSingletonNames",
+          "return_type" : "String[]",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a String as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Singleton Names))"
+        },
+        "getSingletonCount" : {
+          "method_name" : "getSingletonCount",
+          "return_type" : "int",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns a number as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Singleton Count))"
+        },
+        "getSingletonMutex" : {
+          "method_name" : "getSingletonMutex",
+          "return_type" : "Object",
+          "parameters" : "",
+          "swum_summary" : "This method retrieves and returns an object as part of the Singleton pattern.",
+          "swum_actions" : "get",
+          "swum_objects" : "",
+          "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Singleton Mutex))"
+        }
+      },
+      "swum_class_summary" : "The SingletonBeanRegistry class is part of the Singleton pattern and provides methods to add, get, get, get, get."
+    }
+  },
+  "swum_project_summary" : "This software project contains 5 classes with 152 methods. Primary operations include Get, add, check, clear, copy. Key objects manipulated are Array, Class, Collection, Factory, Instance.",
+  "design_patterns" : [ ]
+}

@@ -1,7 +1,7 @@
 {
   "project_name" : "memento",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1764651605440,
+  "generated_timestamp" : 1765511727247,
   "class_summaries" : {
     "Flower" : {
       "class_name" : "Flower",
@@ -107,7 +107,7 @@
           "swum_parse_tree" : "(VERB_PHRASE set (OBJECT Weight))"
         }
       },
-      "swum_class_summary" : "The Flower class acts as a publisher in the observer pattern and acts as a factory in the abstract_factory pattern and provides methods to get, set, get, get, get, get, set, set, set, get, get, get."
+      "swum_class_summary" : "The Flower class acts as a publisher in the observer pattern and acts as a factory in the abstract_factory pattern provides 8 methods for retrieval and 4 for storage and modification."
     },
     "Plant" : {
       "class_name" : "Plant",
