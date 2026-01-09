@@ -285,7 +285,10 @@ class SummaryRankingPipeline:
 
         api_url = os.getenv('RANK_SUMMARIES_API_URL')
         if not api_url:
-            raise ValueError("RANK_SUMMARIES_API_URL not found in .env file")
+            # Ranking shares the same OpenRouter endpoint; fall back to OPENROUTER_API_URL when no override is set.
+            api_url = os.getenv('OPENROUTER_API_URL')
+        if not api_url:
+            raise ValueError("Set OPENROUTER_API_URL (or RANK_SUMMARIES_API_URL) in .env before running the ranking pipeline")
 
         model = os.getenv('RANK_SUMMARIES_MODEL')
         if not model:
@@ -621,7 +624,7 @@ def main():
         console_output = console_buffer.getvalue()
         print(console_output, end="")
 
-        console_file = pipeline.results_dir / 'ranking_console_ouput.txt'
+        console_file = pipeline.results_dir / 'ranking_console_output.txt'
         with open(console_file, 'w', encoding='utf-8') as fh:
             fh.write(console_output)
 

@@ -1,7 +1,7 @@
 {
   "project_name" : "Visitor",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1765511727423,
+  "generated_timestamp" : 1766308894572,
   "class_summaries" : {
     "BeanDefinitionVisitor" : {
       "class_name" : "BeanDefinitionVisitor",

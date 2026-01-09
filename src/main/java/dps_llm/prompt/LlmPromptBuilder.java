@@ -4,6 +4,8 @@ import dps_llm.model.ClassFeatureSnapshot;
 
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Builds structured prompts for LLM-based code summarization.
@@ -27,8 +29,11 @@ import java.util.StringJoiner;
  */
 public class LlmPromptBuilder {
 
+    private static final Pattern WORD_LIMIT_PATTERN = Pattern.compile("(\\d+)_WORDS");
     private final PromptManager promptManager;
     private final String systemPromptAlias;
+    // private final int wordLimit = 75; // Original fixed limit retained for reference
+    private final int wordLimit; // Word limit inferred from prompt alias to keep summaries aligned with expectation
     
     /**
      * Constructs a new LlmPromptBuilder with default prompt alias.
@@ -46,6 +51,7 @@ public class LlmPromptBuilder {
     public LlmPromptBuilder(String systemPromptAlias) {
         this.promptManager = PromptManager.getInstance();
         this.systemPromptAlias = systemPromptAlias;
+        this.wordLimit = resolveWordLimit(systemPromptAlias); // Capture numeric limit embedded in alias (e.g., 20/40/60/80)
     }
 
     /**
@@ -115,7 +121,9 @@ public class LlmPromptBuilder {
             builder.append("Design pattern insights: none captured in static analysis.\n");
         }
 
-        builder.append("\nTask: Produce a single-paragraph summary (<=75 words) that stresses the class responsibility, its collaborators, and the provided design-pattern context. Avoid repeating raw bullet text.");
+        // builder.append("\nTask: Produce a single-paragraph summary (<=75 words) that stresses the class responsibility, its collaborators, and the provided design-pattern context. Avoid repeating raw bullet text."); // Original instruction retained
+        builder.append("\nTask: Produce a single-paragraph summary (<=").append(wordLimit)
+            .append(" words) that stresses the class responsibility, its collaborators, and the provided design-pattern context. Avoid repeating raw bullet text.");
         return builder.toString();
     }
 
@@ -151,5 +159,20 @@ public class LlmPromptBuilder {
             joiner.add(sample);
         }
         builder.append(label).append(" (total ").append(totalCount).append("): ").append(joiner).append('\n');
+    }
+
+    private int resolveWordLimit(String alias) {
+        if (alias == null) {
+            return 75;
+        }
+        Matcher matcher = WORD_LIMIT_PATTERN.matcher(alias);
+        if (matcher.find()) {
+            try {
+                return Integer.parseInt(matcher.group(1));
+            } catch (NumberFormatException ignored) {
+                // Fall through to default when parsing fails
+            }
+        }
+        return 75;
     }
 }

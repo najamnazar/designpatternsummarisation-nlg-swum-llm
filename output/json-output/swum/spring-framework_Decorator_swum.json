@@ -1,7 +1,7 @@
 {
   "project_name" : "Decorator",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1765511727301,
+  "generated_timestamp" : 1766308894454,
   "class_summaries" : {
     "BufferingClientHttpResponseWrapper" : {
       "class_name" : "BufferingClientHttpResponseWrapper",

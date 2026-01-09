@@ -16,7 +16,7 @@ Line 18, paint() cannot resolve some symbol, because Unsolved symbol in checkBox
   Generated LLM summary for AbdurRKhalid_AbstractFactory/Application
   Generated LLM summary for AbdurRKhalid_AbstractFactory/MacOSCheckBox
   Generated LLM summary for AbdurRKhalid_AbstractFactory/GUIFactory
-  Project summary: 11 classes processed, 11 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 11 classes processed, 11 summaries generated, 0 failed, 0 skipped.
 
 AbdurRKhalid/Adapter
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -34,7 +34,7 @@ Line 25, fits(largeSquareAdapter) cannot resolve some symbol, because Unsolved s
   Generated LLM summary for AbdurRKhalid_Adapter/SquarePegAdapter
   Generated LLM summary for AbdurRKhalid_Adapter/Test
   Generated LLM summary for AbdurRKhalid_Adapter/SquarePeg
-  Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
 
 AbdurRKhalid/Decorator
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -53,7 +53,7 @@ Line 20, readData() cannot resolve some symbol, because Unsolved symbol in super
   Generated LLM summary for AbdurRKhalid_Decorator/CompressionDecorator
   Generated LLM summary for AbdurRKhalid_Decorator/FileDataSource
   Generated LLM summary for AbdurRKhalid_Decorator/DataSource
-  Project summary: 6 classes processed, 6 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 6 classes processed, 6 summaries generated, 0 failed, 0 skipped.
 
 AbdurRKhalid/Facade
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -67,7 +67,7 @@ Configuring symbol resolver with 1 source paths and 0 library paths
   Generated LLM summary for AbdurRKhalid_Facade/CodecFactory
   Generated LLM summary for AbdurRKhalid_Facade/MPEG4CompressionCodec
   Generated LLM summary for AbdurRKhalid_Facade/BitrateReader
-  Project summary: 9 classes processed, 9 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 9 classes processed, 9 summaries generated, 0 failed, 0 skipped.
 
 AbdurRKhalid/FactoryMethod
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -81,7 +81,7 @@ Line 12, onClick() cannot resolve some symbol, because Unsolved symbol in button
   Generated LLM summary for AbdurRKhalid_FactoryMethod/WindowsDialog
   Generated LLM summary for AbdurRKhalid_FactoryMethod/HtmlDialog
   Generated LLM summary for AbdurRKhalid_FactoryMethod/HtmlButton
-  Project summary: 7 classes processed, 7 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 7 classes processed, 7 summaries generated, 0 failed, 0 skipped.
 
 AbdurRKhalid/Memento
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -93,7 +93,7 @@ Use restore(TextWindowState) instead of qualified signature, cause: Unsolved sym
   Generated LLM summary for AbdurRKhalid_Memento/TextEditor
   Generated LLM summary for AbdurRKhalid_Memento/TextWindow
   Generated LLM summary for AbdurRKhalid_Memento/TextWindowState
-  Project summary: 3 classes processed, 3 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 3 classes processed, 3 summaries generated, 0 failed, 0 skipped.
 
 AbdurRKhalid/Observer
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -106,7 +106,7 @@ Line 29, update(eventType, file) cannot resolve some symbol, because Unsolved sy
   Generated LLM summary for AbdurRKhalid_Observer/EventListener
   Generated LLM summary for AbdurRKhalid_Observer/Editor
   Generated LLM summary for AbdurRKhalid_Observer/LogOpenListener
-  Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
 
 AbdurRKhalid/Singleton
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -117,7 +117,7 @@ Line 9, println(firstObject.value) cannot resolve some symbol, because Unsolved 
 Line 10, println(secondObject.value) cannot resolve some symbol, because Unsolved symbol : value
   Generated LLM summary for AbdurRKhalid_Singleton/Test
   Generated LLM summary for AbdurRKhalid_Singleton/Singleton
-  Project summary: 2 classes processed, 2 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 2 classes processed, 2 summaries generated, 0 failed, 0 skipped.
 
 AbdurRKhalid/Visitor
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -130,7 +130,7 @@ Configuring symbol resolver with 1 source paths and 0 library paths
   Generated LLM summary for AbdurRKhalid_Visitor/Keyboard
   Generated LLM summary for AbdurRKhalid_Visitor/Computer
   Generated LLM summary for AbdurRKhalid_Visitor/ComputerPartVisitor
-  Project summary: 8 classes processed, 8 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 8 classes processed, 8 summaries generated, 0 failed, 0 skipped.
 
 JamesZBL/abstract-factory
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -175,7 +175,7 @@ Use setmSailor(Sailor) instead of qualified signature, cause: Unsolved symbol : 
   Generated LLM summary for JamesZBL_abstract-factory/Application
   Generated LLM summary for JamesZBL_abstract-factory/Member
   Generated LLM summary for JamesZBL_abstract-factory/Sailor
-  Project summary: 14 classes processed, 14 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 14 classes processed, 14 summaries generated, 0 failed, 0 skipped.
 
 JamesZBL/adapter
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -189,7 +189,7 @@ Line 35, drive() cannot resolve some symbol, because Unsolved symbol in car.driv
   Generated LLM summary for JamesZBL_adapter/Driver
   Generated LLM summary for JamesZBL_adapter/Application
   Generated LLM summary for JamesZBL_adapter/BusAdapter
-  Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
 
 JamesZBL/decorator
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -215,7 +215,7 @@ Line 56, info("??????") cannot resolve some symbol, because Unsolved symbol in L
   Generated LLM summary for JamesZBL_decorator/Operation
   Generated LLM summary for JamesZBL_decorator/Application
   Generated LLM summary for JamesZBL_decorator/CarpenterOperation
-  Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
 
 JamesZBL/facade
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -239,7 +239,7 @@ Line 87, info("????") cannot resolve some symbol, because Unsolved symbol in LOG
   Generated LLM summary for JamesZBL_facade/CourseStudent
   Generated LLM summary for JamesZBL_facade/Application
   Generated LLM summary for JamesZBL_facade/CourseTeacher
-  Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
 
 JamesZBL/factory-method
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -263,7 +263,7 @@ Line 44, getName() cannot resolve some symbol, because Unsolved symbol in foodTy
   Generated LLM summary for JamesZBL_factory-method/Application
   Generated LLM summary for JamesZBL_factory-method/WesternCook
   Generated LLM summary for JamesZBL_factory-method/Food
-  Project summary: 8 classes processed, 8 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 8 classes processed, 8 summaries generated, 0 failed, 0 skipped.
 
 JamesZBL/memento
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -314,7 +314,7 @@ Use setType(FlowerType) instead of qualified signature, cause: Unsolved symbol :
   Generated LLM summary for JamesZBL_memento/Plant
   Generated LLM summary for JamesZBL_memento/FlowerType
   Generated LLM summary for JamesZBL_memento/Application
-  Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
 
 JamesZBL/observer
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -357,7 +357,7 @@ Use update(TimePoint) instead of qualified signature, cause: Unsolved symbol : T
   Generated LLM summary for JamesZBL_observer/Southern
   Generated LLM summary for JamesZBL_observer/Application
   Generated LLM summary for JamesZBL_observer/TimeObserver
-  Project summary: 6 classes processed, 6 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 6 classes processed, 6 summaries generated, 0 failed, 0 skipped.
 
 JamesZBL/singleton
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -388,7 +388,7 @@ Line 66, info("?????2 = {}", enumDirector2) cannot resolve some symbol, because 
   Generated LLM summary for JamesZBL_singleton/Director
   Generated LLM summary for JamesZBL_singleton/ThreadSafeLazyLoadDirector
   Generated LLM summary for JamesZBL_singleton/Application
-  Project summary: 6 classes processed, 6 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 6 classes processed, 6 summaries generated, 0 failed, 0 skipped.
 
 JamesZBL/visitor
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -431,7 +431,7 @@ Use visitManager(Manager) instead of qualified signature, cause: Unsolved symbol
   Generated LLM summary for JamesZBL_visitor/Manager
   Generated LLM summary for JamesZBL_visitor/Unit
   Generated LLM summary for JamesZBL_visitor/Application
-  Project summary: 9 classes processed, 9 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 9 classes processed, 9 summaries generated, 0 failed, 0 skipped.
 
 spring-framework/AbstractFactory
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -447,7 +447,7 @@ Use getBeanNamesForType(ResolvableType, boolean, boolean) instead of qualified s
   Generated LLM summary for spring-framework_AbstractFactory/AutowireCapableBeanFactory
   Generated LLM summary for spring-framework_AbstractFactory/HierarchicalBeanFactory
   Generated LLM summary for spring-framework_AbstractFactory/ListableBeanFactory
-  Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
 
 spring-framework/Adapter
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -469,7 +469,7 @@ Use handle(HttpServletRequest, HttpServletResponse, Object) instead of qualified
   Generated LLM summary for spring-framework_Adapter/HttpRequestHandlerAdapter
   Generated LLM summary for spring-framework_Adapter/SimpleControllerHandlerAdapter
   Generated LLM summary for spring-framework_Adapter/MethodBeforeAdviceAdapter
-  Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
 
 spring-framework/Decorator
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -540,7 +540,7 @@ Line 90, supportsPartialMessages() cannot resolve some symbol, because Unsolved 
   Generated LLM summary for spring-framework_Decorator/ContentCachingRequestWrapper
   Generated LLM summary for spring-framework_Decorator/ScopedProxyBeanDefinitionDecorator
   Generated LLM summary for spring-framework_Decorator/WebSocketHandlerDecorator
-  Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
 
 spring-framework/Facade
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -573,18 +573,18 @@ Line 440, execute(action, true) cannot resolve some symbol, because Unsolved sym
 Use execute(StatementCallback) instead of qualified signature, cause: Unsolved symbol : StatementCallback
 Line 445, isDebugEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isDebugEnabled() : logger
 Line 446, debug("Executing SQL statement (" + sql + ")") cannot resolve some symbol, because Unsolved symbol in logger.debug("Executing SQL statement [" + sql + "]") : logger
-Line 462, execute(new ExecuteStatementCallback(), true) cannot resolve some symbol, because Unsolved symbol : ConnectionCallback
+Line 462, execute(new ExecuteStatementCallback(), true) cannot resolve some symbol, because Unsolved symbol : StatementCallback
 Line 467, notNull(sql, "SQL must not be null") cannot resolve some symbol, because Unsolved symbol in Assert.notNull(sql, "SQL must not be null") : Assert
 Line 468, notNull(rse, "ResultSetExtractor must not be null") cannot resolve some symbol, because Unsolved symbol : ResultSetExtractor
 Line 469, isDebugEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isDebugEnabled() : logger
 Line 470, debug("Executing SQL query (" + sql + ")") cannot resolve some symbol, because Unsolved symbol in logger.debug("Executing SQL query [" + sql + "]") : logger
 Line 483, closeResultSet(rs) cannot resolve some symbol, because Unsolved symbol in JdbcUtils.closeResultSet(rs) : JdbcUtils
 Line 480, extractData(rs) cannot resolve some symbol, because Unsolved symbol in rse.extractData(rs) : rse
-Line 492, execute(new QueryStatementCallback(), true) cannot resolve some symbol, because Unsolved symbol : CallableStatementCallback
+Line 492, execute(new QueryStatementCallback(), true) cannot resolve some symbol, because Unsolved symbol : PreparedStatementCreator
 Use query(String, ResultSetExtractor) instead of qualified signature, cause: Unsolved symbol : ResultSetExtractor
 Line 483, closeResultSet(rs) cannot resolve some symbol, because Unsolved symbol in JdbcUtils.closeResultSet(rs) : JdbcUtils
 Line 480, extractData(rs) cannot resolve some symbol, because Unsolved symbol in rse.extractData(rs) : rse
-Line 497, query(sql, new RowCallbackHandlerResultSetExtractor(rch, this.maxRows)) cannot resolve some symbol, because Unsolved symbol : RowMapper
+Line 497, query(sql, new RowCallbackHandlerResultSetExtractor(rch, this.maxRows)) cannot resolve some symbol, because Unsolved symbol : PreparedStatementCreator
 Use query(String, RowCallbackHandler) instead of qualified signature, cause: Unsolved symbol : RowCallbackHandler
 Line 502, result(query(sql, new RowMapperResultSetExtractor<>(rowMapper, 0, this.maxRows))) cannot resolve some symbol, because Unsolved symbol : RowMapperResultSetExtractor
 Line 502, query(sql, new RowMapperResultSetExtractor<>(rowMapper, 0, this.maxRows)) cannot resolve some symbol, because Unsolved symbol : RowMapperResultSetExtractor
@@ -593,8 +593,8 @@ Line 513, closeResultSet(rs) cannot resolve some symbol, because Unsolved symbol
 Line 514, closeStatement(stmt) cannot resolve some symbol, because Unsolved symbol in JdbcUtils.closeStatement(stmt) : JdbcUtils
 Line 515, releaseConnection(con, getDataSource()) cannot resolve some symbol, because Unsolved symbol : Method 'getDataSource' cannot be resolved in context getDataSource() (line: 515) MethodCallExprContext{wrapped=getDataSource()}. Parameter types: []
 Line 515, getDataSource() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getDataSource()
-Line 524, result(execute(new StreamStatementCallback(), false)) cannot resolve some symbol, because Unsolved symbol : CallableStatementCreator
-Line 524, execute(new StreamStatementCallback(), false) cannot resolve some symbol, because Unsolved symbol : CallableStatementCallback
+Line 524, result(execute(new StreamStatementCallback(), false)) cannot resolve some symbol, because Unsolved symbol : StatementCallback
+Line 524, execute(new StreamStatementCallback(), false) cannot resolve some symbol, because Unsolved symbol : PreparedStatementCallback
 Use queryForStream(String, RowMapper) instead of qualified signature, cause: Unsolved symbol : RowMapper
 Line 513, closeResultSet(rs) cannot resolve some symbol, because Unsolved symbol in JdbcUtils.closeResultSet(rs) : JdbcUtils
 Line 514, closeStatement(stmt) cannot resolve some symbol, because Unsolved symbol in JdbcUtils.closeStatement(stmt) : JdbcUtils
@@ -615,8 +615,8 @@ Line 561, isDebugEnabled() cannot resolve some symbol, because Unsolved symbol i
 Line 562, debug("Executing SQL update (" + sql + ")") cannot resolve some symbol, because Unsolved symbol in logger.debug("Executing SQL update [" + sql + "]") : logger
 Line 570, isTraceEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isTraceEnabled() : logger
 Line 571, trace("SQL update affected " + rows + " rows") cannot resolve some symbol, because Unsolved symbol in logger.trace("SQL update affected " + rows + " rows") : logger
-Line 581, updateCount(execute(new UpdateStatementCallback(), true)) cannot resolve some symbol, because Unsolved symbol : ConnectionCallback
-Line 581, execute(new UpdateStatementCallback(), true) cannot resolve some symbol, because Unsolved symbol : CallableStatementCallback
+Line 581, updateCount(execute(new UpdateStatementCallback(), true)) cannot resolve some symbol, because Unsolved symbol : CallableStatementCreator
+Line 581, execute(new UpdateStatementCallback(), true) cannot resolve some symbol, because Unsolved symbol : StatementCallback
 Line 570, isTraceEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isTraceEnabled() : logger
 Line 571, trace("SQL update affected " + rows + " rows") cannot resolve some symbol, because Unsolved symbol in logger.trace("SQL update affected " + rows + " rows") : logger
 Line 586, notEmpty(sql, "SQL array must not be empty") cannot resolve some symbol, because Unsolved symbol in Assert.notEmpty(sql, "SQL array must not be empty") : Assert
@@ -625,7 +625,7 @@ Line 588, debug("Executing SQL batch update of " + sql.length + " statements") c
 Line 599, supportsBatchUpdates(stmt.getConnection()) cannot resolve some symbol, because Unsolved symbol in JdbcUtils.supportsBatchUpdates(stmt.getConnection()) : JdbcUtils
 Line 614, hasLength(batchExceptionSql) cannot resolve some symbol, because Unsolved symbol in StringUtils.hasLength(batchExceptionSql) : StringUtils
 Line 635, hasLength(sql) cannot resolve some symbol, because Unsolved symbol in StringUtils.hasLength(sql) : StringUtils
-Line 644, execute(new BatchUpdateStatementCallback(), true) cannot resolve some symbol, because Unsolved symbol : PreparedStatementCreator
+Line 644, execute(new BatchUpdateStatementCallback(), true) cannot resolve some symbol, because Unsolved symbol : CallableStatementCreator
 Line 645, state(result != null, "No update counts") cannot resolve some symbol, because Unsolved symbol in Assert.state(result != null, "No update counts") : Assert
 Line 599, supportsBatchUpdates(stmt.getConnection()) cannot resolve some symbol, because Unsolved symbol in JdbcUtils.supportsBatchUpdates(stmt.getConnection()) : JdbcUtils
 Line 614, hasLength(batchExceptionSql) cannot resolve some symbol, because Unsolved symbol in StringUtils.hasLength(batchExceptionSql) : StringUtils
@@ -1142,9 +1142,9 @@ Line 561, execute(session -> {
         JmsUtils.closeMessageProducer(producer);
     }
 }, false) cannot resolve some symbol, because Unsolved symbol : SessionCallback
-Line 562, createProducer(session, destination) cannot resolve some symbol, because Unsolved symbol : SessionCallback
+Line 562, createProducer(session, destination) cannot resolve some symbol, because Unsolved symbol : Destination
 Line 567, closeMessageProducer(producer) cannot resolve some symbol, because Unsolved symbol : MessageProducer
-Line 564, doInJms(session, producer) cannot resolve some symbol, because Unsolved symbol : SessionCallback
+Line 564, doInJms(session, producer) cannot resolve some symbol, because Unsolved symbol : Destination
 Use execute(Destination, ProducerCallback) instead of qualified signature, cause: Unsolved symbol : Destination
 Line 574, notNull(action, "Callback object must not be null") cannot resolve some symbol, because Unsolved symbol : ProducerCallback
 Line 575, execute(session -> {
@@ -1155,11 +1155,11 @@ Line 575, execute(session -> {
     } finally {
         JmsUtils.closeMessageProducer(producer);
     }
-}, false) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
-Line 576, resolveDestinationName(session, destinationName) cannot resolve some symbol, because Unsolved symbol : SessionCallback
-Line 577, createProducer(session, destination) cannot resolve some symbol, because Unsolved symbol : SessionCallback
+}, false) cannot resolve some symbol, because Unsolved symbol : SessionCallback
+Line 576, resolveDestinationName(session, destinationName) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
+Line 577, createProducer(session, destination) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
 Line 582, closeMessageProducer(producer) cannot resolve some symbol, because Unsolved symbol : MessageProducer
-Line 579, doInJms(session, producer) cannot resolve some symbol, because Unsolved symbol : SessionCallback
+Line 579, doInJms(session, producer) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
 Use execute(String, ProducerCallback) instead of qualified signature, cause: Unsolved symbol : ProducerCallback
 Line 599, send(getRequiredDefaultDestinationName(), messageCreator) cannot resolve some symbol, because Unsolved symbol : MessageCreator
 Line 596, send(defaultDestination, messageCreator) cannot resolve some symbol, because Unsolved symbol : Destination
@@ -1167,7 +1167,7 @@ Use send(MessageCreator) instead of qualified signature, cause: Unsolved symbol 
 Line 605, execute(session -> {
     doSend(session, destination, messageCreator);
     return null;
-}, false) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
+}, false) cannot resolve some symbol, because Unsolved symbol : SessionCallback
 Line 606, doSend(session, destination, messageCreator) cannot resolve some symbol, because Unsolved symbol : SessionCallback
 Use send(Destination, MessageCreator) instead of qualified signature, cause: Unsolved symbol : Destination
 Line 613, execute(session -> {
@@ -1175,8 +1175,8 @@ Line 613, execute(session -> {
     doSend(session, destination, messageCreator);
     return null;
 }, false) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
-Line 614, resolveDestinationName(session, destinationName) cannot resolve some symbol, because Unsolved symbol : Destination
-Line 615, doSend(session, destination, messageCreator) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
+Line 614, resolveDestinationName(session, destinationName) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
+Line 615, doSend(session, destination, messageCreator) cannot resolve some symbol, because Unsolved symbol : SessionCallback
 Use send(String, MessageCreator) instead of qualified signature, cause: Unsolved symbol : MessageCreator
 Line 630, notNull(messageCreator, "MessageCreator must not be null") cannot resolve some symbol, because Unsolved symbol : MessageCreator
 Line 631, createProducer(session, destination) cannot resolve some symbol, because Unsolved symbol : Session
@@ -1193,7 +1193,7 @@ Line 657, setDeliveryDelay(this.deliveryDelay) cannot resolve some symbol, becau
 Line 663, send(message) cannot resolve some symbol, because Unsolved symbol : Message
 Line 660, send(message, getDeliveryMode(), getPriority(), getTimeToLive()) cannot resolve some symbol, because Unsolved symbol : Message
 Use doSend(MessageProducer, Message) instead of qualified signature, cause: Unsolved symbol : MessageProducer
-Line 679, convertAndSend(getRequiredDefaultDestinationName(), message) cannot resolve some symbol, because Unsolved symbol : MessagePostProcessor
+Line 679, convertAndSend(getRequiredDefaultDestinationName(), message) cannot resolve some symbol, because Unsolved symbol : Destination
 Line 676, convertAndSend(defaultDestination, message) cannot resolve some symbol, because Unsolved symbol : Destination
 Line 685, send(destination, session -> getMessageConverter().toMessage(message, session)) cannot resolve some symbol, because Unsolved symbol : Destination
 Line 685, toMessage(message, session) cannot resolve some symbol, because Unsolved symbol : Destination
@@ -1224,14 +1224,14 @@ Use receive(Destination) instead of qualified signature, cause: Unsolved symbol 
 Line 747, receiveSelected(destinationName, null) cannot resolve some symbol, because Unsolved symbol : Destination
 Line 757, receiveSelected(getRequiredDefaultDestinationName(), messageSelector) cannot resolve some symbol, because Unsolved symbol : Destination
 Line 754, receiveSelected(defaultDestination, messageSelector) cannot resolve some symbol, because Unsolved symbol : Destination
-Line 763, execute(session -> doReceive(session, destination, messageSelector), true) cannot resolve some symbol, because Unsolved symbol : Destination
-Line 763, doReceive(session, destination, messageSelector) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
+Line 763, execute(session -> doReceive(session, destination, messageSelector), true) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
+Line 763, doReceive(session, destination, messageSelector) cannot resolve some symbol, because Unsolved symbol : SessionCallback
 Use receiveSelected(Destination, String) instead of qualified signature, cause: Unsolved symbol : Destination
 Line 768, execute(session -> {
     Destination destination = resolveDestinationName(session, destinationName);
     return doReceive(session, destination, messageSelector);
 }, true) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
-Line 769, resolveDestinationName(session, destinationName) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
+Line 769, resolveDestinationName(session, destinationName) cannot resolve some symbol, because Unsolved symbol : SessionCallback
 Line 770, doReceive(session, destination, messageSelector) cannot resolve some symbol, because Unsolved symbol : SessionCallback
 Line 785, doReceive(session, createConsumer(session, destination, messageSelector)) cannot resolve some symbol, because Unsolved symbol : Session
 Line 785, createConsumer(session, destination, messageSelector) cannot resolve some symbol, because Unsolved symbol : Session
@@ -1324,10 +1324,10 @@ Line 1017, execute(session -> {
     } finally {
         JmsUtils.closeQueueBrowser(browser);
     }
-}, true) cannot resolve some symbol, because Unsolved symbol : SessionCallback
+}, true) cannot resolve some symbol, because Unsolved symbol : Destination
 Line 1018, createBrowser(session, queue, messageSelector) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
 Line 1023, closeQueueBrowser(browser) cannot resolve some symbol, because Unsolved symbol : QueueBrowser
-Line 1020, doInJms(session, browser) cannot resolve some symbol, because Unsolved symbol : SessionCallback
+Line 1020, doInJms(session, browser) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
 Use browseSelected(Queue, String, BrowserCallback) instead of qualified signature, cause: Unsolved symbol : Queue
 Line 1032, notNull(action, "Callback object must not be null") cannot resolve some symbol, because Unsolved symbol : BrowserCallback
 Line 1033, execute(session -> {
@@ -1338,12 +1338,12 @@ Line 1033, execute(session -> {
     } finally {
         JmsUtils.closeQueueBrowser(browser);
     }
-}, true) cannot resolve some symbol, because Unsolved symbol : SessionCallback
+}, true) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
 Line 1034, resolveDestinationName(session, queueName, false) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
 Line 1034, getDestinationResolver() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getDestinationResolver()
 Line 1035, createBrowser(session, queue, messageSelector) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
 Line 1040, closeQueueBrowser(browser) cannot resolve some symbol, because Unsolved symbol : QueueBrowser
-Line 1037, doInJms(session, browser) cannot resolve some symbol, because Unsolved symbol : SessionCallback
+Line 1037, doInJms(session, browser) cannot resolve some symbol, because Unsolved symbol : ProducerCallback
 Use browseSelected(String, String, BrowserCallback) instead of qualified signature, cause: Unsolved symbol : BrowserCallback
 Line 1054, getConnection() cannot resolve some symbol, because Unsolved symbol in holder.getConnection() : holder
 Use getConnection(JmsResourceHolder) instead of qualified signature, cause: Unsolved symbol : JmsResourceHolder
@@ -1645,7 +1645,7 @@ Line 181, equals(other) cannot resolve some symbol, because Unsolved symbol in s
   Generated LLM summary for spring-framework_Facade/TransactionTemplate
   Generated LLM summary for spring-framework_Facade/JmsTemplate
   Generated LLM summary for spring-framework_Facade/JdbcTemplate
-  Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
 
 spring-framework/FactoryMethod
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -1796,7 +1796,7 @@ Use instantiate(QuartzSchedulerResources, QuartzScheduler) instead of qualified 
   Generated LLM summary for spring-framework_FactoryMethod/AdaptableJobFactory
   Generated LLM summary for spring-framework_FactoryMethod/JobDetailFactoryBean
   Generated LLM summary for spring-framework_FactoryMethod/MethodInvokingJobDetailFactoryBean
-  Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
 
 spring-framework/Memento
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -1840,7 +1840,7 @@ Use doInvokeListener(ApplicationListener, ApplicationEvent) instead of qualified
   Generated LLM summary for spring-framework_Memento/SimpleApplicationEventMulticaster
   Generated LLM summary for spring-framework_Memento/SavepointManager
   Generated LLM summary for spring-framework_Memento/AbstractTransactionStatus
-  Project summary: 3 classes processed, 3 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 3 classes processed, 3 summaries generated, 0 failed, 0 skipped.
 
 spring-framework/Observer
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -1925,651 +1925,11 @@ Line 73, getPayload() cannot resolve some symbol, because Unsolved symbol in eve
   Generated LLM summary for spring-framework_Observer/ApplicationEventPublisher
   Generated LLM summary for spring-framework_Observer/ApplicationListener
   Generated LLM summary for spring-framework_Observer/AbstractApplicationEventMulticaster
-  Project summary: 3 classes processed, 3 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 3 classes processed, 3 summaries generated, 0 failed, 0 skipped.
 
 spring-framework/Singleton
 Configuring symbol resolver with 1 source paths and 0 library paths
   Added 1 source path(s) for symbol resolution
-Line 340, notNull(autowireCandidateResolver, "AutowireCandidateResolver must not be null") cannot resolve some symbol, because Unsolved symbol : AutowireCandidateResolver
-Line 342, setBeanFactory(this) cannot resolve some symbol, because Unsolved symbol in beanFactoryAware.setBeanFactory(this) : beanFactoryAware
-Use setAutowireCandidateResolver(AutowireCandidateResolver) instead of qualified signature, cause: Unsolved symbol : AutowireCandidateResolver
-Line 357, copyConfigurationFrom(otherFactory) cannot resolve some symbol, because Unsolved symbol : ConfigurableBeanFactory
-Line 364, setAutowireCandidateResolver(otherListableFactory.getAutowireCandidateResolver().cloneIfNecessary()) cannot resolve some symbol, because Unsolved symbol : AutowireCandidateResolver
-Line 364, cloneIfNecessary() cannot resolve some symbol, because Unsolved symbol in otherListableFactory.getAutowireCandidateResolver().cloneIfNecessary() : otherListableFactory.getAutowireCandidateResolver()
-Use copyConfigurationFrom(ConfigurableBeanFactory) instead of qualified signature, cause: Unsolved symbol : ConfigurableBeanFactory
-Line 383, notNull(requiredType, "Required type must not be null") cannot resolve some symbol, because Unsolved symbol in Assert.notNull(requiredType, "Required type must not be null") : Assert
-Line 384, resolveBean(ResolvableType.forRawClass(requiredType), args, false) cannot resolve some symbol, because Unsolved symbol in ResolvableType : Solving ResolvableType
-Line 384, forRawClass(requiredType) cannot resolve some symbol, because Unsolved symbol in ResolvableType.forRawClass(requiredType) : ResolvableType
-Line 393, notNull(requiredType, "Required type must not be null") cannot resolve some symbol, because Unsolved symbol in Assert.notNull(requiredType, "Required type must not be null") : Assert
-Line 394, getBeanProvider(ResolvableType.forRawClass(requiredType), true) cannot resolve some symbol, because Unsolved symbol in ResolvableType : Solving ResolvableType
-Line 394, forRawClass(requiredType) cannot resolve some symbol, because Unsolved symbol in ResolvableType.forRawClass(requiredType) : ResolvableType
-Line 399, getBeanProvider(requiredType, true) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Use getBeanProvider(ResolvableType) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 403, getBeanProvider(ResolvableType.forType(requiredType), true) cannot resolve some symbol, because Unsolved symbol : ParameterizedTypeReference
-Line 403, forType(requiredType) cannot resolve some symbol, because Unsolved symbol : ParameterizedTypeReference
-Use getBeanProvider(ParameterizedTypeReference) instead of qualified signature, cause: Unsolved symbol : ParameterizedTypeReference
-Line 413, notNull(beanName, "Bean name must not be null") cannot resolve some symbol, because Unsolved symbol in Assert.notNull(beanName, "Bean name must not be null") : Assert
-Line 414, containsKey(beanName) cannot resolve some symbol, because Unsolved symbol in this.beanDefinitionMap.containsKey(beanName) : this.beanDefinitionMap
-Line 419, size() cannot resolve some symbol, because Unsolved symbol in this.beanDefinitionMap.size() : this.beanDefinitionMap
-Line 429, toStringArray(this.beanDefinitionNames) cannot resolve some symbol, because Unsolved symbol in StringUtils.toStringArray(this.beanDefinitionNames) : StringUtils
-Line 435, notNull(requiredType, "Required type must not be null") cannot resolve some symbol, because Unsolved symbol in Assert.notNull(requiredType, "Required type must not be null") : Assert
-Line 436, getBeanProvider(ResolvableType.forRawClass(requiredType), allowEagerInit) cannot resolve some symbol, because Unsolved symbol in ResolvableType : Solving ResolvableType
-Line 436, forRawClass(requiredType) cannot resolve some symbol, because Unsolved symbol in ResolvableType.forRawClass(requiredType) : ResolvableType
-Line 444, resolveBean(requiredType, null, false) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 452, resolveBean(requiredType, args, false) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 461, resolveBean(requiredType, null, false) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 470, getIfAvailable() cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 473, accept(dependency) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 483, resolveBean(requiredType, null, true) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 492, getIfUnique() cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 495, accept(dependency) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 505, filter(bean -> !(bean instanceof NullBean)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit)).map(name -> (T) resolveBean(name, requiredType)).filter(bean -> !(bean instanceof NullBean)) : Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit)).map(name -> (T) resolveBean(name, requiredType))
-Line 505, map(name -> (T) resolveBean(name, requiredType)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit)).map(name -> (T) resolveBean(name, requiredType)) : Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit))
-Line 506, resolveBean(name, requiredType) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit)).map(name -> (T) resolveBean(name, requiredType)) : Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit))
-Line 505, stream(beanNamesForStream(requiredType, true, allowEagerInit)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 505, beanNamesForStream(requiredType, true, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 512, beanNamesForStream(requiredType, true, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 514, empty() cannot resolve some symbol, because Unsolved symbol in Stream.empty() : Stream
-Line 516, newLinkedHashMap(beanNames.length) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 518, resolveBean(beanName, requiredType) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 520, put(beanName, (T) beanInstance) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 523, stream() cannot resolve some symbol, because Unsolved symbol in matchingBeans.values().stream() : matchingBeans.values()
-Line 523, values() cannot resolve some symbol, because Unsolved symbol in matchingBeans.values() : matchingBeans
-Line 524, sorted(adaptOrderComparator(matchingBeans)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 524, adaptOrderComparator(matchingBeans) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 529, filter(bean -> !(bean instanceof NullBean)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))).map(name -> (T) resolveBean(name, requiredType)).filter(bean -> !(bean instanceof NullBean)) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))).map(name -> (T) resolveBean(name, requiredType))
-Line 529, map(name -> (T) resolveBean(name, requiredType)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))).map(name -> (T) resolveBean(name, requiredType)) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name)))
-Line 531, resolveBean(name, requiredType) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))).map(name -> (T) resolveBean(name, requiredType)) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name)))
-Line 529, filter(name -> customFilter.test(getType(name))) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit))
-Line 530, test(getType(name)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit))
-Line 530, getType(name) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit))
-Line 529, stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 529, beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 537, beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 539, empty() cannot resolve some symbol, because Unsolved symbol in Stream.empty() : Stream
-Line 541, newLinkedHashMap(beanNames.length) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 543, test(getType(beanName)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 543, getType(beanName) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 544, resolveBean(beanName, requiredType) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 546, put(beanName, (T) beanInstance) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 550, sorted(adaptOrderComparator(matchingBeans)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 550, adaptOrderComparator(matchingBeans) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 550, stream() cannot resolve some symbol, because Unsolved symbol in matchingBeans.values().stream() : matchingBeans.values()
-Line 550, values() cannot resolve some symbol, because Unsolved symbol in matchingBeans.values() : matchingBeans
-Use getBeanProvider(ResolvableType, boolean) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 444, resolveBean(requiredType, null, false) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 452, resolveBean(requiredType, args, false) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Use getObject(Object[]) instead of qualified signature, cause: Unsolved symbol : ObjectProvider
-Line 461, resolveBean(requiredType, null, false) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 470, getIfAvailable() cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 473, accept(dependency) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Use ifAvailable(Consumer) instead of qualified signature, cause: Unsolved symbol : ObjectProvider
-Line 483, resolveBean(requiredType, null, true) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 492, getIfUnique() cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 495, accept(dependency) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Use ifUnique(Consumer) instead of qualified signature, cause: Unsolved symbol : ObjectProvider
-Line 505, filter(bean -> !(bean instanceof NullBean)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit)).map(name -> (T) resolveBean(name, requiredType)).filter(bean -> !(bean instanceof NullBean)) : Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit)).map(name -> (T) resolveBean(name, requiredType))
-Line 505, map(name -> (T) resolveBean(name, requiredType)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit)).map(name -> (T) resolveBean(name, requiredType)) : Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit))
-Line 506, resolveBean(name, requiredType) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit)).map(name -> (T) resolveBean(name, requiredType)) : Arrays.stream(beanNamesForStream(requiredType, true, allowEagerInit))
-Line 505, stream(beanNamesForStream(requiredType, true, allowEagerInit)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 505, beanNamesForStream(requiredType, true, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 512, beanNamesForStream(requiredType, true, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 514, empty() cannot resolve some symbol, because Unsolved symbol in Stream.empty() : Stream
-Line 516, newLinkedHashMap(beanNames.length) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 518, resolveBean(beanName, requiredType) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 520, put(beanName, (T) beanInstance) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 523, stream() cannot resolve some symbol, because Unsolved symbol in matchingBeans.values().stream() : matchingBeans.values()
-Line 523, values() cannot resolve some symbol, because Unsolved symbol in matchingBeans.values() : matchingBeans
-Line 524, sorted(adaptOrderComparator(matchingBeans)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 524, adaptOrderComparator(matchingBeans) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 529, filter(bean -> !(bean instanceof NullBean)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))).map(name -> (T) resolveBean(name, requiredType)).filter(bean -> !(bean instanceof NullBean)) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))).map(name -> (T) resolveBean(name, requiredType))
-Line 529, map(name -> (T) resolveBean(name, requiredType)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))).map(name -> (T) resolveBean(name, requiredType)) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name)))
-Line 531, resolveBean(name, requiredType) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))).map(name -> (T) resolveBean(name, requiredType)) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name)))
-Line 529, filter(name -> customFilter.test(getType(name))) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit))
-Line 530, test(getType(name)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit))
-Line 530, getType(name) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)).filter(name -> customFilter.test(getType(name))) : Arrays.stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit))
-Line 529, stream(beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 529, beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Use stream(Predicate, boolean) instead of qualified signature, cause: Unsolved symbol : ObjectProvider
-Line 537, beanNamesForStream(requiredType, includeNonSingletons, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 539, empty() cannot resolve some symbol, because Unsolved symbol in Stream.empty() : Stream
-Line 541, newLinkedHashMap(beanNames.length) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 543, test(getType(beanName)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 543, getType(beanName) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 544, resolveBean(beanName, requiredType) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 546, put(beanName, (T) beanInstance) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 550, sorted(adaptOrderComparator(matchingBeans)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 550, adaptOrderComparator(matchingBeans) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 550, stream() cannot resolve some symbol, because Unsolved symbol in matchingBeans.values().stream() : matchingBeans.values()
-Line 550, values() cannot resolve some symbol, because Unsolved symbol in matchingBeans.values() : matchingBeans
-Use orderedStream(Predicate, boolean) instead of qualified signature, cause: Unsolved symbol : ObjectProvider
-Line 556, resolveNamedBean(requiredType, args, nonUniqueAsNull) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 558, getBeanInstance() cannot resolve some symbol, because Unsolved symbol in namedBean.getBeanInstance() : namedBean
-Line 560, getParentBeanFactory() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getParentBeanFactory()
-Line 565, getBeanProvider(requiredType) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 570, getIfAvailable() cannot resolve some symbol, because Unsolved symbol in parentProvider.getIfAvailable() : parentProvider
-Line 570, getIfUnique() cannot resolve some symbol, because Unsolved symbol in parentProvider.getIfUnique() : parentProvider
-Line 567, getObject(args) cannot resolve some symbol, because Unsolved symbol in parentProvider.getObject(args) : parentProvider
-Line 562, resolveBean(requiredType, args, nonUniqueAsNull) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Use resolveBean(ResolvableType, Object[], boolean) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 577, beanNamesForTypeIncludingAncestors(this, requiredType, includeNonSingletons, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Use beanNamesForStream(ResolvableType, boolean, boolean) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 582, getBeanNamesForType(type, true, true) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Use getBeanNamesForType(ResolvableType) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 587, resolve() cannot resolve some symbol, because Unsolved symbol in type.resolve() : type
-Line 588, hasGenerics() cannot resolve some symbol, because Unsolved symbol in type.hasGenerics() : type
-Line 592, doGetBeanNamesForType(type, includeNonSingletons, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 589, getBeanNamesForType(resolved, includeNonSingletons, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Use getBeanNamesForType(ResolvableType, boolean, boolean) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 598, getBeanNamesForType(type, true, true) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 604, doGetBeanNamesForType(ResolvableType.forRawClass(type), includeNonSingletons, allowEagerInit) cannot resolve some symbol, because Unsolved symbol in ResolvableType : Solving ResolvableType
-Line 604, forRawClass(type) cannot resolve some symbol, because Unsolved symbol in ResolvableType.forRawClass(type) : ResolvableType
-Line 612, doGetBeanNamesForType(ResolvableType.forRawClass(type), includeNonSingletons, true) cannot resolve some symbol, because Unsolved symbol in ResolvableType : Solving ResolvableType
-Line 612, forRawClass(type) cannot resolve some symbol, because Unsolved symbol in ResolvableType.forRawClass(type) : ResolvableType
-Line 613, isCacheSafe(type, getBeanClassLoader()) cannot resolve some symbol, because Unsolved symbol : Method 'getBeanClassLoader' cannot be resolved in context getBeanClassLoader() (line: 613) MethodCallExprContext{wrapped=getBeanClassLoader()}. Parameter types: []
-Line 613, getBeanClassLoader() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBeanClassLoader()
-Line 625, isAlias(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to isAlias(beanName)
-Line 672, format("Ignoring unresolvable metadata in bean definition '%s'", beanName) cannot resolve some symbol, because Unsolved symbol in LogMessage.format("Ignoring unresolvable metadata in bean definition '%s'", beanName) : LogMessage
-Line 671, format("Ignoring bean class loading failure for bean '%s'", beanName) cannot resolve some symbol, because Unsolved symbol in LogMessage.format("Ignoring bean class loading failure for bean '%s'", beanName) : LogMessage
-Line 673, trace(message, ex) cannot resolve some symbol, because Unsolved symbol : LogMessage
-Line 675, onSuppressedException(ex) cannot resolve some symbol, because Unsolved symbol : CannotLoadBeanClassException
-Line 627, getMergedLocalBeanDefinition(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedLocalBeanDefinition(beanName)
-Line 629, isAbstract() cannot resolve some symbol, because Unsolved symbol in mbd.isAbstract() : mbd
-Line 630, hasBeanClass() cannot resolve some symbol, because Unsolved symbol in mbd.hasBeanClass() : mbd
-Line 630, isLazyInit() cannot resolve some symbol, because Unsolved symbol in mbd.isLazyInit() : mbd
-Line 631, requiresEagerInitForType(mbd.getFactoryBeanName()) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 631, getFactoryBeanName() cannot resolve some symbol, because Unsolved symbol in mbd.getFactoryBeanName() : mbd
-Line 632, isFactoryBean(beanName, mbd) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 633, getDecoratedDefinition() cannot resolve some symbol, because Unsolved symbol in mbd.getDecoratedDefinition() : mbd
-Line 635, containsSingleton(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to containsSingleton(beanName)
-Line 636, isLazyInit() cannot resolve some symbol, because Unsolved symbol in mbd.isLazyInit() : mbd
-Line 649, isTypeMatch(beanName, type, allowFactoryBeanInit) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 650, isSingleton(beanName, mbd, dbd) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 644, isTypeMatch(beanName, type, allowFactoryBeanInit) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 655, isSingleton(beanName, mbd, dbd) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 656, isTypeMatch(beanName, type, allowFactoryBeanInit) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 638, isSingleton(beanName, mbd, dbd) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 639, isTypeMatch(beanName, type, allowFactoryBeanInit) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 703, trace(LogMessage.format("Failed to check manually registered singleton with name '%s'", beanName), ex) cannot resolve some symbol, because Unsolved symbol in LogMessage : Solving LogMessage
-Line 703, format("Failed to check manually registered singleton with name '%s'", beanName) cannot resolve some symbol, because Unsolved symbol in LogMessage.format("Failed to check manually registered singleton with name '%s'", beanName) : LogMessage
-Line 687, isFactoryBean(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to isFactoryBean(beanName)
-Line 688, isSingleton(beanName) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 688, isTypeMatch(beanName, type) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 697, isTypeMatch(beanName, type) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 708, toStringArray(result) cannot resolve some symbol, because Unsolved symbol in StringUtils.toStringArray(result) : StringUtils
-Use doGetBeanNamesForType(ResolvableType, boolean, boolean) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 712, isSingleton(beanName) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 712, isSingleton() cannot resolve some symbol, because Unsolved symbol in mbd.isSingleton() : mbd
-Use isSingleton(String, RootBeanDefinition, BeanDefinitionHolder) instead of qualified signature, cause: Unsolved symbol : RootBeanDefinition
-Line 723, isFactoryBean(factoryBeanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to isFactoryBean(factoryBeanName)
-Line 723, containsSingleton(factoryBeanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to containsSingleton(factoryBeanName)
-Line 736, getBeanNamesForType(type, includeNonSingletons, allowEagerInit) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 737, newLinkedHashMap(beanNames.length) cannot resolve some symbol, because Unsolved symbol in CollectionUtils.newLinkedHashMap(beanNames.length) : CollectionUtils
-Line 749, getMostSpecificCause() cannot resolve some symbol, because Unsolved symbol in ex.getMostSpecificCause() : ex
-Line 751, getBeanName() cannot resolve some symbol, because Unsolved symbol in bce.getBeanName() : bce
-Line 752, isCurrentlyInCreation(exBeanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to isCurrentlyInCreation(exBeanName)
-Line 753, isTraceEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isTraceEnabled() : logger
-Line 754, trace("Ignoring match to currently created bean '" + exBeanName + "': " + ex.getMessage()) cannot resolve some symbol, because Unsolved symbol : BeanCreationException
-Line 755, getMessage() cannot resolve some symbol, because Unsolved symbol in ex.getMessage() : ex
-Line 757, onSuppressedException(ex) cannot resolve some symbol, because Unsolved symbol : BeanCreationException
-Line 740, getBean(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBean(beanName)
-Line 740, getBean(beanName, type) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBean(beanName, type)
-Line 773, get(beanName) cannot resolve some symbol, because Unsolved symbol in this.beanDefinitionMap.get(beanName) : this.beanDefinitionMap
-Line 774, isAbstract() cannot resolve some symbol, because Unsolved symbol in bd.isAbstract() : bd
-Line 783, toStringArray(result) cannot resolve some symbol, because Unsolved symbol in StringUtils.toStringArray(result) : StringUtils
-Line 789, newLinkedHashMap(beanNames.length) cannot resolve some symbol, because Unsolved symbol in CollectionUtils.newLinkedHashMap(beanNames.length) : CollectionUtils
-Line 791, getBean(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBean(beanName)
-Line 811, getType(beanName, allowFactoryBeanInit) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getType(beanName, allowFactoryBeanInit)
-Line 814, get(annotationType) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanType, SearchStrategy.TYPE_HIERARCHY).get(annotationType) : MergedAnnotations.from(beanType, SearchStrategy.TYPE_HIERARCHY)
-Line 814, from(beanType, SearchStrategy.TYPE_HIERARCHY) cannot resolve some symbol, because Unsolved symbol : TYPE_HIERARCHY
-Line 815, isPresent() cannot resolve some symbol, because Unsolved symbol in annotation.isPresent() : annotation
-Line 816, synthesize() cannot resolve some symbol, because Unsolved symbol in annotation.synthesize() : annotation
-Line 820, getMergedLocalBeanDefinition(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedLocalBeanDefinition(beanName)
-Line 822, hasBeanClass() cannot resolve some symbol, because Unsolved symbol in bd.hasBeanClass() : bd
-Line 822, getFactoryMethodName() cannot resolve some symbol, because Unsolved symbol in bd.getFactoryMethodName() : bd
-Line 823, getBeanClass() cannot resolve some symbol, because Unsolved symbol in bd.getBeanClass() : bd
-Line 826, get(annotationType) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanClass, SearchStrategy.TYPE_HIERARCHY).get(annotationType) : MergedAnnotations.from(beanClass, SearchStrategy.TYPE_HIERARCHY)
-Line 826, from(beanClass, SearchStrategy.TYPE_HIERARCHY) cannot resolve some symbol, because Unsolved symbol : TYPE_HIERARCHY
-Line 827, isPresent() cannot resolve some symbol, because Unsolved symbol in annotation.isPresent() : annotation
-Line 828, synthesize() cannot resolve some symbol, because Unsolved symbol in annotation.synthesize() : annotation
-Line 833, getResolvedFactoryMethod() cannot resolve some symbol, because Unsolved symbol in bd.getResolvedFactoryMethod() : bd
-Line 836, get(annotationType) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(factoryMethod, SearchStrategy.TYPE_HIERARCHY).get(annotationType) : MergedAnnotations.from(factoryMethod, SearchStrategy.TYPE_HIERARCHY)
-Line 836, from(factoryMethod, SearchStrategy.TYPE_HIERARCHY) cannot resolve some symbol, because Unsolved symbol : TYPE_HIERARCHY
-Line 837, isPresent() cannot resolve some symbol, because Unsolved symbol in annotation.isPresent() : annotation
-Line 838, synthesize() cannot resolve some symbol, because Unsolved symbol in annotation.synthesize() : annotation
-Line 851, getType(beanName, allowFactoryBeanInit) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getType(beanName, allowFactoryBeanInit)
-Line 853, forEach(mergedAnnotation -> annotations.add(mergedAnnotation.synthesize())) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanType, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent).forEach(mergedAnnotation -> annotations.add(mergedAnnotation.synthesize())) : MergedAnnotations.from(beanType, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent)
-Line 856, add(mergedAnnotation.synthesize()) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanType, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent).forEach(mergedAnnotation -> annotations.add(mergedAnnotation.synthesize())) : MergedAnnotations.from(beanType, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent)
-Line 856, synthesize() cannot resolve some symbol, because Unsolved symbol in mergedAnnotation.synthesize() : mergedAnnotation
-Line 853, filter(MergedAnnotation::isPresent) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanType, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent) : MergedAnnotations.from(beanType, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType)
-Line 853, stream(annotationType) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanType, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType) : MergedAnnotations.from(beanType, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY)
-Line 853, from(beanType, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY) cannot resolve some symbol, because Unsolved symbol : TYPE_HIERARCHY
-Line 859, getMergedLocalBeanDefinition(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedLocalBeanDefinition(beanName)
-Line 861, hasBeanClass() cannot resolve some symbol, because Unsolved symbol in bd.hasBeanClass() : bd
-Line 861, getFactoryMethodName() cannot resolve some symbol, because Unsolved symbol in bd.getFactoryMethodName() : bd
-Line 862, getBeanClass() cannot resolve some symbol, because Unsolved symbol in bd.getBeanClass() : bd
-Line 864, forEach(mergedAnnotation -> annotations.add(mergedAnnotation.synthesize())) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent).forEach(mergedAnnotation -> annotations.add(mergedAnnotation.synthesize())) : MergedAnnotations.from(beanClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent)
-Line 867, add(mergedAnnotation.synthesize()) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent).forEach(mergedAnnotation -> annotations.add(mergedAnnotation.synthesize())) : MergedAnnotations.from(beanClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent)
-Line 867, synthesize() cannot resolve some symbol, because Unsolved symbol in mergedAnnotation.synthesize() : mergedAnnotation
-Line 864, filter(MergedAnnotation::isPresent) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent) : MergedAnnotations.from(beanClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType)
-Line 864, stream(annotationType) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(beanClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType) : MergedAnnotations.from(beanClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY)
-Line 864, from(beanClass, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY) cannot resolve some symbol, because Unsolved symbol : TYPE_HIERARCHY
-Line 871, getResolvedFactoryMethod() cannot resolve some symbol, because Unsolved symbol in bd.getResolvedFactoryMethod() : bd
-Line 873, forEach(mergedAnnotation -> annotations.add(mergedAnnotation.synthesize())) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(factoryMethod, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent).forEach(mergedAnnotation -> annotations.add(mergedAnnotation.synthesize())) : MergedAnnotations.from(factoryMethod, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent)
-Line 876, add(mergedAnnotation.synthesize()) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(factoryMethod, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent).forEach(mergedAnnotation -> annotations.add(mergedAnnotation.synthesize())) : MergedAnnotations.from(factoryMethod, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent)
-Line 876, synthesize() cannot resolve some symbol, because Unsolved symbol in mergedAnnotation.synthesize() : mergedAnnotation
-Line 873, filter(MergedAnnotation::isPresent) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(factoryMethod, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType).filter(MergedAnnotation::isPresent) : MergedAnnotations.from(factoryMethod, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType)
-Line 873, stream(annotationType) cannot resolve some symbol, because Unsolved symbol in MergedAnnotations.from(factoryMethod, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY).stream(annotationType) : MergedAnnotations.from(factoryMethod, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY)
-Line 873, from(factoryMethod, MergedAnnotations.SearchStrategy.TYPE_HIERARCHY) cannot resolve some symbol, because Unsolved symbol : TYPE_HIERARCHY
-Line 889, notNull(dependencyType, "Dependency type must not be null") cannot resolve some symbol, because Unsolved symbol in Assert.notNull(dependencyType, "Dependency type must not be null") : Assert
-Line 903, isAutowireCandidate(beanName, descriptor, getAutowireCandidateResolver()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use isAutowireCandidate(String, DependencyDescriptor) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 918, transformedBeanName(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to transformedBeanName(beanName)
-Line 922, containsSingleton(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to containsSingleton(beanName)
-Line 923, isAutowireCandidate(beanName, new RootBeanDefinition(getType(beanName)), descriptor, resolver) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 923, getType(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getType(beanName)
-Line 920, isAutowireCandidate(beanName, getMergedLocalBeanDefinition(bdName), descriptor, resolver) cannot resolve some symbol, because Unsolved symbol : Method 'getMergedLocalBeanDefinition' cannot be resolved in context getMergedLocalBeanDefinition(bdName) (line: 920) MethodCallExprContext{wrapped=getMergedLocalBeanDefinition(bdName)}. Parameter types: [ReferenceType{java.lang.String, typeParametersMap=TypeParametersMap{nameToValue={}}}]
-Line 920, getMergedLocalBeanDefinition(bdName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedLocalBeanDefinition(bdName)
-Line 926, getParentBeanFactory() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getParentBeanFactory()
-Line 933, isAutowireCandidate(beanName, descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 929, isAutowireCandidate(beanName, descriptor, resolver) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use isAutowireCandidate(String, DependencyDescriptor, AutowireCandidateResolver) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 952, transformedBeanName(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to transformedBeanName(beanName)
-Line 953, resolveBeanClass(mbd, bdName) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 955, resolveFactoryMethodIfPossible(mbd) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 960, getAliases(bdName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getAliases(bdName)
-Line 958, computeIfAbsent(beanName, key -> new BeanDefinitionHolder(mbd, beanName, getAliases(bdName))) cannot resolve some symbol, because Unsolved symbol in this.mergedBeanDefinitionHolders.computeIfAbsent(beanName, key -> new BeanDefinitionHolder(mbd, beanName, getAliases(bdName))) : this.mergedBeanDefinitionHolders
-Line 959, getAliases(bdName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getAliases(bdName)
-Line 961, isAutowireCandidate(holder, descriptor) cannot resolve some symbol, because Unsolved symbol : BeanDefinitionHolder
-Use isAutowireCandidate(String, RootBeanDefinition, DependencyDescriptor, AutowireCandidateResolver) instead of qualified signature, cause: Unsolved symbol : RootBeanDefinition
-Line 966, get(beanName) cannot resolve some symbol, because Unsolved symbol in this.beanDefinitionMap.get(beanName) : this.beanDefinitionMap
-Line 968, isTraceEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isTraceEnabled() : logger
-Line 969, trace("No bean named '" + beanName + "' found in " + this) cannot resolve some symbol, because Unsolved symbol in logger.trace("No bean named '" + beanName + "' found in " + this) : logger
-Line 979, add(this.beanDefinitionNames.iterator()) cannot resolve some symbol, because Unsolved symbol in iterator.add(this.beanDefinitionNames.iterator()) : iterator
-Line 980, add(this.manualSingletonNames.iterator()) cannot resolve some symbol, because Unsolved symbol in iterator.add(this.manualSingletonNames.iterator()) : iterator
-Line 986, clearMergedBeanDefinition(beanName) cannot resolve some symbol, because Unsolved symbol in super.clearMergedBeanDefinition(beanName) : super
-Line 987, remove(beanName) cannot resolve some symbol, because Unsolved symbol in this.mergedBeanDefinitionHolders.remove(beanName) : this.mergedBeanDefinitionHolders
-Line 992, clearMetadataCache() cannot resolve some symbol, because Unsolved symbol in super.clearMetadataCache() : super
-Line 993, clear() cannot resolve some symbol, because Unsolved symbol in this.mergedBeanDefinitionHolders.clear() : this.mergedBeanDefinitionHolders
-Line 1001, toStringArray(this.beanDefinitionNames) cannot resolve some symbol, because Unsolved symbol in StringUtils.toStringArray(this.beanDefinitionNames) : StringUtils
-Line 1016, isBeanEligibleForMetadataCaching(beanName) cannot resolve some symbol, because Unsolved symbol in super.isBeanEligibleForMetadataCaching(beanName) : super
-Line 1024, get(RegisteredBean.of(this, beanName, mbd)) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 1024, of(this, beanName, mbd) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 1026, obtainInstanceFromSupplier(supplier, beanName, mbd) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Use obtainInstanceFromSupplier(Supplier, String, RootBeanDefinition) instead of qualified signature, cause: Unsolved symbol : RootBeanDefinition
-Line 1031, cacheMergedBeanDefinition(mbd, beanName) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 1032, isPrimary() cannot resolve some symbol, because Unsolved symbol in mbd.isPrimary() : mbd
-Use cacheMergedBeanDefinition(RootBeanDefinition, String) instead of qualified signature, cause: Unsolved symbol : RootBeanDefinition
-Line 1039, checkMergedBeanDefinition(mbd, beanName, args) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 1041, isBackgroundInit() cannot resolve some symbol, because Unsolved symbol in mbd.isBackgroundInit() : mbd
-Line 1050, get() cannot resolve some symbol, because Unsolved symbol in this.preInstantiationThread.get() : this.preInstantiationThread
-Line 1042, get() cannot resolve some symbol, because Unsolved symbol in this.preInstantiationThread.get() : this.preInstantiationThread
-Use checkMergedBeanDefinition(RootBeanDefinition, String, Object[]) instead of qualified signature, cause: Unsolved symbol : RootBeanDefinition
-Line 1065, get() cannot resolve some symbol, because Unsolved symbol in this.preInstantiationThread.get() : this.preInstantiationThread
-Line 1103, isTraceEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isTraceEnabled() : logger
-Line 1104, trace("Pre-instantiating singletons in " + this) cannot resolve some symbol, because Unsolved symbol in logger.trace("Pre-instantiating singletons in " + this) : logger
-Line 1112, set(PreInstantiation.MAIN) cannot resolve some symbol, because Unsolved symbol in this.preInstantiationThread.set(PreInstantiation.MAIN) : this.preInstantiationThread
-Line 1138, remove() cannot resolve some symbol, because Unsolved symbol in this.preInstantiationThread.remove() : this.preInstantiationThread
-Line 1119, getMergedLocalBeanDefinition(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedLocalBeanDefinition(beanName)
-Line 1120, isAbstract() cannot resolve some symbol, because Unsolved symbol in mbd.isAbstract() : mbd
-Line 1120, isSingleton() cannot resolve some symbol, because Unsolved symbol in mbd.isSingleton() : mbd
-Line 1121, preInstantiateSingleton(beanName, mbd) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 1132, rethrowRuntimeException(ex.getCause()) cannot resolve some symbol, because Unsolved symbol in ReflectionUtils.rethrowRuntimeException(ex.getCause()) : ReflectionUtils
-Line 1143, getSingleton(beanName, false) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getSingleton(beanName, false)
-Line 1145, tag("beanName", beanName) cannot resolve some symbol, because Unsolved symbol in getApplicationStartup().start("spring.beans.smart-initialize").tag("beanName", beanName) : getApplicationStartup().start("spring.beans.smart-initialize")
-Line 1145, start("spring.beans.smart-initialize") cannot resolve some symbol, because Unsolved symbol in getApplicationStartup().start("spring.beans.smart-initialize") : getApplicationStartup()
-Line 1145, getApplicationStartup() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getApplicationStartup()
-Line 1147, afterSingletonsInstantiated() cannot resolve some symbol, because Unsolved symbol in smartSingleton.afterSingletonsInstantiated() : smartSingleton
-Line 1148, end() cannot resolve some symbol, because Unsolved symbol in smartInitialize.end() : smartInitialize
-Line 1154, isBackgroundInit() cannot resolve some symbol, because Unsolved symbol in mbd.isBackgroundInit() : mbd
-Line 1176, isInfoEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isInfoEnabled() : logger
-Line 1177, info("Bean '" + beanName + "' marked for background initialization " + "without bootstrap executor configured - falling back to mainline initialization") cannot resolve some symbol, because Unsolved symbol in logger.info("Bean '" + beanName + "' marked for background initialization " + "without bootstrap executor configured - falling back to mainline initialization") : logger
-Line 1157, getDependsOn() cannot resolve some symbol, because Unsolved symbol in mbd.getDependsOn() : mbd
-Line 1160, getBean(dep) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBean(dep)
-Line 1165, addSingletonFactory(beanName, () -> {
-    try {
-        future.join();
-    } catch (CompletionException ex) {
-        ReflectionUtils.rethrowRuntimeException(ex.getCause());
-    }
-    // not to be exposed, just to lead to ClassCastException in case of mismatch
-    return future;
-}) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to addSingletonFactory(beanName, () -> {
-    try {
-        future.join();
-    } catch (CompletionException ex) {
-        ReflectionUtils.rethrowRuntimeException(ex.getCause());
-    }
-    // not to be exposed, just to lead to ClassCastException in case of mismatch
-    return future;
-})
-Line 1170, rethrowRuntimeException(ex.getCause()) cannot resolve some symbol, because Unsolved symbol in ReflectionUtils.rethrowRuntimeException(ex.getCause()) : ReflectionUtils
-Line 1174, isLazyInit() cannot resolve some symbol, because Unsolved symbol in mbd.isLazyInit() : mbd
-Line 1182, isLazyInit() cannot resolve some symbol, because Unsolved symbol in mbd.isLazyInit() : mbd
-Line 1187, info("Bean '" + beanName + "' marked for pre-instantiation (not lazy-init) " + "but currently initialized by other thread - skipping it in mainline thread") cannot resolve some symbol, because Unsolved symbol in logger.info("Bean '" + beanName + "' marked for pre-instantiation (not lazy-init) " + "but currently initialized by other thread - skipping it in mainline thread") : logger
-Use preInstantiateSingleton(String, RootBeanDefinition) instead of qualified signature, cause: Unsolved symbol : RootBeanDefinition
-Line 1195, set(PreInstantiation.BACKGROUND) cannot resolve some symbol, because Unsolved symbol in this.preInstantiationThread.set(PreInstantiation.BACKGROUND) : this.preInstantiationThread
-Line 1200, isWarnEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isWarnEnabled() : logger
-Line 1201, warn("Failed to instantiate singleton bean '" + beanName + "' in background thread", ex) cannot resolve some symbol, because Unsolved symbol in logger.warn("Failed to instantiate singleton bean '" + beanName + "' in background thread", ex) : logger
-Line 1206, remove() cannot resolve some symbol, because Unsolved symbol in this.preInstantiationThread.remove() : this.preInstantiationThread
-Line 1211, isFactoryBean(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to isFactoryBean(beanName)
-Line 1218, getBean(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBean(beanName)
-Line 1212, getBean(FACTORY_BEAN_PREFIX + beanName) cannot resolve some symbol, because Unsolved symbol in FACTORY_BEAN_PREFIX : Solving FACTORY_BEAN_PREFIX
-Line 1213, isEagerInit() cannot resolve some symbol, because Unsolved symbol in smartFactoryBean.isEagerInit() : smartFactoryBean
-Line 1214, getBean(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBean(beanName)
-Line 1229, getBean(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBean(beanName)
-Line 1225, getBean(beanName, requiredType.toClass()) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 1225, toClass() cannot resolve some symbol, because Unsolved symbol in requiredType.toClass() : requiredType
-Use resolveBean(String, ResolvableType) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 1248, hasText(beanName, "Bean name must not be empty") cannot resolve some symbol, because Unsolved symbol in Assert.hasText(beanName, "Bean name must not be empty") : Assert
-Line 1249, notNull(beanDefinition, "BeanDefinition must not be null") cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1256, getResourceDescription() cannot resolve some symbol, because Unsolved symbol in beanDefinition.getResourceDescription() : beanDefinition
-Line 1253, validate() cannot resolve some symbol, because Unsolved symbol in abd.validate() : abd
-Line 1261, get(beanName) cannot resolve some symbol, because Unsolved symbol in this.beanDefinitionMap.get(beanName) : this.beanDefinitionMap
-Line 1272, isAlias(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to isAlias(beanName)
-Line 1273, canonicalName(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to canonicalName(beanName)
-Line 1286, isInfoEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isInfoEnabled() : logger
-Line 1287, info("Removing alias '" + beanName + "' for bean '" + aliasedName + "' due to registration of bean definition for bean '" + beanName + "': (" + beanDefinition + ")") cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1291, removeAlias(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to removeAlias(beanName)
-Line 1280, getResourceDescription() cannot resolve some symbol, because Unsolved symbol in beanDefinition.getResourceDescription() : beanDefinition
-Line 1294, hasBeanCreationStarted() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to hasBeanCreationStarted()
-Line 1307, put(beanName, beanDefinition) cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1297, put(beanName, beanDefinition) cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1267, logBeanDefinitionOverriding(beanName, beanDefinition, existingDefinition) cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1269, put(beanName, beanDefinition) cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1314, containsSingleton(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to containsSingleton(beanName)
-Line 1322, isPrimary() cannot resolve some symbol, because Unsolved symbol in beanDefinition.isPrimary() : beanDefinition
-Use registerBeanDefinition(String, BeanDefinition) instead of qualified signature, cause: Unsolved symbol : BeanDefinition
-Line 1331, getRole() cannot resolve some symbol, because Unsolved symbol in existingDefinition.getRole() : existingDefinition
-Line 1331, getRole() cannot resolve some symbol, because Unsolved symbol in beanDefinition.getRole() : beanDefinition
-Line 1339, equals(existingDefinition) cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1352, isInfoEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isInfoEnabled() : logger
-Line 1353, info("Overriding bean definition for bean '" + beanName + "' with an equivalent definition: replacing (" + existingDefinition + ") with (" + beanDefinition + ")") cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1357, isTraceEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isTraceEnabled() : logger
-Line 1358, trace("Overriding bean definition for bean '" + beanName + "' with an equivalent definition: replacing (" + existingDefinition + ") with (" + beanDefinition + ")") cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1340, isInfoEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isInfoEnabled() : logger
-Line 1341, info("Overriding bean definition for bean '" + beanName + "' with a different definition: replacing (" + existingDefinition + ") with (" + beanDefinition + ")") cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1345, isDebugEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isDebugEnabled() : logger
-Line 1346, debug("Overriding bean definition for bean '" + beanName + "' with a different definition: replacing (" + existingDefinition + ") with (" + beanDefinition + ")") cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1333, isInfoEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isInfoEnabled() : logger
-Line 1334, info("Overriding user-defined bean definition for bean '" + beanName + "' with a framework-generated bean definition: replacing (" + existingDefinition + ") with (" + beanDefinition + ")") cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Use logBeanDefinitionOverriding(String, BeanDefinition, BeanDefinition) instead of qualified signature, cause: Unsolved symbol : BeanDefinition
-Line 1367, hasText(beanName, "'beanName' must not be empty") cannot resolve some symbol, because Unsolved symbol in Assert.hasText(beanName, "'beanName' must not be empty") : Assert
-Line 1369, remove(beanName) cannot resolve some symbol, because Unsolved symbol in this.beanDefinitionMap.remove(beanName) : this.beanDefinitionMap
-Line 1371, isTraceEnabled() cannot resolve some symbol, because Unsolved symbol in logger.isTraceEnabled() : logger
-Line 1372, trace("No bean named '" + beanName + "' found in " + this) cannot resolve some symbol, because Unsolved symbol in logger.trace("No bean named '" + beanName + "' found in " + this) : logger
-Line 1377, hasBeanCreationStarted() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to hasBeanCreationStarted()
-Line 1419, resetBeanDefinition(beanName) cannot resolve some symbol, because Unsolved symbol in processor.resetBeanDefinition(beanName) : processor
-Line 1418, getBeanPostProcessorCache() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBeanPostProcessorCache()
-Line 1425, get(bdName) cannot resolve some symbol, because Unsolved symbol in this.beanDefinitionMap.get(bdName) : this.beanDefinitionMap
-Line 1427, equals(bd.getParentName()) cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1427, getParentName() cannot resolve some symbol, because Unsolved symbol in bd.getParentName() : bd
-Line 1458, checkForAliasCircle(name, alias) cannot resolve some symbol, because Unsolved symbol in super.checkForAliasCircle(name, alias) : super
-Line 1467, addSingleton(beanName, singletonObject) cannot resolve some symbol, because Unsolved symbol in super.addSingleton(beanName, singletonObject) : super
-Line 1475, getTypeForFactoryBean(fb) cannot resolve some symbol, because Unsolved symbol : FactoryBean
-Line 1484, registerSingleton(beanName, singletonObject) cannot resolve some symbol, because Unsolved symbol in super.registerSingleton(beanName, singletonObject) : super
-Line 1486, containsKey(beanName) cannot resolve some symbol, because Unsolved symbol in this.beanDefinitionMap.containsKey(beanName) : this.beanDefinitionMap
-Line 1493, destroySingletons() cannot resolve some symbol, because Unsolved symbol in super.destroySingletons() : super
-Line 1500, destroySingleton(beanName) cannot resolve some symbol, because Unsolved symbol in super.destroySingleton(beanName) : super
-Line 1516, hasBeanCreationStarted() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to hasBeanCreationStarted()
-Line 1549, notNull(requiredType, "Required type must not be null") cannot resolve some symbol, because Unsolved symbol in Assert.notNull(requiredType, "Required type must not be null") : Assert
-Line 1550, resolveNamedBean(ResolvableType.forRawClass(requiredType), null, false) cannot resolve some symbol, because Unsolved symbol in ResolvableType : Solving ResolvableType
-Line 1550, forRawClass(requiredType) cannot resolve some symbol, because Unsolved symbol in ResolvableType.forRawClass(requiredType) : ResolvableType
-Line 1554, getParentBeanFactory() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getParentBeanFactory()
-Line 1556, resolveNamedBean(requiredType) cannot resolve some symbol, because Unsolved symbol in acbf.resolveNamedBean(requiredType) : acbf
-Line 1565, notNull(requiredType, "Required type must not be null") cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 1566, getBeanNamesForType(requiredType) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 1571, isAutowireCandidate() cannot resolve some symbol, because Unsolved symbol in getBeanDefinition(beanName).isAutowireCandidate() : getBeanDefinition(beanName)
-Line 1576, toStringArray(autowireCandidates) cannot resolve some symbol, because Unsolved symbol in StringUtils.toStringArray(autowireCandidates) : StringUtils
-Line 1584, newLinkedHashMap(candidateNames.length) cannot resolve some symbol, because Unsolved symbol in CollectionUtils.newLinkedHashMap(candidateNames.length) : CollectionUtils
-Line 1586, containsSingleton(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to containsSingleton(beanName)
-Line 1591, put(beanName, getType(beanName)) cannot resolve some symbol, because Unsolved symbol : Method 'getType' cannot be resolved in context getType(beanName) (line: 1591) MethodCallExprContext{wrapped=getType(beanName)}. Parameter types: [ReferenceType{java.lang.String, typeParametersMap=TypeParametersMap{nameToValue={}}}]
-Line 1591, getType(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getType(beanName)
-Line 1587, resolveBean(beanName, requiredType) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 1594, determinePrimaryCandidate(candidates, requiredType.toClass()) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 1594, toClass() cannot resolve some symbol, because Unsolved symbol in requiredType.toClass() : requiredType
-Line 1596, determineHighestPriorityCandidate(candidates, requiredType.toClass()) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 1596, toClass() cannot resolve some symbol, because Unsolved symbol in requiredType.toClass() : requiredType
-Line 1607, resolveNamedBean(candidateName, requiredType, args) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 1581, resolveNamedBean(candidateNames(0), requiredType, args) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Use resolveNamedBean(ResolvableType, Object[], boolean) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 1622, resolveBean(beanName, requiredType) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 1622, getBean(beanName, args) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBean(beanName, args)
-Line 1626, adaptBeanInstance(beanName, bean, requiredType.toClass()) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 1626, toClass() cannot resolve some symbol, because Unsolved symbol in requiredType.toClass() : requiredType
-Use resolveNamedBean(String, ResolvableType, Object[]) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 1633, initParameterNameDiscovery(getParameterNameDiscoverer()) cannot resolve some symbol, because Unsolved symbol : Method 'getParameterNameDiscoverer' cannot be resolved in context getParameterNameDiscoverer() (line: 1633) MethodCallExprContext{wrapped=getParameterNameDiscoverer()}. Parameter types: []
-Line 1633, getParameterNameDiscoverer() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getParameterNameDiscoverer()
-Line 1634, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Line 1637, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Line 1638, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Line 1641, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Line 1644, supportsLazyResolution() cannot resolve some symbol, because Unsolved symbol in descriptor.supportsLazyResolution() : descriptor
-Line 1645, getLazyResolutionProxyIfNecessary(descriptor, requestingBeanName) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1642, createDependencyProvider(descriptor, requestingBeanName) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1635, createOptionalDependency(descriptor, requestingBeanName, autowiredBeanNames, null) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1651, doResolveDependency(descriptor, requestingBeanName, autowiredBeanNames, typeConverter) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use resolveDependency(DependencyDescriptor, String, Set, TypeConverter) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 1658, setCurrentInjectionPoint(descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1767, setCurrentInjectionPoint(previousInjectionPoint) cannot resolve some symbol, because Unsolved symbol : InjectionPoint
-Line 1661, resolveShortcut(this) cannot resolve some symbol, because Unsolved symbol in descriptor.resolveShortcut(this) : descriptor
-Line 1666, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Line 1669, getSuggestedValue(descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1672, resolveEmbeddedValue(strValue) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to resolveEmbeddedValue(strValue)
-Line 1673, containsBean(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to containsBean(beanName)
-Line 1674, getMergedBeanDefinition(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedBeanDefinition(beanName)
-Line 1675, evaluateBeanDefinitionString(resolvedValue, bd) cannot resolve some symbol, because Unsolved symbol : BeanDefinition
-Line 1677, getTypeConverter() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getTypeConverter()
-Line 1683, getField() cannot resolve some symbol, because Unsolved symbol in descriptor.getField() : descriptor
-Line 1685, convertIfNecessary(value, type, descriptor.getMethodParameter()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1685, getMethodParameter() cannot resolve some symbol, because Unsolved symbol in descriptor.getMethodParameter() : descriptor
-Line 1684, convertIfNecessary(value, type, descriptor.getField()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1684, getField() cannot resolve some symbol, because Unsolved symbol in descriptor.getField() : descriptor
-Line 1679, convertIfNecessary(value, type, descriptor.getTypeDescriptor()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1679, getTypeDescriptor() cannot resolve some symbol, because Unsolved symbol in descriptor.getTypeDescriptor() : descriptor
-Line 1690, usesStandardBeanLookup() cannot resolve some symbol, because Unsolved symbol in descriptor.usesStandardBeanLookup() : descriptor
-Line 1691, getDependencyName() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyName() : descriptor
-Line 1692, containsBean(dependencyName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to containsBean(dependencyName)
-Line 1693, getSuggestedName(descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1694, containsBean(suggestedName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to containsBean(suggestedName)
-Line 1697, canonicalName(dependencyName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to canonicalName(dependencyName)
-Line 1698, isTypeMatch(dependencyName, type) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to isTypeMatch(dependencyName, type)
-Line 1698, isAutowireCandidate(dependencyName, descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1704, resolveBean(dependencyName, descriptor.getResolvableType()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1704, getResolvableType() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType() : descriptor
-Line 1705, resolveInstance(dependencyBean, descriptor, type, dependencyName) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1711, resolveMultipleBeans(descriptor, beanName, autowiredBeanNames, typeConverter) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1716, findAutowireCandidates(beanName, type, descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1719, resolveMultipleBeansFallback(descriptor, beanName, autowiredBeanNames, typeConverter) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1724, isRequired(descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1725, raiseNoMatchingBeanFound(type, descriptor.getResolvableType(), descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1725, getResolvableType() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType() : descriptor
-Line 1735, determineAutowireCandidate(matchingBeans, descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1737, isRequired(descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1739, resolveNotUnique(descriptor.getResolvableType(), matchingBeans) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1739, getResolvableType() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType() : descriptor
-Line 1762, resolveCandidate(autowiredBeanName, type, this) cannot resolve some symbol, because Unsolved symbol in descriptor.resolveCandidate(autowiredBeanName, type, this) : descriptor
-Line 1764, resolveInstance(instanceCandidate, descriptor, type, autowiredBeanName) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use doResolveDependency(DependencyDescriptor, String, Set, TypeConverter) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 1775, isRequired(descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1776, raiseNoMatchingBeanFound(type, descriptor.getResolvableType(), descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1776, getResolvableType() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType() : descriptor
-Line 1780, isAssignableValue(type, result) cannot resolve some symbol, because Unsolved symbol in ClassUtils.isAssignableValue(type, result) : ClassUtils
-Use resolveInstance(Object, DependencyDescriptor, Class, String) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 1789, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Line 1836, resolveMultipleBeanMap(descriptor, beanName, autowiredBeanNames, typeConverter) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1833, resolveMultipleBeanCollection(descriptor, beanName, autowiredBeanNames, typeConverter) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1805, componentType() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to type.componentType()
-Line 1806, getResolvableType() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType() : descriptor
-Line 1807, resolve(type) cannot resolve some symbol, because Unsolved symbol in resolvableType.resolve(type) : resolvableType
-Line 1809, resolve() cannot resolve some symbol, because Unsolved symbol in resolvableType.getComponentType().resolve() : resolvableType.getComponentType()
-Line 1809, getComponentType() cannot resolve some symbol, because Unsolved symbol in resolvableType.getComponentType() : resolvableType
-Line 1814, findAutowireCandidates(beanName, componentType, new MultiElementDescriptor(descriptor)) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1822, getTypeConverter() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getTypeConverter()
-Line 1823, convertIfNecessary(matchingBeans.values(), resolvedArrayType) cannot resolve some symbol, because Unsolved symbol in converter.convertIfNecessary(matchingBeans.values(), resolvedArrayType) : converter
-Line 1792, findAutowireCandidates(beanName, type, descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1796, filter(bean -> !(bean instanceof NullBean)) cannot resolve some symbol, because Unsolved symbol in matchingBeans.keySet().stream().map(name -> descriptor.resolveCandidate(name, type, this)).filter(bean -> !(bean instanceof NullBean)) : matchingBeans.keySet().stream().map(name -> descriptor.resolveCandidate(name, type, this))
-Line 1797, resolveCandidate(name, type, this) cannot resolve some symbol, because Unsolved symbol in descriptor.resolveCandidate(name, type, this) : descriptor
-Use resolveMultipleBeans(DependencyDescriptor, String, Set, TypeConverter) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 1845, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Line 1851, resolveMultipleBeanMap(descriptor, beanName, autowiredBeanNames, typeConverter) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1848, resolveMultipleBeanCollection(descriptor, beanName, autowiredBeanNames, typeConverter) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use resolveMultipleBeansFallback(DependencyDescriptor, String, Set, TypeConverter) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 1859, resolveGeneric() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType().asCollection().resolveGeneric() : descriptor.getResolvableType().asCollection()
-Line 1859, asCollection() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType().asCollection() : descriptor.getResolvableType()
-Line 1859, getResolvableType() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType() : descriptor
-Line 1863, findAutowireCandidates(beanName, elementType, new MultiElementDescriptor(descriptor)) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1871, getTypeConverter() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getTypeConverter()
-Line 1872, convertIfNecessary(matchingBeans.values(), descriptor.getDependencyType()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1872, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Use resolveMultipleBeanCollection(DependencyDescriptor, String, Set, TypeConverter) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 1885, asMap() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType().asMap() : descriptor.getResolvableType()
-Line 1885, getResolvableType() cannot resolve some symbol, because Unsolved symbol in descriptor.getResolvableType() : descriptor
-Line 1886, resolveGeneric(0) cannot resolve some symbol, because Unsolved symbol in mapType.resolveGeneric(0) : mapType
-Line 1890, resolveGeneric(1) cannot resolve some symbol, because Unsolved symbol in mapType.resolveGeneric(1) : mapType
-Line 1894, findAutowireCandidates(beanName, valueType, new MultiElementDescriptor(descriptor)) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1902, getTypeConverter() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getTypeConverter()
-Line 1903, convertIfNecessary(matchingBeans, descriptor.getDependencyType()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1903, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Use resolveMultipleBeanMap(DependencyDescriptor, String, Set, TypeConverter) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 1912, isRequired(descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use isRequired(DependencyDescriptor) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 1918, withSourceProvider(createFactoryAwareOrderSourceProvider(matchingBeans)) cannot resolve some symbol, because Unsolved symbol : OrderComparator.OrderSourceProvider
-Line 1930, withSourceProvider(createFactoryAwareOrderSourceProvider(matchingBeans)) cannot resolve some symbol, because Unsolved symbol : OrderComparator.OrderSourceProvider
-Line 1935, put(instance, beanName) cannot resolve some symbol, because null
-Line 1955, beanNamesForTypeIncludingAncestors(this, requiredType, true, descriptor.isEager()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1956, isEager() cannot resolve some symbol, because Unsolved symbol in descriptor.isEager() : descriptor
-Line 1957, newLinkedHashMap(candidateNames.length) cannot resolve some symbol, because Unsolved symbol in CollectionUtils.newLinkedHashMap(candidateNames.length) : CollectionUtils
-Line 1962, resolveAutowiringValue(autowiringValue, requiredType) cannot resolve some symbol, because Unsolved symbol in AutowireUtils.resolveAutowiringValue(autowiringValue, requiredType) : AutowireUtils
-Line 1964, put(ObjectUtils.identityToString(autowiringValue), autowiringValue) cannot resolve some symbol, because Unsolved symbol in ObjectUtils : Solving ObjectUtils
-Line 1964, identityToString(autowiringValue) cannot resolve some symbol, because Unsolved symbol in ObjectUtils.identityToString(autowiringValue) : ObjectUtils
-Line 1970, isAutowireCandidate(candidate, descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1971, addCandidateEntry(result, candidate, descriptor, requiredType) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1977, forFallbackMatch() cannot resolve some symbol, because Unsolved symbol in descriptor.forFallbackMatch() : descriptor
-Line 1979, isAutowireCandidate(candidate, fallbackDescriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1980, matchesBeanName(candidate, descriptor.getDependencyName()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1980, getDependencyName() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyName() : descriptor
-Line 1981, hasQualifier(descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1982, addCandidateEntry(result, candidate, descriptor, requiredType) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1991, isAutowireCandidate(candidate, fallbackDescriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 1992, addCandidateEntry(result, candidate, descriptor, requiredType) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use findAutowireCandidates(String, Class, DependencyDescriptor) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 2013, containsSingleton(candidateName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to containsSingleton(candidateName)
-Line 2019, put(candidateName, getType(candidateName)) cannot resolve some symbol, because Unsolved symbol : Method 'getType' cannot be resolved in context getType(candidateName) (line: 2019) MethodCallExprContext{wrapped=getType(candidateName)}. Parameter types: [ReferenceType{java.lang.String, typeParametersMap=TypeParametersMap{nameToValue={}}}]
-Line 2019, getType(candidateName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getType(candidateName)
-Line 2015, resolveCandidate(candidateName, requiredType, this) cannot resolve some symbol, because Unsolved symbol in descriptor.resolveCandidate(candidateName, requiredType, this) : descriptor
-Line 2008, resolveCandidate(candidateName, requiredType, this) cannot resolve some symbol, because Unsolved symbol in descriptor.resolveCandidate(candidateName, requiredType, this) : descriptor
-Use addCandidateEntry(Map, String, DependencyDescriptor, Class) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 2032, getDependencyType() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyType() : descriptor
-Line 2039, getDependencyName() cannot resolve some symbol, because Unsolved symbol in descriptor.getDependencyName() : descriptor
-Line 2048, getSuggestedName(descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use determineAutowireCandidate(Map, DependencyDescriptor) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 2097, trace(message) cannot resolve some symbol, because Unsolved symbol in logger.trace(message) : logger
-Line 2182, transformedBeanName(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to transformedBeanName(beanName)
-Line 2184, isPrimary() cannot resolve some symbol, because Unsolved symbol in getMergedLocalBeanDefinition(transformedBeanName).isPrimary() : getMergedLocalBeanDefinition(transformedBeanName)
-Line 2184, getMergedLocalBeanDefinition(transformedBeanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedLocalBeanDefinition(transformedBeanName)
-Line 2186, getParentBeanFactory() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getParentBeanFactory()
-Line 2197, transformedBeanName(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to transformedBeanName(beanName)
-Line 2199, isFallback() cannot resolve some symbol, because Unsolved symbol in getMergedLocalBeanDefinition(transformedBeanName).isFallback() : getMergedLocalBeanDefinition(transformedBeanName)
-Line 2199, getMergedLocalBeanDefinition(transformedBeanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedLocalBeanDefinition(transformedBeanName)
-Line 2201, getParentBeanFactory() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getParentBeanFactory()
-Line 2220, getPriority(beanInstance) cannot resolve some symbol, because Unsolved symbol in orderComparator.getPriority(beanInstance) : orderComparator
-Line 2237, isDefaultCandidate(this, candidateBeanName) cannot resolve some symbol, because Unsolved symbol in AutowireUtils.isDefaultCandidate(this, candidateBeanName) : AutowireUtils
-Line 2253, containsElement(getAliases(beanName), dependencyName) cannot resolve some symbol, because Unsolved symbol : Method 'getAliases' cannot be resolved in context getAliases(beanName) (line: 2253) MethodCallExprContext{wrapped=getAliases(beanName)}. Parameter types: [ReferenceType{java.lang.String, typeParametersMap=TypeParametersMap{nameToValue={}}}]
-Line 2253, getAliases(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getAliases(beanName)
-Line 2265, equals(getMergedLocalBeanDefinition(candidateName).getFactoryBeanName()) cannot resolve some symbol, because Unsolved symbol : Method 'getMergedLocalBeanDefinition' cannot be resolved in context getMergedLocalBeanDefinition(candidateName) (line: 2265) MethodCallExprContext{wrapped=getMergedLocalBeanDefinition(candidateName)}. Parameter types: [ReferenceType{java.lang.String, typeParametersMap=TypeParametersMap{nameToValue={}}}]
-Line 2265, getFactoryBeanName() cannot resolve some symbol, because Unsolved symbol in getMergedLocalBeanDefinition(candidateName).getFactoryBeanName() : getMergedLocalBeanDefinition(candidateName)
-Line 2265, getMergedLocalBeanDefinition(candidateName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedLocalBeanDefinition(candidateName)
-Line 2278, isTypeMatch(candidateName, dependencyType) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to isTypeMatch(candidateName, dependencyType)
-Line 2282, getParentBeanFactory() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getParentBeanFactory()
-Line 2293, checkBeanNotOfRequiredType(type, descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2297, nullSafeToString(descriptor.getAnnotations()) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2297, getAnnotations() cannot resolve some symbol, because Unsolved symbol in descriptor.getAnnotations() : descriptor
-Use raiseNoMatchingBeanFound(Class, ResolvableType, DependencyDescriptor) instead of qualified signature, cause: Unsolved symbol : ResolvableType
-Line 2307, getMergedLocalBeanDefinition(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedLocalBeanDefinition(beanName)
-Line 2308, getTargetType() cannot resolve some symbol, because Unsolved symbol in mbd.getTargetType() : mbd
-Line 2310, isAutowireCandidate(beanName, mbd, descriptor, getAutowireCandidateResolver()) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 2312, getSingleton(beanName, false) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getSingleton(beanName, false)
-Line 2314, predictBeanType(beanName, mbd) cannot resolve some symbol, because Unsolved symbol : RootBeanDefinition
-Line 2325, getParentBeanFactory() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getParentBeanFactory()
-Line 2326, checkBeanNotOfRequiredType(type, descriptor) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use checkBeanNotOfRequiredType(Class, DependencyDescriptor) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 2343, isEmpty(args) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2344, resolveCandidate(beanName, requiredType, beanFactory) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2343, getBean(beanName, args) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2348, isEmpty(args) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2351, doResolveDependency(descriptorToUse, beanName, autowiredBeanNames, null) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use createOptionalDependency(DependencyDescriptor, String, Set, Object[]) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 2343, isEmpty(args) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2344, resolveCandidate(beanName, requiredType, beanFactory) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2343, getBean(beanName, args) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use resolveCandidate(String, Class, BeanFactory) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 2348, isEmpty(args) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2364, getOrder(beanName, getBean(beanName)) cannot resolve some symbol, because Unsolved symbol : Method 'getBean' cannot be resolved in context getBean(beanName) (line: 2364) MethodCallExprContext{wrapped=getBean(beanName)}. Parameter types: [ReferenceType{java.lang.String, typeParametersMap=TypeParametersMap{nameToValue={}}}]
-Line 2364, getBean(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getBean(beanName)
-Line 2378, getOrder(beanInstance, new FactoryAwareOrderSourceProvider(Collections.singletonMap(beanInstance, beanName))) cannot resolve some symbol, because Unsolved symbol in comparator.getOrder(beanInstance, new FactoryAwareOrderSourceProvider(Collections.singletonMap(beanInstance, beanName))) : comparator
-Line 2385, identityToString(this) cannot resolve some symbol, because Unsolved symbol in ObjectUtils.identityToString(this) : ObjectUtils
-Line 2387, append(StringUtils.collectionToCommaDelimitedString(this.beanDefinitionNames)) cannot resolve some symbol, because Unsolved symbol in StringUtils : Solving StringUtils
-Line 2387, collectionToCommaDelimitedString(this.beanDefinitionNames) cannot resolve some symbol, because Unsolved symbol in StringUtils.collectionToCommaDelimitedString(this.beanDefinitionNames) : StringUtils
-Line 2389, getParentBeanFactory() cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getParentBeanFactory()
-Line 2394, append(ObjectUtils.identityToString(parent)) cannot resolve some symbol, because Unsolved symbol : BeanFactory
-Line 2394, identityToString(parent) cannot resolve some symbol, because Unsolved symbol : BeanFactory
-Line 2524, getValue() cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2526, getResolvableType() cannot resolve some symbol, because Unsolved symbol in this.descriptor.getResolvableType() : this.descriptor
-Line 2540, getBean(beanName, args) cannot resolve some symbol, because Unsolved symbol : Corresponding declaration not available for unsolved symbol.
-Line 2543, doResolveDependency(descriptorToUse, this.beanName, null, null) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2545, getResolvableType() cannot resolve some symbol, because Unsolved symbol in this.descriptor.getResolvableType() : this.descriptor
-Line 2534, createOptionalDependency(this.descriptor, this.beanName, null, args) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2540, getBean(beanName, args) cannot resolve some symbol, because Unsolved symbol : Corresponding declaration not available for unsolved symbol.
-Use resolveCandidate(String, Class, BeanFactory) instead of qualified signature, cause: Unsolved symbol : Corresponding declaration not available for unsolved symbol.
-Line 2568, doResolveDependency(descriptorToUse, this.beanName, null, null) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2555, createOptionalDependency(this.descriptor, this.beanName, null, null) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Use isRequired() instead of qualified signature, cause: Unsolved symbol : Corresponding declaration not available for unsolved symbol.
-Use usesStandardBeanLookup() instead of qualified signature, cause: Unsolved symbol : Corresponding declaration not available for unsolved symbol.
-Line 2579, getIfAvailable() cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2611, doResolveDependency(descriptorToUse, this.beanName, null, null) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2608, createOptionalDependency(descriptorToUse, this.beanName, null, null) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Use isRequired() instead of qualified signature, cause: Unsolved symbol : Corresponding declaration not available for unsolved symbol.
-Use usesStandardBeanLookup() instead of qualified signature, cause: Unsolved symbol : Corresponding declaration not available for unsolved symbol.
-Use resolveNotUnique(ResolvableType, Map) instead of qualified signature, cause: Unsolved symbol : Corresponding declaration not available for unsolved symbol.
-Line 2622, getIfUnique() cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2636, isConfigurationFrozen() cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2638, resolveValue(autowiredBeanNames) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2643, containsBean(autowiredBeanName) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2643, isSingleton(autowiredBeanName) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2660, resolveValue(null) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2668, doResolveDependency(this.descriptor, this.beanName, autowiredBeanNames, null) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2665, createOptionalDependency(this.descriptor, this.beanName, autowiredBeanNames, null) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2674, resolveStream(false) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2679, resolveStream(true) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2685, doResolveDependency(descriptorToUse, this.beanName, null, null) cannot resolve some symbol, because Unsolved symbol : DependencyDescriptor
-Line 2691, getResolvableType() cannot resolve some symbol, because Unsolved symbol in this.descriptor.getResolvableType() : this.descriptor
-Line 2692, filter(bean -> !(bean instanceof NullBean)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)).filter(name -> customFilter.test(getType(name))).map(name -> resolveBean(name, type)).filter(bean -> !(bean instanceof NullBean)) : Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)).filter(name -> customFilter.test(getType(name))).map(name -> resolveBean(name, type))
-Line 2692, map(name -> resolveBean(name, type)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)).filter(name -> customFilter.test(getType(name))).map(name -> resolveBean(name, type)) : Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)).filter(name -> customFilter.test(getType(name)))
-Line 2695, resolveBean(name, type) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)).filter(name -> customFilter.test(getType(name))).map(name -> resolveBean(name, type)) : Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)).filter(name -> customFilter.test(getType(name)))
-Line 2692, filter(name -> customFilter.test(getType(name))) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)).filter(name -> customFilter.test(getType(name))) : Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name))
-Line 2694, test(getType(name)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)).filter(name -> customFilter.test(getType(name))) : Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name))
-Line 2694, getType(name) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)).filter(name -> customFilter.test(getType(name))) : Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name))
-Line 2692, filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)) : Arrays.stream(beanNamesForStream(type, includeNonSingletons, true))
-Line 2693, isAutowireCandidate(DefaultListableBeanFactory.this, name) cannot resolve some symbol, because Unsolved symbol in Arrays.stream(beanNamesForStream(type, includeNonSingletons, true)).filter(name -> AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, name)) : Arrays.stream(beanNamesForStream(type, includeNonSingletons, true))
-Line 2692, stream(beanNamesForStream(type, includeNonSingletons, true)) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 2692, beanNamesForStream(type, includeNonSingletons, true) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 2701, getResolvableType() cannot resolve some symbol, because Unsolved symbol in this.descriptor.getResolvableType() : this.descriptor
-Line 2702, beanNamesForStream(type, includeNonSingletons, true) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 2706, newLinkedHashMap(beanNames.length) cannot resolve some symbol, because Unsolved symbol in CollectionUtils.newLinkedHashMap(beanNames.length) : CollectionUtils
-Line 2708, isAutowireCandidate(DefaultListableBeanFactory.this, beanName) cannot resolve some symbol, because Unsolved symbol in AutowireUtils.isAutowireCandidate(DefaultListableBeanFactory.this, beanName) : AutowireUtils
-Line 2709, test(getType(beanName)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2709, getType(beanName) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2710, resolveBean(beanName, type) cannot resolve some symbol, because Unsolved symbol : ResolvableType
-Line 2716, sorted(adaptOrderComparator(matchingBeans)) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2716, adaptOrderComparator(matchingBeans) cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Use createDependencyProvider(DependencyDescriptor, String) instead of qualified signature, cause: Unsolved symbol : DependencyDescriptor
-Line 2740, getValue() cannot resolve some symbol, because Unsolved symbol : ObjectProvider
-Line 2770, getMergedBeanDefinition(beanName) cannot resolve some symbol, because Unsolved symbol : We are unable to find the method declaration corresponding to getMergedBeanDefinition(beanName)
-Line 2772, getAttribute(AbstractBeanDefinition.ORDER_ATTRIBUTE) cannot resolve some symbol, because Unsolved symbol : ORDER_ATTRIBUTE
-Line 2775, add((Ordered) () -> order) cannot resolve some symbol, because Unsolved symbol : Ordered
-Line 2783, getResolvedFactoryMethod() cannot resolve some symbol, because Unsolved symbol in rootBeanDefinition.getResolvedFactoryMethod() : rootBeanDefinition
-Line 2787, getTargetType() cannot resolve some symbol, because Unsolved symbol in rootBeanDefinition.getTargetType() : rootBeanDefinition
 Line 142, notNull(beanName, "Bean name must not be null") cannot resolve some symbol, because Unsolved symbol in Assert.notNull(beanName, "Bean name must not be null") : Assert
 Line 143, notNull(singletonObject, "Singleton object must not be null") cannot resolve some symbol, because Unsolved symbol in Assert.notNull(singletonObject, "Singleton object must not be null") : Assert
 Line 165, remove(beanName) cannot resolve some symbol, because Unsolved symbol in this.singletonFactories.remove(beanName) : this.singletonFactories
@@ -2614,10 +1974,9 @@ Use destroyBean(String, DisposableBean) instead of qualified signature, cause: U
 Line 136, state(instance != null, "No instance from Supplier") cannot resolve some symbol, because Unsolved symbol in Assert.state(instance != null, "No instance from Supplier") : Assert
   Generated LLM summary for spring-framework_Singleton/SmartInitializingSingleton
   Generated LLM summary for spring-framework_Singleton/DefaultSingletonBeanRegistry
-  Generated LLM summary for spring-framework_Singleton/DefaultListableBeanFactory
   Generated LLM summary for spring-framework_Singleton/SingletonSupplier
   Generated LLM summary for spring-framework_Singleton/SingletonBeanRegistry
-  Project summary: 5 classes processed, 5 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 4 classes processed, 4 summaries generated, 0 failed, 0 skipped.
 
 spring-framework/Visitor
 Configuring symbol resolver with 1 source paths and 0 library paths
@@ -2694,14 +2053,15 @@ Use getBeanProvider(ParameterizedTypeReference) instead of qualified signature, 
 Use isTypeMatch(String, ResolvableType) instead of qualified signature, cause: Unsolved symbol : ResolvableType
   Generated LLM summary for spring-framework_Visitor/BeanDefinitionVisitor
   Generated LLM summary for spring-framework_Visitor/BeanFactory
-  Project summary: 2 classes processed, 2 summaries generated, 0 failed, 0 skipped.
+  [SENIOR_ANALYST_50_WORDS] Project summary: 2 classes processed, 2 summaries generated, 0 failed, 0 skipped.
 
-LLM summarisation complete:
-  Projects attempted: 27
-  Projects with summaries: 27
-  Classes processed: 151
-  Summaries generated: 151
-  Failed summaries: 0
-  Classes skipped: 0
-LLM summaries written to D:\repo\designpatternsummariser\output\summary-output\B4.csv
+LLM summarisation complete for 27 projects:
+  Prompt SENIOR_ANALYST_50_WORDS -> output D:\repo\designpatternsummariser\output\summary-output\B4.csv
+    Projects attempted: 27
+    Projects with summaries: 27
+    Classes processed: 150
+    Summaries generated: 150
+    Failed summaries: 0
+    Classes skipped: 0
+Default single-output path retained for compatibility: D:\repo\designpatternsummariser\output\summary-output\B4.csv
 Generated D:\repo\designpatternsummariser\output\summary-output\B4.csv

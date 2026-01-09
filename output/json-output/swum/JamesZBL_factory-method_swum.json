@@ -1,7 +1,7 @@
 {
   "project_name" : "factory-method",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1765511727235,
+  "generated_timestamp" : 1766308894384,
   "class_summaries" : {
     "ChineseCook" : {
       "class_name" : "ChineseCook",
@@ -11,13 +11,13 @@
           "method_name" : "cookFood",
           "return_type" : "Food",
           "parameters" : "",
-          "swum_summary" : "This method performs and returns an object. The ChineseCook class acts as a factory in the abstract_factory pattern, acts as an originator in the memento pattern and acts as a factory in the factory_method pattern.",
+          "swum_summary" : "This method performs and returns an object. The ChineseCook class acts as a factory in the abstract_factory pattern and acts as a factory in the factory_method pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE cook Food)"
         }
       },
-      "swum_class_summary" : "The ChineseCook class acts as a factory in the abstract_factory pattern, acts as an originator in the memento pattern and acts as a factory in the factory_method pattern."
+      "swum_class_summary" : "The ChineseCook class acts as a factory in the abstract_factory pattern and acts as a factory in the factory_method pattern."
     },
     "FoodType" : {
       "class_name" : "FoodType",
@@ -43,7 +43,7 @@
           "method_name" : "getFoodType",
           "return_type" : "FoodType",
           "parameters" : "",
-          "swum_summary" : "This method retrieves and returns an object. The WesternFood class acts as a product in the abstract_factory pattern, acts as a caretaker in the memento pattern and acts as a product in the factory_method pattern.",
+          "swum_summary" : "This method retrieves and returns an object. The WesternFood class acts as a product in the abstract_factory pattern and acts as a product in the factory_method pattern.",
           "swum_actions" : "get",
           "swum_objects" : "",
           "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Food Type))"
@@ -52,13 +52,13 @@
           "method_name" : "toString",
           "return_type" : "String",
           "parameters" : "",
-          "swum_summary" : "This method performs a string and returns a String. The WesternFood class acts as a product in the abstract_factory pattern, acts as a caretaker in the memento pattern and acts as a product in the factory_method pattern.",
+          "swum_summary" : "This method performs a string and returns a String. The WesternFood class acts as a product in the abstract_factory pattern and acts as a product in the factory_method pattern.",
           "swum_actions" : "",
           "swum_objects" : "String",
           "swum_parse_tree" : "(NOUN_PHRASE to String)"
         }
       },
-      "swum_class_summary" : "The WesternFood class acts as a product in the abstract_factory pattern, acts as a caretaker in the memento pattern and acts as a product in the factory_method pattern and provides methods to get."
+      "swum_class_summary" : "The WesternFood class acts as a product in the abstract_factory pattern and acts as a product in the factory_method pattern and provides methods to get."
     },
     "Cook" : {
       "class_name" : "Cook",
@@ -68,13 +68,13 @@
           "method_name" : "cookFood",
           "return_type" : "Food",
           "parameters" : "",
-          "swum_summary" : "This method performs and returns an object. The Cook class acts as an originator in the memento pattern and acts as a factory in the factory_method pattern.",
+          "swum_summary" : "This method performs and returns an object. The Cook class acts as a factory in the factory_method pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE cook Food)"
         }
       },
-      "swum_class_summary" : "The Cook class acts as an originator in the memento pattern and acts as a factory in the factory_method pattern."
+      "swum_class_summary" : "The Cook class acts as a factory in the factory_method pattern."
     },
     "ChineseFood" : {
       "class_name" : "ChineseFood",
@@ -93,13 +93,13 @@
           "method_name" : "toString",
           "return_type" : "String",
           "parameters" : "",
-          "swum_summary" : "This method performs a string and returns a String. The ChineseFood class acts as a factory in the abstract_factory pattern, acts as a memento in the memento pattern and acts as a product in the factory_method pattern.",
+          "swum_summary" : "This method performs a string and returns a String. The ChineseFood class acts as a factory in the abstract_factory pattern and acts as a product in the factory_method pattern.",
           "swum_actions" : "",
           "swum_objects" : "String",
           "swum_parse_tree" : "(NOUN_PHRASE to String)"
         }
       },
-      "swum_class_summary" : "The ChineseFood class acts as a factory in the abstract_factory pattern, acts as a memento in the memento pattern and acts as a product in the factory_method pattern and provides methods to get."
+      "swum_class_summary" : "The ChineseFood class acts as a factory in the abstract_factory pattern and acts as a product in the factory_method pattern and provides methods to get."
     },
     "Application" : {
       "class_name" : "Application",
@@ -134,13 +134,13 @@
           "method_name" : "cookFood",
           "return_type" : "Food",
           "parameters" : "",
-          "swum_summary" : "This method performs and returns an object. The WesternCook class acts as a factory in the abstract_factory pattern and acts as an originator in the memento pattern.",
+          "swum_summary" : "This method performs and returns an object. The WesternCook class acts as a factory in the abstract_factory pattern and acts as a factory in the factory_method pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE cook Food)"
         }
       },
-      "swum_class_summary" : "The WesternCook class acts as a factory in the abstract_factory pattern and acts as an originator in the memento pattern."
+      "swum_class_summary" : "The WesternCook class acts as a factory in the abstract_factory pattern and acts as a factory in the factory_method pattern."
     },
     "Food" : {
       "class_name" : "Food",
@@ -150,22 +150,22 @@
           "method_name" : "getFoodType",
           "return_type" : "FoodType",
           "parameters" : "",
-          "swum_summary" : "This method retrieves and returns an object. The Food class acts as an abstract product in the abstract_factory pattern, acts as a memento in the memento pattern and acts as an abstract product in the factory_method pattern.",
+          "swum_summary" : "This method retrieves and returns an object. The Food class acts as an abstract product in the abstract_factory pattern and acts as an abstract product in the factory_method pattern.",
           "swum_actions" : "get",
           "swum_objects" : "",
           "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Food Type))"
         }
       },
-      "swum_class_summary" : "The Food class acts as an abstract product in the abstract_factory pattern, acts as a memento in the memento pattern and acts as an abstract product in the factory_method pattern and provides methods to get."
+      "swum_class_summary" : "The Food class acts as an abstract product in the abstract_factory pattern and acts as an abstract product in the factory_method pattern and provides methods to get."
     }
   },
-  "swum_project_summary" : "This software project contains 8 classes with 11 methods. The system implements multiple design patterns including abstract_factory, memento, factory_method. Primary operations include get, make. Key objects manipulated are String.",
+  "swum_project_summary" : "This software project contains 8 classes with 11 methods. The system implements multiple design patterns including abstract_factory, factory_method. Primary operations include get, make. Key objects manipulated are String.",
   "design_patterns" : [ {
     "factory_method" : {
-      "ChineseCook" : {
+      "Cook" : {
         "concrete_product" : [ "WesternFood", "ChineseFood" ],
         "abstract_product" : "Food",
-        "concrete_factory" : [ "Cook", "Cook" ]
+        "concrete_factory" : [ "ChineseCook", "WesternCook" ]
       }
     }
   }, {
@@ -179,19 +179,6 @@
       "Food" : {
         "abstract_product" : { },
         "concrete_factory" : [ "WesternFood", "ChineseFood" ]
-      }
-    }
-  }, {
-    "memento" : {
-      "Food" : {
-        "caretaker" : {
-          "WesternFood" : [ ],
-          "ChineseFood" : [ ]
-        },
-        "originator" : {
-          "Cook" : [ "ChineseCook", "WesternCook" ]
-        },
-        "concrete_memento" : [ "WesternFood", "ChineseFood" ]
       }
     }
   } ]

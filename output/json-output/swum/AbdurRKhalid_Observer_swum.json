@@ -1,7 +1,7 @@
 {
   "project_name" : "Observer",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1765511727167,
+  "generated_timestamp" : 1766308894313,
   "class_summaries" : {
     "EmailNotificationListener" : {
       "class_name" : "EmailNotificationListener",

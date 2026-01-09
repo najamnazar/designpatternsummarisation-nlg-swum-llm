@@ -1,7 +1,7 @@
 {
   "project_name" : "Observer",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1765511727387,
+  "generated_timestamp" : 1766308894546,
   "class_summaries" : {
     "ApplicationEventPublisher" : {
       "class_name" : "ApplicationEventPublisher",

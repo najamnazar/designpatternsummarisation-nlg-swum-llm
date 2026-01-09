@@ -238,16 +238,25 @@ class EvaluationConfig:
     swum_csv: Path
     dps_llm_csv: Path
     output_dir: Path
+    dps_llm_nonconcise_csv: Optional[Path] = None  # Optional additional LLM summaries (e.g., non-concise alias)
 
     def ensure_output_dir(self) -> None:
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
     def method_sources(self) -> List[Tuple[str, Path]]:
-        return [
+        # return [
+        #     ('NLG', self.nlg_csv),
+        #     ('SWUM', self.swum_csv),
+        #     ('LLM (Mixtral)', self.dps_llm_csv),
+        # ]
+        sources = [
             ('NLG', self.nlg_csv),
             ('SWUM', self.swum_csv),
             ('LLM (Mixtral)', self.dps_llm_csv),
         ]
+        if self.dps_llm_nonconcise_csv is not None:
+            sources.append(('LLM (Non-Concise 50)', self.dps_llm_nonconcise_csv))
+        return sources
 
 
 class SummaryEvaluator:
@@ -429,7 +438,10 @@ class VisualizationManager:
     ) -> None:
         combined_data = []
         method_order = []
+        allowed_methods = {'NLG', 'SWUM', 'LLM (Mixtral)'}
         for result in results:
+            if result.method not in allowed_methods:
+                continue
             if not result.merged.empty:
                 subset = result.merged[['cosine_similarity', 'bert_f1']].copy()
                 subset['method'] = result.method
@@ -448,6 +460,8 @@ class VisualizationManager:
             'SWUM': '#3498db',
             'LLM (Mixtral)': '#f39c12',
         }
+        # plot_palette = colors  # Original fixed palette usage retained for reference per user instructions
+        plot_palette = colors if set(method_order).issubset(colors.keys()) else None
 
         sns.violinplot(
             data=all_data,
@@ -455,7 +469,7 @@ class VisualizationManager:
             y='cosine_similarity',
             ax=axes[0],
             order=method_order,
-            palette=colors,
+            palette=plot_palette,
             hue='method',
             legend=False,
         )
@@ -484,7 +498,7 @@ class VisualizationManager:
             y='bert_f1',
             ax=axes[1],
             order=method_order,
-            palette=colors,
+            palette=plot_palette,
             hue='method',
             legend=False,
         )
@@ -693,6 +707,12 @@ def parse_arguments(argv: Optional[List[str]]) -> argparse.Namespace:
         help='Path to LLM (Mixtral) summaries CSV file',
     )
     parser.add_argument(
+        '--dps-llm-nonconcise-csv',
+        type=Path,
+        default=None,
+        help='Optional path to LLM non-concise summaries CSV file',
+    )
+    parser.add_argument(
         '--output-dir',
         type=Path,
         default=Path('evaluation-results'),
@@ -709,6 +729,7 @@ def main(argv: Optional[List[str]] = None) -> None:
         swum_csv=args.swum_csv,
         dps_llm_csv=args.dps_llm_csv,
         output_dir=args.output_dir,
+        dps_llm_nonconcise_csv=args.dps_llm_nonconcise_csv,
     )
     pipeline = SummaryEvaluationPipeline(config)
     pipeline.run()

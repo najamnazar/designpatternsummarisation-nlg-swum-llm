@@ -211,6 +211,50 @@ python python/rank_summaries.py
 Get-Content evaluation-results/ranking_console_output.txt -Tail 100 | Out-String
 ```
 
+## Multi-Criteria Summary Ranking System
+
+### Overview
+
+`python/rank_summaries.py` evaluates three summary corpora (A, B, C) against human references using LLM-driven, deterministic prompts across five criteria.
+
+### Ranking Criteria (1-5 scale)
+- Accuracy: Correctness of described behavior
+- Conciseness: Brevity with essential information
+- Adequacy: Coverage and completeness
+- Code Context: Relationships and intent captured
+- Design Patterns: Recognition and clear description
+
+### Inputs
+- `output/summary-output/A.csv` (NLG)
+- `output/summary-output/B.csv` (LLM)
+- `output/summary-output/C.csv` (SWUM)
+- `input/DPS_Human_Summaries.csv` (human gold)
+
+### Usage
+```powershell
+# Activate venv if you use one
+# .\.venv\Scripts\Activate.ps1
+
+# Run ranking
+python python/rank_summaries.py
+```
+
+### Output CSV Columns
+- Identification: `project`, `file`
+- Summaries: `human_summary`, `summary_a`, `summary_b`, `summary_c`
+- Per-criterion ranks: `{criterion}_a`, `{criterion}_b`, `{criterion}_c`
+- Optional LLM notes: `{criterion}_reasoning` (when enabled)
+- Aggregates: `winner` and average/total per corpus
+
+### Console Output
+- Progress per file and criterion
+- Aggregate statistics by criterion
+- Winner distribution across the corpus
+
+### Performance
+- 5 API calls per file (one per criterion)
+- Deterministic settings to reduce variance
+
 ### Maven Execution IDs
 
 The project defines these execution targets:

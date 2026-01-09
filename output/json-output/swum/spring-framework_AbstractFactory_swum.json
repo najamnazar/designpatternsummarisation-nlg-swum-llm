@@ -1,7 +1,7 @@
 {
   "project_name" : "summary_NLG",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1765511727283,
+  "generated_timestamp" : 1766308894434,
   "class_summaries" : {
     "ClientHttpRequestFactory" : {
       "class_name" : "ClientHttpRequestFactory",

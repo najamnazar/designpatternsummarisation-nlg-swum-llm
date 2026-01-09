@@ -387,24 +387,7 @@
 			} ]
 		}
 	},
-	"final_summary" : "Codec.java: memento: Codec acts as a memento, which is inherited by OggCompressionCodec, MPEG4CompressionCodec. It is a public interface.\nOggCompressionCodec.java: memento: OggCompressionCodec acts as a memento. It is a public class that implements Codec.\nTest.java: Test does not have any design pattern.  It is a public class. The only method of Test is main (void). No methods call main and main calls only one method : convertVideo method of class VideoConversionFacade.\n\n\nVideoConversionFacade.java: VideoConversionFacade does not have any design pattern.  It is a public class. The only method of VideoConversionFacade is convertVideo (File). Only one method ( main method of class Test ) calls convertVideo and convertVideo calls 4 methods : read method of class BitrateReader, extract method of class CodecFactory, convert method of class BitrateReader and fix method of class AudioMixer.\n\n\nVideoFile.java: VideoFile does not have any design pattern.  It is a public class. The 2 methods of VideoFile are getCodecType (String) and getName (String). Only one method ( extract method of class CodecFactory ) calls getCodecType and getCodecType calls no methods. No methods call getName and getName calls no methods.\n\n\nAudioMixer.java: AudioMixer does not have any design pattern.  It is a public class. The only method of AudioMixer is fix (File). Only one method ( convertVideo method of class VideoConversionFacade ) calls fix and fix calls no methods.\n\n\nCodecFactory.java: memento: CodecFactory acts as an originator for memento Codec, which extracts Codec. It is a public class. The only method of CodecFactory is extract (Codec). Only one method ( convertVideo method of class VideoConversionFacade ) calls extract and extract calls only one method : getCodecType method of class VideoFile.\n\n\nMPEG4CompressionCodec.java: memento: MPEG4CompressionCodec acts as a memento. It is a public class that implements Codec.\nBitrateReader.java: BitrateReader does not have any design pattern.  It is a public class. The 2 methods of BitrateReader are read (VideoFile) and convert (VideoFile). Only one method ( convertVideo method of class VideoConversionFacade ) calls read and read calls no methods. Only one method ( convertVideo method of class VideoConversionFacade ) calls convert and convert calls no methods.\n\n\n",
-	"design_pattern" : [ {
-		"memento" : {
-			"Codec" : {
-				"caretaker" : { },
-				"originator" : {
-					"CodecFactory" : [ ]
-				},
-				"concrete_memento" : [ "OggCompressionCodec", "MPEG4CompressionCodec" ]
-			}
-		}
-	} ],
-	"summary_NLG" : {
-		"memento" : {
-			"Codec" : [ "Codec acts as a memento, which is inherited by OggCompressionCodec, MPEG4CompressionCodec." ],
-			"OggCompressionCodec" : [ "OggCompressionCodec acts as a memento." ],
-			"CodecFactory" : [ "CodecFactory acts as an originator for memento Codec, which extracts Codec." ],
-			"MPEG4CompressionCodec" : [ "MPEG4CompressionCodec acts as a memento." ]
-		}
-	}
+	"final_summary" : "Codec.java: Codec does not have any design pattern.  It is a public interface.\nOggCompressionCodec.java: OggCompressionCodec does not have any design pattern.  It is a public class that implements Codec.\nTest.java: Test does not have any design pattern.  It is a public class. The only method of Test is main (void). No methods call main and main calls only one method : convertVideo method of class VideoConversionFacade.\n\n\nVideoConversionFacade.java: VideoConversionFacade does not have any design pattern.  It is a public class. The only method of VideoConversionFacade is convertVideo (File). Only one method ( main method of class Test ) calls convertVideo and convertVideo calls 4 methods : read method of class BitrateReader, extract method of class CodecFactory, convert method of class BitrateReader and fix method of class AudioMixer.\n\n\nVideoFile.java: VideoFile does not have any design pattern.  It is a public class. The 2 methods of VideoFile are getCodecType (String) and getName (String). Only one method ( extract method of class CodecFactory ) calls getCodecType and getCodecType calls no methods. No methods call getName and getName calls no methods.\n\n\nAudioMixer.java: AudioMixer does not have any design pattern.  It is a public class. The only method of AudioMixer is fix (File). Only one method ( convertVideo method of class VideoConversionFacade ) calls fix and fix calls no methods.\n\n\nCodecFactory.java: CodecFactory does not have any design pattern.  It is a public class. The only method of CodecFactory is extract (Codec). Only one method ( convertVideo method of class VideoConversionFacade ) calls extract and extract calls only one method : getCodecType method of class VideoFile.\n\n\nMPEG4CompressionCodec.java: MPEG4CompressionCodec does not have any design pattern.  It is a public class that implements Codec.\nBitrateReader.java: BitrateReader does not have any design pattern.  It is a public class. The 2 methods of BitrateReader are read (VideoFile) and convert (VideoFile). Only one method ( convertVideo method of class VideoConversionFacade ) calls read and read calls no methods. Only one method ( convertVideo method of class VideoConversionFacade ) calls convert and convert calls no methods.\n\n\n",
+	"design_pattern" : [ ],
+	"summary_NLG" : { }
 }

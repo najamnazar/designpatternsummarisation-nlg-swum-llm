@@ -2,36 +2,46 @@
 OVERALL ANALYSIS
 ============================================================
 
-       method  projects_evaluated  classes_evaluated avg_cosine avg_bert_precision avg_bert_recall avg_bert_f1 combined_score cosine_std bert_f1_std
-          NLG                   3                150     0.1637             0.8275          0.8567      0.8414         0.5026     0.0776      0.0235
-         SWUM                   3                150     0.2452             0.8854          0.8588      0.8715         0.5583     0.0990      0.0168
-LLM (Mixtral)                   3                150     0.3365             0.8624          0.8910      0.8763         0.6064     0.1269      0.0173
+              method  projects_evaluated  classes_evaluated avg_cosine avg_bert_precision avg_bert_recall avg_bert_f1 combined_score cosine_std bert_f1_std
+                 NLG                   3                150     0.1657             0.8361          0.8596      0.8473         0.5065     0.0797      0.0228
+                SWUM                   3                150     0.2532             0.8932          0.8589      0.8754         0.5643     0.1014      0.0174
+       LLM (Mixtral)                   3                150     0.3351             0.8702          0.8901      0.8799         0.6075     0.1348      0.0188
+LLM (Non-Concise 50)                   3                150     0.3275             0.8685          0.8901      0.8790         0.6033     0.1286      0.0188
 
 Detailed Metrics by Method:
 
 NLG
   Projects Evaluated: 3
   Classes Evaluated: 150
-  Avg Cosine Similarity: 0.1637
-  Avg BERT Precision: 0.8275
-  Avg BERT Recall: 0.8567
-  Avg BERT F1: 0.8414
-  Combined Score: 0.5026
+  Avg Cosine Similarity: 0.1657
+  Avg BERT Precision: 0.8361
+  Avg BERT Recall: 0.8596
+  Avg BERT F1: 0.8473
+  Combined Score: 0.5065
 
 SWUM
   Projects Evaluated: 3
   Classes Evaluated: 150
-  Avg Cosine Similarity: 0.2452
-  Avg BERT Precision: 0.8854
-  Avg BERT Recall: 0.8588
-  Avg BERT F1: 0.8715
-  Combined Score: 0.5583
+  Avg Cosine Similarity: 0.2532
+  Avg BERT Precision: 0.8932
+  Avg BERT Recall: 0.8589
+  Avg BERT F1: 0.8754
+  Combined Score: 0.5643
 
 LLM (Mixtral) (Mixtral-8x22B)
   Projects Evaluated: 3
   Classes Evaluated: 150
-  Avg Cosine Similarity: 0.3365
-  Avg BERT Precision: 0.8624
-  Avg BERT Recall: 0.8910
-  Avg BERT F1: 0.8763
-  Combined Score: 0.6064
+  Avg Cosine Similarity: 0.3351
+  Avg BERT Precision: 0.8702
+  Avg BERT Recall: 0.8901
+  Avg BERT F1: 0.8799
+  Combined Score: 0.6075
+
+LLM (Non-Concise 50)
+  Projects Evaluated: 3
+  Classes Evaluated: 150
+  Avg Cosine Similarity: 0.3275
+  Avg BERT Precision: 0.8685
+  Avg BERT Recall: 0.8901
+  Avg BERT F1: 0.8790
+  Combined Score: 0.6033

@@ -304,17 +304,7 @@
 			"Dialog" : {
 				"concrete_product" : [ "WindowsButton", "HtmlButton" ],
 				"abstract_product" : "Button",
-				"concrete_factory" : [ "Dialog", "Dialog" ]
-			}
-		}
-	}, {
-		"memento" : {
-			"Button" : {
-				"caretaker" : { },
-				"originator" : {
-					"Dialog" : [ "WindowsDialog", "HtmlDialog" ]
-				},
-				"concrete_memento" : [ "WindowsButton", "HtmlButton" ]
+				"concrete_factory" : [ "WindowsDialog", "HtmlDialog" ]
 			}
 		}
 	} ],

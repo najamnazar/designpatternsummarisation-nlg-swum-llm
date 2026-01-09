@@ -18,7 +18,6 @@ public class MementoPattern extends DesignPatterns {
     @Override
     public HashMap checkPattern(HashMap<String, HashMap> fileDetails) {
 
-        HashMap output = new HashMap<>();
         HashMap mementos = new HashMap<>();
 
         // originator has method returning type Memento
@@ -32,9 +31,23 @@ public class MementoPattern extends DesignPatterns {
                 if (!fileDetails.containsKey(methodReturnType))
                     continue;
 
+                HashMap mementoClassDetail = fileDetails.getOrDefault(methodReturnType, new HashMap<>());
+                if (!hasConcreteTypeInformation(mementoClassDetail)) {
+                    // Skip interfaces or classes we cannot describe (prevents false positives on skinny APIs)
+                    continue;
+                }
+
+                if (!hasConcreteTypeInformation(originatorEntry.getValue())) {
+                    continue;
+                }
+
+                if (!usesTypeAsMethodParameter(originatorEntry.getValue(), methodReturnType)) {
+                    // A true originator must also restore state from the same memento type.
+                    continue;
+                }
+
                 // No Memento methods can have parameters
                 boolean hasParameters = false;
-                HashMap mementoClassDetail = fileDetails.getOrDefault(methodReturnType, new HashMap<>());
                 for (HashMap mementoMethodDetail : Utils.getMethodDetails(mementoClassDetail)) {
                     if (Utils.getMethodParameters(mementoMethodDetail).size() > 0) {
                         hasParameters = true;
@@ -53,6 +66,9 @@ public class MementoPattern extends DesignPatterns {
                 for (HashMap fieldDetail : Utils.getFieldDetails(originatorEntry.getValue())) {
                     originatorFields.add(Utils.getFieldDataType(fieldDetail));
                 }
+
+                if (mementoFields.isEmpty() || originatorFields.isEmpty())
+                    continue;
 
                 if (!(mementoFields.size() == originatorFields.size()
                         && mementoFields.containsAll(originatorFields)))
@@ -131,10 +147,8 @@ public class MementoPattern extends DesignPatterns {
                     (((HashMap) ((HashMap) mementos.get(memento)).get("originator"))).remove(removeString);
                 }
             }
-            output.put(patternName, mementos);
-
         }
-        return output;
+        return createPatternResult(mementos);
     }
 
     @Override
@@ -470,6 +484,36 @@ public class MementoPattern extends DesignPatterns {
                 summary.put(memento, mementoSentence);
             }
         }
+    }
+
+    private boolean hasConcreteTypeInformation(HashMap classDetailContainer) {
+        ArrayList<HashMap> classDetails = Utils.getClassOrInterfaceDetails(classDetailContainer);
+        if (classDetails.isEmpty()) {
+            return false;
+        }
+
+        Object isInterfaceObj = classDetails.get(0).get("ISINTERFACEORNOT");
+        if (isInterfaceObj instanceof Boolean && (Boolean) isInterfaceObj) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean usesTypeAsMethodParameter(HashMap classDetailContainer, String typeName) {
+        if (classDetailContainer == null || typeName == null || typeName.isEmpty()) {
+            return false;
+        }
+
+        for (HashMap methodDetail : Utils.getMethodDetails(classDetailContainer)) {
+            for (HashMap parameter : Utils.getMethodParameters(methodDetail)) {
+                if (typeName.equals(Utils.getParameterType(parameter))) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
 

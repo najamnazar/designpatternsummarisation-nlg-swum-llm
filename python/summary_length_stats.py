@@ -210,7 +210,7 @@ def main() -> None:
         raise FileNotFoundError(f"None of the candidate summary files exist: {joined}")
 
     resolved_sources = [
-        resolve_summary_file("dps_nlg.csv", "nlg_summaries.csv"),
+        resolve_summary_file("nlg_summaries.csv"),
         resolve_summary_file("llm_summaries.csv"),
         resolve_summary_file("swum_summaries.csv"),
     ]

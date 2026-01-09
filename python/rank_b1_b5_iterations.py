@@ -58,7 +58,10 @@ class B1B5RankingPipeline:
 
         api_url = os.getenv('RANK_SUMMARIES_API_URL')
         if not api_url:
-            raise ValueError("RANK_SUMMARIES_API_URL not found in .env file")
+            # Ranking iterations use the same OpenRouter endpoint; default to OPENROUTER_API_URL unless explicitly overridden.
+            api_url = os.getenv('OPENROUTER_API_URL')
+        if not api_url:
+            raise ValueError("Set OPENROUTER_API_URL (or RANK_SUMMARIES_API_URL) in .env before running the ranking iterations")
 
         model = os.getenv('RANK_SUMMARIES_MODEL')
         if not model:

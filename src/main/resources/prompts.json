@@ -16,7 +16,7 @@
         "Methods (total {method_count}): {method_summaries}",
         "Interactions: {interaction_notes}",
         "Design pattern insights:\n{pattern_insights}",
-        "\nTask: Produce a single-paragraph summary (<=75 words) that stresses the class responsibility, its collaborators, and the provided design-pattern context. Avoid repeating raw bullet text."
+        "\nTask: Produce a single-paragraph summary (<=50 words) that stresses the class responsibility, its collaborators, and the provided design-pattern context. Avoid repeating raw bullet text."
       ]
     },
     "alternative_prompts": {
@@ -35,6 +35,10 @@
       "detailed_80": {
         "alias": "SENIOR_ANALYST_80_WORDS",
         "content": "You are a senior software analyst who writes concise, factual summaries of Java classes. Use only the supplied structural facts to describe each class in a single paragraph no longer than 80 words. Highlight the class responsibilities, key collaborators, and any explicit design-pattern roles. Do not invent behaviour or reference missing information. Write in third person with an objective tone."
+      },
+      "non_concise_50": {
+        "alias": "SENIOR_ANALYST_50_WORDS_NON_CONCISE",
+        "content": "You are a senior software analyst who writes factual summaries of Java classes. Use only the supplied structural facts to describe each class in a single paragraph no longer than 50 words. Highlight the class responsibilities, key collaborators, and any explicit design-pattern roles. Do not invent behaviour or reference missing information. Write in third person with an objective tone."
       }
     }
   },

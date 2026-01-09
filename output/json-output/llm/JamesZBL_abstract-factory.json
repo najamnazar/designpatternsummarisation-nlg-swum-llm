@@ -1,14 +1,6 @@
 {
 	"final_summary" : "",
 	"design_pattern" : [ {
-		"factory_method" : {
-			"YoungTeamFactory" : {
-				"concrete_product" : [ "YoungSailor", "OldSailor" ],
-				"abstract_product" : "Sailor",
-				"concrete_factory" : [ "TeamFactory", "TeamFactory" ]
-			}
-		}
-	}, {
 		"abstract_factory" : {
 			"TeamFactory" : {
 				"abstract_product" : {
@@ -38,36 +30,6 @@
 				"publisher" : {
 					"Application" : [ ]
 				}
-			}
-		}
-	}, {
-		"memento" : {
-			"Ship" : {
-				"caretaker" : {
-					"Application" : [ ]
-				},
-				"originator" : {
-					"TeamFactory" : [ "YoungTeamFactory", "PermanentTeamFactory" ]
-				},
-				"concrete_memento" : [ "OldShip", "NewShip" ]
-			},
-			"Captain" : {
-				"caretaker" : {
-					"Application" : [ ]
-				},
-				"originator" : {
-					"TeamFactory" : [ "YoungTeamFactory", "PermanentTeamFactory" ]
-				},
-				"concrete_memento" : [ "YoungCaptain", "OldCaptain" ]
-			},
-			"Sailor" : {
-				"caretaker" : {
-					"Application" : [ ]
-				},
-				"originator" : {
-					"TeamFactory" : [ "YoungTeamFactory", "PermanentTeamFactory" ]
-				},
-				"concrete_memento" : [ "YoungSailor", "OldSailor" ]
 			}
 		}
 	} ],

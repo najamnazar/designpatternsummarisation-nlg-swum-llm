@@ -1,14 +1,6 @@
 {
 	"final_summary" : "",
 	"design_pattern" : [ {
-		"factory_method" : {
-			"WindowsOSFactory" : {
-				"concrete_product" : [ "WindowsCheckBox", "MacOSCheckBox" ],
-				"abstract_product" : "CheckBox",
-				"concrete_factory" : [ "GUIFactory", "GUIFactory" ]
-			}
-		}
-	}, {
 		"abstract_factory" : {
 			"GUIFactory" : {
 				"abstract_product" : {
@@ -16,27 +8,6 @@
 					"CheckBox" : [ "WindowsCheckBox", "MacOSCheckBox" ]
 				},
 				"concrete_factory" : [ "WindowsOSFactory", "MacOSFactory" ]
-			}
-		}
-	}, {
-		"memento" : {
-			"Button" : {
-				"caretaker" : {
-					"Application" : [ ]
-				},
-				"originator" : {
-					"GUIFactory" : [ "WindowsOSFactory", "MacOSFactory" ]
-				},
-				"concrete_memento" : [ "WindowsButton", "MacOSButton" ]
-			},
-			"CheckBox" : {
-				"caretaker" : {
-					"Application" : [ ]
-				},
-				"originator" : {
-					"GUIFactory" : [ "WindowsOSFactory", "MacOSFactory" ]
-				},
-				"concrete_memento" : [ "WindowsCheckBox", "MacOSCheckBox" ]
 			}
 		}
 	} ],

@@ -369,9 +369,9 @@ def _resolve_csv_path(explicit: Optional[str], repo_root: str) -> str:
     if os.path.exists(candidate_b):
         return candidate_b
 
-    candidate_b_v1 = os.path.join(repo_root, "output", "summary-output", "B_v1.csv")
-    if os.path.exists(candidate_b_v1):
-        return candidate_b_v1
+    #candidate_b_v1 = os.path.join(repo_root, "output", "summary-output", "B_v1.csv")
+    #if os.path.exists(candidate_b_v1):
+    #    return candidate_b_v1
 
     # Default to B.csv path even if missing so the downstream error remains informative
     return candidate_b

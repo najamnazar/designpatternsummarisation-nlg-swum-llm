@@ -273,47 +273,6 @@
 	"final_summary" : "",
 	"design_pattern" : [ {
 		"singleton" : [ "ThreadSafeDoubleCheckLocking", "LazyInitializationDirector", "Director", "ThreadSafeLazyLoadDirector" ]
-	}, {
-		"memento" : {
-			"ThreadSafeDoubleCheckLocking" : {
-				"caretaker" : {
-					"ThreadSafeDoubleCheckLocking" : [ ]
-				},
-				"originator" : {
-					"ThreadSafeDoubleCheckLocking" : [ ]
-				},
-				"concrete_memento" : [ ]
-			},
-			"LazyInitializationDirector" : {
-				"caretaker" : {
-					"LazyInitializationDirector" : [ ]
-				},
-				"originator" : {
-					"LazyInitializationDirector" : [ ]
-				},
-				"concrete_memento" : [ ]
-			},
-			"Director" : {
-				"caretaker" : {
-					"LazyInitializationDirector" : [ ],
-					"Director" : [ ],
-					"ThreadSafeLazyLoadDirector" : [ ]
-				},
-				"originator" : {
-					"Director" : [ ]
-				},
-				"concrete_memento" : [ ]
-			},
-			"ThreadSafeLazyLoadDirector" : {
-				"caretaker" : {
-					"ThreadSafeLazyLoadDirector" : [ ]
-				},
-				"originator" : {
-					"ThreadSafeLazyLoadDirector" : [ ]
-				},
-				"concrete_memento" : [ ]
-			}
-		}
 	} ],
 	"summary_NLG" : { }
 }

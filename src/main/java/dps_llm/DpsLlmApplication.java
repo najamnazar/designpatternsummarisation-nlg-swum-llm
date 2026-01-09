@@ -8,6 +8,7 @@ import common.projectparser.ParseProject;
 import dps_llm.client.LlmClient;
 import dps_llm.client.LlmClientException;
 import dps_llm.config.DotEnvLoader;
+import dps_llm.prompt.LlmPromptBuilder;
 import dps_llm.summary.LlmSummaryService;
 import dps_llm.summary.LlmSummaryService.SummaryStats;
 import dps_llm.summary.LlmSummaryWriter;
@@ -18,6 +19,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,9 +47,12 @@ import java.util.Map;
  */
 public class DpsLlmApplication {
 
-    private static final String DEFAULT_LLM_SUMMARY_PATH = "output/summary-output/llm_summaries.csv";
-    private static final String DEFAULT_API_URL = "https://openrouter.ai/api/v1/chat/completions";
-    private static final String DEFAULT_MODEL = "mistralai/mixtral-8x22b-instruct";
+    private static final String DEFAULT_LLM_SUMMARY_PATH = "output/summary-output/llm_summaries.csv"; // Default path for standard 50-word summaries
+    // private static final String DEFAULT_LLM_SUMMARY_PATH = "output/summary-output/llm_summaries_nonconcise.csv"; // Non-concise path retained for quick reactivation when required
+    private static final String DEFAULT_PROMPT_ALIAS = "SENIOR_ANALYST_50_WORDS"; // Fallback prompt alias when no overrides are provided
+    // private static final String DEFAULT_PROMPT_ALIAS = "SENIOR_ANALYST_50_WORDS_NON_CONCISE"; // Alternate alias kept for runs that require non-concise summaries
+    private static final String PROMPT_ALIAS_CONFIG_KEY = "LLM_PROMPT_ALIASES"; // Config key that enables multi-prompt execution from prompts.json
+    private static final String PROMPT_ALIAS_PROPERTY = "llm.prompt.aliases"; // JVM property alternative for specifying prompt aliases
 
     /**
      * Application entry point.
@@ -108,14 +113,14 @@ public class DpsLlmApplication {
 
         String apiUrl = resolveValue(dotEnv, "OPENROUTER_API_URL");
         if (apiUrl == null) {
-            apiUrl = DEFAULT_API_URL;
-            System.out.println("OPENROUTER_API_URL not set. Using default endpoint " + DEFAULT_API_URL);
+            System.out.println("OPENROUTER_API_URL not set. Populate .env or export an environment variable before running the LLM pipeline.");
+            return;
         }
 
         String model = resolveValue(dotEnv, "OPENROUTER_MODEL");
         if (model == null) {
-            model = DEFAULT_MODEL;
-            System.out.println("OPENROUTER_MODEL not set. Using default model " + DEFAULT_MODEL);
+            System.out.println("OPENROUTER_MODEL not set. Populate .env or export an environment variable before running the LLM pipeline.");
+            return;
         }
 
         int maxTokens = resolveInt(dotEnv, "OPENROUTER_MAX_TOKENS", 256);
@@ -124,7 +129,7 @@ public class DpsLlmApplication {
         String title = resolveValue(dotEnv, "OPENROUTER_TITLE");
 
         LlmClient client = new LlmClient(apiUrl, apiKey, model, maxTokens, temperature, referer, title);
-        LlmSummaryService summaryService = new LlmSummaryService(client);
+        // LlmSummaryService summaryService = new LlmSummaryService(client); // Single-prompt execution retained for reference
 
         File inputRoot = new File("input");
         if (!inputRoot.exists() || !inputRoot.isDirectory()) {
@@ -150,11 +155,12 @@ public class DpsLlmApplication {
                 .writer(new DefaultPrettyPrinter().withObjectIndenter(new DefaultIndenter("\t", "\n")));
 
         int projectsAttempted = 0;
-        int projectsWithSummaries = 0;
-        int totalClasses = 0;
-        int totalSuccesses = 0;
-        int totalFailures = 0;
-        int totalSkipped = 0;
+        // int projectsWithSummaries = 0;
+        // int totalClasses = 0;
+        // int totalSuccesses = 0;
+        // int totalFailures = 0;
+        // int totalSkipped = 0;
+        Map<String, SummaryAccumulator> perPromptTotals = new LinkedHashMap<>(); // Tracks per-alias aggregates for multi-prompt runs
 
         // Resolve output CSV path (env/.env takes precedence; fallback to JVM property; else default)
         String configuredOutput = resolveValue(dotEnv, "LLM_SUMMARY_PATH");
@@ -164,38 +170,91 @@ public class DpsLlmApplication {
         }
         String outputCsvPath = configuredOutput != null ? configuredOutput : DEFAULT_LLM_SUMMARY_PATH;
 
-        try (LlmSummaryWriter csvWriter = new LlmSummaryWriter(outputCsvPath)) {
+        /*
+         * Previous multi-prompt execution retained for reference. Uncomment to regenerate the
+         * 20/40/60/80 word variants.
+         *
+         * try (PromptRunContext run20 = new PromptRunContext("SENIOR_ANALYST_20_WORDS", "output/summary-output/llm_summaries_20.csv", client);
+         *      PromptRunContext run40 = new PromptRunContext("SENIOR_ANALYST_40_WORDS", "output/summary-output/llm_summaries_40.csv", client);
+         *      PromptRunContext run60 = new PromptRunContext("SENIOR_ANALYST_60_WORDS", "output/summary-output/llm_summaries_60.csv", client);
+         *      PromptRunContext run80 = new PromptRunContext("SENIOR_ANALYST_80_WORDS", "output/summary-output/llm_summaries_80.csv", client)) {
+         *
+         *     List<PromptRunContext> promptRuns = List.of(run20, run40, run60, run80);
+         *     // ... (see git history prior to 50-word prompt switch)
+         * }
+         */
+
+        // try (PromptRunContext run50 = new PromptRunContext("SENIOR_ANALYST_50_WORDS", outputCsvPath, client)) {
+        //     List<PromptRunContext> promptRuns = List.of(run50);
+        //
+        //     for (File projectDir : projectDirs) {
+        //         projectsAttempted++;
+        //         String relativePath = inputRoot.toPath().relativize(projectDir.toPath()).toString().replace("\\", "/");
+        //         String projectIdentifier = sanitizeProjectIdentifier(relativePath);
+        //         try {
+        //             Map<String, SummaryStats> statsByPrompt = processProject(projectDir, relativePath, projectIdentifier, parseProject, jsonWriter, promptRuns);
+        //             for (PromptRunContext context : promptRuns) {
+        //                 SummaryStats stats = statsByPrompt.getOrDefault(context.alias, SummaryStats.empty());
+        //                 SummaryAccumulator accumulator = perPromptTotals.computeIfAbsent(context.alias, key -> new SummaryAccumulator(context.alias, context.outputCsvPath));
+        //                 accumulator.record(stats);
+        //             }
+        //         } catch (LlmClientException e) {
+        //             System.err.println("  LLM error while processing " + relativePath + ": " + e.getMessage());
+        //             for (PromptRunContext context : promptRuns) {
+        //                 SummaryAccumulator accumulator = perPromptTotals.computeIfAbsent(context.alias, key -> new SummaryAccumulator(context.alias, context.outputCsvPath));
+        //                 accumulator.recordFailure();
+        //             }
+        //         } catch (IOException e) {
+        //             System.err.println("  IO error while processing " + relativePath + ": " + e.getMessage());
+        //             for (PromptRunContext context : promptRuns) {
+        //                 SummaryAccumulator accumulator = perPromptTotals.computeIfAbsent(context.alias, key -> new SummaryAccumulator(context.alias, context.outputCsvPath));
+        //                 accumulator.recordFailure();
+        //             }
+        //         }
+        //     }
+        // }
+        List<PromptRunContext> promptRuns = createPromptRunContexts(dotEnv, client, outputCsvPath); // Build contexts from configuration so any prompt alias can run without code edits
+        try {
             for (File projectDir : projectDirs) {
                 projectsAttempted++;
                 String relativePath = inputRoot.toPath().relativize(projectDir.toPath()).toString().replace("\\", "/");
                 String projectIdentifier = sanitizeProjectIdentifier(relativePath);
                 try {
-                    SummaryStats stats = processProject(projectDir, relativePath, projectIdentifier, parseProject, jsonWriter, summaryService, csvWriter);
-                    totalClasses += stats.getProcessedClasses();
-                    totalSuccesses += stats.getSuccessfulSummaries();
-                    totalFailures += stats.getFailedSummaries();
-                    totalSkipped += stats.getSkippedClasses();
-                    if (stats.getSuccessfulSummaries() > 0) {
-                        projectsWithSummaries++;
+                    Map<String, SummaryStats> statsByPrompt = processProject(projectDir, relativePath, projectIdentifier, parseProject, jsonWriter, promptRuns);
+                    for (PromptRunContext context : promptRuns) {
+                        SummaryStats stats = statsByPrompt.getOrDefault(context.alias, SummaryStats.empty());
+                        SummaryAccumulator accumulator = perPromptTotals.computeIfAbsent(context.alias, key -> new SummaryAccumulator(context.alias, context.outputCsvPath));
+                        accumulator.record(stats);
                     }
                 } catch (LlmClientException e) {
                     System.err.println("  LLM error while processing " + relativePath + ": " + e.getMessage());
-                    totalFailures++;
+                    for (PromptRunContext context : promptRuns) {
+                        SummaryAccumulator accumulator = perPromptTotals.computeIfAbsent(context.alias, key -> new SummaryAccumulator(context.alias, context.outputCsvPath));
+                        accumulator.recordFailure();
+                    }
                 } catch (IOException e) {
                     System.err.println("  IO error while processing " + relativePath + ": " + e.getMessage());
-                    totalFailures++;
+                    for (PromptRunContext context : promptRuns) {
+                        SummaryAccumulator accumulator = perPromptTotals.computeIfAbsent(context.alias, key -> new SummaryAccumulator(context.alias, context.outputCsvPath));
+                        accumulator.recordFailure();
+                    }
                 }
             }
+        } finally {
+            closePromptRuns(promptRuns); // Ensure writers flush/close even when exceptions occur mid-run
         }
 
-        System.out.printf("%nLLM summarisation complete:%n");
-        System.out.printf("  Projects attempted: %d%n", projectsAttempted);
-        System.out.printf("  Projects with summaries: %d%n", projectsWithSummaries);
-        System.out.printf("  Classes processed: %d%n", totalClasses);
-        System.out.printf("  Summaries generated: %d%n", totalSuccesses);
-        System.out.printf("  Failed summaries: %d%n", totalFailures);
-        System.out.printf("  Classes skipped: %d%n", totalSkipped);
-        System.out.println("LLM summaries written to " + outputCsvPath);
+        System.out.printf("%nLLM summarisation complete for %d projects:%n", projectsAttempted);
+        perPromptTotals.forEach((alias, totals) -> {
+            System.out.printf("  Prompt %s -> output %s%n", alias, totals.getOutputPath());
+            System.out.printf("    Projects attempted: %d%n", totals.getProjectsAttempted());
+            System.out.printf("    Projects with summaries: %d%n", totals.getProjectsWithSummaries());
+            System.out.printf("    Classes processed: %d%n", totals.getTotalClassesProcessed());
+            System.out.printf("    Summaries generated: %d%n", totals.getTotalSummariesGenerated());
+            System.out.printf("    Failed summaries: %d%n", totals.getTotalFailures());
+            System.out.printf("    Classes skipped: %d%n", totals.getTotalSkipped());
+        });
+        System.out.println("Default single-output path retained for compatibility: " + outputCsvPath);
     }
 
     /**
@@ -209,18 +268,68 @@ public class DpsLlmApplication {
      * @param relativePath the relative path from the input root
      * @param projectIdentifier sanitized identifier for file naming
      * @param parseProject the project parser instance
-     * @param jsonWriter Jackson writer for JSON output
-     * @param summaryService service for generating LLM summaries
-     * @param csvWriter CSV writer for summary output
-     * @return statistics about the processing results
+    * @param jsonWriter Jackson writer for JSON output
+    * @param promptRuns configured prompt executions for this run
+    * @return statistics about the processing results keyed by prompt alias
      */
-    private SummaryStats processProject(File projectDir,
-                                        String relativePath,
-                                        String projectIdentifier,
-                                        ParseProject parseProject,
-                                        ObjectWriter jsonWriter,
-                                        LlmSummaryService summaryService,
-                                        LlmSummaryWriter csvWriter) throws IOException, LlmClientException {
+    // private SummaryStats processProject(File projectDir,
+    //                                     String relativePath,
+    //                                     String projectIdentifier,
+    //                                     ParseProject parseProject,
+    //                                     ObjectWriter jsonWriter,
+    //                                     LlmSummaryService summaryService,
+    //                                     LlmSummaryWriter csvWriter) throws IOException, LlmClientException {
+    //     if (projectDir == null) {
+    //         throw new IllegalArgumentException("projectDir must not be null");
+    //     }
+    //     if (relativePath == null) {
+    //         throw new IllegalArgumentException("relativePath must not be null");
+    //     }
+    //     if (projectIdentifier == null) {
+    //         throw new IllegalArgumentException("projectIdentifier must not be null");
+    //     }
+    //     if (parseProject == null) {
+    //         throw new IllegalArgumentException("parseProject must not be null");
+    //     }
+    //     if (jsonWriter == null) {
+    //         throw new IllegalArgumentException("jsonWriter must not be null");
+    //     }
+    //     if (summaryService == null) {
+    //         throw new IllegalArgumentException("summaryService must not be null");
+    //     }
+    //     if (csvWriter == null) {
+    //         throw new IllegalArgumentException("csvWriter must not be null");
+    //     }
+    //
+    //     System.out.println();
+    //     System.out.println(relativePath);
+    //
+    //     HashMap<String, Object> parsedProject = parseProject.parseProject(projectDir, relativePath, false);
+    //     if (parsedProject == null || parsedProject.isEmpty()) {
+    //         System.out.println("  No parseable classes found.");
+    //         return SummaryStats.empty();
+    //     }
+    //
+    //     jsonWriter.writeValue(new File("output/json-output/llm/" + projectIdentifier + ".json"), parsedProject);
+    //     SummaryStats stats = summaryService.generateSummaries(parsedProject, projectDir.getName(), projectIdentifier, csvWriter);
+    //     if (stats.hasResults()) {
+    //         System.out.printf("  Project summary: %d classes processed, %d summaries generated, %d failed, %d skipped.%n",
+    //                 stats.getProcessedClasses(),
+    //                 stats.getSuccessfulSummaries(),
+    //                 stats.getFailedSummaries(),
+    //                 stats.getSkippedClasses());
+    //     } else {
+    //         System.out.println("  No eligible classes for LLM summarisation.");
+    //     }
+    //     return stats;
+    // }
+
+    private Map<String, SummaryStats> processProject(File projectDir,
+                                                     String relativePath,
+                                                     String projectIdentifier,
+                                                     ParseProject parseProject,
+                                                     ObjectWriter jsonWriter,
+                                                     List<PromptRunContext> promptRuns) throws IOException, LlmClientException {
         if (projectDir == null) {
             throw new IllegalArgumentException("projectDir must not be null");
         }
@@ -236,34 +345,41 @@ public class DpsLlmApplication {
         if (jsonWriter == null) {
             throw new IllegalArgumentException("jsonWriter must not be null");
         }
-        if (summaryService == null) {
-            throw new IllegalArgumentException("summaryService must not be null");
-        }
-        if (csvWriter == null) {
-            throw new IllegalArgumentException("csvWriter must not be null");
+        if (promptRuns == null || promptRuns.isEmpty()) {
+            throw new IllegalArgumentException("promptRuns must not be null or empty");
         }
 
         System.out.println();
         System.out.println(relativePath);
         
         HashMap<String, Object> parsedProject = parseProject.parseProject(projectDir, relativePath, false);
+        Map<String, SummaryStats> results = new LinkedHashMap<>();
         if (parsedProject == null || parsedProject.isEmpty()) {
             System.out.println("  No parseable classes found.");
-            return SummaryStats.empty();
+            for (PromptRunContext context : promptRuns) {
+                results.put(context.alias, SummaryStats.empty());
+                System.out.printf("  [%s] No eligible classes for LLM summarisation.%n", context.alias);
+            }
+            return results;
         }
 
         jsonWriter.writeValue(new File("output/json-output/llm/" + projectIdentifier + ".json"), parsedProject);
-        SummaryStats stats = summaryService.generateSummaries(parsedProject, projectDir.getName(), projectIdentifier, csvWriter);
-        if (stats.hasResults()) {
-            System.out.printf("  Project summary: %d classes processed, %d summaries generated, %d failed, %d skipped.%n",
-                    stats.getProcessedClasses(),
-                    stats.getSuccessfulSummaries(),
-                    stats.getFailedSummaries(),
-                    stats.getSkippedClasses());
-        } else {
-            System.out.println("  No eligible classes for LLM summarisation.");
+
+        for (PromptRunContext context : promptRuns) {
+            SummaryStats stats = context.summaryService.generateSummaries(parsedProject, projectDir.getName(), projectIdentifier, context.writer);
+            results.put(context.alias, stats);
+            if (stats.hasResults()) {
+                System.out.printf("  [%s] Project summary: %d classes processed, %d summaries generated, %d failed, %d skipped.%n",
+                        context.alias,
+                        stats.getProcessedClasses(),
+                        stats.getSuccessfulSummaries(),
+                        stats.getFailedSummaries(),
+                        stats.getSkippedClasses());
+            } else {
+                System.out.printf("  [%s] No eligible classes for LLM summarisation.%n", context.alias);
+            }
         }
-        return stats;
+        return results;
     }
 
     /**
@@ -421,6 +537,208 @@ public class DpsLlmApplication {
         } catch (NumberFormatException ex) {
             System.out.println("Ignoring invalid " + key + " value: " + raw);
             return defaultValue;
+        }
+    }
+
+    /**
+     * Builds prompt run contexts from configuration so any alias in prompts.json can be executed without editing code.
+     * Accepts semicolon- or comma-separated entries in the form alias or alias=outputPath via .env/env/system properties.
+     */
+    private List<PromptRunContext> createPromptRunContexts(Map<String, String> dotEnv,
+                                                           LlmClient client,
+                                                           String defaultOutputPath) throws IOException {
+        List<PromptRunContext> contexts = new ArrayList<>();
+        String config = resolvePromptAliasConfig(dotEnv);
+        boolean defaultConsumed = false;
+        String safeDefault = firstNonBlank(defaultOutputPath) == null ? DEFAULT_LLM_SUMMARY_PATH : defaultOutputPath;
+        try {
+            if (config == null || config.isBlank()) {
+                contexts.add(new PromptRunContext(DEFAULT_PROMPT_ALIAS, safeDefault, client));
+                return contexts;
+            }
+
+            String[] entries = config.split("[;,]");
+            for (String entry : entries) {
+                if (entry == null) {
+                    continue;
+                }
+                String trimmed = entry.trim();
+                if (trimmed.isEmpty()) {
+                    continue;
+                }
+
+                String alias = trimmed;
+                String customOutput = null;
+                int delimiterIndex = trimmed.indexOf('=');
+                if (delimiterIndex < 0) {
+                    delimiterIndex = trimmed.indexOf(':');
+                }
+                if (delimiterIndex >= 0) {
+                    alias = trimmed.substring(0, delimiterIndex).trim();
+                    customOutput = trimmed.substring(delimiterIndex + 1).trim();
+                }
+                if (alias.isEmpty()) {
+                    continue;
+                }
+
+                String resolvedOutput = firstNonBlank(customOutput);
+                if (resolvedOutput == null) {
+                    if (!defaultConsumed) {
+                        resolvedOutput = safeDefault;
+                        defaultConsumed = true;
+                    } else {
+                        resolvedOutput = buildDefaultOutputPath(alias);
+                    }
+                }
+                contexts.add(new PromptRunContext(alias, resolvedOutput, client));
+            }
+        } catch (IOException | RuntimeException ex) {
+            closePromptRuns(contexts);
+            throw ex;
+        }
+
+        if (contexts.isEmpty()) {
+            contexts.add(new PromptRunContext(DEFAULT_PROMPT_ALIAS, safeDefault, client));
+        }
+        return contexts;
+    }
+
+    /**
+     * Retrieves the raw prompt alias configuration from .env, environment variables, or JVM properties.
+     */
+    private String resolvePromptAliasConfig(Map<String, String> dotEnv) {
+        String configured = resolveValue(dotEnv, PROMPT_ALIAS_CONFIG_KEY);
+        if (configured != null) {
+            return configured;
+        }
+        return firstNonBlank(System.getProperty(PROMPT_ALIAS_PROPERTY));
+    }
+
+    /**
+     * Derives a deterministic CSV filename for a prompt alias so each run records summaries separately.
+     */
+    private String buildDefaultOutputPath(String alias) {
+        if (alias == null || alias.isBlank()) {
+            return DEFAULT_LLM_SUMMARY_PATH;
+        }
+        if (DEFAULT_PROMPT_ALIAS.equals(alias)) {
+            return DEFAULT_LLM_SUMMARY_PATH;
+        }
+        String sanitized = alias.toLowerCase().replaceAll("[^a-z0-9]+", "_");
+        if (sanitized.isBlank()) {
+            sanitized = "custom";
+        }
+        while (sanitized.contains("__")) {
+            sanitized = sanitized.replace("__", "_");
+        }
+        return "output/summary-output/llm_summaries_" + sanitized + ".csv";
+    }
+
+    /**
+     * Closes all PromptRunContext instances, logging (but not rethrowing) IO issues so shutdown remains graceful.
+     */
+    private void closePromptRuns(List<PromptRunContext> promptRuns) {
+        if (promptRuns == null) {
+            return;
+        }
+        for (PromptRunContext context : promptRuns) {
+            if (context == null) {
+                continue;
+            }
+            try {
+                context.close();
+            } catch (IOException ioe) {
+                System.err.println("Failed to close writer for prompt " + context.alias + ": " + ioe.getMessage());
+            }
+        }
+    }
+
+    private static final class PromptRunContext implements AutoCloseable {
+        private final String alias;
+        private final String outputCsvPath;
+        private final LlmSummaryService summaryService;
+        private final LlmSummaryWriter writer;
+
+        PromptRunContext(String alias, String outputCsvPath, LlmClient client) throws IOException {
+            if (alias == null || alias.trim().isEmpty()) {
+                throw new IllegalArgumentException("Prompt alias must not be blank");
+            }
+            if (outputCsvPath == null || outputCsvPath.trim().isEmpty()) {
+                throw new IllegalArgumentException("Output path must not be blank");
+            }
+            if (client == null) {
+                throw new IllegalArgumentException("LlmClient must not be null");
+            }
+            this.alias = alias;
+            this.outputCsvPath = outputCsvPath;
+            // this.summaryService = new LlmSummaryService(client); // Original single-prompt builder retained for reference
+            this.summaryService = new LlmSummaryService(client, new LlmPromptBuilder(alias)); // Inject prompt-specific builder for multi-run execution
+            this.writer = new LlmSummaryWriter(outputCsvPath);
+        }
+
+        @Override
+        public void close() throws IOException {
+            writer.close();
+        }
+    }
+
+    private static final class SummaryAccumulator {
+        private final String outputPath;
+        private int projectsAttempted;
+        private int projectsWithSummaries;
+        private int totalClassesProcessed;
+        private int totalSummariesGenerated;
+        private int totalFailures;
+        private int totalSkipped;
+
+        SummaryAccumulator(String alias, String outputPath) {
+            this.outputPath = outputPath;
+        }
+
+        void record(SummaryStats stats) {
+            projectsAttempted++;
+            if (stats != null) {
+                totalClassesProcessed += stats.getProcessedClasses();
+                totalSummariesGenerated += stats.getSuccessfulSummaries();
+                totalFailures += stats.getFailedSummaries();
+                totalSkipped += stats.getSkippedClasses();
+                if (stats.getSuccessfulSummaries() > 0) {
+                    projectsWithSummaries++;
+                }
+            }
+        }
+
+        String getOutputPath() {
+            return outputPath;
+        }
+
+        void recordFailure() {
+            projectsAttempted++;
+            totalFailures++;
+        }
+
+        int getProjectsWithSummaries() {
+            return projectsWithSummaries;
+        }
+
+        int getProjectsAttempted() {
+            return projectsAttempted;
+        }
+
+        int getTotalClassesProcessed() {
+            return totalClassesProcessed;
+        }
+
+        int getTotalSummariesGenerated() {
+            return totalSummariesGenerated;
+        }
+
+        int getTotalFailures() {
+            return totalFailures;
+        }
+
+        int getTotalSkipped() {
+            return totalSkipped;
         }
     }
 }

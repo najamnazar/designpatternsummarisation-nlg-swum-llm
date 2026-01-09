@@ -1,19 +1,19 @@
 {
   "project_name" : "Facade",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1765511727133,
+  "generated_timestamp" : 1766308894281,
   "class_summaries" : {
     "Codec" : {
       "class_name" : "Codec",
       "class_type" : "interface",
       "method_summaries" : { },
-      "swum_class_summary" : "The Codec class acts as a memento in the memento pattern."
+      "swum_class_summary" : "The Codec class."
     },
     "OggCompressionCodec" : {
       "class_name" : "OggCompressionCodec",
       "class_type" : "class",
       "method_summaries" : { },
-      "swum_class_summary" : "The OggCompressionCodec class acts as a memento in the memento pattern."
+      "swum_class_summary" : "The OggCompressionCodec class."
     },
     "Test" : {
       "class_name" : "Test",
@@ -96,19 +96,19 @@
           "method_name" : "extract",
           "return_type" : "Codec",
           "parameters" : "",
-          "swum_summary" : "This method performs and returns an object. The CodecFactory class acts as an originator in the memento pattern.",
+          "swum_summary" : "This method performs and returns an object as part of the Factory pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE extract)"
         }
       },
-      "swum_class_summary" : "The CodecFactory class acts as an originator in the memento pattern for managing factory."
+      "swum_class_summary" : "The CodecFactory class is part of the Factory pattern for managing factory."
     },
     "MPEG4CompressionCodec" : {
       "class_name" : "MPEG4CompressionCodec",
       "class_type" : "class",
       "method_summaries" : { },
-      "swum_class_summary" : "The MPEG4CompressionCodec class acts as a memento in the memento pattern."
+      "swum_class_summary" : "The MPEG4CompressionCodec class."
     },
     "BitrateReader" : {
       "class_name" : "BitrateReader",
@@ -136,16 +136,6 @@
       "swum_class_summary" : "The BitrateReader class and provides methods to read, convert."
     }
   },
-  "swum_project_summary" : "This software project contains 9 classes with 8 methods. The system implements the memento design pattern. Primary operations include convert, get, read.",
-  "design_patterns" : [ {
-    "memento" : {
-      "Codec" : {
-        "caretaker" : { },
-        "originator" : {
-          "CodecFactory" : [ ]
-        },
-        "concrete_memento" : [ "OggCompressionCodec", "MPEG4CompressionCodec" ]
-      }
-    }
-  } ]
+  "swum_project_summary" : "This software project contains 9 classes with 8 methods. Primary operations include convert, get, read.",
+  "design_patterns" : [ ]
 }

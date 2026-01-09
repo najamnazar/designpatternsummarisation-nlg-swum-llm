@@ -369,10 +369,10 @@
 	"final_summary" : "",
 	"design_pattern" : [ {
 		"factory_method" : {
-			"ChineseCook" : {
+			"Cook" : {
 				"concrete_product" : [ "WesternFood", "ChineseFood" ],
 				"abstract_product" : "Food",
-				"concrete_factory" : [ "Cook", "Cook" ]
+				"concrete_factory" : [ "ChineseCook", "WesternCook" ]
 			}
 		}
 	}, {
@@ -386,19 +386,6 @@
 			"Food" : {
 				"abstract_product" : { },
 				"concrete_factory" : [ "WesternFood", "ChineseFood" ]
-			}
-		}
-	}, {
-		"memento" : {
-			"Food" : {
-				"caretaker" : {
-					"WesternFood" : [ ],
-					"ChineseFood" : [ ]
-				},
-				"originator" : {
-					"Cook" : [ "ChineseCook", "WesternCook" ]
-				},
-				"concrete_memento" : [ "WesternFood", "ChineseFood" ]
 			}
 		}
 	} ],

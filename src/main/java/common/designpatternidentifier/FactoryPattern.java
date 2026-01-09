@@ -50,6 +50,7 @@ public class FactoryPattern extends DesignPatterns {
             // Find creator using product
             ArrayList<String> concreteProducts = new ArrayList<>();
             ArrayList<String> creators = new ArrayList<>();
+            HashMap<String, Set<String>> creatorToConcreteFactories = new HashMap<>();
             for (Map.Entry<String, HashMap> possibleConcreteProductOrCreator : fileDetails.entrySet()) {
                 for (HashMap classDetail : Utils
                         .getClassOrInterfaceDetails(possibleConcreteProductOrCreator.getValue())) {
@@ -65,7 +66,10 @@ public class FactoryPattern extends DesignPatterns {
 
                     // Creator creates and returns Product
                     if (Utils.getMethodReturnType(methodDetail).equals(product)) {
-                        creators.add(possibleConcreteProductOrCreator.getKey());
+                        String creatorName = possibleConcreteProductOrCreator.getKey();
+                        if (createsMultipleProductFamilies(creatorName, product, fileDetails))
+                            break;
+                        creators.add(creatorName);
                         break;
                     }
                 }
@@ -75,8 +79,6 @@ public class FactoryPattern extends DesignPatterns {
                 continue;
 
             // Find concrete creators
-            ArrayList<String> creatorsWithConcreteImplementations = new ArrayList<>();
-            ArrayList<String> concreteCreators = new ArrayList<>();
             for (Map.Entry<String, HashMap> possibleConcreteCreator : fileDetails.entrySet()) {
                 for (HashMap classDetail : Utils.getClassOrInterfaceDetails(possibleConcreteCreator.getValue())) {
 
@@ -84,19 +86,24 @@ public class FactoryPattern extends DesignPatterns {
                     for (String creator : creators)
                         if (Utils.getImplementsFrom(classDetail).contains(creator)
                                 || Utils.getExtendsFrom(classDetail).contains(creator)) {
-                            concreteCreators.add(possibleConcreteCreator.getKey());
-                            creatorsWithConcreteImplementations.add(creator);
+                            creatorToConcreteFactories
+                                    .computeIfAbsent(creator, key -> new HashSet<>())
+                                    .add(possibleConcreteCreator.getKey());
                         }
                 }
             }
 
-            if (creatorsWithConcreteImplementations.size() == 0)
+            if (creatorToConcreteFactories.isEmpty())
                 continue;
 
-            factories.put(creators.get(0), new HashMap());
-            ((HashMap) factories.get(creators.get(0))).put("abstract_product", product);
-            ((HashMap) factories.get(creators.get(0))).put("concrete_factory", creatorsWithConcreteImplementations);
-            ((HashMap) factories.get(creators.get(0))).put("concrete_product", concreteProducts);
+            for (Map.Entry<String, Set<String>> entry : creatorToConcreteFactories.entrySet()) {
+                String creatorName = entry.getKey();
+                factories.put(creatorName, new HashMap());
+                ((HashMap) factories.get(creatorName)).put("abstract_product", product);
+                ((HashMap) factories.get(creatorName)).put("concrete_factory",
+                        new ArrayList<>(entry.getValue()));
+                ((HashMap) factories.get(creatorName)).put("concrete_product", new ArrayList<>(concreteProducts));
+            }
         }
         
         return createPatternResult(factories);
@@ -186,5 +193,42 @@ public class FactoryPattern extends DesignPatterns {
             String factoryMethodSentence = sentenceGenerator.generateSentence(afcm, null, aficm);
             summary.put(factory, factoryMethodSentence);
         }
+    }
+
+    private boolean createsMultipleProductFamilies(String creatorName, String primaryProduct,
+            HashMap<String, HashMap> fileDetails) {
+        HashMap creatorDetails = fileDetails.get(creatorName);
+        if (creatorDetails == null)
+            return false;
+
+        Set<String> abstractProducts = new HashSet<>();
+        for (HashMap methodDetail : Utils.getMethodDetails(creatorDetails)) {
+            String methodReturnType = Utils.getMethodReturnType(methodDetail);
+            if (!fileDetails.containsKey(methodReturnType))
+                continue;
+            if (!isInterfaceType(methodReturnType, fileDetails))
+                continue;
+            abstractProducts.add(methodReturnType);
+        }
+
+        if (abstractProducts.isEmpty())
+            return false;
+
+        if (!abstractProducts.contains(primaryProduct))
+            return true;
+
+        return abstractProducts.size() > 1;
+    }
+
+    private boolean isInterfaceType(String typeName, HashMap<String, HashMap> fileDetails) {
+        HashMap typeDetails = fileDetails.get(typeName);
+        if (typeDetails == null)
+            return false;
+
+        for (HashMap classDetail : Utils.getClassOrInterfaceDetails(typeDetails)) {
+            if (Utils.isInterfaceOrNot(classDetail))
+                return true;
+        }
+        return false;
     }
 }

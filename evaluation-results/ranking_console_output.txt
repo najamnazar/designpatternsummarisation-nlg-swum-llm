@@ -16,8 +16,8 @@ Found 134 summaries common to all datasets
   Corpus A unique keys: 134
   Corpus B unique keys: 134
   Corpus C unique keys: 134
-  Human unique keys: 135
-  Human summaries without full method coverage: 1
+  Human unique keys: 134
+  Human summaries without full method coverage: 0
   Method summaries missing human references: 0
 
 ======================================================================
@@ -41,41 +41,41 @@ Starting ranking process...
 
   Ranking: LogOpenListener.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    Total Points: A=11, B=14, C=5
     Winner: B
   [3/150] Ranking Editor.java (Project: AbdurRKhalid)
 
   Ranking: Editor.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=9, B=9, C=12
-    Winner: C
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=7, B=13, C=10
+    Winner: B
   [4/150] Ranking EventListener.java (Project: AbdurRKhalid)
 
   Ranking: EventListener.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    Total Points: A=10, B=15, C=5
     Winner: B
   [5/150] Ranking EventManager.java (Project: AbdurRKhalid)
 
   Ranking: EventManager.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=9, B=13, C=8
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=7, B=13, C=10
     Winner: B
   [6/150] Ranking Computer.java (Project: AbdurRKhalid)
 
@@ -100,22 +100,24 @@ Starting ranking process...
   [8/150] Ranking ComputerPartDisplayVisitor.java (Project: AbdurRKhalid)
 
   Ranking: ComputerPartDisplayVisitor.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    [4/5] Evaluating code_context... invalid parse; skipping criterion
+skipped
+    [5/5] Evaluating design_patterns... invalid parse; skipping criterion
+skipped
+    Total Points: A=4, B=9, C=5
     Winner: B
   [9/150] Ranking ComputerPartVisitor.java (Project: AbdurRKhalid)
 
   Ranking: ComputerPartVisitor.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=8, B=13, C=9
+    Total Points: A=7, B=13, C=10
     Winner: B
   [10/150] Ranking Keyboard.java (Project: AbdurRKhalid)
 
@@ -142,10 +144,10 @@ Starting ranking process...
   Ranking: Mouse.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=8, B=13, C=9
+    Total Points: A=7, B=13, C=10
     Winner: B
   [13/150] Ranking Test.java (Project: AbdurRKhalid)
 
@@ -161,51 +163,51 @@ Starting ranking process...
 
   Ranking: GUIFactory.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=9, B=15, C=6
+    Total Points: A=10, B=15, C=5
     Winner: B
   [15/150] Ranking Application.java (Project: AbdurRKhalid)
 
   Ranking: Application.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=14, C=5
+    Total Points: A=11, B=13, C=6
     Winner: B
   [16/150] Ranking MacOSFactory.java (Project: AbdurRKhalid)
 
   Ranking: MacOSFactory.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    Total Points: A=10, B=15, C=5
     Winner: B
   [17/150] Ranking WindowsOSFactory.java (Project: AbdurRKhalid)
 
   Ranking: WindowsOSFactory.java (Project: AbdurRKhalid)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=10, B=15, C=5
+    Winner: B
+  [18/150] Ranking Button.java (Project: AbdurRKhalid)
+
+  Ranking: Button.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
-    Winner: B
-  [18/150] Ranking Button.java (Project: AbdurRKhalid)
-
-  Ranking: Button.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=8, B=13, C=9
     Winner: B
   [19/150] Ranking CheckBox.java (Project: AbdurRKhalid)
 
@@ -220,22 +222,22 @@ Starting ranking process...
   [20/150] Ranking MacOSButton.java (Project: AbdurRKhalid)
 
   Ranking: MacOSButton.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
+    Total Points: A=11, B=13, C=6
     Winner: B
   [21/150] Ranking MacOSCheckBox.java (Project: AbdurRKhalid)
 
   Ranking: MacOSCheckBox.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
+    Total Points: A=11, B=13, C=6
     Winner: B
   [22/150] Ranking WindowsButton.java (Project: AbdurRKhalid)
 
@@ -243,9 +245,9 @@ Starting ranking process...
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=9, B=13, C=8
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=11, B=13, C=6
     Winner: B
   [23/150] Ranking WindowsCheckBox.java (Project: AbdurRKhalid)
 
@@ -280,22 +282,22 @@ Starting ranking process...
   [26/150] Ranking HtmlDialog.java (Project: AbdurRKhalid)
 
   Ranking: HtmlDialog.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=8, B=13, C=9
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=11, B=14, C=5
     Winner: B
   [27/150] Ranking WindowsDialog.java (Project: AbdurRKhalid)
 
   Ranking: WindowsDialog.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=7, B=13, C=10
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=11, B=14, C=5
     Winner: B
   [28/150] Ranking HtmlButton.java (Project: AbdurRKhalid)
 
@@ -303,39 +305,39 @@ Starting ranking process...
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=9, B=13, C=8
+    Total Points: A=10, B=13, C=7
     Winner: B
   [29/150] Ranking WindowsButton.java (Project: AbdurRKhalid)
 
   Ranking: WindowsButton.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=8, B=13, C=9
-    Winner: B
-  [30/150] Ranking Dialog.java (Project: AbdurRKhalid)
-
-  Ranking: Dialog.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=8, B=13, C=9
-    Winner: B
-  [31/150] Ranking Button.java (Project: AbdurRKhalid)
-
-  Ranking: Button.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
+    Total Points: A=11, B=13, C=6
+    Winner: B
+  [30/150] Ranking Dialog.java (Project: AbdurRKhalid)
+
+  Ranking: Dialog.java (Project: AbdurRKhalid)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=11, B=13, C=6
+    Winner: B
+  [31/150] Ranking Button.java (Project: AbdurRKhalid)
+
+  Ranking: Button.java (Project: AbdurRKhalid)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=11, B=14, C=5
     Winner: B
   [32/150] Ranking TextEditor.java (Project: AbdurRKhalid)
 
@@ -344,8 +346,8 @@ Starting ranking process...
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
+    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
+    Total Points: A=10, B=11, C=9
     Winner: B
   [33/150] Ranking TextWindowState.java (Project: AbdurRKhalid)
 
@@ -360,13 +362,13 @@ Starting ranking process...
   [34/150] Ranking TextWindow.java (Project: AbdurRKhalid)
 
   Ranking: TextWindow.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=3, 2nd=1, 3rd=2
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=9, C=11
-    Winner: C
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
   [35/150] Ranking Singleton.java (Project: AbdurRKhalid)
 
   Ranking: Singleton.java (Project: AbdurRKhalid)
@@ -384,12 +386,22 @@ Starting ranking process...
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=2, 3rd=1
-    Total Points: A=10, B=12, C=8
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=10, B=13, C=7
     Winner: B
   [37/150] Ranking SquarePeg.java (Project: AbdurRKhalid)
 
   Ranking: SquarePeg.java (Project: AbdurRKhalid)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=9, B=15, C=6
+    Winner: B
+  [38/150] Ranking SquarePegAdapter.java (Project: AbdurRKhalid)
+
+  Ranking: SquarePegAdapter.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
@@ -397,25 +409,15 @@ Starting ranking process...
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [38/150] Ranking SquarePegAdapter.java (Project: AbdurRKhalid)
-
-  Ranking: SquarePegAdapter.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=14, C=5
-    Winner: B
   [39/150] Ranking RoundHole.java (Project: AbdurRKhalid)
 
   Ranking: RoundHole.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=6, B=15, C=9
     Winner: B
   [40/150] Ranking RoundPeg.java (Project: AbdurRKhalid)
 
@@ -433,29 +435,29 @@ Starting ranking process...
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=3, 2nd=2, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=12, C=8
+    Total Points: A=11, B=13, C=6
     Winner: B
   [42/150] Ranking DataSource.java (Project: AbdurRKhalid)
 
   Ranking: DataSource.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=9, B=13, C=8
+    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
+    Total Points: A=8, B=13, C=9
     Winner: B
   [43/150] Ranking FileDataSource.java (Project: AbdurRKhalid)
 
   Ranking: FileDataSource.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=6, B=13, C=11
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=7, B=13, C=10
     Winner: B
   [44/150] Ranking CompressionDecorator.java (Project: AbdurRKhalid)
 
@@ -464,8 +466,8 @@ Starting ranking process...
     [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=6, B=13, C=11
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
     Winner: B
   [45/150] Ranking EncryptionDecorator.java (Project: AbdurRKhalid)
 
@@ -473,9 +475,9 @@ Starting ranking process...
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=3, 2nd=1, 3rd=2
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=6, B=13, C=11
+    Total Points: A=5, B=15, C=10
     Winner: B
   [46/150] Ranking DataSourceDecorator.java (Project: AbdurRKhalid)
 
@@ -484,10 +486,20 @@ Starting ranking process...
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
+    Total Points: A=8, B=11, C=11
+    Winner: B, C
+  [47/150] Ranking Test.java (Project: AbdurRKhalid)
+
+  Ranking: Test.java (Project: AbdurRKhalid)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=3, 2nd=2, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=3, 2nd=2, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
     Total Points: A=7, B=13, C=10
     Winner: B
-  [47/150] Ranking AudioMixer.java (Project: AbdurRKhalid)
+  [48/150] Ranking AudioMixer.java (Project: AbdurRKhalid)
 
   Ranking: AudioMixer.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -497,17 +509,17 @@ Starting ranking process...
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [48/150] Ranking BitrateReader.java (Project: AbdurRKhalid)
+  [49/150] Ranking BitrateReader.java (Project: AbdurRKhalid)
 
   Ranking: BitrateReader.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
+    Total Points: A=9, B=13, C=8
     Winner: B
-  [49/150] Ranking Codec.java (Project: AbdurRKhalid)
+  [50/150] Ranking Codec.java (Project: AbdurRKhalid)
 
   Ranking: Codec.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -517,17 +529,17 @@ Starting ranking process...
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [50/150] Ranking CodecFactory.java (Project: AbdurRKhalid)
+  [51/150] Ranking CodecFactory.java (Project: AbdurRKhalid)
 
   Ranking: CodecFactory.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    [4/5] Evaluating code_context... 1st=3, 2nd=1, 3rd=2
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=7, B=13, C=10
     Winner: B
-  [51/150] Ranking MPEG4CompressionCodec.java (Project: AbdurRKhalid)
+  [52/150] Ranking MPEG4CompressionCodec.java (Project: AbdurRKhalid)
 
   Ranking: MPEG4CompressionCodec.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -537,7 +549,7 @@ Starting ranking process...
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [52/150] Ranking OggCompressionCodec.java (Project: AbdurRKhalid)
+  [53/150] Ranking OggCompressionCodec.java (Project: AbdurRKhalid)
 
   Ranking: OggCompressionCodec.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -547,48 +559,47 @@ Starting ranking process...
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [53/150] Ranking Test.java (Project: AbdurRKhalid)
+  [54/150] Ranking Test.java (Project: AbdurRKhalid)
 
   Ranking: Test.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=1, 2nd=2, 3rd=3
-    [4/5] Evaluating code_context... 1st=3, 2nd=1, 3rd=2
-    [5/5] Evaluating design_patterns... invalid parse; skipping criterion
-skipped
-    Total Points: A=10, B=7, C=7
-    Winner: A
-  [54/150] Ranking VideoConversionFacade.java (Project: AbdurRKhalid)
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=3, 2nd=2, 3rd=1
+    Total Points: A=10, B=12, C=8
+    Winner: B
+  [55/150] Ranking VideoConversionFacade.java (Project: AbdurRKhalid)
 
   Ranking: VideoConversionFacade.java (Project: AbdurRKhalid)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
-    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
     Total Points: A=8, B=13, C=9
     Winner: B
-  [55/150] Ranking VideoFile.java (Project: AbdurRKhalid)
+  [56/150] Ranking VideoFile.java (Project: AbdurRKhalid)
 
   Ranking: VideoFile.java (Project: AbdurRKhalid)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    Total Points: A=10, B=15, C=5
     Winner: B
-  [56/150] Ranking Captain.java (Project: JamesZBL)
+  [57/150] Ranking Captain.java (Project: JamesZBL)
 
   Ranking: Captain.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    Total Points: A=10, B=15, C=5
     Winner: B
-  [57/150] Ranking Member.java (Project: JamesZBL)
+  [58/150] Ranking Member.java (Project: JamesZBL)
 
   Ranking: Member.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -598,7 +609,7 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [58/150] Ranking NewShip.java (Project: JamesZBL)
+  [59/150] Ranking NewShip.java (Project: JamesZBL)
 
   Ranking: NewShip.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
@@ -608,7 +619,7 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=10, B=13, C=7
     Winner: B
-  [59/150] Ranking OldCaptain.java (Project: JamesZBL)
+  [60/150] Ranking OldCaptain.java (Project: JamesZBL)
 
   Ranking: OldCaptain.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
@@ -618,37 +629,37 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=10, B=13, C=7
     Winner: B
-  [60/150] Ranking OldSailor.java (Project: JamesZBL)
+  [61/150] Ranking OldSailor.java (Project: JamesZBL)
 
   Ranking: OldSailor.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
-    Winner: B
-  [61/150] Ranking OldShip.java (Project: JamesZBL)
-
-  Ranking: OldShip.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
-    Winner: B
-  [62/150] Ranking PermanentTeamFactory.java (Project: JamesZBL)
-
-  Ranking: PermanentTeamFactory.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=9, B=15, C=6
+    Total Points: A=8, B=15, C=7
     Winner: B
-  [63/150] Ranking Sailor.java (Project: JamesZBL)
+  [62/150] Ranking OldShip.java (Project: JamesZBL)
+
+  Ranking: OldShip.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=11, B=14, C=5
+    Winner: B
+  [63/150] Ranking PermanentTeamFactory.java (Project: JamesZBL)
+
+  Ranking: PermanentTeamFactory.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=11, B=13, C=6
+    Winner: B
+  [64/150] Ranking Sailor.java (Project: JamesZBL)
 
   Ranking: Sailor.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -658,7 +669,7 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [64/150] Ranking Ship.java (Project: JamesZBL)
+  [65/150] Ranking Ship.java (Project: JamesZBL)
 
   Ranking: Ship.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -668,27 +679,27 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [65/150] Ranking TeamFactory.java (Project: JamesZBL)
+  [66/150] Ranking TeamFactory.java (Project: JamesZBL)
 
   Ranking: TeamFactory.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=3, 2nd=2, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=9, B=14, C=7
+    Total Points: A=10, B=15, C=5
     Winner: B
-  [66/150] Ranking YoungCaptain.java (Project: JamesZBL)
+  [67/150] Ranking YoungCaptain.java (Project: JamesZBL)
 
   Ranking: YoungCaptain.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    Total Points: A=9, B=15, C=6
     Winner: B
-  [67/150] Ranking YoungSailor.java (Project: JamesZBL)
+  [68/150] Ranking YoungSailor.java (Project: JamesZBL)
 
   Ranking: YoungSailor.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -698,7 +709,7 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [68/150] Ranking YoungTeamFactory.java (Project: JamesZBL)
+  [69/150] Ranking YoungTeamFactory.java (Project: JamesZBL)
 
   Ranking: YoungTeamFactory.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -708,27 +719,38 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=9, B=15, C=6
     Winner: B
-  [69/150] Ranking Application.java (Project: JamesZBL)
+  [70/150] Ranking Application.java (Project: JamesZBL)
 
   Ranking: Application.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
+    Total Points: A=6, B=13, C=11
+    Winner: B
+  [71/150] Ranking Application.java (Project: JamesZBL)
+
+  Ranking: Application.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [72/150] Ranking Bus.java (Project: JamesZBL)
+
+  Ranking: Bus.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=8, B=11, C=11
-    Winner: B, C
-  [70/150] Ranking Bus.java (Project: JamesZBL)
-
-  Ranking: Bus.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
-    Total Points: A=11, B=11, C=8
-    Winner: A, B
-  [71/150] Ranking BusAdapter.java (Project: JamesZBL)
+    [5/5] Evaluating design_patterns... invalid parse; skipping criterion
+skipped
+    Total Points: A=6, B=10, C=8
+    Winner: B
+  [73/150] Ranking BusAdapter.java (Project: JamesZBL)
 
   Ranking: BusAdapter.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -738,18 +760,17 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [72/150] Ranking Car.java (Project: JamesZBL)
+  [74/150] Ranking Car.java (Project: JamesZBL)
 
   Ranking: Car.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=1, 2nd=2, 3rd=3
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... invalid parse; skipping criterion
-skipped
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
-    Total Points: A=11, B=7, C=6
-    Winner: A
-  [73/150] Ranking Driver.java (Project: JamesZBL)
+    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
+    Total Points: A=11, B=11, C=8
+    Winner: A, B
+  [75/150] Ranking Driver.java (Project: JamesZBL)
 
   Ranking: Driver.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -759,59 +780,47 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [74/150] Ranking Member.java (Project: JamesZBL)
-
-  Ranking: Member.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
-    Winner: B
-  [75/150] Ranking Application.java (Project: JamesZBL)
+  [76/150] Ranking Application.java (Project: JamesZBL)
 
   Ranking: Application.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=3, 2nd=1, 3rd=2
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=6, B=13, C=11
+    Winner: B
+  [77/150] Ranking CarpenterOperation.java (Project: JamesZBL)
+
+  Ranking: CarpenterOperation.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... invalid parse; skipping criterion
-skipped
-    Total Points: A=6, B=10, C=8
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=7, B=13, C=10
     Winner: B
-  [76/150] Ranking CarpenterOperation.java (Project: JamesZBL)
-
-  Ranking: CarpenterOperation.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
-    Winner: B
-  [77/150] Ranking HammerSmithOperation.java (Project: JamesZBL)
+  [78/150] Ranking HammerSmithOperation.java (Project: JamesZBL)
 
   Ranking: HammerSmithOperation.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... invalid parse; skipping criterion
-skipped
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=9, B=10, C=5
+    Total Points: A=6, B=15, C=9
     Winner: B
-  [78/150] Ranking Operation.java (Project: JamesZBL)
+  [79/150] Ranking Operation.java (Project: JamesZBL)
 
   Ranking: Operation.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=7, B=15, C=8
     Winner: B
-  [79/150] Ranking Application.java (Project: JamesZBL)
+  [80/150] Ranking Application.java (Project: JamesZBL)
 
   Ranking: Application.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
@@ -821,27 +830,27 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
     Total Points: A=5, B=15, C=10
     Winner: B
-  [80/150] Ranking CourseFacade.java (Project: JamesZBL)
+  [81/150] Ranking CourseFacade.java (Project: JamesZBL)
 
   Ranking: CourseFacade.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=8, B=11, C=11
-    Winner: B, C
-  [81/150] Ranking CourseParticipator.java (Project: JamesZBL)
+    Total Points: A=7, B=13, C=10
+    Winner: B
+  [82/150] Ranking CourseParticipator.java (Project: JamesZBL)
 
   Ranking: CourseParticipator.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=9, B=13, C=8
     Winner: B
-  [82/150] Ranking CourseStudent.java (Project: JamesZBL)
+  [83/150] Ranking CourseStudent.java (Project: JamesZBL)
 
   Ranking: CourseStudent.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -851,7 +860,7 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [83/150] Ranking CourseTeacher.java (Project: JamesZBL)
+  [84/150] Ranking CourseTeacher.java (Project: JamesZBL)
 
   Ranking: CourseTeacher.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -861,39 +870,19 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [84/150] Ranking Application.java (Project: JamesZBL)
+  [85/150] Ranking Application.java (Project: JamesZBL)
 
   Ranking: Application.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
-    Total Points: A=9, B=11, C=10
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
     Winner: B
-  [85/150] Ranking ChineseCook.java (Project: JamesZBL)
+  [86/150] Ranking ChineseCook.java (Project: JamesZBL)
 
   Ranking: ChineseCook.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=1, 2nd=2, 3rd=3
-    Total Points: A=12, B=12, C=6
-    Winner: A, B
-  [86/150] Ranking ChineseFood.java (Project: JamesZBL)
-
-  Ranking: ChineseFood.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
-    Winner: B
-  [87/150] Ranking Cook.java (Project: JamesZBL)
-
-  Ranking: Cook.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
@@ -901,27 +890,47 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [88/150] Ranking Food.java (Project: JamesZBL)
+  [87/150] Ranking ChineseFood.java (Project: JamesZBL)
+
+  Ranking: ChineseFood.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=7, B=15, C=8
+    Winner: B
+  [88/150] Ranking Cook.java (Project: JamesZBL)
+
+  Ranking: Cook.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=10, B=15, C=5
+    Winner: B
+  [89/150] Ranking Food.java (Project: JamesZBL)
 
   Ranking: Food.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
-    Total Points: A=12, B=11, C=7
-    Winner: A
-  [89/150] Ranking FoodType.java (Project: JamesZBL)
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=10, B=15, C=5
+    Winner: B
+  [90/150] Ranking FoodType.java (Project: JamesZBL)
 
   Ranking: FoodType.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=8, B=11, C=11
-    Winner: B, C
-  [90/150] Ranking WesternCook.java (Project: JamesZBL)
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=9, B=13, C=8
+    Winner: B
+  [91/150] Ranking WesternCook.java (Project: JamesZBL)
 
   Ranking: WesternCook.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -931,29 +940,49 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [91/150] Ranking WesternFood.java (Project: JamesZBL)
+  [92/150] Ranking WesternFood.java (Project: JamesZBL)
 
   Ranking: WesternFood.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=9, B=13, C=8
+    Total Points: A=6, B=15, C=9
     Winner: B
-  [92/150] Ranking Application.java (Project: JamesZBL)
+  [93/150] Ranking Application.java (Project: JamesZBL)
 
   Ranking: Application.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=7, B=13, C=10
+    Total Points: A=5, B=15, C=10
     Winner: B
-  [93/150] Ranking Flower.java (Project: JamesZBL)
+  [94/150] Ranking Flower.java (Project: JamesZBL)
 
   Ranking: Flower.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=9, B=15, C=6
+    Winner: B
+  [95/150] Ranking FlowerType.java (Project: JamesZBL)
+
+  Ranking: FlowerType.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=7, B=15, C=8
+    Winner: B
+  [96/150] Ranking Plant.java (Project: JamesZBL)
+
+  Ranking: Plant.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
@@ -961,47 +990,27 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=10, B=15, C=5
     Winner: B
-  [94/150] Ranking FlowerType.java (Project: JamesZBL)
-
-  Ranking: FlowerType.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
-    Winner: B
-  [95/150] Ranking Plant.java (Project: JamesZBL)
-
-  Ranking: Plant.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
-    Winner: B
-  [96/150] Ranking Application.java (Project: JamesZBL)
+  [97/150] Ranking Application.java (Project: JamesZBL)
 
   Ranking: Application.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=8, B=11, C=11
-    Winner: B, C
-  [97/150] Ranking Northern.java (Project: JamesZBL)
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [98/150] Ranking Northern.java (Project: JamesZBL)
 
   Ranking: Northern.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    Total Points: A=11, B=14, C=5
     Winner: B
-  [98/150] Ranking Southern.java (Project: JamesZBL)
+  [99/150] Ranking Southern.java (Project: JamesZBL)
 
   Ranking: Southern.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -1011,27 +1020,27 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [99/150] Ranking Time.java (Project: JamesZBL)
+  [100/150] Ranking Time.java (Project: JamesZBL)
 
   Ranking: Time.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=8, B=13, C=9
+    Total Points: A=7, B=13, C=10
     Winner: B
-  [100/150] Ranking TimeObserver.java (Project: JamesZBL)
+  [101/150] Ranking TimeObserver.java (Project: JamesZBL)
 
   Ranking: TimeObserver.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    Total Points: A=10, B=15, C=5
     Winner: B
-  [101/150] Ranking TimePoint.java (Project: JamesZBL)
+  [102/150] Ranking TimePoint.java (Project: JamesZBL)
 
   Ranking: TimePoint.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -1041,79 +1050,77 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [102/150] Ranking Application.java (Project: JamesZBL)
+  [103/150] Ranking Application.java (Project: JamesZBL)
 
   Ranking: Application.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=2, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... invalid parse; skipping criterion
-skipped
-    Total Points: A=6, B=9, C=9
-    Winner: B, C
-  [103/150] Ranking Director.java (Project: JamesZBL)
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [104/150] Ranking Director.java (Project: JamesZBL)
 
   Ranking: Director.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
+    Total Points: A=11, B=14, C=5
     Winner: B
-  [104/150] Ranking EnumDirector.java (Project: JamesZBL)
+  [105/150] Ranking EnumDirector.java (Project: JamesZBL)
 
   Ranking: EnumDirector.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=1, 2nd=2, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
-    Winner: B
-  [105/150] Ranking LazyInitializationDirector.java (Project: JamesZBL)
+    Total Points: A=12, B=12, C=6
+    Winner: A, B
+  [106/150] Ranking LazyInitializationDirector.java (Project: JamesZBL)
 
   Ranking: LazyInitializationDirector.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=9, B=13, C=8
+    Total Points: A=11, B=14, C=5
     Winner: B
-  [106/150] Ranking ThreadSafeDoubleCheckLocking.java (Project: JamesZBL)
+  [107/150] Ranking ThreadSafeDoubleCheckLocking.java (Project: JamesZBL)
 
   Ranking: ThreadSafeDoubleCheckLocking.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=8, B=15, C=7
+    Total Points: A=10, B=15, C=5
     Winner: B
-  [107/150] Ranking ThreadSafeLazyLoadDirector.java (Project: JamesZBL)
+  [108/150] Ranking ThreadSafeLazyLoadDirector.java (Project: JamesZBL)
 
   Ranking: ThreadSafeLazyLoadDirector.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=13, C=7
+    Total Points: A=10, B=15, C=5
     Winner: B
-  [108/150] Ranking Application.java (Project: JamesZBL)
+  [109/150] Ranking Application.java (Project: JamesZBL)
 
   Ranking: Application.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... invalid parse; skipping criterion
-skipped
-    Total Points: A=6, B=10, C=8
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
     Winner: B
-  [109/150] Ranking Boss.java (Project: JamesZBL)
+  [110/150] Ranking Boss.java (Project: JamesZBL)
 
   Ranking: Boss.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -1123,17 +1130,17 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [110/150] Ranking BossVisitor.java (Project: JamesZBL)
+  [111/150] Ranking BossVisitor.java (Project: JamesZBL)
 
   Ranking: BossVisitor.java (Project: JamesZBL)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=5, B=15, C=10
-    Winner: B
-  [111/150] Ranking Engineer.java (Project: JamesZBL)
+    [1/5] Evaluating accuracy... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [3/5] Evaluating adequacy... 1st=1, 2nd=3, 3rd=2
+    [4/5] Evaluating code_context... 1st=1, 2nd=3, 3rd=2
+    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
+    Total Points: A=15, B=5, C=10
+    Winner: A
+  [112/150] Ranking Engineer.java (Project: JamesZBL)
 
   Ranking: Engineer.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -1143,17 +1150,17 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [112/150] Ranking EngineerVisitor.java (Project: JamesZBL)
+  [113/150] Ranking EngineerVisitor.java (Project: JamesZBL)
 
   Ranking: EngineerVisitor.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=9, B=13, C=8
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=6, B=15, C=9
     Winner: B
-  [113/150] Ranking Manager.java (Project: JamesZBL)
+  [114/150] Ranking Manager.java (Project: JamesZBL)
 
   Ranking: Manager.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -1163,17 +1170,17 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [114/150] Ranking ManagerVisitor.java (Project: JamesZBL)
+  [115/150] Ranking ManagerVisitor.java (Project: JamesZBL)
 
   Ranking: ManagerVisitor.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=7, B=15, C=8
     Winner: B
-  [115/150] Ranking Unit.java (Project: JamesZBL)
+  [116/150] Ranking Unit.java (Project: JamesZBL)
 
   Ranking: Unit.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
@@ -1183,161 +1190,142 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=11, B=13, C=6
     Winner: B
-  [116/150] Ranking UnitVisitor.java (Project: JamesZBL)
+  [117/150] Ranking UnitVisitor.java (Project: JamesZBL)
 
   Ranking: UnitVisitor.java (Project: JamesZBL)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=8, B=15, C=7
+    Winner: B
+  [118/150] Ranking BeanFactory.java (Project: Spring-Framework)
+
+  Ranking: BeanFactory.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [119/150] Ranking ListableBeanFactory.java (Project: Spring-Framework)
+
+  Ranking: ListableBeanFactory.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [120/150] Ranking HierarchicalBeanFactory.java (Project: Spring-Framework)
+
+  Ranking: HierarchicalBeanFactory.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=9, B=14, C=7
+    Total Points: A=6, B=15, C=9
     Winner: B
-  [117/150] Ranking BeanFactory (Project: Spring Framework)
+  [121/150] Ranking AutowireCapableBeanFactory.java (Project: Spring-Framework)
 
-  Ranking: BeanFactory (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=15, C=5
-    Winner: B
-  [118/150] Ranking ListableBeanFactory (Project: Spring Framework)
-
-  Ranking: ListableBeanFactory (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=15, C=5
-    Winner: B
-  [119/150] Ranking HierarchicalBeanFactory (Project: Spring Framework)
-
-  Ranking: HierarchicalBeanFactory (Project: Spring Framework)
+  Ranking: AutowireCapableBeanFactory.java (Project: Spring-Framework)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... invalid parse; skipping criterion
-skipped
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=5, B=12, C=7
+    Total Points: A=5, B=15, C=10
     Winner: B
-  [120/150] Ranking AutowireCapableBeanFactory (Project: Spring Framework)
+  [122/150] Ranking ClientHttpRequestFactory.java (Project: Spring-Framework)
 
-  Ranking: AutowireCapableBeanFactory (Project: Spring Framework)
+  Ranking: ClientHttpRequestFactory.java (Project: Spring-Framework)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
-    [3/5] Evaluating adequacy... invalid parse; skipping criterion
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [123/150] Ranking AdaptableJobFactory.java (Project: Spring-Framework)
+
+  Ranking: AdaptableJobFactory.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... invalid parse; skipping criterion
 skipped
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
     Total Points: A=6, B=10, C=8
     Winner: B
-  [121/150] Ranking ClientHttpRequestFactory (Project: Spring Framework)
+  [124/150] Ranking SchedulerFactoryBean.java (Project: Spring-Framework)
 
-  Ranking: ClientHttpRequestFactory (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
-    Total Points: A=10, B=11, C=9
-    Winner: B
-  [122/150] Ranking AdaptableJobFactory (Project: Spring Framework)
-
-  Ranking: AdaptableJobFactory (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=7, B=13, C=10
-    Winner: B
-  [123/150] Ranking SchedulerFactoryBean (Project: Spring Framework)
-
-  Ranking: SchedulerFactoryBean (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=15, C=5
-    Winner: B
-  [124/150] Ranking JobDetailFactoryBean (Project: Spring Framework)
-
-  Ranking: JobDetailFactoryBean (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
-    Total Points: A=9, B=13, C=8
-    Winner: B
-  [125/150] Ranking MethodInvokingJobDetailFactoryBean  (Project: Spring Framework)
-
-  Ranking: MethodInvokingJobDetailFactoryBean  (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=15, C=5
-    Winner: B
-  [126/150] Ranking CronTriggerFactoryBean  (Project: Spring Framework)
-
-  Ranking: CronTriggerFactoryBean  (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
-    Total Points: A=10, B=13, C=7
-    Winner: B
-  [127/150] Ranking DefaultSingletonBeanRegistry (Project: Spring Framework)
-
-  Ranking: DefaultSingletonBeanRegistry (Project: Spring Framework)
+  Ranking: SchedulerFactoryBean.java (Project: Spring-Framework)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=6, B=13, C=11
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
     Winner: B
-  [128/150] Ranking SingletonBeanRegistry  (Project: Spring Framework)
+  [125/150] Ranking JobDetailFactoryBean.java (Project: Spring-Framework)
 
-  Ranking: SingletonBeanRegistry  (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=3, 2nd=1, 3rd=2
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=10, B=7, C=13
-    Winner: C
-  [129/150] Ranking SmartInitializingSingleton  (Project: Spring Framework)
-
-  Ranking: SmartInitializingSingleton  (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=2, 3rd=3
+  Ranking: JobDetailFactoryBean.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=7, B=15, C=8
+    Winner: B
+  [126/150] Ranking MethodInvokingJobDetailFactoryBean.java (Project: Spring-Framework)
+
+  Ranking: MethodInvokingJobDetailFactoryBean.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=10, B=14, C=6
+    Total Points: A=6, B=15, C=9
     Winner: B
-  [130/150] Ranking SingletonSupplier  (Project: Spring Framework)
+  [127/150] Ranking CronTriggerFactoryBean.java (Project: Spring-Framework)
 
-  Ranking: SingletonSupplier  (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+  Ranking: CronTriggerFactoryBean.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... invalid parse; skipping criterion
+skipped
+    [2/5] Evaluating conciseness... invalid parse; skipping criterion
+skipped
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=6, B=9, C=3
+    Winner: B
+  [128/150] Ranking DefaultSingletonBeanRegistry.java (Project: Spring-Framework)
+
+  Ranking: DefaultSingletonBeanRegistry.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=6, B=15, C=9
+    Winner: B
+  [129/150] Ranking SingletonBeanRegistry.java (Project: Spring-Framework)
+
+  Ranking: SingletonBeanRegistry.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=8, B=11, C=11
-    Winner: B, C
-  [131/150] Ranking DefaultListableBeanFactory (Project: Spring Framework)
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [130/150] Ranking SmartInitializingSingleton.java (Project: Spring-Framework)
 
-  Ranking: DefaultListableBeanFactory (Project: Spring Framework)
+  Ranking: SmartInitializingSingleton.java (Project: Spring-Framework)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
@@ -1345,9 +1333,19 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
     Total Points: A=9, B=15, C=6
     Winner: B
-  [132/150] Ranking IsolationLevelDataSourceAdapter (Project: Spring Framework)
+  [131/150] Ranking SingletonSupplier.java (Project: Spring-Framework)
 
-  Ranking: IsolationLevelDataSourceAdapter (Project: Spring Framework)
+  Ranking: SingletonSupplier.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [132/150] Ranking IsolationLevelDataSourceAdapter.java (Project: Spring-Framework)
+
+  Ranking: IsolationLevelDataSourceAdapter.java (Project: Spring-Framework)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
@@ -1355,29 +1353,19 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=9, B=15, C=6
     Winner: B
-  [133/150] Ranking HttpRequestHandlerAdapter (Project: Spring Framework)
+  [133/150] Ranking HttpRequestHandlerAdapter.java (Project: Spring-Framework)
 
-  Ranking: HttpRequestHandlerAdapter (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+  Ranking: HttpRequestHandlerAdapter.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=1, 2nd=3, 3rd=2
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=7, B=13, C=10
-    Winner: B
-  [134/150] Ranking MethodBeforeAdviceAdapter (Project: Spring Framework)
+    [3/5] Evaluating adequacy... 1st=1, 2nd=3, 3rd=2
+    [4/5] Evaluating code_context... 1st=1, 2nd=3, 3rd=2
+    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
+    Total Points: A=15, B=5, C=10
+    Winner: A
+  [134/150] Ranking MethodBeforeAdviceAdapter.java (Project: Spring-Framework)
 
-  Ranking: MethodBeforeAdviceAdapter (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=3, 2nd=1, 3rd=2
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=9, B=9, C=12
-    Winner: C
-  [135/150] Ranking SimpleControllerHandlerAdapter (Project: Spring Framework)
-
-  Ranking: SimpleControllerHandlerAdapter (Project: Spring Framework)
+  Ranking: MethodBeforeAdviceAdapter.java (Project: Spring-Framework)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
@@ -1385,120 +1373,29 @@ skipped
     [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
     Total Points: A=9, B=11, C=10
     Winner: B
-  [136/150] Ranking ScopedProxyBeanDefinitionDecorator (Project: Spring Framework)
+  [135/150] Ranking SimpleControllerHandlerAdapter.java (Project: Spring-Framework)
 
-  Ranking: ScopedProxyBeanDefinitionDecorator (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=1, 2nd=3, 3rd=2
+  Ranking: SimpleControllerHandlerAdapter.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=1, 2nd=3, 3rd=2
     [4/5] Evaluating code_context... 1st=1, 2nd=3, 3rd=2
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=2, 3rd=1
-    Total Points: A=13, B=6, C=11
+    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
+    Total Points: A=13, B=7, C=10
     Winner: A
-  [137/150] Ranking BufferingClientHttpResponseWrapper (Project: Spring Framework)
+  [136/150] Ranking ScopedProxyBeanDefinitionDecorator.java (Project: Spring-Framework)
 
-  Ranking: BufferingClientHttpResponseWrapper (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=7, B=15, C=8
-    Winner: B
-  [138/150] Skipping (missing summaries from A, B, C)
-  [139/150] Ranking WebSocketHandlerDecorator (Project: Spring Framework)
-
-  Ranking: WebSocketHandlerDecorator (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
-    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=7, B=11, C=12
-    Winner: C
-  [140/150] Ranking JDBCTemplate (Project: Spring Framework)
-
-  Ranking: JDBCTemplate (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=15, C=5
-    Winner: B
-  [141/150] Ranking JmsTemplate (Project: Spring Framework)
-
-  Ranking: JmsTemplate (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=15, C=5
-    Winner: B
-  [142/150] Ranking RestTemplate (Project: Spring Framework)
-
-  Ranking: RestTemplate (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=15, C=5
-    Winner: B
-  [143/150] Ranking TransactionTemplate (Project: Spring Framework)
-
-  Ranking: TransactionTemplate (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=10, B=15, C=5
-    Winner: B
-  [144/150] Ranking ApplicationEventPublisher (Project: Spring Framework)
-
-  Ranking: ApplicationEventPublisher (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
-    Total Points: A=8, B=13, C=9
-    Winner: B
-  [145/150] Ranking ApplicationListener (Project: Spring Framework)
-
-  Ranking: ApplicationListener (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
-    Winner: B
-  [146/150] Ranking AbstractApplicationEventMulticaster  (Project: Spring Framework)
-
-  Ranking: AbstractApplicationEventMulticaster  (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
-    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
-    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
-    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=11, B=13, C=6
-    Winner: B
-  [147/150] Ranking SavepointManager (Project: Spring Framework)
-
-  Ranking: SavepointManager (Project: Spring Framework)
+  Ranking: ScopedProxyBeanDefinitionDecorator.java (Project: Spring-Framework)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
-    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
-    Total Points: A=8, B=13, C=9
+    [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
+    Total Points: A=9, B=11, C=10
     Winner: B
-  [148/150] Ranking AbstractTransactionStatus  (Project: Spring Framework)
+  [137/150] Ranking BufferingClientHttpResponseWrapper.java (Project: Spring-Framework)
 
-  Ranking: AbstractTransactionStatus  (Project: Spring Framework)
+  Ranking: BufferingClientHttpResponseWrapper.java (Project: Spring-Framework)
     [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
     [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
     [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
@@ -1506,28 +1403,138 @@ skipped
     [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
     Total Points: A=9, B=15, C=6
     Winner: B
-  [149/150] Ranking SimpleApplicationEventMulticaster (Project: Spring Framework)
+  [138/150] Ranking ContentCachingRequestWrapper.java (Project: Spring-Framework)
 
-  Ranking: SimpleApplicationEventMulticaster (Project: Spring Framework)
-    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
-    [2/5] Evaluating conciseness... 1st=3, 2nd=2, 3rd=1
-    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
-    [4/5] Evaluating code_context... 1st=3, 2nd=1, 3rd=2
-    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
-    Total Points: A=8, B=8, C=14
-    Winner: C
-  [150/150] Ranking BeanDefinitionVisitor  (Project: Spring Framework)
-
-  Ranking: BeanDefinitionVisitor  (Project: Spring Framework)
+  Ranking: ContentCachingRequestWrapper.java (Project: Spring-Framework)
     [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
+    Total Points: A=6, B=13, C=11
+    Winner: B
+  [139/150] Ranking WebSocketHandlerDecorator.java (Project: Spring-Framework)
+
+  Ranking: WebSocketHandlerDecorator.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [140/150] Ranking JDBCTemplate.java (Project: Spring-Framework)
+
+  Ranking: JDBCTemplate.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=10, B=15, C=5
+    Winner: B
+  [141/150] Ranking JmsTemplate.java (Project: Spring-Framework)
+
+  Ranking: JmsTemplate.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=10, B=15, C=5
+    Winner: B
+  [142/150] Ranking RestTemplate.java (Project: Spring-Framework)
+
+  Ranking: RestTemplate.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=9, B=15, C=6
+    Winner: B
+  [143/150] Ranking TransactionTemplate.java (Project: Spring-Framework)
+
+  Ranking: TransactionTemplate.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=9, B=15, C=6
+    Winner: B
+  [144/150] Ranking ApplicationEventPublisher.java (Project: Spring-Framework)
+
+  Ranking: ApplicationEventPublisher.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=3, 3rd=1
+    [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=3, 3rd=1
+    Total Points: A=5, B=15, C=10
+    Winner: B
+  [145/150] Ranking ApplicationListener.java (Project: Spring-Framework)
+
+  Ranking: ApplicationListener.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=1, 3rd=3
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=10, B=15, C=5
+    Winner: B
+  [146/150] Ranking AbstractApplicationEventMulticaster.java (Project: Spring-Framework)
+
+  Ranking: AbstractApplicationEventMulticaster.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=11, B=13, C=6
+    Winner: B
+  [147/150] Ranking SavepointManager.java (Project: Spring-Framework)
+
+  Ranking: SavepointManager.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=3, 3rd=1
+    [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=10, B=13, C=7
+    Winner: B
+  [148/150] Ranking AbstractTransactionStatus.java (Project: Spring-Framework)
+
+  Ranking: AbstractTransactionStatus.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=2, 2nd=1, 3rd=3
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=2, 2nd=1, 3rd=3
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=2, 2nd=1, 3rd=3
+    Total Points: A=9, B=15, C=6
+    Winner: B
+  [149/150] Ranking SimpleApplicationEventMulticaster.java (Project: Spring-Framework)
+
+  Ranking: SimpleApplicationEventMulticaster.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=3, 2nd=1, 3rd=2
+    [2/5] Evaluating conciseness... 1st=2, 2nd=3, 3rd=1
+    [3/5] Evaluating adequacy... 1st=3, 2nd=1, 3rd=2
+    [4/5] Evaluating code_context... 1st=2, 2nd=1, 3rd=3
+    [5/5] Evaluating design_patterns... 1st=3, 2nd=1, 3rd=2
+    Total Points: A=9, B=9, C=12
+    Winner: C
+  [150/150] Ranking BeanDefinitionVisitor.java (Project: Spring-Framework)
+
+  Ranking: BeanDefinitionVisitor.java (Project: Spring-Framework)
+    [1/5] Evaluating accuracy... 1st=1, 2nd=3, 3rd=2
     [2/5] Evaluating conciseness... 1st=1, 2nd=3, 3rd=2
     [3/5] Evaluating adequacy... 1st=1, 2nd=3, 3rd=2
     [4/5] Evaluating code_context... 1st=2, 2nd=3, 3rd=1
     [5/5] Evaluating design_patterns... 1st=1, 2nd=3, 3rd=2
-    Total Points: A=11, B=9, C=10
+    Total Points: A=13, B=7, C=10
     Winner: A
 
-Ranking complete. Ranked: 149, Skipped: 1
+Ranking complete. Ranked: 150, Skipped: 0
 
 ======================================================================
 RANKING COMPLETE
@@ -1544,44 +1551,40 @@ Ranking Summary by Criterion:
 (Shows how often each corpus ranked 1st, 2nd, or 3rd for each criterion)
 
 ACCURACY:
-  Corpus A: 2 first, 89 second, 57 third
-  Corpus B: 136 first, 2 second, 10 third
-  Corpus C: 10 first, 57 second, 81 third
+  Corpus A: 3 first, 82 second, 64 third
+  Corpus B: 145 first, 0 second, 4 third
+  Corpus C: 1 first, 67 second, 81 third
 
 CONCISENESS:
-  Corpus A: 116 first, 12 second, 21 third
-  Corpus B: 31 first, 7 second, 111 third
-  Corpus C: 2 first, 130 second, 17 third
+  Corpus A: 81 first, 19 second, 49 third
+  Corpus B: 67 first, 10 second, 72 third
+  Corpus C: 1 first, 120 second, 28 third
 
 ADEQUACY:
-  Corpus A: 3 first, 108 second, 36 third
-  Corpus B: 144 first, 1 second, 2 third
-  Corpus C: 0 first, 38 second, 109 third
+  Corpus A: 5 first, 102 second, 43 third
+  Corpus B: 144 first, 1 second, 5 third
+  Corpus C: 1 first, 47 second, 102 third
 
 CODE_CONTEXT:
-  Corpus A: 1 first, 100 second, 47 third
-  Corpus B: 140 first, 1 second, 7 third
-  Corpus C: 7 first, 47 second, 94 third
+  Corpus A: 3 first, 93 second, 53 third
+  Corpus B: 143 first, 1 second, 5 third
+  Corpus C: 3 first, 55 second, 91 third
 
 DESIGN_PATTERNS:
-  Corpus A: 10 first, 105 second, 30 third
-  Corpus B: 122 first, 3 second, 20 third
-  Corpus C: 13 first, 37 second, 95 third
+  Corpus A: 6 first, 95 second, 46 third
+  Corpus B: 133 first, 1 second, 13 third
+  Corpus C: 8 first, 51 second, 88 third
 
 ----------------------------------------------------------------------
 Overall Average Points (3=1st, 2=2nd, 1=3rd per criterion):
-  Corpus A: 1.90
-  Corpus B: 2.55
-  Corpus C: 1.49
+  Corpus A: 1.77
+  Corpus B: 2.69
+  Corpus C: 1.48
 
 ----------------------------------------------------------------------
 Winner Distribution:
-  B: 130/149 (87.2%)
-  C: 6/149 (4.0%)
-  B, C: 6/149 (4.0%)
-  A: 5/149 (3.4%)
-  A, B: 2/149 (1.3%)
-
-----------------------------------------------------------------------
-Entries skipped due to missing summaries: 1
-  A, B, C: 1
+  B: 142/150 (94.7%)
+  A: 4/150 (2.7%)
+  A, B: 2/150 (1.3%)
+  B, C: 1/150 (0.7%)
+  C: 1/150 (0.7%)

@@ -1,7 +1,7 @@
 {
   "project_name" : "singleton",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1765511727266,
+  "generated_timestamp" : 1766308894416,
   "class_summaries" : {
     "ThreadSafeDoubleCheckLocking" : {
       "class_name" : "ThreadSafeDoubleCheckLocking",
@@ -17,7 +17,7 @@
           "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Instance))"
         }
       },
-      "swum_class_summary" : "The ThreadSafeDoubleCheckLocking class acts as a singleton in the singleton pattern and acts as a caretaker in the memento pattern and provides methods to get."
+      "swum_class_summary" : "The ThreadSafeDoubleCheckLocking class acts as a singleton in the singleton pattern and provides methods to get."
     },
     "EnumDirector" : {
       "class_name" : "EnumDirector",
@@ -49,7 +49,7 @@
           "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Instance))"
         }
       },
-      "swum_class_summary" : "The LazyInitializationDirector class acts as a singleton in the singleton pattern and acts as an originator in the memento pattern and provides methods to get."
+      "swum_class_summary" : "The LazyInitializationDirector class acts as a singleton in the singleton pattern and provides methods to get."
     },
     "Director" : {
       "class_name" : "Director",
@@ -65,7 +65,7 @@
           "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Instance))"
         }
       },
-      "swum_class_summary" : "The Director class acts as a singleton in the singleton pattern and acts as a memento in the memento pattern and provides methods to get."
+      "swum_class_summary" : "The Director class acts as a singleton in the singleton pattern and provides methods to get."
     },
     "ThreadSafeLazyLoadDirector" : {
       "class_name" : "ThreadSafeLazyLoadDirector",
@@ -81,7 +81,7 @@
           "swum_parse_tree" : "(VERB_PHRASE get (OBJECT Instance))"
         }
       },
-      "swum_class_summary" : "The ThreadSafeLazyLoadDirector class acts as a singleton in the singleton pattern and acts as a memento in the memento pattern and provides methods to get."
+      "swum_class_summary" : "The ThreadSafeLazyLoadDirector class acts as a singleton in the singleton pattern and provides methods to get."
     },
     "Application" : {
       "class_name" : "Application",
@@ -100,49 +100,8 @@
       "swum_class_summary" : "The Application class."
     }
   },
-  "swum_project_summary" : "This software project contains 6 classes with 6 methods. The system implements multiple design patterns including singleton, memento. Primary operations include get. Key objects manipulated are Instance, String.",
+  "swum_project_summary" : "This software project contains 6 classes with 6 methods. The system implements the singleton design pattern. Primary operations include get. Key objects manipulated are Instance, String.",
   "design_patterns" : [ {
     "singleton" : [ "ThreadSafeDoubleCheckLocking", "LazyInitializationDirector", "Director", "ThreadSafeLazyLoadDirector" ]
-  }, {
-    "memento" : {
-      "ThreadSafeDoubleCheckLocking" : {
-        "caretaker" : {
-          "ThreadSafeDoubleCheckLocking" : [ ]
-        },
-        "originator" : {
-          "ThreadSafeDoubleCheckLocking" : [ ]
-        },
-        "concrete_memento" : [ ]
-      },
-      "LazyInitializationDirector" : {
-        "caretaker" : {
-          "LazyInitializationDirector" : [ ]
-        },
-        "originator" : {
-          "LazyInitializationDirector" : [ ]
-        },
-        "concrete_memento" : [ ]
-      },
-      "Director" : {
-        "caretaker" : {
-          "LazyInitializationDirector" : [ ],
-          "Director" : [ ],
-          "ThreadSafeLazyLoadDirector" : [ ]
-        },
-        "originator" : {
-          "Director" : [ ]
-        },
-        "concrete_memento" : [ ]
-      },
-      "ThreadSafeLazyLoadDirector" : {
-        "caretaker" : {
-          "ThreadSafeLazyLoadDirector" : [ ]
-        },
-        "originator" : {
-          "ThreadSafeLazyLoadDirector" : [ ]
-        },
-        "concrete_memento" : [ ]
-      }
-    }
   } ]
 }

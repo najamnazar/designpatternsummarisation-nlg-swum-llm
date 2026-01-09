@@ -388,16 +388,6 @@
 		}
 	},
 	"final_summary" : "",
-	"design_pattern" : [ {
-		"memento" : {
-			"Codec" : {
-				"caretaker" : { },
-				"originator" : {
-					"CodecFactory" : [ ]
-				},
-				"concrete_memento" : [ "OggCompressionCodec", "MPEG4CompressionCodec" ]
-			}
-		}
-	} ],
+	"design_pattern" : [ ],
 	"summary_NLG" : { }
 }

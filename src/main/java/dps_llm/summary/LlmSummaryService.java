@@ -39,7 +39,8 @@ import java.util.Set;
 public class LlmSummaryService {
 
     private final ClassFeatureExtractor extractor = new ClassFeatureExtractor();
-    private final LlmPromptBuilder promptBuilder = new LlmPromptBuilder();
+    // private final LlmPromptBuilder promptBuilder = new LlmPromptBuilder(); // Original default prompt builder kept for reference
+    private final LlmPromptBuilder promptBuilder; // Allows configuring prompt alias per run
     private final LlmClient llmClient;
 
     /**
@@ -53,6 +54,25 @@ public class LlmSummaryService {
             throw new IllegalArgumentException("llmClient must not be null");
         }
         this.llmClient = llmClient;
+        this.promptBuilder = new LlmPromptBuilder(); // Default constructor preserved for backwards compatibility
+    }
+
+    /**
+     * Constructs a new summary service with a specific prompt builder.
+     * This overload enables running the pipeline with different prompt aliases without mutating the original behavior.
+     *
+     * @param llmClient the LLM client for making API requests
+     * @param promptBuilder the prompt builder configured for the desired alias
+     */
+    public LlmSummaryService(LlmClient llmClient, LlmPromptBuilder promptBuilder) {
+        if (llmClient == null) {
+            throw new IllegalArgumentException("llmClient must not be null");
+        }
+        if (promptBuilder == null) {
+            throw new IllegalArgumentException("promptBuilder must not be null");
+        }
+        this.llmClient = llmClient;
+        this.promptBuilder = promptBuilder; // Custom prompt builder injected for multi-prompt execution
     }
 
     /**

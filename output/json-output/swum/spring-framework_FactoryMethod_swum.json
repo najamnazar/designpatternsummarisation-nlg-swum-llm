@@ -1,7 +1,7 @@
 {
   "project_name" : "FactoryMethod",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1765511727360,
+  "generated_timestamp" : 1766308894513,
   "class_summaries" : {
     "CronTriggerFactoryBean" : {
       "class_name" : "CronTriggerFactoryBean",
