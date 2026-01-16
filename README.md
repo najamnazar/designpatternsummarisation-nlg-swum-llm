@@ -1,480 +1,223 @@
-# Design Pattern Summarizer
+# Design Pattern Summariser
 
-An automated tool for generating natural language summaries of design pattern implementations in Java code. Compares three different summary generation methods (NLG, SWUM, and LLM) against human-written summaries, with AI-powered ranking.
+An automated design pattern summarisation platform that generates, ranks, and evaluates natural-language summaries for Java design-pattern implementations. Three summarisation strategies - template-driven NLG, identifier-aware SWUM, and OpenRouter-hosted LLMs - are benchmarked against 150 human-written references using automated metrics and LLM judgement.
 
 ## Overview
 
-This project analyzes Java implementations of common design patterns and generates descriptive summaries using three different approaches:
+The pipeline analyses curated Java projects that exemplify the Gang-of-Four patterns and produces class-level summaries via:
 
-1. **NLG (Natural Language Generation)** - Template-based summary generation using code structure analysis
-2. **SWUM (Software Word Use Model)** - Linguistic analysis of identifier names and code structure
-3. **LLM (Large Language Model)** - AI-powered contextual summary generation using Mixtral-8x22B via OpenRouter
+1. **NLG (Natural Language Generation)** - deterministic templates informed by AST and design-pattern cues.
+2. **SWUM (Software Word Use Model)** - linguistic modelling of identifier semantics plus lightweight static analysis.
+3. **LLM (Large Language Model)** - Mixtral-8x22B (and swap-in OpenRouter models) prompted with code context for richer prose.
 
-The generated summaries are evaluated against human-written summaries using:
-- **Automated Metrics**: Cosine Similarity and BERTScore for quantitative assessment
-- **LLM Ranking**: Llama3-70B ranks the three methods to determine which produces summaries closest to human references
- - **Multi-Criteria Ranking**: A Python pipeline evaluates summaries across five criteria with deterministic prompts
+Outputs are cross-checked against expert summaries through cosine similarity, BERTScore, and LLM-facing ranking pipelines, ensuring quantitative and qualitative coverage.
 
-## Key Features
+## Capabilities
 
-- **Automated Summary Generation**: Three different methods for creating class-level summaries
-- **Design Pattern Detection**: Identifies common design patterns (Factory, Singleton, Observer, Visitor, Decorator, Facade, Adapter, Memento, Abstract Factory)
-- **Comprehensive Evaluation**: Measures quality using Cosine Similarity and BERTScore metrics
-- **LLM-Based Ranking**: Uses Llama3-70B to rank which method produces summaries most similar to human references
-- **Multi-Project Support**: Analyzes implementations from multiple repositories
-- **Visualization**: Generates comparison charts and detailed reports
+- Automated detection of nine core design patterns across several open-source corpora.
+- Parallel generation of class summaries using Java-based NLG, SWUM, and LLM executables.
+- Python evaluation suite covering cosine similarity, BERT precision or recall or F1, multi-project aggregations, and prompt-engineered rankings.
+- Multi-criteria, rubric-driven LLM judgements (accuracy, conciseness, adequacy, code context, pattern clarity).
+- Rich artefact trail (`evaluation-results/`) with CSVs, transcripts, visualisations, and narrative reports.
 
-## Project Structure
+## Repository Layout
 
 ```
-designpatternsummariser/
-├── src/                          # Java source code
-│   ├── common/                   # Shared utilities and pattern detection
-│   ├── dps_app/                  # NLG summary generation
-│   ├── dps_llm/                  # LLM-based summary generation (OpenRouter)
-│   └── dps_swum/                 # SWUM-based summary generation
-├── python/                       # Python evaluation scripts
-│   ├── evaluate_summaries.py    # Main evaluation + LLM ranking script
-│   ├── rank_summaries.py        # Multi-criteria ranking across A/B/C vs human
-│   ├── evaluate_nlg_additional_metrics.py  # Additional MT metrics
-│   └── visualize_comparative_results.py    # Visualization script
-├── input/                        # Input code repositories
-│   ├── AbdurRKhalid/            # Design pattern examples
-│   ├── JamesZBL/                # Additional implementations
-│   ├── spring-framework/        # Real-world patterns
-│   └── DPS_Human_Summaries.csv  # Human-written summaries
-├── output/                       # Generated summaries
-│   ├── json-output/             # Parsed code structure (JSON)
-│   └── summary-output/          # Generated summaries (CSV)
-│       ├── dps_nlg.csv          # NLG summaries
-│       ├── swum_summaries.csv   # SWUM summaries
-│       └── llm_summaries.csv    # LLM summaries (OpenRouter)
-├── evaluation-results/           # Evaluation outputs
-│   ├── results.txt              # Detailed evaluation report
-│   ├── evaluation_summary.txt   # Quick summary
-│   ├── overall_comparison.csv   # Method comparison
-│   ├── llm_summary_rankings.csv # LLM-based ranking results
-│   ├── multi_criteria_rankings.csv # Per-file ranks for all criteria
-│   └── ranking_console_output.txt # Full transcript of ranking run
-│   ├── *_vs_human_*.csv         # Class & project scores
-│   └── *.png                    # Visualization charts
-├── pom.xml                       # Maven configuration
-├── requirements.txt              # Python dependencies
-└── README.md                     # This file
+designpatternsummarisation-nlg-swum-llm/
+├── src/main/java/
+│   ├── common/              # Shared AST tooling and detection heuristics
+│   ├── dps_app/             # NLG generator (Maven exec: dps-app)
+│   ├── dps_swum/            # SWUM-based summariser (exec: swum-pipeline)
+│   └── dps_llm/             # OpenRouter client and prompt orchestration
+├── python/                  # Evaluation and ranking scripts
+│   ├── evaluate_summaries.py
+│   ├── rank_summaries.py
+│   ├── evaluate_b1_b5.py
+│   ├── analyze_conciseness.py
+│   └── summary_length_stats.py (plus LLM prompt variant)
+├── input/
+│   ├── DPS_Human_Summaries.csv
+│   ├── AbdurRKhalid/ (pattern exemplars)
+│   ├── JamesZBL/
+│   └── spring-framework/ (selected Spring modules)
+├── output/
+│   ├── json-output/         # Parsed code structure
+│   └── summary-output/      # Per-method CSVs and experiment shards
+├── evaluation-results/      # Metrics, rankings, iteration logs
+├── pom.xml
+├── requirements.txt
+└── README.md
 ```
 
-## Installation
+## Prerequisites
 
-### Prerequisites
+- **Java**: JDK 11+ (tested up to JDK 21).
+- **Maven**: 3.6+ with the `exec-maven-plugin` enabled.
+- **Python**: 3.10+ recommended for `transformers` support.
+- **OpenRouter API key**: required for LLM generation and ranking workflows.
 
-- **Java**: JDK 11 or higher
-- **Maven**: 3.6 or higher
-- **Python**: 3.8 or higher
-- **API Key**: OpenRouter API key (for LLM summaries)
-
-### Setup
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/najamnazar/designpatternsummariser.git
-   cd designpatternsummariser
-   ```
-
-2. **Install Java dependencies**:
-   ```bash
-   mvn clean install
-   ```
-
-3. **Set up Python environment**:
-   ```bash
-   # Windows
-   setup_python.bat
-   
-   # PowerShell
-   .\setup_python.ps1
-   ```
-
-4. **Configure API Key** (for LLM summaries):
-   Create a `.env` file in the root directory:
-   ```
-   OPENROUTER_API_KEY=your_api_key_here
-   OPENROUTER_MODEL=mistralai/mixtral-8x22b-instruct
-   OPENROUTER_MAX_TOKENS=256
-   OPENROUTER_TEMPERATURE=0.2
-   ```
-
-## Usage
-
-### Generate Summaries
-
-Run all summary generation methods:
-
-```bash
-# Generate NLG summaries
-mvn exec:java@dps-app
-
-# Generate SWUM summaries
-mvn exec:java@swum-pipeline
-
-# Generate LLM summaries (OpenRouter - requires API key)
-mvn exec:java@llm-summaries
-```
-
-### Evaluate Summaries
-
-Compare generated summaries against human summaries with automated metrics and LLM ranking:
-
-```bash
-python python/evaluate_summaries.py
-```
-
-This script will:
-1. Compute Cosine Similarity and BERTScore for each method vs human summaries
-2. Use Llama3-70B to rank which method produces the most human-like summaries
-3. Generate visualizations and detailed reports
-
-Results will be saved in `evaluation-results/`.
-
-### Multi-Criteria LLM Ranking (Python)
-
-Evaluate each summary set (A/B/C) against human references across five criteria using deterministic LLM prompts. This produces per-criterion ranks and aggregate counts.
-
-Prerequisites:
-- `.env` in repo root with `OPENROUTER_API_KEY` and model settings
-- Human summaries: `input/DPS_Human_Summaries.csv` (150 entries)
-- Generated summary CSVs placed under `output/summary-output/` as A/B/C sets
-
-Run (Windows PowerShell):
-```powershell
-# Ensure dependencies
-python -m pip install -r requirements.txt
-
-# Execute full corpus ranking (150 entries)
-python python/rank_summaries.py
-
-# Optional: limit to first 50 for a quick check
-python python/rank_summaries.py --limit 50
-```
-
-Environment (.env):
-```
-OPENROUTER_API_KEY=sk-...
-OPENROUTER_MODEL=meta-llama/llama-3.1-70b-instruct
-OPENROUTER_TEMPERATURE=0
-OPENROUTER_MAX_TOKENS=128
-```
-
-Criteria evaluated:
-- Accuracy, Conciseness, Adequacy, Code Context, Design Patterns
-
-Outputs:
-- `evaluation-results/multi_criteria_rankings.csv` — per-file ranks, criteria columns, winner
-- `evaluation-results/ranking_console_output.txt` — full console transcript with aggregate statistics
-
-Aggregate example (from 150 entries):
-- Accuracy winners: `B 139`, `A 1`, `C 9`
-- Adequacy winners: `B 142`, `A 7`, `C 0`
-- Overall winners: `B 132 / 149`, `C 5 / 149`, `A 5 / 149`
-
-### Quick Start (Windows PowerShell)
-
-Use these commands to install deps, configure the API, and run the ranking end-to-end.
+## Quick Start
 
 ```powershell
-# 1) Clone and enter
-git clone https://github.com/najamnazar/designpatternsummariser.git
-cd designpatternsummariser
+git clone https://github.com/najamnazar/designpatternsummarisation-nlg-swum-llm.git
+cd designpatternsummarisation-nlg-swum-llm
 
-# 2) (Optional) Build Java parts
-mvn -v
+# Java build (all pipelines)
 mvn clean install
 
-# 3) Python deps
+# Python environment
+python -m venv .venv
+.\\.venv\\Scripts\\activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
-# 4) Configure OpenRouter
-@"
-OPENROUTER_API_KEY=sk-your-key
-OPENROUTER_MODEL=meta-llama/llama-3.1-70b-instruct
-OPENROUTER_TEMPERATURE=0
-OPENROUTER_MAX_TOKENS=128
-"@ | Set-Content -Encoding UTF8 .env
-
-# 5) Optional quick test on 50 entries
-python python/rank_summaries.py --limit 50
-
-# 6) Full 150-entry ranking
-python python/rank_summaries.py
-
-# 7) View outputs
-Get-Content evaluation-results/ranking_console_output.txt -Tail 100 | Out-String
+# OpenRouter credentials
+"OPENROUTER_API_KEY=sk-your-key`nOPENROUTER_MODEL=mistralai/mixtral-8x22b-instruct`nOPENROUTER_TEMPERATURE=0.2`nOPENROUTER_MAX_TOKENS=256" | Set-Content -Encoding UTF8 .env
 ```
 
-## Multi-Criteria Summary Ranking System
+## Summary Generation (Java)
 
-### Overview
-
-`python/rank_summaries.py` evaluates three summary corpora (A, B, C) against human references using LLM-driven, deterministic prompts across five criteria.
-
-### Ranking Criteria (1-5 scale)
-- Accuracy: Correctness of described behavior
-- Conciseness: Brevity with essential information
-- Adequacy: Coverage and completeness
-- Code Context: Relationships and intent captured
-- Design Patterns: Recognition and clear description
-
-### Inputs
-- `output/summary-output/A.csv` (NLG)
-- `output/summary-output/B.csv` (LLM)
-- `output/summary-output/C.csv` (SWUM)
-- `input/DPS_Human_Summaries.csv` (human gold)
-
-### Usage
 ```powershell
-# Activate venv if you use one
-# .\.venv\Scripts\Activate.ps1
+# Template-driven NLG summaries
+mvn exec:java@dps-app
 
-# Run ranking
-python python/rank_summaries.py
+# Identifier-aware SWUM summaries
+mvn exec:java@swum-pipeline
+
+# LLM summaries via OpenRouter (requires .env)
+mvn exec:java@llm-summaries
 ```
 
-### Output CSV Columns
-- Identification: `project`, `file`
-- Summaries: `human_summary`, `summary_a`, `summary_b`, `summary_c`
-- Per-criterion ranks: `{criterion}_a`, `{criterion}_b`, `{criterion}_c`
-- Optional LLM notes: `{criterion}_reasoning` (when enabled)
-- Aggregates: `winner` and average/total per corpus
+Each execution iterates over the curated repositories listed under `input/`, detects design-pattern roles, and exports consolidated CSVs to `output/summary-output/` (one per method or experiment iteration).
 
-### Console Output
-- Progress per file and criterion
-- Aggregate statistics by criterion
-- Winner distribution across the corpus
+## Evaluation Pipelines (Python)
 
-### Performance
-- 5 API calls per file (one per criterion)
-- Deterministic settings to reduce variance
+### Automated metrics and LLM tie-breaker
 
-### Maven Execution IDs
+```powershell
+python python/evaluate_summaries.py
+```
 
-The project defines these execution targets:
+The script aligns each generated summary with its human reference, computes cosine similarity and BERTScore (precision, recall, F1), and queries Llama3-70B via OpenRouter to adjudicate ties. Results appear under `evaluation-results/` as:
 
-- `@dps-app` - Run NLG summary generation
-- `@swum-pipeline` - Run SWUM summary generation
-- `@llm-summaries` - Run LLM summary generation
+- `results.txt` - narrative analysis with per-pattern insights.
+- `overall_comparison.csv` - aggregate metrics per method.
+- `*_vs_human_*.csv` - project and class level breakdowns.
 
-## Evaluation Results
+### Multi-criteria deterministic ranking
 
-### Performance Summary
+```powershell
+python python/rank_summaries.py --limit 150        # Full corpus
+python python/rank_summaries.py --limit 50         # Smoke test
+```
 
-Based on evaluation against 150 human-written summaries:
+Inputs expected:
 
-#### Automated Metrics
+- `output/summary-output/A.csv` - NLG corpus.
+- `output/summary-output/B.csv` - LLM corpus.
+- `output/summary-output/C.csv` - SWUM corpus.
+- `input/DPS_Human_Summaries.csv` - gold references.
 
-| Method | Cosine Similarity | BERT F1 | Combined Score | Rank |
-|--------|------------------|---------|----------------|------|
-| **LLM** | **0.3210** | 0.8622 | **0.5916** | 🥇 1st |
-| **SWUM** | 0.2486 | **0.8642** | 0.5564 | 🥈 2nd |
-| **NLG** | 0.1628 | 0.8423 | 0.5025 | 🥉 3rd |
+The script issues five rubric-aligned prompts per file (accuracy, conciseness, adequacy, code context, pattern articulation) using zero-temperature settings for determinism. Artefacts include:
 
-#### LLM Ranking Results
+- `evaluation-results/multi_criteria_rankings.csv` - per-file rubric scores and winners.
+- `evaluation-results/ranking_console_output.txt` - reproducibility log.
 
-Llama3-70B was asked to rank which summaries are most similar to human references:
+### Iteration tracking and ablations
 
-- **Sample Size**: 20 files evaluated
-- **Ranking Methodology**: Direct comparison with detailed reasoning
-- **Results**: See `evaluation-results/llm_summary_rankings.csv`
-
-### Key Findings
-
-1. **LLM is Best Overall**: Achieves highest combined score (0.5916) with superior lexical alignment (cosine similarity nearly 2x that of NLG)
-
-2. **SWUM Has Highest Precision**: BERT precision of 0.8889 indicates most accurate information extraction
-
-3. **All Methods Capture Semantics**: BERT F1 scores (0.84-0.86) show all methods understand code meaning, despite vocabulary differences
-
-4. **LLM Ranking Provides Qualitative Assessment**: Llama3-70B ranking adds human-like judgment to complement automated metrics
-
-5. **Multi-Criteria Ranking Adds Robustness**: Deterministic prompts across five criteria reduce bias and provide granular insights. Full run artifacts are saved as CSV and transcript for auditability.
-
-5. **Consistent Across Projects**: Relative performance remains stable across different codebases
-
-### Detailed Results
-
-See `evaluation-results/results.txt` for comprehensive analysis including:
-- Per-class BERT scores
-- Top/bottom performing classes
-- Project-level breakdowns
-- Comparative visualizations
-- Methodology details
-
-## Design Patterns Supported
-
-The tool recognizes and generates summaries for:
-
-- **Creational**: Factory Method, Abstract Factory, Singleton
-- **Structural**: Adapter, Decorator, Facade
-- **Behavioral**: Observer, Visitor, Memento
-
-## Metrics Explained
-
-### Cosine Similarity (0-1)
-Measures lexical overlap between generated and human summaries using TF-IDF vectors. Higher values indicate more similar word choice and phrasing.
-
-### BERT Score
-Uses contextual embeddings to measure semantic similarity:
-- **Precision**: Accuracy of generated content
-- **Recall**: Coverage of human-written content  
-- **F1**: Harmonic mean of precision and recall
-
-### Combined Score
-Average of Cosine Similarity and BERT F1, providing a balanced measure of lexical and semantic quality.
-
-## Input Data
-
-### Code Repositories
-
-- **AbdurRKhalid**: Educational design pattern examples
-- **JamesZBL**: Additional pattern implementations
-- **Spring Framework**: Real-world enterprise patterns from Spring's codebase
-
-### Human Summaries
-
-150 manually written summaries in `input/DPS_Human_Summaries.csv`:
-- Project name
-- File name
-- Design pattern type
-- GitHub URL
-- Human-written summary
-
-## Output Files
-
-### Generated Summaries (CSV)
-
-Each method produces a CSV with:
-- Project name/path
-- Filename
-- Generated summary
-
-### Evaluation Results
-
-- **Class-level scores**: Individual file comparisons with all metrics
-- **Project-level scores**: Aggregated statistics per project
-- **Overall comparison**: Cross-method performance summary
-- **Visualizations**: Bar charts and metric comparisons
-- **Detailed report**: `results.txt` with comprehensive analysis
+- `python/rank_b1_b5_iterations.py` - compares five prompt or parameter iterations.
+- `python/evaluate_iterations.py` - longitudinal metrics to detect drift.
+- `evaluation-results/iteration_*.txt` - preserved LLM outputs for auditing.
 
 ## Configuration
 
-### LLM Settings (.env)
+### Environment variables (.env)
 
 ```
-OPENROUTER_API_KEY=sk-...           # Required
-OPENROUTER_MODEL=mistralai/...      # Default: mixtral-8x22b-instruct
-OPENROUTER_MAX_TOKENS=256           # Default: 256
-OPENROUTER_TEMPERATURE=0.2          # Default: 0.2 (deterministic)
-LLM_PROJECT_LIMIT=                  # Optional: limit projects processed
+OPENROUTER_API_KEY=sk-xxxxxxxxxxxxxxxx
+OPENROUTER_MODEL=mistralai/mixtral-8x22b-instruct
+OPENROUTER_TEMPERATURE=0.2
+OPENROUTER_MAX_TOKENS=256
+LLM_PROJECT_LIMIT=
+OPENROUTER_BASE_URL=
 ```
 
-### Python Dependencies
+### Python dependencies
 
-Key packages in `requirements.txt`:
-- `pandas` - Data manipulation
-- `numpy` - Numerical operations
-- `scikit-learn` - TF-IDF and cosine similarity
-- `bert-score` - Semantic similarity evaluation
-- `matplotlib`, `seaborn` - Visualizations
-- `transformers` - BERT model access
+Key packages from `requirements.txt`:
 
-## Development
+- `pandas`, `numpy`, `scikit-learn` - tabular processing and cosine similarity.
+- `bert-score`, `transformers`, `torch` - semantic similarity computation.
+- `matplotlib`, `seaborn` - visualisation helpers.
+- `openai`, `tenacity`, `python-dotenv` - OpenRouter client plumbing and resilience.
 
-### Building the Project
+## Input Data
 
-```bash
-mvn clean compile
-```
+- **Human references**: 150 manually curated summaries stored in `input/DPS_Human_Summaries.csv` with project, file, pattern label, GitHub URL, and prose description.
+- **Source repositories**: AbdurRKhalid, JamesZBL, and selected Spring Framework modules copied into `input/` for offline processing.
+- **SWUM dictionaries**: bundled within `src/main/resources/` to keep linguistic cues stable across runs.
 
-### Running Tests
+## Outputs and Reporting
 
-```bash
-mvn test
-```
+- `output/json-output/` - intermediate AST or metadata captures for reproducibility.
+- `output/summary-output/*.csv` - per-method summaries plus experiment tags.
+- `evaluation-results/overall_comparison.csv` - headline metrics table.
+- `evaluation-results/b1_b5_ranking_detail.csv` - deep dive into LLM adjudication.
+- `evaluation-results/conciseness_by_pattern.txt` - textual reports for qualitative review.
+- Visual assets (`*.png`) for presentation decks or papers.
 
-### Code Structure
+## Metrics
 
-- **Common utilities** (`common/`): Shared parsing, pattern detection
-- **NLG pipeline** (`dps_app/`): Template-based generation
-- **SWUM pipeline** (`dps_swum/`): Identifier analysis and linguistic modeling
-- **LLM pipeline** (`dps_llm/`): API integration and prompt engineering
+- **Cosine similarity** - TF-IDF vectors across summaries (0 <= s <= 1).
+- **BERTScore** - contextual embeddings measuring semantic recall, precision, and F1.
+- **Combined score** - arithmetic mean of cosine similarity and BERT F1 to balance lexical versus semantic fidelity.
+- **LLM ranking** - qualitative ordering from Llama3-70B with reasoning strings stored for audit.
+
+## Design Patterns Covered
+
+- **Creational**: Factory Method, Abstract Factory, Singleton.
+- **Structural**: Adapter, Decorator, Facade.
+- **Behavioural**: Observer, Visitor, Memento.
+
+## Development Workflow
+
+- `mvn clean compile` - Java compile and SWUM resource generation.
+- `mvn test` - unit tests ensuring pattern detection remains stable.
+- `python -m pytest` (if enabled) - validation for new evaluation utilities.
+- `python/summary_length_stats_llm_prompts.py` - monitors verbosity drift between experiments.
 
 ## Research Context
 
-This project supports research in automated code documentation and design pattern understanding. The evaluation methodology compares automated approaches against human judgment to assess:
-
-- **Readability**: How natural do generated summaries sound?
-- **Accuracy**: Do summaries correctly describe code behavior?
-- **Completeness**: Are key concepts and relationships captured?
-- **Usefulness**: Would developers find these summaries helpful?
+The project underpins studies on automated code documentation, assessing whether hybrid approaches (symbolic plus neural) can rival expert-authored summaries. The artefacts provided enable replication, alternative LLM plug-ins, and human-in-the-loop verification.
 
 ## Limitations
 
-1. **Language Support**: Currently Java only
-2. **Pattern Coverage**: Limited to 9 common patterns
-3. **LLM Dependency**: Requires API key and internet connection
-4. **Context Window**: LLM summaries limited to 256 tokens
-5. **Evaluation Dataset**: Human summaries from specific projects only
+1. Java-only coverage; Kotlin or C# sources are presently out of scope.
+2. Nine design patterns supported; composite or state patterns require additional heuristics.
+3. LLM pipelines depend on third-party availability and cost control.
+4. Context windows are capped (default 256 tokens) to ensure deterministic latency.
+5. Human references originate from a limited project set, which may bias lexical style.
 
-## Future Work
+## Roadmap
 
-- Expand to additional programming languages (Python, C#)
-- Support more design patterns
-- Fine-tune LLM for code summarization
-- Develop hybrid approaches combining method strengths
-- Create larger evaluation dataset
-- Add interactive web interface
+- Extend AST traversals to support additional behavioural patterns (Command, Strategy).
+- Experiment with fine-tuned, self-hosted LLMs to reduce API dependence.
+- Broaden evaluation metrics (MoverScore, BLEURT) for cross-study comparability.
+- Build a lightweight web front-end for interactive exploration of summaries and rankings.
 
 ## Contributing
 
-Contributions welcome! Areas of interest:
+Contributions are welcome. Please open an issue describing planned work (for example new pattern detectors, evaluation scripts, or visualisations) before submitting a pull request to avoid duplicated effort.
 
-- Additional design pattern detectors
-- Alternative summary generation methods
-- Expanded evaluation metrics
-- Support for more languages
-- Improved visualization
+## Licence
 
-## License
-
-[Your License Here - e.g., MIT]
+Released under the [BSD 2-Clause Licence](LICENSE). See the licence file for full terms.
 
 ## Citation
 
-If you use this work in research, please cite:
-
-```
-[Add citation information]
-```
-
-## Acknowledgments
-
-- Human summaries provided by domain experts
-- Design pattern examples from open-source repositories
-- Evaluation methodology based on established NLG metrics
-- OpenRouter for LLM API access
 
 ## Contact
 
-[Add contact information]
+For research collaborations or dataset questions, please raise a GitHub issue or email najam.nazar@monash.edu
 
-## References
-
-- Design Patterns: Elements of Reusable Object-Oriented Software (Gang of Four)
-- SWUM: Software Word Use Model
-- BERTScore: Evaluating Text Generation with BERT
-- OpenRouter API Documentation
-
----
-
-**Last Updated**: November 30, 2025  
-**Version**: 1.0  
-**Status**: Active Development
+**Last updated**: 16 January 2026 - Status: Active research prototype.
