@@ -218,6 +218,6 @@ Released under the [BSD 2-Clause Licence](LICENSE). See the licence file for ful
 
 ## Contact
 
-For research collaborations or dataset questions, please raise a GitHub issue or email najam.nazar@monash.edu
+For research collaborations or dataset questions, please raise a GitHub issue.
 
 **Last updated**: 16 January 2026 - Status: Active research prototype.
