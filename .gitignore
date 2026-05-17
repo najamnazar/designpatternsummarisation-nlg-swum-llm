@@ -38,3 +38,45 @@ replay_pid*
 .project
 .settings/
 .vscode/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Generic compiled/binary artifacts
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.dylib
+*.exe
+*.out
+
+# Common build output directories
+build/
+dist/
+out/
+bin/
+
+# Environment and secret files
+.env
+.env.*
+!.env.example
+
+# Nested Git metadata copied from external repos
+**/.git/
+**/.git
+**/.gitmodules

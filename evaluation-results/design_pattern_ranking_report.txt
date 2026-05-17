@@ -1,0 +1,70 @@
+
+
+======================================================================
+DESIGN PATTERN RANKING RESULTS (A vs B vs C)
+======================================================================
+Total ranked samples: 150
+Total skipped samples: 0
+
+Per-Pattern Rank Distribution (same format, grouped by design pattern):
+----------------------------------------------------------------------
+Design Pattern       Corpus A (1st/2nd/3rd)   Corpus B (1st/2nd/3rd)   Corpus C (1st/2nd/3rd)   Total (1st/2nd/3rd) 
+--------------------------------------------------------------------------------------------------------------------
+(Computed per sample using total_points_a/b/c; ties broken deterministically as A > B > C.)
+Abstract Factory     0 / 23 / 6               29 / 0 / 0               0 / 6 / 23               29 / 29 / 29        
+Factory Method       0 / 16 / 4               20 / 0 / 0               0 / 4 / 16               20 / 20 / 20        
+Visitor              2 / 7 / 10               17 / 0 / 2               0 / 12 / 7               19 / 19 / 19        
+Facade               0 / 14 / 4               18 / 0 / 0               0 / 4 / 14               18 / 18 / 18        
+Adapter              2 / 10 / 2               12 / 0 / 2               0 / 4 / 10               14 / 14 / 14        
+Decorator            0 / 2 / 12               13 / 1 / 0               1 / 11 / 2               14 / 14 / 14        
+Observer             0 / 9 / 5                14 / 0 / 0               0 / 5 / 9                14 / 14 / 14        
+Singleton            1 / 6 / 5                11 / 1 / 0               0 / 5 / 7                12 / 12 / 12        
+Memento              0 / 7 / 3                9 / 1 / 0                1 / 2 / 7                10 / 10 / 10        
+
+Per-Pattern Performance Summary:
+----------------------------------------------------------------------
+Pattern: Abstract Factory (n=29)
+  Mean Points -> A=1.90, B=2.78, C=1.32
+  Rank Order: B>A>C
+  Most Frequent Winner: B (share=100.0%)
+Pattern: Factory Method (n=20)
+  Mean Points -> A=1.85, B=2.76, C=1.39
+  Rank Order: B>A>C
+  Most Frequent Winner: B (share=100.0%)
+Pattern: Visitor (n=19)
+  Mean Points -> A=1.74, B=2.57, C=1.63
+  Rank Order: B>A>C
+  Most Frequent Winner: B (share=89.5%)
+Pattern: Facade (n=18)
+  Mean Points -> A=1.86, B=2.71, C=1.37
+  Rank Order: B>A>C
+  Most Frequent Winner: B (share=100.0%)
+Pattern: Adapter (n=14)
+  Mean Points -> A=2.00, B=2.39, C=1.44
+  Rank Order: B>A>C
+  Most Frequent Winner: B (share=85.7%)
+Pattern: Decorator (n=14)
+  Mean Points -> A=1.39, B=2.70, C=1.91
+  Rank Order: B>C>A
+  Most Frequent Winner: B (share=92.9%)
+Pattern: Observer (n=14)
+  Mean Points -> A=1.83, B=2.67, C=1.41
+  Rank Order: B>A>C
+  Most Frequent Winner: B (share=100.0%)
+Pattern: Singleton (n=12)
+  Mean Points -> A=1.68, B=2.72, C=1.50
+  Rank Order: B>A>C
+  Most Frequent Winner: B (share=91.7%)
+Pattern: Memento (n=10)
+  Mean Points -> A=1.58, B=2.64, C=1.54
+  Rank Order: B>A>C
+  Most Frequent Winner: B (share=90.0%)
+
+Stability Across Design Patterns:
+----------------------------------------------------------------------
+Global rank order (all ranked rows): B>A>C
+Patterns matching global order exactly: 8/9 (88.9%)
+Patterns with same top-1 system (B): 100.0%
+Interpretation: ranking trends are largely stable across design patterns.
+Verdict: most design patterns follow B>A>C, and only Decorator differs with B>C>A.
+======================================================================
