@@ -1,0 +1,679 @@
+project,design_pattern,file,class_name,fact_id,fact_type,source,fact_text
+AbdurRKhalid,Observer,EmailNotificationListener.java,EmailNotificationListener,1,role,detector,EmailNotificationListener is a concrete observer for EventListener in the Observer pattern.
+AbdurRKhalid,Observer,EmailNotificationListener.java,EmailNotificationListener,2,inheritance,parser,EmailNotificationListener implements EventListener.
+AbdurRKhalid,Observer,EmailNotificationListener.java,EmailNotificationListener,3,method,parser,EmailNotificationListener overrides method update.
+AbdurRKhalid,Observer,LogOpenListener.java,LogOpenListener,1,role,detector,LogOpenListener is a concrete observer for EventListener in the Observer pattern.
+AbdurRKhalid,Observer,LogOpenListener.java,LogOpenListener,2,inheritance,parser,LogOpenListener implements EventListener.
+AbdurRKhalid,Observer,LogOpenListener.java,LogOpenListener,3,method,parser,LogOpenListener overrides method update.
+AbdurRKhalid,Observer,Editor.java,Editor,1,field,parser,Editor has a field events of type EventManager.
+AbdurRKhalid,Observer,Editor.java,Editor,2,method,parser,Editor defines method openFile.
+AbdurRKhalid,Observer,Editor.java,Editor,3,method,parser,Editor defines method saveFile.
+AbdurRKhalid,Observer,EventListener.java,EventListener,1,role,detector,EventListener is the observer interface in the Observer pattern.
+AbdurRKhalid,Observer,EventListener.java,EventListener,2,role,detector,EmailNotificationListener is a concrete observer for EventListener in the Observer pattern.
+AbdurRKhalid,Observer,EventListener.java,EventListener,3,role,detector,LogOpenListener is a concrete observer for EventListener in the Observer pattern.
+AbdurRKhalid,Observer,EventListener.java,EventListener,4,role,detector,EventManager is a publisher for EventListener in the Observer pattern.
+AbdurRKhalid,Observer,EventListener.java,EventListener,5,kind,parser,EventListener is an interface.
+AbdurRKhalid,Observer,EventListener.java,EventListener,6,method,parser,EventListener defines method update.
+AbdurRKhalid,Observer,EventManager.java,EventManager,1,role,detector,EventManager is a publisher for EventListener in the Observer pattern.
+AbdurRKhalid,Observer,EventManager.java,EventManager,2,field,parser,"EventManager has a field listeners of type Map<String,List<EventListener>>."
+AbdurRKhalid,Observer,EventManager.java,EventManager,3,method,parser,EventManager defines method subscribe.
+AbdurRKhalid,Observer,EventManager.java,EventManager,4,method,parser,EventManager defines method unsubscribe.
+AbdurRKhalid,Observer,EventManager.java,EventManager,5,method,parser,EventManager defines method notify.
+AbdurRKhalid,Visitor,Computer.java,Computer,1,role,detector,Computer is a concrete element for ComputerPart in the Visitor pattern.
+AbdurRKhalid,Visitor,Computer.java,Computer,2,inheritance,parser,Computer extends ComputerPart.
+AbdurRKhalid,Visitor,Computer.java,Computer,3,inheritance,parser,Computer implements ComputerPart.
+AbdurRKhalid,Visitor,Computer.java,Computer,4,field,parser,Computer has a field parts of type ComputerPart[].
+AbdurRKhalid,Visitor,Computer.java,Computer,5,method,parser,Computer overrides method accept.
+AbdurRKhalid,Visitor,Computer.java,Computer,6,call,parser,Method accept of Computer calls accept of ComputerPart.
+AbdurRKhalid,Visitor,Computer.java,Computer,7,call,parser,Method accept of Computer calls visit of ComputerPartVisitor.
+AbdurRKhalid,Visitor,ComputerPart.java,ComputerPart,1,role,detector,ComputerPart is the element interface in the Visitor pattern.
+AbdurRKhalid,Visitor,ComputerPart.java,ComputerPart,2,role,detector,Monitor is a concrete element for ComputerPart in the Visitor pattern.
+AbdurRKhalid,Visitor,ComputerPart.java,ComputerPart,3,role,detector,Mouse is a concrete element for ComputerPart in the Visitor pattern.
+AbdurRKhalid,Visitor,ComputerPart.java,ComputerPart,4,role,detector,Keyboard is a concrete element for ComputerPart in the Visitor pattern.
+AbdurRKhalid,Visitor,ComputerPart.java,ComputerPart,5,role,detector,Computer is a concrete element for ComputerPart in the Visitor pattern.
+AbdurRKhalid,Visitor,ComputerPart.java,ComputerPart,6,kind,parser,ComputerPart is an interface.
+AbdurRKhalid,Visitor,ComputerPart.java,ComputerPart,7,method,parser,ComputerPart defines method accept.
+AbdurRKhalid,Visitor,ComputerPartDisplayVisitor.java,ComputerPartDisplayVisitor,1,role,detector,ComputerPartDisplayVisitor is a concrete visitor for ComputerPartVisitor in the Visitor pattern.
+AbdurRKhalid,Visitor,ComputerPartDisplayVisitor.java,ComputerPartDisplayVisitor,2,inheritance,parser,ComputerPartDisplayVisitor extends ComputerPartVisitor.
+AbdurRKhalid,Visitor,ComputerPartDisplayVisitor.java,ComputerPartDisplayVisitor,3,inheritance,parser,ComputerPartDisplayVisitor implements ComputerPartVisitor.
+AbdurRKhalid,Visitor,ComputerPartDisplayVisitor.java,ComputerPartDisplayVisitor,4,method,parser,ComputerPartDisplayVisitor overrides method visit.
+AbdurRKhalid,Visitor,ComputerPartVisitor.java,ComputerPartVisitor,1,role,detector,ComputerPartVisitor is a visitor for ComputerPart in the Visitor pattern.
+AbdurRKhalid,Visitor,ComputerPartVisitor.java,ComputerPartVisitor,2,role,detector,ComputerPartDisplayVisitor is a concrete visitor for ComputerPartVisitor in the Visitor pattern.
+AbdurRKhalid,Visitor,ComputerPartVisitor.java,ComputerPartVisitor,3,kind,parser,ComputerPartVisitor is an interface.
+AbdurRKhalid,Visitor,ComputerPartVisitor.java,ComputerPartVisitor,4,method,parser,ComputerPartVisitor defines method visit.
+AbdurRKhalid,Visitor,Keyboard.java,Keyboard,1,role,detector,Keyboard is a concrete element for ComputerPart in the Visitor pattern.
+AbdurRKhalid,Visitor,Keyboard.java,Keyboard,2,inheritance,parser,Keyboard extends ComputerPart.
+AbdurRKhalid,Visitor,Keyboard.java,Keyboard,3,inheritance,parser,Keyboard implements ComputerPart.
+AbdurRKhalid,Visitor,Keyboard.java,Keyboard,4,method,parser,Keyboard overrides method accept.
+AbdurRKhalid,Visitor,Keyboard.java,Keyboard,5,call,parser,Method accept of Keyboard calls visit of ComputerPartVisitor.
+AbdurRKhalid,Visitor,Monitor.java,Monitor,1,role,detector,Monitor is a concrete element for ComputerPart in the Visitor pattern.
+AbdurRKhalid,Visitor,Monitor.java,Monitor,2,inheritance,parser,Monitor extends ComputerPart.
+AbdurRKhalid,Visitor,Monitor.java,Monitor,3,inheritance,parser,Monitor implements ComputerPart.
+AbdurRKhalid,Visitor,Monitor.java,Monitor,4,method,parser,Monitor overrides method accept.
+AbdurRKhalid,Visitor,Monitor.java,Monitor,5,call,parser,Method accept of Monitor calls visit of ComputerPartVisitor.
+AbdurRKhalid,Visitor,Mouse.java,Mouse,1,role,detector,Mouse is a concrete element for ComputerPart in the Visitor pattern.
+AbdurRKhalid,Visitor,Mouse.java,Mouse,2,inheritance,parser,Mouse extends ComputerPart.
+AbdurRKhalid,Visitor,Mouse.java,Mouse,3,inheritance,parser,Mouse implements ComputerPart.
+AbdurRKhalid,Visitor,Mouse.java,Mouse,4,method,parser,Mouse overrides method accept.
+AbdurRKhalid,Visitor,Mouse.java,Mouse,5,call,parser,Method accept of Mouse calls visit of ComputerPartVisitor.
+AbdurRKhalid,Visitor,Test.java,Test,1,method,parser,Test defines method main.
+AbdurRKhalid,Visitor,Test.java,Test,2,call,parser,Method main of Test calls accept of ComputerPart.
+AbdurRKhalid,AbstractFactory,GUIFactory.java,GUIFactory,1,role,detector,GUIFactory is the abstract factory in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,GUIFactory.java,GUIFactory,2,role,detector,Button is an abstract product for GUIFactory in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,GUIFactory.java,GUIFactory,3,role,detector,CheckBox is an abstract product for GUIFactory in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,GUIFactory.java,GUIFactory,4,role,detector,WindowsOSFactory is a concrete factory for GUIFactory in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,GUIFactory.java,GUIFactory,5,role,detector,MacOSFactory is a concrete factory for GUIFactory in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,GUIFactory.java,GUIFactory,6,kind,parser,GUIFactory is an interface.
+AbdurRKhalid,AbstractFactory,GUIFactory.java,GUIFactory,7,method,parser,GUIFactory defines method createButton.
+AbdurRKhalid,AbstractFactory,GUIFactory.java,GUIFactory,8,method,parser,GUIFactory defines method createCheckBox.
+AbdurRKhalid,AbstractFactory,Application.java,Application,1,constructor,parser,Application's constructor takes a parameter of type GUIFactory.
+AbdurRKhalid,AbstractFactory,Application.java,Application,2,field,parser,Application has a field button of type Button.
+AbdurRKhalid,AbstractFactory,Application.java,Application,3,field,parser,Application has a field checkBox of type CheckBox.
+AbdurRKhalid,AbstractFactory,Application.java,Application,4,method,parser,Application defines method paint.
+AbdurRKhalid,AbstractFactory,MacOSFactory.java,MacOSFactory,1,role,detector,MacOSFactory is a concrete factory for GUIFactory in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,MacOSFactory.java,MacOSFactory,2,inheritance,parser,MacOSFactory implements GUIFactory.
+AbdurRKhalid,AbstractFactory,MacOSFactory.java,MacOSFactory,3,method,parser,MacOSFactory overrides method createButton.
+AbdurRKhalid,AbstractFactory,MacOSFactory.java,MacOSFactory,4,method,parser,MacOSFactory overrides method createCheckBox.
+AbdurRKhalid,AbstractFactory,WindowsOSFactory.java,WindowsOSFactory,1,role,detector,WindowsOSFactory is a concrete factory for GUIFactory in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,WindowsOSFactory.java,WindowsOSFactory,2,inheritance,parser,WindowsOSFactory implements GUIFactory.
+AbdurRKhalid,AbstractFactory,WindowsOSFactory.java,WindowsOSFactory,3,method,parser,WindowsOSFactory overrides method createButton.
+AbdurRKhalid,AbstractFactory,WindowsOSFactory.java,WindowsOSFactory,4,method,parser,WindowsOSFactory overrides method createCheckBox.
+AbdurRKhalid,AbstractFactory,Button.java,Button,1,role,detector,Button is an abstract product for GUIFactory in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,Button.java,Button,2,role,detector,WindowsButton is a concrete product for Button in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,Button.java,Button,3,role,detector,MacOSButton is a concrete product for Button in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,Button.java,Button,4,kind,parser,Button is an interface.
+AbdurRKhalid,AbstractFactory,Button.java,Button,5,method,parser,Button defines method paint.
+AbdurRKhalid,AbstractFactory,CheckBox.java,CheckBox,1,role,detector,CheckBox is an abstract product for GUIFactory in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,CheckBox.java,CheckBox,2,role,detector,WindowsCheckBox is a concrete product for CheckBox in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,CheckBox.java,CheckBox,3,role,detector,MacOSCheckBox is a concrete product for CheckBox in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,CheckBox.java,CheckBox,4,kind,parser,CheckBox is an interface.
+AbdurRKhalid,AbstractFactory,CheckBox.java,CheckBox,5,method,parser,CheckBox defines method paint.
+AbdurRKhalid,AbstractFactory,MacOSButton.java,MacOSButton,1,role,detector,MacOSButton is a concrete product for Button in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,MacOSButton.java,MacOSButton,2,inheritance,parser,MacOSButton implements Button.
+AbdurRKhalid,AbstractFactory,MacOSButton.java,MacOSButton,3,method,parser,MacOSButton overrides method paint.
+AbdurRKhalid,AbstractFactory,MacOSCheckBox.java,MacOSCheckBox,1,role,detector,MacOSCheckBox is a concrete product for CheckBox in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,MacOSCheckBox.java,MacOSCheckBox,2,inheritance,parser,MacOSCheckBox implements CheckBox.
+AbdurRKhalid,AbstractFactory,MacOSCheckBox.java,MacOSCheckBox,3,method,parser,MacOSCheckBox overrides method paint.
+AbdurRKhalid,AbstractFactory,WindowsButton.java,WindowsButton,1,role,detector,WindowsButton is a concrete product for Button in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,WindowsButton.java,WindowsButton,2,inheritance,parser,WindowsButton implements Button.
+AbdurRKhalid,AbstractFactory,WindowsButton.java,WindowsButton,3,method,parser,WindowsButton overrides method paint.
+AbdurRKhalid,AbstractFactory,WindowsCheckBox.java,WindowsCheckBox,1,role,detector,WindowsCheckBox is a concrete product for CheckBox in the Abstract Factory pattern.
+AbdurRKhalid,AbstractFactory,WindowsCheckBox.java,WindowsCheckBox,2,inheritance,parser,WindowsCheckBox implements CheckBox.
+AbdurRKhalid,AbstractFactory,WindowsCheckBox.java,WindowsCheckBox,3,method,parser,WindowsCheckBox overrides method paint.
+AbdurRKhalid,AbstractFactory,Test.java,Test,1,method,parser,Test defines method main.
+AbdurRKhalid,AbstractFactory,Test.java,Test,2,call,parser,Method main of Test calls paint of Application.
+AbdurRKhalid,FactoryMethod,Test.java,Test,1,field,parser,Test has a static field dialog of type Dialog.
+AbdurRKhalid,FactoryMethod,Test.java,Test,2,method,parser,Test defines method main.
+AbdurRKhalid,FactoryMethod,HtmlDialog.java,HtmlDialog,1,role,detector,HtmlDialog is a concrete factory for Dialog in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,HtmlDialog.java,HtmlDialog,2,inheritance,parser,HtmlDialog extends Dialog.
+AbdurRKhalid,FactoryMethod,HtmlDialog.java,HtmlDialog,3,method,parser,HtmlDialog overrides method createButton.
+AbdurRKhalid,FactoryMethod,WindowsDialog.java,WindowsDialog,1,role,detector,WindowsDialog is a concrete factory for Dialog in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,WindowsDialog.java,WindowsDialog,2,inheritance,parser,WindowsDialog extends Dialog.
+AbdurRKhalid,FactoryMethod,WindowsDialog.java,WindowsDialog,3,method,parser,WindowsDialog overrides method createButton.
+AbdurRKhalid,FactoryMethod,HtmlButton.java,HtmlButton,1,role,detector,HtmlButton is a concrete product for Dialog in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,HtmlButton.java,HtmlButton,2,inheritance,parser,HtmlButton implements Button.
+AbdurRKhalid,FactoryMethod,HtmlButton.java,HtmlButton,3,method,parser,HtmlButton overrides method render.
+AbdurRKhalid,FactoryMethod,HtmlButton.java,HtmlButton,4,method,parser,HtmlButton overrides method onClick.
+AbdurRKhalid,FactoryMethod,HtmlButton.java,HtmlButton,5,call,parser,Method render of HtmlButton calls onClick of HtmlButton.
+AbdurRKhalid,FactoryMethod,WindowsButton.java,WindowsButton,1,role,detector,WindowsButton is a concrete product for Dialog in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,WindowsButton.java,WindowsButton,2,inheritance,parser,WindowsButton implements Button.
+AbdurRKhalid,FactoryMethod,WindowsButton.java,WindowsButton,3,method,parser,WindowsButton overrides method render.
+AbdurRKhalid,FactoryMethod,WindowsButton.java,WindowsButton,4,method,parser,WindowsButton overrides method onClick.
+AbdurRKhalid,FactoryMethod,WindowsButton.java,WindowsButton,5,call,parser,Method render of WindowsButton calls onClick of WindowsButton.
+AbdurRKhalid,FactoryMethod,Dialog.java,Dialog,1,role,detector,Dialog is the creator in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,Dialog.java,Dialog,2,role,detector,WindowsButton is a concrete product for Dialog in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,Dialog.java,Dialog,3,role,detector,HtmlButton is a concrete product for Dialog in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,Dialog.java,Dialog,4,role,detector,Button is an abstract product for Dialog in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,Dialog.java,Dialog,5,role,detector,WindowsDialog is a concrete factory for Dialog in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,Dialog.java,Dialog,6,kind,parser,Dialog is an abstract class.
+AbdurRKhalid,FactoryMethod,Dialog.java,Dialog,7,method,parser,Dialog defines method renderWindow.
+AbdurRKhalid,FactoryMethod,Dialog.java,Dialog,8,method,parser,Dialog defines method createButton.
+AbdurRKhalid,FactoryMethod,Dialog.java,Dialog,9,call,parser,Method renderWindow of Dialog calls createButton of Dialog.
+AbdurRKhalid,FactoryMethod,Button.java,Button,1,role,detector,Button is an abstract product for Dialog in the Factory Method pattern.
+AbdurRKhalid,FactoryMethod,Button.java,Button,2,kind,parser,Button is an interface.
+AbdurRKhalid,FactoryMethod,Button.java,Button,3,method,parser,Button defines method render.
+AbdurRKhalid,FactoryMethod,Button.java,Button,4,method,parser,Button defines method onClick.
+AbdurRKhalid,Memento,TextEditor.java,TextEditor,1,constructor,parser,TextEditor's constructor takes a parameter of type TextWindow.
+AbdurRKhalid,Memento,TextEditor.java,TextEditor,2,field,parser,TextEditor has a field textWindow of type TextWindow.
+AbdurRKhalid,Memento,TextEditor.java,TextEditor,3,field,parser,TextEditor has a field savedTextWindow of type TextWindowState.
+AbdurRKhalid,Memento,TextEditor.java,TextEditor,4,method,parser,TextEditor defines method hitSave.
+AbdurRKhalid,Memento,TextEditor.java,TextEditor,5,method,parser,TextEditor defines method hitUndo.
+AbdurRKhalid,Memento,TextWindowState.java,TextWindowState,1,method,parser,TextWindowState defines method getText.
+AbdurRKhalid,Memento,TextWindow.java,TextWindow,1,method,parser,TextWindow defines method addText.
+AbdurRKhalid,Memento,TextWindow.java,TextWindow,2,method,parser,TextWindow defines method save.
+AbdurRKhalid,Memento,TextWindow.java,TextWindow,3,method,parser,TextWindow defines method restore.
+AbdurRKhalid,Singleton,Singleton.java,Singleton,1,constructor,parser,Singleton has a private constructor.
+AbdurRKhalid,Singleton,Singleton.java,Singleton,2,field,parser,Singleton has a static field instance of type Singleton.
+AbdurRKhalid,Singleton,Singleton.java,Singleton,3,method,parser,Singleton defines method getInstance.
+AbdurRKhalid,Singleton,Test.java,Test,1,method,parser,Test defines method main.
+AbdurRKhalid,Adapter,SquarePeg.java,SquarePeg,1,role,detector,SquarePeg is an adaptee for SquarePegAdapter in the Adapter pattern.
+AbdurRKhalid,Adapter,SquarePeg.java,SquarePeg,2,method,parser,SquarePeg defines method getWidth.
+AbdurRKhalid,Adapter,SquarePeg.java,SquarePeg,3,method,parser,SquarePeg defines method getSquare.
+AbdurRKhalid,Adapter,SquarePegAdapter.java,SquarePegAdapter,1,role,detector,SquarePegAdapter is the adapter in the Adapter pattern.
+AbdurRKhalid,Adapter,SquarePegAdapter.java,SquarePegAdapter,2,role,detector,SquarePeg is an adaptee for SquarePegAdapter in the Adapter pattern.
+AbdurRKhalid,Adapter,SquarePegAdapter.java,SquarePegAdapter,3,role,detector,RoundPeg is a target for SquarePegAdapter in the Adapter pattern.
+AbdurRKhalid,Adapter,SquarePegAdapter.java,SquarePegAdapter,4,inheritance,parser,SquarePegAdapter extends RoundPeg.
+AbdurRKhalid,Adapter,SquarePegAdapter.java,SquarePegAdapter,5,constructor,parser,SquarePegAdapter's constructor takes a parameter of type SquarePeg.
+AbdurRKhalid,Adapter,SquarePegAdapter.java,SquarePegAdapter,6,field,parser,SquarePegAdapter has a field squarePeg of type SquarePeg.
+AbdurRKhalid,Adapter,SquarePegAdapter.java,SquarePegAdapter,7,method,parser,SquarePegAdapter overrides method getRadius.
+AbdurRKhalid,Adapter,RoundHole.java,RoundHole,1,method,parser,RoundHole defines method getRadius.
+AbdurRKhalid,Adapter,RoundHole.java,RoundHole,2,method,parser,RoundHole defines method fits.
+AbdurRKhalid,Adapter,RoundPeg.java,RoundPeg,1,role,detector,RoundPeg is a target for SquarePegAdapter in the Adapter pattern.
+AbdurRKhalid,Adapter,RoundPeg.java,RoundPeg,2,method,parser,RoundPeg defines method getRadius.
+AbdurRKhalid,Adapter,Test.java,Test,1,method,parser,Test defines method main.
+AbdurRKhalid,Decorator,DataSource.java,DataSource,1,kind,parser,DataSource is an interface.
+AbdurRKhalid,Decorator,DataSource.java,DataSource,2,method,parser,DataSource defines method writeData.
+AbdurRKhalid,Decorator,DataSource.java,DataSource,3,method,parser,DataSource defines method readData.
+AbdurRKhalid,Decorator,FileDataSource.java,FileDataSource,1,inheritance,parser,FileDataSource implements DataSource.
+AbdurRKhalid,Decorator,FileDataSource.java,FileDataSource,2,method,parser,FileDataSource overrides method writeData.
+AbdurRKhalid,Decorator,FileDataSource.java,FileDataSource,3,method,parser,FileDataSource overrides method readData.
+AbdurRKhalid,Decorator,CompressionDecorator.java,CompressionDecorator,1,inheritance,parser,CompressionDecorator extends DataSourceDecorator.
+AbdurRKhalid,Decorator,CompressionDecorator.java,CompressionDecorator,2,constructor,parser,CompressionDecorator's constructor takes a parameter of type DataSource.
+AbdurRKhalid,Decorator,CompressionDecorator.java,CompressionDecorator,3,method,parser,CompressionDecorator overrides method writeData.
+AbdurRKhalid,Decorator,CompressionDecorator.java,CompressionDecorator,4,method,parser,CompressionDecorator overrides method readData.
+AbdurRKhalid,Decorator,CompressionDecorator.java,CompressionDecorator,5,method,parser,CompressionDecorator defines method getCompressionLevel.
+AbdurRKhalid,Decorator,CompressionDecorator.java,CompressionDecorator,6,call,parser,Method writeData of CompressionDecorator calls compress of CompressionDecorator.
+AbdurRKhalid,Decorator,EncryptionDecorator.java,EncryptionDecorator,1,inheritance,parser,EncryptionDecorator extends DataSourceDecorator.
+AbdurRKhalid,Decorator,EncryptionDecorator.java,EncryptionDecorator,2,constructor,parser,EncryptionDecorator's constructor takes a parameter of type DataSource.
+AbdurRKhalid,Decorator,EncryptionDecorator.java,EncryptionDecorator,3,method,parser,EncryptionDecorator overrides method writeData.
+AbdurRKhalid,Decorator,EncryptionDecorator.java,EncryptionDecorator,4,method,parser,EncryptionDecorator overrides method readData.
+AbdurRKhalid,Decorator,EncryptionDecorator.java,EncryptionDecorator,5,method,parser,EncryptionDecorator defines method encode.
+AbdurRKhalid,Decorator,EncryptionDecorator.java,EncryptionDecorator,6,call,parser,Method writeData of EncryptionDecorator calls encode of EncryptionDecorator.
+AbdurRKhalid,Decorator,DataSourceDecorator.java,DataSourceDecorator,1,inheritance,parser,DataSourceDecorator implements DataSource.
+AbdurRKhalid,Decorator,DataSourceDecorator.java,DataSourceDecorator,2,constructor,parser,DataSourceDecorator's constructor takes a parameter of type DataSource.
+AbdurRKhalid,Decorator,DataSourceDecorator.java,DataSourceDecorator,3,field,parser,DataSourceDecorator has a field wrappee of type DataSource.
+AbdurRKhalid,Decorator,DataSourceDecorator.java,DataSourceDecorator,4,method,parser,DataSourceDecorator overrides method writeData.
+AbdurRKhalid,Decorator,DataSourceDecorator.java,DataSourceDecorator,5,method,parser,DataSourceDecorator overrides method readData.
+AbdurRKhalid,Decorator,Test.java,Test,1,method,parser,Test defines method main.
+AbdurRKhalid,Decorator,Test.java,Test,2,call,parser,Method main of Test calls writeData of DataSourceDecorator.
+AbdurRKhalid,Decorator,Test.java,Test,3,call,parser,Method main of Test calls readData of DataSource.
+AbdurRKhalid,Decorator,Test.java,Test,4,call,parser,Method main of Test calls readData of DataSourceDecorator.
+AbdurRKhalid,Facade,AudioMixer.java,AudioMixer,1,method,parser,AudioMixer defines method fix.
+AbdurRKhalid,Facade,BitrateReader.java,BitrateReader,1,method,parser,BitrateReader defines method read.
+AbdurRKhalid,Facade,BitrateReader.java,BitrateReader,2,method,parser,BitrateReader defines method convert.
+AbdurRKhalid,Facade,Codec.java,Codec,1,kind,parser,Codec is an interface.
+AbdurRKhalid,Facade,CodecFactory.java,CodecFactory,1,method,parser,CodecFactory defines method extract.
+AbdurRKhalid,Facade,CodecFactory.java,CodecFactory,2,call,parser,Method extract of CodecFactory calls getCodecType of VideoFile.
+AbdurRKhalid,Facade,MPEG4CompressionCodec.java,MPEG4CompressionCodec,1,inheritance,parser,MPEG4CompressionCodec implements Codec.
+AbdurRKhalid,Facade,OggCompressionCodec.java,OggCompressionCodec,1,inheritance,parser,OggCompressionCodec implements Codec.
+AbdurRKhalid,Facade,Test.java,Test,1,method,parser,Test defines method main.
+AbdurRKhalid,Facade,Test.java,Test,2,call,parser,Method main of Test calls convertVideo of VideoConversionFacade.
+AbdurRKhalid,Facade,VideoConversionFacade.java,VideoConversionFacade,1,method,parser,VideoConversionFacade defines method convertVideo.
+AbdurRKhalid,Facade,VideoConversionFacade.java,VideoConversionFacade,2,call,parser,Method convertVideo of VideoConversionFacade calls extract of CodecFactory.
+AbdurRKhalid,Facade,VideoConversionFacade.java,VideoConversionFacade,3,call,parser,Method convertVideo of VideoConversionFacade calls read of BitrateReader.
+AbdurRKhalid,Facade,VideoConversionFacade.java,VideoConversionFacade,4,call,parser,Method convertVideo of VideoConversionFacade calls convert of BitrateReader.
+AbdurRKhalid,Facade,VideoConversionFacade.java,VideoConversionFacade,5,call,parser,Method convertVideo of VideoConversionFacade calls fix of AudioMixer.
+AbdurRKhalid,Facade,VideoFile.java,VideoFile,1,method,parser,VideoFile defines method getCodecType.
+AbdurRKhalid,Facade,VideoFile.java,VideoFile,2,method,parser,VideoFile defines method getName.
+JamesZBL,AbstractFactory,Captain.java,Captain,1,role,detector,Captain is an abstract product for TeamFactory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,Captain.java,Captain,2,role,detector,Captain is the observer interface in the Observer pattern.
+JamesZBL,AbstractFactory,Captain.java,Captain,3,role,detector,YoungCaptain is a concrete product for Captain in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,Captain.java,Captain,4,role,detector,OldCaptain is a concrete product for Captain in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,Captain.java,Captain,5,role,detector,YoungCaptain is a concrete observer for Captain in the Observer pattern.
+JamesZBL,AbstractFactory,Captain.java,Captain,6,kind,parser,Captain is an interface.
+JamesZBL,AbstractFactory,Captain.java,Captain,7,inheritance,parser,Captain extends Member.
+JamesZBL,AbstractFactory,Member.java,Member,1,kind,parser,Member is an interface.
+JamesZBL,AbstractFactory,Member.java,Member,2,method,parser,Member defines method getDescription.
+JamesZBL,AbstractFactory,NewShip.java,NewShip,1,role,detector,NewShip is a concrete product for Ship in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,NewShip.java,NewShip,2,role,detector,NewShip is a concrete observer for Ship in the Observer pattern.
+JamesZBL,AbstractFactory,NewShip.java,NewShip,3,inheritance,parser,NewShip implements Ship.
+JamesZBL,AbstractFactory,NewShip.java,NewShip,4,method,parser,NewShip defines method getDescription.
+JamesZBL,AbstractFactory,OldCaptain.java,OldCaptain,1,role,detector,OldCaptain is a concrete product for Captain in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,OldCaptain.java,OldCaptain,2,role,detector,OldCaptain is a concrete observer for Captain in the Observer pattern.
+JamesZBL,AbstractFactory,OldCaptain.java,OldCaptain,3,inheritance,parser,OldCaptain implements Captain.
+JamesZBL,AbstractFactory,OldCaptain.java,OldCaptain,4,method,parser,OldCaptain defines method getDescription.
+JamesZBL,AbstractFactory,OldSailor.java,OldSailor,1,role,detector,OldSailor is a concrete product for Sailor in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,OldSailor.java,OldSailor,2,role,detector,OldSailor is a concrete observer for Sailor in the Observer pattern.
+JamesZBL,AbstractFactory,OldSailor.java,OldSailor,3,inheritance,parser,OldSailor implements Sailor.
+JamesZBL,AbstractFactory,OldSailor.java,OldSailor,4,method,parser,OldSailor defines method getDescription.
+JamesZBL,AbstractFactory,OldShip.java,OldShip,1,role,detector,OldShip is a concrete product for Ship in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,OldShip.java,OldShip,2,role,detector,OldShip is a concrete observer for Ship in the Observer pattern.
+JamesZBL,AbstractFactory,OldShip.java,OldShip,3,inheritance,parser,OldShip implements Ship.
+JamesZBL,AbstractFactory,OldShip.java,OldShip,4,method,parser,OldShip defines method getDescription.
+JamesZBL,AbstractFactory,PermanentTeamFactory.java,PermanentTeamFactory,1,role,detector,PermanentTeamFactory is a concrete factory for TeamFactory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,PermanentTeamFactory.java,PermanentTeamFactory,2,inheritance,parser,PermanentTeamFactory implements TeamFactory.
+JamesZBL,AbstractFactory,PermanentTeamFactory.java,PermanentTeamFactory,3,method,parser,PermanentTeamFactory defines method createShip.
+JamesZBL,AbstractFactory,PermanentTeamFactory.java,PermanentTeamFactory,4,method,parser,PermanentTeamFactory defines method createCaptain.
+JamesZBL,AbstractFactory,PermanentTeamFactory.java,PermanentTeamFactory,5,method,parser,PermanentTeamFactory defines method createSailor.
+JamesZBL,AbstractFactory,Sailor.java,Sailor,1,role,detector,Sailor is an abstract product for TeamFactory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,Sailor.java,Sailor,2,role,detector,Sailor is the observer interface in the Observer pattern.
+JamesZBL,AbstractFactory,Sailor.java,Sailor,3,role,detector,YoungSailor is a concrete product for Sailor in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,Sailor.java,Sailor,4,role,detector,OldSailor is a concrete product for Sailor in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,Sailor.java,Sailor,5,role,detector,YoungSailor is a concrete observer for Sailor in the Observer pattern.
+JamesZBL,AbstractFactory,Sailor.java,Sailor,6,kind,parser,Sailor is an interface.
+JamesZBL,AbstractFactory,Sailor.java,Sailor,7,inheritance,parser,Sailor extends Member.
+JamesZBL,AbstractFactory,Ship.java,Ship,1,role,detector,Ship is an abstract product for TeamFactory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,Ship.java,Ship,2,role,detector,Ship is the observer interface in the Observer pattern.
+JamesZBL,AbstractFactory,Ship.java,Ship,3,role,detector,OldShip is a concrete product for Ship in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,Ship.java,Ship,4,role,detector,NewShip is a concrete product for Ship in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,Ship.java,Ship,5,role,detector,OldShip is a concrete observer for Ship in the Observer pattern.
+JamesZBL,AbstractFactory,Ship.java,Ship,6,kind,parser,Ship is an interface.
+JamesZBL,AbstractFactory,Ship.java,Ship,7,inheritance,parser,Ship extends Member.
+JamesZBL,AbstractFactory,TeamFactory.java,TeamFactory,1,role,detector,TeamFactory is the abstract factory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,TeamFactory.java,TeamFactory,2,role,detector,Ship is an abstract product for TeamFactory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,TeamFactory.java,TeamFactory,3,role,detector,Captain is an abstract product for TeamFactory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,TeamFactory.java,TeamFactory,4,role,detector,Sailor is an abstract product for TeamFactory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,TeamFactory.java,TeamFactory,5,role,detector,YoungTeamFactory is a concrete factory for TeamFactory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,TeamFactory.java,TeamFactory,6,kind,parser,TeamFactory is an interface.
+JamesZBL,AbstractFactory,TeamFactory.java,TeamFactory,7,method,parser,TeamFactory defines method createShip.
+JamesZBL,AbstractFactory,TeamFactory.java,TeamFactory,8,method,parser,TeamFactory defines method createCaptain.
+JamesZBL,AbstractFactory,TeamFactory.java,TeamFactory,9,method,parser,TeamFactory defines method createSailor.
+JamesZBL,AbstractFactory,YoungCaptain.java,YoungCaptain,1,role,detector,YoungCaptain is a concrete product for Captain in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,YoungCaptain.java,YoungCaptain,2,role,detector,YoungCaptain is a concrete observer for Captain in the Observer pattern.
+JamesZBL,AbstractFactory,YoungCaptain.java,YoungCaptain,3,inheritance,parser,YoungCaptain implements Captain.
+JamesZBL,AbstractFactory,YoungCaptain.java,YoungCaptain,4,method,parser,YoungCaptain defines method getDescription.
+JamesZBL,AbstractFactory,YoungSailor.java,YoungSailor,1,role,detector,YoungSailor is a concrete product for Sailor in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,YoungSailor.java,YoungSailor,2,role,detector,YoungSailor is a concrete observer for Sailor in the Observer pattern.
+JamesZBL,AbstractFactory,YoungSailor.java,YoungSailor,3,inheritance,parser,YoungSailor implements Sailor.
+JamesZBL,AbstractFactory,YoungSailor.java,YoungSailor,4,method,parser,YoungSailor defines method getDescription.
+JamesZBL,AbstractFactory,YoungTeamFactory.java,YoungTeamFactory,1,role,detector,YoungTeamFactory is a concrete factory for TeamFactory in the Abstract Factory pattern.
+JamesZBL,AbstractFactory,YoungTeamFactory.java,YoungTeamFactory,2,inheritance,parser,YoungTeamFactory implements TeamFactory.
+JamesZBL,AbstractFactory,YoungTeamFactory.java,YoungTeamFactory,3,method,parser,YoungTeamFactory defines method createShip.
+JamesZBL,AbstractFactory,YoungTeamFactory.java,YoungTeamFactory,4,method,parser,YoungTeamFactory defines method createCaptain.
+JamesZBL,AbstractFactory,YoungTeamFactory.java,YoungTeamFactory,5,method,parser,YoungTeamFactory defines method createSailor.
+JamesZBL,AbstractFactory,Application.java,Application,1,role,detector,Application is a publisher for Ship in the Observer pattern.
+JamesZBL,AbstractFactory,Application.java,Application,2,role,detector,Application is a publisher for Captain in the Observer pattern.
+JamesZBL,AbstractFactory,Application.java,Application,3,role,detector,Application is a publisher for Sailor in the Observer pattern.
+JamesZBL,AbstractFactory,Application.java,Application,4,field,parser,Application has a field mShip of type Ship.
+JamesZBL,AbstractFactory,Application.java,Application,5,field,parser,Application has a field mCaptain of type Captain.
+JamesZBL,AbstractFactory,Application.java,Application,6,field,parser,Application has a field mSailor of type Sailor.
+JamesZBL,AbstractFactory,Application.java,Application,7,method,parser,Application defines method createTeam.
+JamesZBL,AbstractFactory,Application.java,Application,8,method,parser,Application defines method main.
+JamesZBL,AbstractFactory,Application.java,Application,9,method,parser,Application defines method getmShip.
+JamesZBL,AbstractFactory,Application.java,Application,10,call,parser,Method main of Application calls getmCaptain of Application.
+JamesZBL,AbstractFactory,Application.java,Application,11,call,parser,Method main of Application calls getmShip of Application.
+JamesZBL,AbstractFactory,Application.java,Application,12,call,parser,Method main of Application calls getmSailor of Application.
+JamesZBL,Adapter,Application.java,Application,1,method,parser,Application defines method main.
+JamesZBL,Adapter,Bus.java,Bus,1,method,parser,Bus defines method run.
+JamesZBL,Adapter,BusAdapter.java,BusAdapter,1,role,detector,BusAdapter is a concrete component for Car in the Decorator pattern.
+JamesZBL,Adapter,BusAdapter.java,BusAdapter,2,inheritance,parser,BusAdapter implements Car.
+JamesZBL,Adapter,BusAdapter.java,BusAdapter,3,field,parser,BusAdapter has a field bus of type Bus.
+JamesZBL,Adapter,BusAdapter.java,BusAdapter,4,method,parser,BusAdapter overrides method drive.
+JamesZBL,Adapter,Car.java,Car,1,role,detector,Car is a component for Driver in the Decorator pattern.
+JamesZBL,Adapter,Car.java,Car,2,role,detector,BusAdapter is a concrete component for Car in the Decorator pattern.
+JamesZBL,Adapter,Car.java,Car,3,kind,parser,Car is an interface.
+JamesZBL,Adapter,Car.java,Car,4,method,parser,Car defines method drive.
+JamesZBL,Adapter,Driver.java,Driver,1,role,detector,Driver is the decorator in the Decorator pattern.
+JamesZBL,Adapter,Driver.java,Driver,2,role,detector,Car is a component for Driver in the Decorator pattern.
+JamesZBL,Adapter,Driver.java,Driver,3,inheritance,parser,Driver implements Car.
+JamesZBL,Adapter,Driver.java,Driver,4,constructor,parser,Driver's constructor takes a parameter of type Car.
+JamesZBL,Adapter,Driver.java,Driver,5,field,parser,Driver has a field car of type Car.
+JamesZBL,Adapter,Driver.java,Driver,6,method,parser,Driver overrides method drive.
+JamesZBL,Decorator,Application.java,Application,1,method,parser,Application defines method main.
+JamesZBL,Decorator,CarpenterOperation.java,CarpenterOperation,1,role,detector,CarpenterOperation is a concrete component for Operation in the Decorator pattern.
+JamesZBL,Decorator,CarpenterOperation.java,CarpenterOperation,2,inheritance,parser,CarpenterOperation implements Operation.
+JamesZBL,Decorator,CarpenterOperation.java,CarpenterOperation,3,method,parser,CarpenterOperation overrides method checkBefore.
+JamesZBL,Decorator,CarpenterOperation.java,CarpenterOperation,4,method,parser,CarpenterOperation overrides method join.
+JamesZBL,Decorator,CarpenterOperation.java,CarpenterOperation,5,method,parser,CarpenterOperation overrides method chekcAfter.
+JamesZBL,Decorator,HammerSmithOperation.java,HammerSmithOperation,1,role,detector,HammerSmithOperation is the decorator in the Decorator pattern.
+JamesZBL,Decorator,HammerSmithOperation.java,HammerSmithOperation,2,role,detector,Operation is a component for HammerSmithOperation in the Decorator pattern.
+JamesZBL,Decorator,HammerSmithOperation.java,HammerSmithOperation,3,inheritance,parser,HammerSmithOperation implements Operation.
+JamesZBL,Decorator,HammerSmithOperation.java,HammerSmithOperation,4,constructor,parser,HammerSmithOperation's constructor takes a parameter of type Operation.
+JamesZBL,Decorator,HammerSmithOperation.java,HammerSmithOperation,5,field,parser,HammerSmithOperation has a field previousOperation of type Operation.
+JamesZBL,Decorator,HammerSmithOperation.java,HammerSmithOperation,6,method,parser,HammerSmithOperation overrides method checkBefore.
+JamesZBL,Decorator,HammerSmithOperation.java,HammerSmithOperation,7,method,parser,HammerSmithOperation overrides method join.
+JamesZBL,Decorator,HammerSmithOperation.java,HammerSmithOperation,8,method,parser,HammerSmithOperation overrides method chekcAfter.
+JamesZBL,Decorator,Operation.java,Operation,1,role,detector,Operation is a component for HammerSmithOperation in the Decorator pattern.
+JamesZBL,Decorator,Operation.java,Operation,2,role,detector,CarpenterOperation is a concrete component for Operation in the Decorator pattern.
+JamesZBL,Decorator,Operation.java,Operation,3,kind,parser,Operation is an interface.
+JamesZBL,Decorator,Operation.java,Operation,4,method,parser,Operation defines method checkBefore.
+JamesZBL,Decorator,Operation.java,Operation,5,method,parser,Operation defines method join.
+JamesZBL,Decorator,Operation.java,Operation,6,method,parser,Operation defines method chekcAfter.
+JamesZBL,Facade,Application.java,Application,1,method,parser,Application defines method main.
+JamesZBL,Facade,CourseFacade.java,CourseFacade,1,field,parser,CourseFacade has a field participators of type List<CourseParticipator>.
+JamesZBL,Facade,CourseFacade.java,CourseFacade,2,method,parser,CourseFacade defines method prepare.
+JamesZBL,Facade,CourseFacade.java,CourseFacade,3,method,parser,CourseFacade defines method proceed.
+JamesZBL,Facade,CourseFacade.java,CourseFacade,4,method,parser,CourseFacade defines method stop.
+JamesZBL,Facade,CourseParticipator.java,CourseParticipator,1,kind,parser,CourseParticipator is an abstract class.
+JamesZBL,Facade,CourseParticipator.java,CourseParticipator,2,method,parser,CourseParticipator defines method prepareCourse.
+JamesZBL,Facade,CourseParticipator.java,CourseParticipator,3,method,parser,CourseParticipator defines method proceedCourse.
+JamesZBL,Facade,CourseParticipator.java,CourseParticipator,4,method,parser,CourseParticipator defines method stopCourse.
+JamesZBL,Facade,CourseParticipator.java,CourseParticipator,5,call,parser,Method prepareCourse of CourseParticipator calls name of CourseParticipator.
+JamesZBL,Facade,CourseParticipator.java,CourseParticipator,6,call,parser,Method proceedCourse of CourseParticipator calls name of CourseParticipator.
+JamesZBL,Facade,CourseParticipator.java,CourseParticipator,7,call,parser,Method stopCourse of CourseParticipator calls name of CourseParticipator.
+JamesZBL,Facade,CourseParticipator.java,CourseParticipator,8,call,parser,Method goToSchool of CourseParticipator calls name of CourseParticipator.
+JamesZBL,Facade,CourseParticipator.java,CourseParticipator,9,call,parser,Method goHome of CourseParticipator calls name of CourseParticipator.
+JamesZBL,Facade,CourseStudent.java,CourseStudent,1,inheritance,parser,CourseStudent extends CourseParticipator.
+JamesZBL,Facade,CourseStudent.java,CourseStudent,2,method,parser,CourseStudent overrides method name.
+JamesZBL,Facade,CourseTeacher.java,CourseTeacher,1,inheritance,parser,CourseTeacher extends CourseParticipator.
+JamesZBL,Facade,CourseTeacher.java,CourseTeacher,2,method,parser,CourseTeacher overrides method name.
+JamesZBL,FactoryMethod,Application.java,Application,1,constructor,parser,Application has a private constructor.
+JamesZBL,FactoryMethod,Application.java,Application,2,constructor,parser,Application's constructor takes a parameter of type Cook.
+JamesZBL,FactoryMethod,Application.java,Application,3,field,parser,Application has a field cook of type Cook.
+JamesZBL,FactoryMethod,Application.java,Application,4,method,parser,Application defines method main.
+JamesZBL,FactoryMethod,Application.java,Application,5,method,parser,Application defines method makeFood.
+JamesZBL,FactoryMethod,Application.java,Application,6,call,parser,Method main of Application calls makeFood of Application.
+JamesZBL,FactoryMethod,ChineseCook.java,ChineseCook,1,role,detector,ChineseCook is a concrete factory for Cook in the Factory Method pattern.
+JamesZBL,FactoryMethod,ChineseCook.java,ChineseCook,2,role,detector,ChineseCook is a concrete factory for Cook in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,ChineseCook.java,ChineseCook,3,inheritance,parser,ChineseCook implements Cook.
+JamesZBL,FactoryMethod,ChineseCook.java,ChineseCook,4,method,parser,ChineseCook overrides method cookFood.
+JamesZBL,FactoryMethod,ChineseFood.java,ChineseFood,1,role,detector,ChineseFood is a concrete product for Cook in the Factory Method pattern.
+JamesZBL,FactoryMethod,ChineseFood.java,ChineseFood,2,role,detector,ChineseFood is a concrete product for Food in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,ChineseFood.java,ChineseFood,3,role,detector,ChineseFood is a concrete factory for Food in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,ChineseFood.java,ChineseFood,4,inheritance,parser,ChineseFood implements Food.
+JamesZBL,FactoryMethod,ChineseFood.java,ChineseFood,5,constructor,parser,ChineseFood's constructor takes a parameter of type FoodType.
+JamesZBL,FactoryMethod,ChineseFood.java,ChineseFood,6,field,parser,ChineseFood has a field foodType of type FoodType.
+JamesZBL,FactoryMethod,ChineseFood.java,ChineseFood,7,method,parser,ChineseFood overrides method getFoodType.
+JamesZBL,FactoryMethod,ChineseFood.java,ChineseFood,8,method,parser,ChineseFood overrides method toString.
+JamesZBL,FactoryMethod,Cook.java,Cook,1,role,detector,Cook is the creator in the Factory Method pattern.
+JamesZBL,FactoryMethod,Cook.java,Cook,2,role,detector,Cook is the abstract factory in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,Cook.java,Cook,3,role,detector,WesternFood is a concrete product for Cook in the Factory Method pattern.
+JamesZBL,FactoryMethod,Cook.java,Cook,4,role,detector,ChineseFood is a concrete product for Cook in the Factory Method pattern.
+JamesZBL,FactoryMethod,Cook.java,Cook,5,role,detector,Food is an abstract product for Cook in the Factory Method pattern.
+JamesZBL,FactoryMethod,Cook.java,Cook,6,kind,parser,Cook is an interface.
+JamesZBL,FactoryMethod,Cook.java,Cook,7,method,parser,Cook defines method cookFood.
+JamesZBL,FactoryMethod,Food.java,Food,1,role,detector,Food is an abstract product for Cook in the Factory Method pattern.
+JamesZBL,FactoryMethod,Food.java,Food,2,role,detector,Food is an abstract product for Cook in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,Food.java,Food,3,role,detector,Food is the abstract factory in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,Food.java,Food,4,role,detector,WesternFood is a concrete product for Food in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,Food.java,Food,5,role,detector,ChineseFood is a concrete product for Food in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,Food.java,Food,6,kind,parser,Food is an interface.
+JamesZBL,FactoryMethod,Food.java,Food,7,method,parser,Food defines method getFoodType.
+JamesZBL,FactoryMethod,FoodType.java,FoodType,1,method,parser,FoodType defines method getName.
+JamesZBL,FactoryMethod,WesternCook.java,WesternCook,1,role,detector,WesternCook is a concrete factory for Cook in the Factory Method pattern.
+JamesZBL,FactoryMethod,WesternCook.java,WesternCook,2,role,detector,WesternCook is a concrete factory for Cook in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,WesternCook.java,WesternCook,3,inheritance,parser,WesternCook implements Cook.
+JamesZBL,FactoryMethod,WesternCook.java,WesternCook,4,method,parser,WesternCook overrides method cookFood.
+JamesZBL,FactoryMethod,WesternFood.java,WesternFood,1,role,detector,WesternFood is a concrete product for Cook in the Factory Method pattern.
+JamesZBL,FactoryMethod,WesternFood.java,WesternFood,2,role,detector,WesternFood is a concrete product for Food in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,WesternFood.java,WesternFood,3,role,detector,WesternFood is a concrete factory for Food in the Abstract Factory pattern.
+JamesZBL,FactoryMethod,WesternFood.java,WesternFood,4,inheritance,parser,WesternFood implements Food.
+JamesZBL,FactoryMethod,WesternFood.java,WesternFood,5,constructor,parser,WesternFood's constructor takes a parameter of type FoodType.
+JamesZBL,FactoryMethod,WesternFood.java,WesternFood,6,field,parser,WesternFood has a field foodType of type FoodType.
+JamesZBL,FactoryMethod,WesternFood.java,WesternFood,7,method,parser,WesternFood overrides method getFoodType.
+JamesZBL,FactoryMethod,WesternFood.java,WesternFood,8,method,parser,WesternFood overrides method toString.
+JamesZBL,Memento,Application.java,Application,1,method,parser,Application defines method main.
+JamesZBL,Memento,Flower.java,Flower,1,role,detector,Flower is a concrete factory for Plant in the Abstract Factory pattern.
+JamesZBL,Memento,Flower.java,Flower,2,role,detector,Flower is a publisher for FlowerType in the Observer pattern.
+JamesZBL,Memento,Flower.java,Flower,3,inheritance,parser,Flower extends Plant.
+JamesZBL,Memento,Flower.java,Flower,4,inheritance,parser,Flower implements Plant.
+JamesZBL,Memento,Flower.java,Flower,5,constructor,parser,Flower has a private constructor.
+JamesZBL,Memento,Flower.java,Flower,6,constructor,parser,Flower's constructor takes a parameter of type FlowerType.
+JamesZBL,Memento,Flower.java,Flower,7,field,parser,Flower has a field type of type FlowerType.
+JamesZBL,Memento,Flower.java,Flower,8,method,parser,Flower overrides method toString.
+JamesZBL,Memento,Flower.java,Flower,9,method,parser,Flower overrides method getWeight.
+JamesZBL,Memento,Flower.java,Flower,10,method,parser,Flower overrides method getHeight.
+JamesZBL,Memento,Flower.java,Flower,11,call,parser,Method growing of Flower calls setWeight of Flower.
+JamesZBL,Memento,Flower.java,Flower,12,call,parser,Method growing of Flower calls getWeight of Flower.
+JamesZBL,Memento,Flower.java,Flower,13,call,parser,Method growing of Flower calls setHeight of Flower.
+JamesZBL,Memento,Flower.java,Flower,14,call,parser,Method growing of Flower calls getHeight of Flower.
+JamesZBL,Memento,Flower.java,Flower,15,call,parser,Method getMemento of Flower calls getType of Flower.
+JamesZBL,Memento,FlowerType.java,FlowerType,1,role,detector,FlowerType is the observer interface in the Observer pattern.
+JamesZBL,Memento,FlowerType.java,FlowerType,2,role,detector,Flower is a publisher for FlowerType in the Observer pattern.
+JamesZBL,Memento,FlowerType.java,FlowerType,3,method,parser,FlowerType overrides method toString.
+JamesZBL,Memento,Plant.java,Plant,1,role,detector,Plant is the abstract factory in the Abstract Factory pattern.
+JamesZBL,Memento,Plant.java,Plant,2,role,detector,Flower is a concrete factory for Plant in the Abstract Factory pattern.
+JamesZBL,Memento,Plant.java,Plant,3,kind,parser,Plant is an interface.
+JamesZBL,Memento,Plant.java,Plant,4,method,parser,Plant defines method getWeight.
+JamesZBL,Memento,Plant.java,Plant,5,method,parser,Plant defines method getHeight.
+JamesZBL,Memento,Plant.java,Plant,6,method,parser,Plant defines method getType.
+JamesZBL,Observer,Application.java,Application,1,method,parser,Application defines method main.
+JamesZBL,Observer,Northern.java,Northern,1,role,detector,Northern is a concrete observer for TimeObserver in the Observer pattern.
+JamesZBL,Observer,Northern.java,Northern,2,inheritance,parser,Northern implements TimeObserver.
+JamesZBL,Observer,Northern.java,Northern,3,method,parser,Northern overrides method update.
+JamesZBL,Observer,Southern.java,Southern,1,role,detector,Southern is a concrete observer for TimeObserver in the Observer pattern.
+JamesZBL,Observer,Southern.java,Southern,2,inheritance,parser,Southern implements TimeObserver.
+JamesZBL,Observer,Southern.java,Southern,3,method,parser,Southern overrides method update.
+JamesZBL,Observer,Time.java,Time,1,role,detector,Time is a publisher for TimeObserver in the Observer pattern.
+JamesZBL,Observer,Time.java,Time,2,field,parser,Time has a field point of type TimePoint.
+JamesZBL,Observer,Time.java,Time,3,field,parser,Time has a field observers of type List<TimeObserver>.
+JamesZBL,Observer,Time.java,Time,4,method,parser,Time defines method addObserver.
+JamesZBL,Observer,Time.java,Time,5,method,parser,Time defines method removeObserver.
+JamesZBL,Observer,Time.java,Time,6,method,parser,Time defines method passing.
+JamesZBL,Observer,Time.java,Time,7,call,parser,Method passing of Time calls notifyObservers of Time.
+JamesZBL,Observer,TimeObserver.java,TimeObserver,1,role,detector,TimeObserver is the observer interface in the Observer pattern.
+JamesZBL,Observer,TimeObserver.java,TimeObserver,2,role,detector,Northern is a concrete observer for TimeObserver in the Observer pattern.
+JamesZBL,Observer,TimeObserver.java,TimeObserver,3,role,detector,Southern is a concrete observer for TimeObserver in the Observer pattern.
+JamesZBL,Observer,TimeObserver.java,TimeObserver,4,role,detector,Time is a publisher for TimeObserver in the Observer pattern.
+JamesZBL,Observer,TimeObserver.java,TimeObserver,5,kind,parser,TimeObserver is an interface.
+JamesZBL,Observer,TimeObserver.java,TimeObserver,6,method,parser,TimeObserver defines method update.
+JamesZBL,Observer,TimePoint.java,TimePoint,1,method,parser,TimePoint overrides method toString.
+JamesZBL,Singleton,Application.java,Application,1,method,parser,Application defines method main.
+JamesZBL,Singleton,Director.java,Director,1,role,detector,Director is the singleton in the Singleton pattern.
+JamesZBL,Singleton,Director.java,Director,2,constructor,parser,Director has a private constructor.
+JamesZBL,Singleton,Director.java,Director,3,field,parser,Director has a static field INSTANCE of type Director.
+JamesZBL,Singleton,Director.java,Director,4,method,parser,Director defines method getInstance.
+JamesZBL,Singleton,EnumDirector.java,EnumDirector,1,method,parser,EnumDirector overrides method toString.
+JamesZBL,Singleton,LazyInitializationDirector.java,LazyInitializationDirector,1,role,detector,LazyInitializationDirector is the singleton in the Singleton pattern.
+JamesZBL,Singleton,LazyInitializationDirector.java,LazyInitializationDirector,2,constructor,parser,LazyInitializationDirector has a private constructor.
+JamesZBL,Singleton,LazyInitializationDirector.java,LazyInitializationDirector,3,field,parser,LazyInitializationDirector has a static field INSTANCE of type LazyInitializationDirector.
+JamesZBL,Singleton,LazyInitializationDirector.java,LazyInitializationDirector,4,method,parser,LazyInitializationDirector defines method getInstance.
+JamesZBL,Singleton,ThreadSafeDoubleCheckLocking.java,ThreadSafeDoubleCheckLocking,1,role,detector,ThreadSafeDoubleCheckLocking is the singleton in the Singleton pattern.
+JamesZBL,Singleton,ThreadSafeDoubleCheckLocking.java,ThreadSafeDoubleCheckLocking,2,constructor,parser,ThreadSafeDoubleCheckLocking has a private constructor.
+JamesZBL,Singleton,ThreadSafeDoubleCheckLocking.java,ThreadSafeDoubleCheckLocking,3,field,parser,ThreadSafeDoubleCheckLocking has a static field INSTANCE of type ThreadSafeDoubleCheckLocking.
+JamesZBL,Singleton,ThreadSafeDoubleCheckLocking.java,ThreadSafeDoubleCheckLocking,4,method,parser,ThreadSafeDoubleCheckLocking defines method getInstance.
+JamesZBL,Singleton,ThreadSafeLazyLoadDirector.java,ThreadSafeLazyLoadDirector,1,role,detector,ThreadSafeLazyLoadDirector is the singleton in the Singleton pattern.
+JamesZBL,Singleton,ThreadSafeLazyLoadDirector.java,ThreadSafeLazyLoadDirector,2,constructor,parser,ThreadSafeLazyLoadDirector has a private constructor.
+JamesZBL,Singleton,ThreadSafeLazyLoadDirector.java,ThreadSafeLazyLoadDirector,3,field,parser,ThreadSafeLazyLoadDirector has a static field INSTANCE of type ThreadSafeLazyLoadDirector.
+JamesZBL,Singleton,ThreadSafeLazyLoadDirector.java,ThreadSafeLazyLoadDirector,4,method,parser,ThreadSafeLazyLoadDirector defines method getInstance.
+JamesZBL,Visitor,Application.java,Application,1,method,parser,Application defines method main.
+JamesZBL,Visitor,Boss.java,Boss,1,inheritance,parser,Boss extends Unit.
+JamesZBL,Visitor,Boss.java,Boss,2,constructor,parser,Boss's constructor takes a parameter of type Unit....
+JamesZBL,Visitor,Boss.java,Boss,3,method,parser,Boss overrides method beVisited.
+JamesZBL,Visitor,Boss.java,Boss,4,method,parser,Boss overrides method toString.
+JamesZBL,Visitor,BossVisitor.java,BossVisitor,1,inheritance,parser,BossVisitor implements UnitVisitor.
+JamesZBL,Visitor,BossVisitor.java,BossVisitor,2,method,parser,BossVisitor overrides method visitEngineer.
+JamesZBL,Visitor,BossVisitor.java,BossVisitor,3,method,parser,BossVisitor overrides method visitBoss.
+JamesZBL,Visitor,BossVisitor.java,BossVisitor,4,method,parser,BossVisitor overrides method visitManager.
+JamesZBL,Visitor,Engineer.java,Engineer,1,inheritance,parser,Engineer extends Unit.
+JamesZBL,Visitor,Engineer.java,Engineer,2,constructor,parser,Engineer's constructor takes a parameter of type Unit....
+JamesZBL,Visitor,Engineer.java,Engineer,3,method,parser,Engineer overrides method beVisited.
+JamesZBL,Visitor,Engineer.java,Engineer,4,method,parser,Engineer overrides method toString.
+JamesZBL,Visitor,EngineerVisitor.java,EngineerVisitor,1,inheritance,parser,EngineerVisitor implements UnitVisitor.
+JamesZBL,Visitor,EngineerVisitor.java,EngineerVisitor,2,method,parser,EngineerVisitor overrides method visitEngineer.
+JamesZBL,Visitor,EngineerVisitor.java,EngineerVisitor,3,method,parser,EngineerVisitor overrides method visitBoss.
+JamesZBL,Visitor,EngineerVisitor.java,EngineerVisitor,4,method,parser,EngineerVisitor overrides method visitManager.
+JamesZBL,Visitor,Manager.java,Manager,1,inheritance,parser,Manager extends Unit.
+JamesZBL,Visitor,Manager.java,Manager,2,constructor,parser,Manager's constructor takes a parameter of type Unit....
+JamesZBL,Visitor,Manager.java,Manager,3,method,parser,Manager overrides method beVisited.
+JamesZBL,Visitor,Manager.java,Manager,4,method,parser,Manager overrides method toString.
+JamesZBL,Visitor,ManagerVisitor.java,ManagerVisitor,1,inheritance,parser,ManagerVisitor implements UnitVisitor.
+JamesZBL,Visitor,ManagerVisitor.java,ManagerVisitor,2,method,parser,ManagerVisitor overrides method visitEngineer.
+JamesZBL,Visitor,ManagerVisitor.java,ManagerVisitor,3,method,parser,ManagerVisitor overrides method visitBoss.
+JamesZBL,Visitor,ManagerVisitor.java,ManagerVisitor,4,method,parser,ManagerVisitor overrides method visitManager.
+JamesZBL,Visitor,Unit.java,Unit,1,kind,parser,Unit is an abstract class.
+JamesZBL,Visitor,Unit.java,Unit,2,constructor,parser,Unit's constructor takes a parameter of type Unit....
+JamesZBL,Visitor,Unit.java,Unit,3,field,parser,Unit has a field children of type Unit[].
+JamesZBL,Visitor,Unit.java,Unit,4,method,parser,Unit defines method beVisited.
+JamesZBL,Visitor,UnitVisitor.java,UnitVisitor,1,kind,parser,UnitVisitor is an interface.
+JamesZBL,Visitor,UnitVisitor.java,UnitVisitor,2,method,parser,UnitVisitor defines method visitEngineer.
+JamesZBL,Visitor,UnitVisitor.java,UnitVisitor,3,method,parser,UnitVisitor defines method visitBoss.
+JamesZBL,Visitor,UnitVisitor.java,UnitVisitor,4,method,parser,UnitVisitor defines method visitManager.
+SpringFramework,Visitor,BeanFactory.java,BeanFactory,1,kind,parser,BeanFactory is an interface.
+SpringFramework,Visitor,BeanFactory.java,BeanFactory,2,method,parser,BeanFactory defines method getBean.
+SpringFramework,Visitor,BeanFactory.java,BeanFactory,3,method,parser,BeanFactory defines method getBeanProvider.
+SpringFramework,Visitor,BeanFactory.java,BeanFactory,4,method,parser,BeanFactory defines method containsBean.
+SpringFramework,AbstractFactory,ListableBeanFactory.java,ListableBeanFactory,1,kind,parser,ListableBeanFactory is an interface.
+SpringFramework,AbstractFactory,ListableBeanFactory.java,ListableBeanFactory,2,inheritance,parser,ListableBeanFactory extends BeanFactory.
+SpringFramework,AbstractFactory,ListableBeanFactory.java,ListableBeanFactory,3,method,parser,ListableBeanFactory defines method containsBeanDefinition.
+SpringFramework,AbstractFactory,ListableBeanFactory.java,ListableBeanFactory,4,method,parser,ListableBeanFactory defines method getBeanDefinitionCount.
+SpringFramework,AbstractFactory,ListableBeanFactory.java,ListableBeanFactory,5,method,parser,ListableBeanFactory defines method getBeanDefinitionNames.
+SpringFramework,AbstractFactory,HierarchicalBeanFactory.java,HierarchicalBeanFactory,1,kind,parser,HierarchicalBeanFactory is an interface.
+SpringFramework,AbstractFactory,HierarchicalBeanFactory.java,HierarchicalBeanFactory,2,inheritance,parser,HierarchicalBeanFactory extends BeanFactory.
+SpringFramework,AbstractFactory,HierarchicalBeanFactory.java,HierarchicalBeanFactory,3,method,parser,HierarchicalBeanFactory defines method getParentBeanFactory.
+SpringFramework,AbstractFactory,HierarchicalBeanFactory.java,HierarchicalBeanFactory,4,method,parser,HierarchicalBeanFactory defines method containsLocalBean.
+SpringFramework,AbstractFactory,AutowireCapableBeanFactory.java,AutowireCapableBeanFactory,1,kind,parser,AutowireCapableBeanFactory is an interface.
+SpringFramework,AbstractFactory,AutowireCapableBeanFactory.java,AutowireCapableBeanFactory,2,inheritance,parser,AutowireCapableBeanFactory extends BeanFactory.
+SpringFramework,AbstractFactory,AutowireCapableBeanFactory.java,AutowireCapableBeanFactory,3,method,parser,AutowireCapableBeanFactory defines method createBean.
+SpringFramework,AbstractFactory,AutowireCapableBeanFactory.java,AutowireCapableBeanFactory,4,method,parser,AutowireCapableBeanFactory defines method autowireBean.
+SpringFramework,AbstractFactory,AutowireCapableBeanFactory.java,AutowireCapableBeanFactory,5,method,parser,AutowireCapableBeanFactory defines method configureBean.
+SpringFramework,AbstractFactory,ClientHttpRequestFactory.java,ClientHttpRequestFactory,1,kind,parser,ClientHttpRequestFactory is an interface.
+SpringFramework,AbstractFactory,ClientHttpRequestFactory.java,ClientHttpRequestFactory,2,method,parser,ClientHttpRequestFactory defines method createRequest.
+SpringFramework,FactoryMethod,AdaptableJobFactory.java,AdaptableJobFactory,1,inheritance,parser,AdaptableJobFactory implements JobFactory.
+SpringFramework,FactoryMethod,AdaptableJobFactory.java,AdaptableJobFactory,2,method,parser,AdaptableJobFactory overrides method newJob.
+SpringFramework,FactoryMethod,AdaptableJobFactory.java,AdaptableJobFactory,3,method,parser,AdaptableJobFactory defines method createJobInstance.
+SpringFramework,FactoryMethod,AdaptableJobFactory.java,AdaptableJobFactory,4,method,parser,AdaptableJobFactory defines method adaptJob.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,1,inheritance,parser,SchedulerFactoryBean extends SchedulerAccessor.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,2,inheritance,parser,SchedulerFactoryBean implements FactoryBean.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,3,inheritance,parser,SchedulerFactoryBean implements BeanNameAware.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,4,inheritance,parser,SchedulerFactoryBean implements ApplicationContextAware.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,5,inheritance,parser,SchedulerFactoryBean implements InitializingBean.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,6,inheritance,parser,SchedulerFactoryBean implements DisposableBean.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,7,inheritance,parser,SchedulerFactoryBean implements SmartLifecycle.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,8,method,parser,SchedulerFactoryBean overrides method isAutoStartup.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,9,method,parser,SchedulerFactoryBean overrides method getPhase.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,10,method,parser,SchedulerFactoryBean overrides method setBeanName.
+SpringFramework,FactoryMethod,SchedulerFactoryBean.java,SchedulerFactoryBean,11,call,parser,Method afterPropertiesSet of SchedulerFactoryBean calls prepareSchedulerFactory of SchedulerFactoryBean.
+SpringFramework,FactoryMethod,JobDetailFactoryBean.java,JobDetailFactoryBean,1,inheritance,parser,JobDetailFactoryBean implements FactoryBean.
+SpringFramework,FactoryMethod,JobDetailFactoryBean.java,JobDetailFactoryBean,2,inheritance,parser,JobDetailFactoryBean implements BeanNameAware.
+SpringFramework,FactoryMethod,JobDetailFactoryBean.java,JobDetailFactoryBean,3,inheritance,parser,JobDetailFactoryBean implements ApplicationContextAware.
+SpringFramework,FactoryMethod,JobDetailFactoryBean.java,JobDetailFactoryBean,4,inheritance,parser,JobDetailFactoryBean implements InitializingBean.
+SpringFramework,FactoryMethod,JobDetailFactoryBean.java,JobDetailFactoryBean,5,method,parser,JobDetailFactoryBean overrides method setBeanName.
+SpringFramework,FactoryMethod,JobDetailFactoryBean.java,JobDetailFactoryBean,6,method,parser,JobDetailFactoryBean overrides method setApplicationContext.
+SpringFramework,FactoryMethod,JobDetailFactoryBean.java,JobDetailFactoryBean,7,method,parser,JobDetailFactoryBean overrides method afterPropertiesSet.
+SpringFramework,FactoryMethod,JobDetailFactoryBean.java,JobDetailFactoryBean,8,call,parser,Method setJobDataAsMap of JobDetailFactoryBean calls getJobDataMap of JobDetailFactoryBean.
+SpringFramework,FactoryMethod,JobDetailFactoryBean.java,JobDetailFactoryBean,9,call,parser,Method afterPropertiesSet of JobDetailFactoryBean calls getJobDataMap of JobDetailFactoryBean.
+SpringFramework,FactoryMethod,MethodInvokingJobDetailFactoryBean.java,MethodInvokingJobDetailFactoryBean,1,inheritance,parser,MethodInvokingJobDetailFactoryBean extends ArgumentConvertingMethodInvoker.
+SpringFramework,FactoryMethod,MethodInvokingJobDetailFactoryBean.java,MethodInvokingJobDetailFactoryBean,2,inheritance,parser,MethodInvokingJobDetailFactoryBean implements FactoryBean.
+SpringFramework,FactoryMethod,MethodInvokingJobDetailFactoryBean.java,MethodInvokingJobDetailFactoryBean,3,inheritance,parser,MethodInvokingJobDetailFactoryBean implements BeanNameAware.
+SpringFramework,FactoryMethod,MethodInvokingJobDetailFactoryBean.java,MethodInvokingJobDetailFactoryBean,4,inheritance,parser,MethodInvokingJobDetailFactoryBean implements BeanClassLoaderAware.
+SpringFramework,FactoryMethod,MethodInvokingJobDetailFactoryBean.java,MethodInvokingJobDetailFactoryBean,5,inheritance,parser,MethodInvokingJobDetailFactoryBean implements BeanFactoryAware.
+SpringFramework,FactoryMethod,MethodInvokingJobDetailFactoryBean.java,MethodInvokingJobDetailFactoryBean,6,inheritance,parser,MethodInvokingJobDetailFactoryBean implements InitializingBean.
+SpringFramework,FactoryMethod,MethodInvokingJobDetailFactoryBean.java,MethodInvokingJobDetailFactoryBean,7,method,parser,MethodInvokingJobDetailFactoryBean overrides method setBeanName.
+SpringFramework,FactoryMethod,MethodInvokingJobDetailFactoryBean.java,MethodInvokingJobDetailFactoryBean,8,method,parser,MethodInvokingJobDetailFactoryBean overrides method setBeanClassLoader.
+SpringFramework,FactoryMethod,MethodInvokingJobDetailFactoryBean.java,MethodInvokingJobDetailFactoryBean,9,method,parser,MethodInvokingJobDetailFactoryBean overrides method setBeanFactory.
+SpringFramework,FactoryMethod,CronTriggerFactoryBean.java,CronTriggerFactoryBean,1,inheritance,parser,CronTriggerFactoryBean implements FactoryBean.
+SpringFramework,FactoryMethod,CronTriggerFactoryBean.java,CronTriggerFactoryBean,2,inheritance,parser,CronTriggerFactoryBean implements BeanNameAware.
+SpringFramework,FactoryMethod,CronTriggerFactoryBean.java,CronTriggerFactoryBean,3,inheritance,parser,CronTriggerFactoryBean implements InitializingBean.
+SpringFramework,FactoryMethod,CronTriggerFactoryBean.java,CronTriggerFactoryBean,4,method,parser,CronTriggerFactoryBean overrides method setBeanName.
+SpringFramework,FactoryMethod,CronTriggerFactoryBean.java,CronTriggerFactoryBean,5,method,parser,CronTriggerFactoryBean overrides method afterPropertiesSet.
+SpringFramework,FactoryMethod,CronTriggerFactoryBean.java,CronTriggerFactoryBean,6,method,parser,CronTriggerFactoryBean overrides method getObject.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,1,inheritance,parser,DefaultSingletonBeanRegistry extends SimpleAliasRegistry.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,2,inheritance,parser,DefaultSingletonBeanRegistry implements SingletonBeanRegistry.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,3,method,parser,DefaultSingletonBeanRegistry overrides method registerSingleton.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,4,method,parser,DefaultSingletonBeanRegistry overrides method addSingletonCallback.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,5,method,parser,DefaultSingletonBeanRegistry overrides method getSingleton.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,6,call,parser,Method registerSingleton of DefaultSingletonBeanRegistry calls addSingleton of DefaultSingletonBeanRegistry.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,7,call,parser,Method getSingleton of DefaultSingletonBeanRegistry calls isSingletonCurrentlyInCreation of DefaultSingletonBeanRegistry.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,8,call,parser,Method isCurrentlyInCreation of DefaultSingletonBeanRegistry calls isActuallyInCreation of DefaultSingletonBeanRegistry.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,9,call,parser,Method isActuallyInCreation of DefaultSingletonBeanRegistry calls isSingletonCurrentlyInCreation of DefaultSingletonBeanRegistry.
+SpringFramework,Singleton,DefaultSingletonBeanRegistry.java,DefaultSingletonBeanRegistry,10,call,parser,Method registerContainedBean of DefaultSingletonBeanRegistry calls registerDependentBean of DefaultSingletonBeanRegistry.
+SpringFramework,Singleton,SingletonBeanRegistry.java,SingletonBeanRegistry,1,kind,parser,SingletonBeanRegistry is an interface.
+SpringFramework,Singleton,SingletonBeanRegistry.java,SingletonBeanRegistry,2,method,parser,SingletonBeanRegistry defines method registerSingleton.
+SpringFramework,Singleton,SingletonBeanRegistry.java,SingletonBeanRegistry,3,method,parser,SingletonBeanRegistry defines method addSingletonCallback.
+SpringFramework,Singleton,SingletonBeanRegistry.java,SingletonBeanRegistry,4,method,parser,SingletonBeanRegistry defines method getSingleton.
+SpringFramework,Singleton,SmartInitializingSingleton.java,SmartInitializingSingleton,1,kind,parser,SmartInitializingSingleton is an interface.
+SpringFramework,Singleton,SmartInitializingSingleton.java,SmartInitializingSingleton,2,method,parser,SmartInitializingSingleton defines method afterSingletonsInstantiated.
+SpringFramework,Singleton,SingletonSupplier.java,SingletonSupplier,1,inheritance,parser,SingletonSupplier implements Supplier.
+SpringFramework,Singleton,SingletonSupplier.java,SingletonSupplier,2,constructor,parser,SingletonSupplier has a private constructor.
+SpringFramework,Singleton,SingletonSupplier.java,SingletonSupplier,3,method,parser,SingletonSupplier overrides method get.
+SpringFramework,Singleton,SingletonSupplier.java,SingletonSupplier,4,method,parser,SingletonSupplier defines method obtain.
+SpringFramework,Singleton,SingletonSupplier.java,SingletonSupplier,5,method,parser,SingletonSupplier defines method of.
+SpringFramework,Singleton,SingletonSupplier.java,SingletonSupplier,6,call,parser,Method obtain of SingletonSupplier calls get of SingletonSupplier.
+SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,IsolationLevelDataSourceAdapter,1,inheritance,parser,IsolationLevelDataSourceAdapter extends UserCredentialsDataSourceAdapter.
+SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,IsolationLevelDataSourceAdapter,2,method,parser,IsolationLevelDataSourceAdapter overrides method doGetConnection.
+SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,IsolationLevelDataSourceAdapter,3,method,parser,IsolationLevelDataSourceAdapter defines method setIsolationLevelName.
+SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,IsolationLevelDataSourceAdapter,4,method,parser,IsolationLevelDataSourceAdapter defines method setIsolationLevel.
+SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,IsolationLevelDataSourceAdapter,5,call,parser,Method setIsolationLevelName of IsolationLevelDataSourceAdapter calls setIsolationLevel of IsolationLevelDataSourceAdapter.
+SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,IsolationLevelDataSourceAdapter,6,call,parser,Method doGetConnection of IsolationLevelDataSourceAdapter calls getCurrentReadOnlyFlag of IsolationLevelDataSourceAdapter.
+SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,IsolationLevelDataSourceAdapter,7,call,parser,Method doGetConnection of IsolationLevelDataSourceAdapter calls getCurrentIsolationLevel of IsolationLevelDataSourceAdapter.
+SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,IsolationLevelDataSourceAdapter,8,call,parser,Method getCurrentIsolationLevel of IsolationLevelDataSourceAdapter calls getIsolationLevel of IsolationLevelDataSourceAdapter.
+SpringFramework,Adapter,HttpRequestHandlerAdapter.java,HttpRequestHandlerAdapter,1,inheritance,parser,HttpRequestHandlerAdapter implements HandlerAdapter.
+SpringFramework,Adapter,HttpRequestHandlerAdapter.java,HttpRequestHandlerAdapter,2,method,parser,HttpRequestHandlerAdapter overrides method supports.
+SpringFramework,Adapter,HttpRequestHandlerAdapter.java,HttpRequestHandlerAdapter,3,method,parser,HttpRequestHandlerAdapter overrides method handle.
+SpringFramework,Adapter,MethodBeforeAdviceAdapter.java,MethodBeforeAdviceAdapter,1,inheritance,parser,MethodBeforeAdviceAdapter implements AdvisorAdapter.
+SpringFramework,Adapter,MethodBeforeAdviceAdapter.java,MethodBeforeAdviceAdapter,2,inheritance,parser,MethodBeforeAdviceAdapter implements Serializable.
+SpringFramework,Adapter,MethodBeforeAdviceAdapter.java,MethodBeforeAdviceAdapter,3,method,parser,MethodBeforeAdviceAdapter overrides method supportsAdvice.
+SpringFramework,Adapter,MethodBeforeAdviceAdapter.java,MethodBeforeAdviceAdapter,4,method,parser,MethodBeforeAdviceAdapter overrides method getInterceptor.
+SpringFramework,Adapter,SimpleControllerHandlerAdapter.java,SimpleControllerHandlerAdapter,1,inheritance,parser,SimpleControllerHandlerAdapter implements HandlerAdapter.
+SpringFramework,Adapter,SimpleControllerHandlerAdapter.java,SimpleControllerHandlerAdapter,2,method,parser,SimpleControllerHandlerAdapter overrides method supports.
+SpringFramework,Adapter,SimpleControllerHandlerAdapter.java,SimpleControllerHandlerAdapter,3,method,parser,SimpleControllerHandlerAdapter overrides method handle.
+SpringFramework,Decorator,ScopedProxyBeanDefinitionDecorator.java,ScopedProxyBeanDefinitionDecorator,1,inheritance,parser,ScopedProxyBeanDefinitionDecorator implements BeanDefinitionDecorator.
+SpringFramework,Decorator,ScopedProxyBeanDefinitionDecorator.java,ScopedProxyBeanDefinitionDecorator,2,method,parser,ScopedProxyBeanDefinitionDecorator overrides method decorate.
+SpringFramework,Decorator,BufferingClientHttpResponseWrapper.java,BufferingClientHttpResponseWrapper,1,inheritance,parser,BufferingClientHttpResponseWrapper implements ClientHttpResponse.
+SpringFramework,Decorator,BufferingClientHttpResponseWrapper.java,BufferingClientHttpResponseWrapper,2,method,parser,BufferingClientHttpResponseWrapper overrides method getStatusCode.
+SpringFramework,Decorator,BufferingClientHttpResponseWrapper.java,BufferingClientHttpResponseWrapper,3,method,parser,BufferingClientHttpResponseWrapper overrides method getStatusText.
+SpringFramework,Decorator,BufferingClientHttpResponseWrapper.java,BufferingClientHttpResponseWrapper,4,method,parser,BufferingClientHttpResponseWrapper overrides method getHeaders.
+SpringFramework,Decorator,ContentCachingRequestWrapper.java,ContentCachingRequestWrapper,1,inheritance,parser,ContentCachingRequestWrapper extends HttpServletRequestWrapper.
+SpringFramework,Decorator,ContentCachingRequestWrapper.java,ContentCachingRequestWrapper,2,method,parser,ContentCachingRequestWrapper overrides method getInputStream.
+SpringFramework,Decorator,ContentCachingRequestWrapper.java,ContentCachingRequestWrapper,3,method,parser,ContentCachingRequestWrapper overrides method getCharacterEncoding.
+SpringFramework,Decorator,ContentCachingRequestWrapper.java,ContentCachingRequestWrapper,4,method,parser,ContentCachingRequestWrapper overrides method getReader.
+SpringFramework,Decorator,ContentCachingRequestWrapper.java,ContentCachingRequestWrapper,5,call,parser,Method getReader of ContentCachingRequestWrapper calls getInputStream of ContentCachingRequestWrapper.
+SpringFramework,Decorator,ContentCachingRequestWrapper.java,ContentCachingRequestWrapper,6,call,parser,Method getReader of ContentCachingRequestWrapper calls getCharacterEncoding of ContentCachingRequestWrapper.
+SpringFramework,Decorator,ContentCachingRequestWrapper.java,ContentCachingRequestWrapper,7,call,parser,Method getParameter of ContentCachingRequestWrapper calls isFormPost of ContentCachingRequestWrapper.
+SpringFramework,Decorator,ContentCachingRequestWrapper.java,ContentCachingRequestWrapper,8,call,parser,Method getParameter of ContentCachingRequestWrapper calls writeRequestParametersToCachedContent of ContentCachingRequestWrapper.
+SpringFramework,Decorator,ContentCachingRequestWrapper.java,ContentCachingRequestWrapper,9,call,parser,Method getParameterMap of ContentCachingRequestWrapper calls isFormPost of ContentCachingRequestWrapper.
+SpringFramework,Decorator,WebSocketHandlerDecorator.java,WebSocketHandlerDecorator,1,inheritance,parser,WebSocketHandlerDecorator implements WebSocketHandler.
+SpringFramework,Decorator,WebSocketHandlerDecorator.java,WebSocketHandlerDecorator,2,method,parser,WebSocketHandlerDecorator overrides method afterConnectionEstablished.
+SpringFramework,Decorator,WebSocketHandlerDecorator.java,WebSocketHandlerDecorator,3,method,parser,WebSocketHandlerDecorator overrides method handleMessage.
+SpringFramework,Decorator,WebSocketHandlerDecorator.java,WebSocketHandlerDecorator,4,method,parser,WebSocketHandlerDecorator overrides method handleTransportError.
+SpringFramework,Decorator,WebSocketHandlerDecorator.java,WebSocketHandlerDecorator,5,call,parser,Method getLastHandler of WebSocketHandlerDecorator calls getDelegate of WebSocketHandlerDecorator.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,1,inheritance,parser,JdbcTemplate extends JdbcAccessor.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,2,inheritance,parser,JdbcTemplate implements JdbcOperations.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,3,method,parser,JdbcTemplate overrides method execute.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,4,method,parser,JdbcTemplate overrides method query.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,5,method,parser,JdbcTemplate overrides method queryForStream.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,6,call,parser,Method queryForMap of JdbcTemplate calls getColumnMapRowMapper of JdbcTemplate.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,7,call,parser,Method queryForObject of JdbcTemplate calls getSingleColumnRowMapper of JdbcTemplate.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,8,call,parser,Method queryForList of JdbcTemplate calls getColumnMapRowMapper of JdbcTemplate.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,9,call,parser,Method queryForList of JdbcTemplate calls getSingleColumnRowMapper of JdbcTemplate.
+SpringFramework,Facade,JDBCTemplate.java,JdbcTemplate,10,call,parser,Method queryForList of JdbcTemplate calls newArgPreparedStatementSetter of JdbcTemplate.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,1,inheritance,parser,JmsTemplate extends JmsDestinationAccessor.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,2,inheritance,parser,JmsTemplate implements JmsOperations.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,3,method,parser,JmsTemplate overrides method execute.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,4,method,parser,JmsTemplate overrides method send.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,5,method,parser,JmsTemplate overrides method convertAndSend.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,6,call,parser,Method getDefaultQueue of JmsTemplate calls getDefaultDestination of JmsTemplate.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,7,call,parser,Method getRequiredDefaultDestinationName of JmsTemplate calls getDefaultDestinationName of JmsTemplate.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,8,call,parser,Method convertAndSend of JmsTemplate calls getDefaultDestination of JmsTemplate.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,9,call,parser,Method convertAndSend of JmsTemplate calls getRequiredDefaultDestinationName of JmsTemplate.
+SpringFramework,Facade,JmsTemplate.java,JmsTemplate,10,call,parser,Method convertAndSend of JmsTemplate calls getMessageConverter of JmsTemplate.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,1,inheritance,parser,RestTemplate extends InterceptingHttpAccessor.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,2,inheritance,parser,RestTemplate implements RestOperations.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,3,method,parser,RestTemplate overrides method getForObject.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,4,method,parser,RestTemplate overrides method getForEntity.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,5,method,parser,RestTemplate overrides method headForHeaders.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,6,call,parser,Method getForObject of RestTemplate calls acceptHeaderRequestCallback of RestTemplate.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,7,call,parser,Method getForObject of RestTemplate calls getMessageConverters of RestTemplate.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,8,call,parser,Method getForEntity of RestTemplate calls acceptHeaderRequestCallback of RestTemplate.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,9,call,parser,Method getForEntity of RestTemplate calls responseEntityExtractor of RestTemplate.
+SpringFramework,Facade,RestTemplate.java,RestTemplate,10,call,parser,Method headForHeaders of RestTemplate calls headersExtractor of RestTemplate.
+SpringFramework,Facade,TransactionTemplate.java,TransactionTemplate,1,inheritance,parser,TransactionTemplate extends DefaultTransactionDefinition.
+SpringFramework,Facade,TransactionTemplate.java,TransactionTemplate,2,inheritance,parser,TransactionTemplate implements TransactionOperations.
+SpringFramework,Facade,TransactionTemplate.java,TransactionTemplate,3,inheritance,parser,TransactionTemplate implements InitializingBean.
+SpringFramework,Facade,TransactionTemplate.java,TransactionTemplate,4,method,parser,TransactionTemplate overrides method afterPropertiesSet.
+SpringFramework,Facade,TransactionTemplate.java,TransactionTemplate,5,method,parser,TransactionTemplate overrides method execute.
+SpringFramework,Facade,TransactionTemplate.java,TransactionTemplate,6,method,parser,TransactionTemplate overrides method equals.
+SpringFramework,Facade,TransactionTemplate.java,TransactionTemplate,7,call,parser,Method equals of TransactionTemplate calls getTransactionManager of TransactionTemplate.
+SpringFramework,Observer,ApplicationEventPublisher.java,ApplicationEventPublisher,1,kind,parser,ApplicationEventPublisher is an interface.
+SpringFramework,Observer,ApplicationEventPublisher.java,ApplicationEventPublisher,2,method,parser,ApplicationEventPublisher defines method publishEvent.
+SpringFramework,Observer,ApplicationListener.java,ApplicationListener,1,kind,parser,ApplicationListener is an interface.
+SpringFramework,Observer,ApplicationListener.java,ApplicationListener,2,inheritance,parser,ApplicationListener extends EventListener.
+SpringFramework,Observer,ApplicationListener.java,ApplicationListener,3,method,parser,ApplicationListener defines method onApplicationEvent.
+SpringFramework,Observer,ApplicationListener.java,ApplicationListener,4,method,parser,ApplicationListener defines method supportsAsyncExecution.
+SpringFramework,Observer,ApplicationListener.java,ApplicationListener,5,method,parser,ApplicationListener defines method forPayload.
+SpringFramework,Observer,AbstractApplicationEventMulticaster.java,AbstractApplicationEventMulticaster,1,kind,parser,AbstractApplicationEventMulticaster is an abstract class.
+SpringFramework,Observer,AbstractApplicationEventMulticaster.java,AbstractApplicationEventMulticaster,2,inheritance,parser,AbstractApplicationEventMulticaster implements ApplicationEventMulticaster.
+SpringFramework,Observer,AbstractApplicationEventMulticaster.java,AbstractApplicationEventMulticaster,3,inheritance,parser,AbstractApplicationEventMulticaster implements BeanClassLoaderAware.
+SpringFramework,Observer,AbstractApplicationEventMulticaster.java,AbstractApplicationEventMulticaster,4,inheritance,parser,AbstractApplicationEventMulticaster implements BeanFactoryAware.
+SpringFramework,Observer,AbstractApplicationEventMulticaster.java,AbstractApplicationEventMulticaster,5,field,parser,AbstractApplicationEventMulticaster has a field applicationListeners of type Set<ApplicationListener<?>>.
+SpringFramework,Observer,AbstractApplicationEventMulticaster.java,AbstractApplicationEventMulticaster,6,method,parser,AbstractApplicationEventMulticaster overrides method setBeanClassLoader.
+SpringFramework,Observer,AbstractApplicationEventMulticaster.java,AbstractApplicationEventMulticaster,7,method,parser,AbstractApplicationEventMulticaster overrides method setBeanFactory.
+SpringFramework,Observer,AbstractApplicationEventMulticaster.java,AbstractApplicationEventMulticaster,8,method,parser,AbstractApplicationEventMulticaster overrides method addApplicationListener.
+SpringFramework,Observer,AbstractApplicationEventMulticaster.java,AbstractApplicationEventMulticaster,9,call,parser,Method getApplicationListeners of AbstractApplicationEventMulticaster calls getApplicationListeners of DefaultListenerRetriever.
+SpringFramework,Memento,SavepointManager.java,SavepointManager,1,kind,parser,SavepointManager is an interface.
+SpringFramework,Memento,SavepointManager.java,SavepointManager,2,method,parser,SavepointManager defines method createSavepoint.
+SpringFramework,Memento,SavepointManager.java,SavepointManager,3,method,parser,SavepointManager defines method rollbackToSavepoint.
+SpringFramework,Memento,SavepointManager.java,SavepointManager,4,method,parser,SavepointManager defines method releaseSavepoint.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,1,kind,parser,AbstractTransactionStatus is an abstract class.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,2,inheritance,parser,AbstractTransactionStatus implements TransactionStatus.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,3,method,parser,AbstractTransactionStatus overrides method setRollbackOnly.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,4,method,parser,AbstractTransactionStatus overrides method isRollbackOnly.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,5,method,parser,AbstractTransactionStatus overrides method isCompleted.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,6,call,parser,Method isRollbackOnly of AbstractTransactionStatus calls isLocalRollbackOnly of AbstractTransactionStatus.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,7,call,parser,Method isRollbackOnly of AbstractTransactionStatus calls isGlobalRollbackOnly of AbstractTransactionStatus.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,8,call,parser,Method createAndHoldSavepoint of AbstractTransactionStatus calls getSavepointManager of AbstractTransactionStatus.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,9,call,parser,Method createAndHoldSavepoint of AbstractTransactionStatus calls setSavepoint of AbstractTransactionStatus.
+SpringFramework,Memento,AbstractTransactionStatus.java,AbstractTransactionStatus,10,call,parser,Method rollbackToHeldSavepoint of AbstractTransactionStatus calls getSavepoint of AbstractTransactionStatus.
+SpringFramework,Memento,SimpleApplicationEventMulticaster.java,SimpleApplicationEventMulticaster,1,inheritance,parser,SimpleApplicationEventMulticaster extends AbstractApplicationEventMulticaster.
+SpringFramework,Memento,SimpleApplicationEventMulticaster.java,SimpleApplicationEventMulticaster,2,method,parser,SimpleApplicationEventMulticaster overrides method multicastEvent.
+SpringFramework,Memento,SimpleApplicationEventMulticaster.java,SimpleApplicationEventMulticaster,3,method,parser,SimpleApplicationEventMulticaster defines method setTaskExecutor.
+SpringFramework,Memento,SimpleApplicationEventMulticaster.java,SimpleApplicationEventMulticaster,4,method,parser,SimpleApplicationEventMulticaster defines method getTaskExecutor.
+SpringFramework,Visitor,BeanDefinitionVisitor.java,BeanDefinitionVisitor,1,method,parser,BeanDefinitionVisitor defines method visitBeanDefinition.
+SpringFramework,Visitor,BeanDefinitionVisitor.java,BeanDefinitionVisitor,2,method,parser,BeanDefinitionVisitor defines method visitParentName.
+SpringFramework,Visitor,BeanDefinitionVisitor.java,BeanDefinitionVisitor,3,method,parser,BeanDefinitionVisitor defines method visitBeanClassName.
+SpringFramework,Visitor,BeanDefinitionVisitor.java,BeanDefinitionVisitor,4,call,parser,Method resolveValue of BeanDefinitionVisitor calls resolveStringValue of BeanDefinitionVisitor.
+SpringFramework,Visitor,BeanDefinitionVisitor.java,BeanDefinitionVisitor,5,call,parser,Method resolveValue of BeanDefinitionVisitor calls visitMap of BeanDefinitionVisitor.
+SpringFramework,Visitor,BeanDefinitionVisitor.java,BeanDefinitionVisitor,6,call,parser,Method resolveValue of BeanDefinitionVisitor calls visitSet of BeanDefinitionVisitor.
+SpringFramework,Visitor,BeanDefinitionVisitor.java,BeanDefinitionVisitor,7,call,parser,Method resolveValue of BeanDefinitionVisitor calls visitList of BeanDefinitionVisitor.
+SpringFramework,Visitor,BeanDefinitionVisitor.java,BeanDefinitionVisitor,8,call,parser,Method resolveValue of BeanDefinitionVisitor calls visitArray of BeanDefinitionVisitor.

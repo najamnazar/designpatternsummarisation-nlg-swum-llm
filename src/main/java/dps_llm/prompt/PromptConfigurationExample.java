@@ -33,7 +33,9 @@ public class PromptConfigurationExample {
     }
     
     private static void demonstrateDefaultPrompt() {
-        System.out.println("1. DEFAULT PROMPT (SENIOR_ANALYST_CONCISE)");
+        // CHANGE: label matches the actual default alias used by LlmPromptBuilder().
+        // System.out.println("1. DEFAULT PROMPT (SENIOR_ANALYST_CONCISE)");
+        System.out.println("1. DEFAULT PROMPT (SENIOR_ANALYST_50_WORDS)");
         System.out.println("   " + "=".repeat(50));
         
         LlmPromptBuilder builder = new LlmPromptBuilder();
@@ -47,10 +49,17 @@ public class PromptConfigurationExample {
         System.out.println("2. ALTERNATIVE PROMPTS");
         System.out.println("   " + "=".repeat(50));
         
+        // CHANGE: these three aliases do not exist in resources/prompts.json, so the demo crashed with
+        // "Prompt not found for alias: SENIOR_ANALYST_BRIEF". Use aliases that are defined there.
+        // String[] aliases = {
+        //     "SENIOR_ANALYST_BRIEF",
+        //     "SENIOR_ANALYST_VERBOSE",
+        //     "SENIOR_ANALYST_DETAILED"
+        // };
         String[] aliases = {
-            "SENIOR_ANALYST_BRIEF",
-            "SENIOR_ANALYST_VERBOSE", 
-            "SENIOR_ANALYST_DETAILED"
+            "SENIOR_ANALYST_20_WORDS",
+            "SENIOR_ANALYST_80_WORDS",
+            "SENIOR_ANALYST_50_WORDS_NON_CONCISE"
         };
         
         for (String alias : aliases) {

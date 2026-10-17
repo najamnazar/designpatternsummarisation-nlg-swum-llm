@@ -12,7 +12,9 @@ import common.utils.Utils;
 // Memento is a behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation
 public class MementoPattern extends DesignPatterns {
     public MementoPattern() {
-        super("memento");
+        // CHANGE: pattern keys use the AbstractFactory style (see PatternNames); was super("memento").
+        // super("memento");
+        super(PatternNames.MEMENTO);
     }
 
     @Override

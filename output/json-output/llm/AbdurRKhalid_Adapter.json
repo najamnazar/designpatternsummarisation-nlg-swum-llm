@@ -1,7 +1,7 @@
 {
 	"final_summary" : "",
 	"design_pattern" : [ {
-		"adapter" : {
+		"Adapter" : {
 			"SquarePegAdapter" : {
 				"adaptee" : [ "SquarePeg" ],
 				"target" : [ "RoundPeg" ]

@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import com.github.javaparser.ast.NodeList;
+import com.github.javaparser.ast.body.Parameter;
 
 /**
  * Shared utility class providing helper methods for file operations, string manipulation,
@@ -295,19 +296,50 @@ public class Utils {
         return resultArray;
     }
 
+    /**
+     * Converts JavaParser parameters into PARAMETERTYPE / PARAMETERNAME maps.
+     * <p>
+     * CHANGE: read the type and name from the {@link Parameter} node instead of splitting
+     * {@code parameter.toString()} on spaces. The old split broke whenever the declaration had more
+     * than two space-separated tokens: {@code @Nullable BeanFactory bf} became type {@code @Nullable}
+     * and name {@code BeanFactory}, {@code final String s} became type {@code final}, and
+     * {@code Map<String, Object> m} became type {@code Map<String,} and name {@code Object>}.
+     * 49 distinct parameters in the Spring input were stored wrongly, which fed the LLM prompts and
+     * the Observer/Visitor/Decorator/Memento detectors that compare parameter types to class names.
+     * Varargs keep the {@code ...} suffix the old code produced (e.g. {@code String...}).
+     * </p>
+     *
+     * @param parameters the parameters of a method or constructor declaration
+     * @return one map per parameter with PARAMETERTYPE and PARAMETERNAME keys
+     */
     public static ArrayList<HashMap> getParameters(NodeList parameters) {
         ArrayList<HashMap> resultArray = new ArrayList<>();
         if (parameters == null) {
             return resultArray;
         }
-        for (Object parameter : parameters) {
-            String[] parameterString = parameter.toString().split(" ");
-            if (parameterString.length < 2) {
+        // Original implementation:
+        // for (Object parameter : parameters) {
+        //     String[] parameterString = parameter.toString().split(" ");
+        //     if (parameterString.length < 2) {
+        //         continue;
+        //     }
+        //     HashMap resultMap = new HashMap<>();
+        //     resultMap.put("PARAMETERTYPE", parameterString[0]);
+        //     resultMap.put("PARAMETERNAME", parameterString[1]);
+        //     resultArray.add(resultMap);
+        // }
+        for (Object node : parameters) {
+            if (!(node instanceof Parameter)) {
                 continue;
             }
+            Parameter parameter = (Parameter) node;
+            String type = parameter.getType().asString();
+            if (parameter.isVarArgs()) {
+                type += "...";
+            }
             HashMap resultMap = new HashMap<>();
-            resultMap.put("PARAMETERTYPE", parameterString[0]);
-            resultMap.put("PARAMETERNAME", parameterString[1]);
+            resultMap.put("PARAMETERTYPE", type);
+            resultMap.put("PARAMETERNAME", parameter.getNameAsString());
             resultArray.add(resultMap);
         }
         return resultArray;

@@ -1,7 +1,7 @@
 {
   "project_name" : "Observer",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1766308894313,
+  "generated_timestamp" : 1791969636843,
   "class_summaries" : {
     "EmailNotificationListener" : {
       "class_name" : "EmailNotificationListener",
@@ -11,13 +11,13 @@
           "method_name" : "update",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method receives updates from publisher as part of the observer pattern.",
+          "swum_summary" : "This method receives updates from publisher as part of the Observer pattern.",
           "swum_actions" : "update",
           "swum_objects" : "",
           "swum_parse_tree" : "(VERB_PHRASE update)"
         }
       },
-      "swum_class_summary" : "The EmailNotificationListener class acts as a subscriber in the observer pattern and provides methods to update."
+      "swum_class_summary" : "The EmailNotificationListener class acts as a subscriber in the Observer pattern and provides methods to update."
     },
     "EventManager" : {
       "class_name" : "EventManager",
@@ -27,7 +27,7 @@
           "method_name" : "subscribe",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method subscribes observers as part of the observer pattern.",
+          "swum_summary" : "This method subscribes observers as part of the Observer pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE subscribe)"
@@ -36,7 +36,7 @@
           "method_name" : "unsubscribe",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method subscribes observers as part of the observer pattern.",
+          "swum_summary" : "This method subscribes observers as part of the Observer pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE unsubscribe)"
@@ -45,13 +45,13 @@
           "method_name" : "notify",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method notifies all subscribers as part of the observer pattern.",
+          "swum_summary" : "This method notifies all subscribers as part of the Observer pattern.",
           "swum_actions" : "notify",
           "swum_objects" : "",
           "swum_parse_tree" : "(VERB_PHRASE notify)"
         }
       },
-      "swum_class_summary" : "The EventManager class acts as a publisher in the observer pattern and provides methods to notify for managing event."
+      "swum_class_summary" : "The EventManager class acts as a publisher in the Observer pattern and provides methods to notify for managing event."
     },
     "EventListener" : {
       "class_name" : "EventListener",
@@ -61,13 +61,13 @@
           "method_name" : "update",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method receives updates from publisher as part of the observer pattern.",
+          "swum_summary" : "This method receives updates from publisher as part of the Observer pattern.",
           "swum_actions" : "update",
           "swum_objects" : "",
           "swum_parse_tree" : "(VERB_PHRASE update)"
         }
       },
-      "swum_class_summary" : "The EventListener class acts as a subscriber in the observer pattern and provides methods to update for managing event."
+      "swum_class_summary" : "The EventListener class acts as a subscriber in the Observer pattern and provides methods to update for managing event."
     },
     "Editor" : {
       "class_name" : "Editor",
@@ -102,18 +102,18 @@
           "method_name" : "update",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method receives updates from publisher as part of the observer pattern.",
+          "swum_summary" : "This method receives updates from publisher as part of the Observer pattern.",
           "swum_actions" : "update",
           "swum_objects" : "",
           "swum_parse_tree" : "(VERB_PHRASE update)"
         }
       },
-      "swum_class_summary" : "The LogOpenListener class acts as a subscriber in the observer pattern and provides methods to update."
+      "swum_class_summary" : "The LogOpenListener class acts as a subscriber in the Observer pattern and provides methods to update."
     }
   },
-  "swum_project_summary" : "This software project contains 5 classes with 8 methods. The system implements the observer design pattern. Primary operations include notify, open, save, update. Key objects manipulated are File.",
+  "swum_project_summary" : "This software project contains 5 classes with 8 methods. The system implements the Observer design pattern. Primary operations include notify, open, save, update. Key objects manipulated are File.",
   "design_patterns" : [ {
-    "observer" : {
+    "Observer" : {
       "EventListener" : {
         "concrete_observer" : [ "EmailNotificationListener", "LogOpenListener" ],
         "publisher" : {

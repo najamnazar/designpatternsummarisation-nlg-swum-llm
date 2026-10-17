@@ -300,7 +300,7 @@
 	},
 	"final_summary" : "",
 	"design_pattern" : [ {
-		"factory_method" : {
+		"FactoryMethod" : {
 			"Dialog" : {
 				"concrete_product" : [ "WindowsButton", "HtmlButton" ],
 				"abstract_product" : "Button",

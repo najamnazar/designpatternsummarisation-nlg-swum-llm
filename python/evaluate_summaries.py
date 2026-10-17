@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 """
 Summary Evaluation Against Human Summaries
-Evaluates NLG, SWUM, and LLM (Mixtral) summaries against human-written summaries
-using Cosine Similarity and BERTScore with violin plot visualizations.
+
+CHANGE: also evaluates the GPT and Mistral runs of the Java LLM pipeline
+(llm_summaries_{gpt,mistral}.csv and llm_summaries_nonconcise_{gpt,mistral}.csv),
+each under its own label, so they are scored next to the canonical Mixtral run
+instead of replacing it. Pass --skip-gpt-mistral to score only NLG, SWUM and Mixtral.
+
+CHANGE: by default the script now compares NLG, SWUM, GPT and Mistral (concise and
+non-concise) with the human summaries. Mixtral is only scored when its CSV is passed
+explicitly with --dps-llm-csv (and --dps-llm-nonconcise-csv).
 
 This module now follows an object-oriented design to encapsulate the data-loading, evaluation,
 visualisation, and orchestration responsibilities while retaining the CLI behaviour and outputs.
@@ -24,6 +31,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import logging as hf_logging
 
+# CHANGE (input layout): input paths come from one shared module (input/corpus, input/ground-truth).
+from project_paths import HUMAN_SUMMARIES_CSV
+
 try:
     from dotenv import load_dotenv
     # Load .env file from project root (parent directory of python/)
@@ -39,6 +49,34 @@ plt.rcParams['font.size'] = 10
 
 # Silence noisy transformer weight-init warnings from HF
 hf_logging.set_verbosity_error()
+
+# CHANGE: one label per LLM run. The label also names the output files
+# ("<label lowercased>_vs_human_class_scores.csv"), so the two existing labels must not change:
+# build_final_results.py and calculate_wilcoxon_tests.py read
+# "llm (mixtral)_vs_human_class_scores.csv" and "llm (non-concise 50)_vs_human_class_scores.csv".
+LLM_MIXTRAL = 'LLM (Mixtral)'
+LLM_MIXTRAL_NONCONCISE = 'LLM (Non-Concise 50)'
+LLM_GPT = 'LLM (GPT)'
+LLM_MISTRAL = 'LLM (Mistral)'
+LLM_GPT_NONCONCISE = 'LLM (GPT Non-Concise)'
+LLM_MISTRAL_NONCONCISE = 'LLM (Mistral Non-Concise)'
+
+# CHANGE: model name written next to each LLM label in evaluation_summary.txt / results.txt.
+# Previously "(Mixtral-8x22B)" was hard-coded for 'LLM (Mixtral)' only. GPT and Mistral use the
+# OpenRouter model ids from .env (GPT_MODEL / MISTRAL_MODEL), the same keys the Java pipeline reads.
+METHOD_MODEL_INFO = {
+    LLM_MIXTRAL: 'Mixtral-8x22B',
+    LLM_GPT: os.getenv('GPT_MODEL', 'GPT_MODEL'),
+    LLM_MISTRAL: os.getenv('MISTRAL_MODEL', 'MISTRAL_MODEL'),
+    LLM_GPT_NONCONCISE: os.getenv('GPT_MODEL', 'GPT_MODEL'),
+    LLM_MISTRAL_NONCONCISE: os.getenv('MISTRAL_MODEL', 'MISTRAL_MODEL'),
+}
+
+
+def method_info_suffix(method: str) -> str:
+    """Return ' (<model>)' for LLM methods with a known model, or '' otherwise."""
+    model = METHOD_MODEL_INFO.get(method)
+    return f" ({model})" if model else ""
 
 
 def normalize_project_identifier(value: str) -> str:
@@ -236,9 +274,16 @@ class EvaluationConfig:
     human_csv: Path
     nlg_csv: Path
     swum_csv: Path
-    dps_llm_csv: Path
+    # dps_llm_csv: Path
+    dps_llm_csv: Optional[Path]  # CHANGE: None (the default) means Mixtral is not evaluated
     output_dir: Path
     dps_llm_nonconcise_csv: Optional[Path] = None  # Optional additional LLM summaries (e.g., non-concise alias)
+    # CHANGE: GPT and Mistral runs of the Java LLM pipeline (mvn exec:java@llm-gpt / @llm-mistral and
+    # their -nonconcise variants). None means the run is not evaluated.
+    gpt_csv: Optional[Path] = None
+    mistral_csv: Optional[Path] = None
+    gpt_nonconcise_csv: Optional[Path] = None
+    mistral_nonconcise_csv: Optional[Path] = None
 
     def ensure_output_dir(self) -> None:
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -249,13 +294,37 @@ class EvaluationConfig:
         #     ('SWUM', self.swum_csv),
         #     ('LLM (Mixtral)', self.dps_llm_csv),
         # ]
+        # sources = [
+        #     ('NLG', self.nlg_csv),
+        #     ('SWUM', self.swum_csv),
+        #     ('LLM (Mixtral)', self.dps_llm_csv),
+        # ]
+        # if self.dps_llm_nonconcise_csv is not None:
+        #     sources.append(('LLM (Non-Concise 50)', self.dps_llm_nonconcise_csv))
+        # return sources
+        # sources = [
+        #     ('NLG', self.nlg_csv),
+        #     ('SWUM', self.swum_csv),
+        #     (LLM_MIXTRAL, self.dps_llm_csv),
+        # ]
+        # CHANGE: NLG and SWUM are always evaluated; Mixtral is now optional like the other LLM runs.
         sources = [
             ('NLG', self.nlg_csv),
             ('SWUM', self.swum_csv),
-            ('LLM (Mixtral)', self.dps_llm_csv),
         ]
-        if self.dps_llm_nonconcise_csv is not None:
-            sources.append(('LLM (Non-Concise 50)', self.dps_llm_nonconcise_csv))
+        # CHANGE: optional LLM runs are added in a fixed order (Mixtral, Mixtral non-concise, then GPT
+        # and Mistral concise, then their non-concise runs); a run whose path is None is left out.
+        optional_sources = [
+            (LLM_MIXTRAL, self.dps_llm_csv),
+            (LLM_MIXTRAL_NONCONCISE, self.dps_llm_nonconcise_csv),
+            (LLM_GPT, self.gpt_csv),
+            (LLM_MISTRAL, self.mistral_csv),
+            (LLM_GPT_NONCONCISE, self.gpt_nonconcise_csv),
+            (LLM_MISTRAL_NONCONCISE, self.mistral_nonconcise_csv),
+        ]
+        for method_name, csv_path in optional_sources:
+            if csv_path is not None:
+                sources.append((method_name, csv_path))
         return sources
 
 
@@ -330,6 +399,15 @@ class SummaryEvaluator:
             return None
 
         print(f"  Matched: {len(merged)} (exact 1-to-1 pairs)")
+        # CHANGE: the inner merge silently scores only the matched classes, so a partial CSV (e.g. an
+        # LLM run that stopped on 429 rate limits) would give averages over fewer classes that are not
+        # comparable with the other methods. Warn loudly; resume the Java run to fill the gaps.
+        if len(merged) < len(human_df):
+            print(
+                f"  WARNING: only {len(merged)} of {len(human_df)} human summaries matched for {friendly_name}; "
+                f"its averages cover the matched classes only. Fill the missing rows first "
+                f"(for the GPT/Mistral runs: mvn exec:java@llm-<model>[-nonconcise]-resume)."
+            )
 
         merged['cosine_similarity'] = merged.apply(
             lambda row: self.metrics.cosine_similarity(row['summary_human'], row['summary_method']),
@@ -375,12 +453,15 @@ class SummaryEvaluator:
             avg_bert_f1=('bert_f1', 'mean'),
         ).reset_index()
         project_stats.rename(columns={'base_project_human': 'project'}, inplace=True)
-        project_stats['combined_score'] = (
-            project_stats['avg_cosine'] + project_stats['avg_bert_f1']
-        ) / 2.0
+        # CHANGE: the combined score (mean of cosine and BERT F1) is not needed, so it is no longer computed.
+        # project_stats['combined_score'] = (
+        #     project_stats['avg_cosine'] + project_stats['avg_bert_f1']
+        # ) / 2.0
 
         project_csv = self.output_dir / f'{method_name.lower()}_vs_human_project_scores.csv'
-        project_stats.sort_values('combined_score', ascending=False).to_csv(project_csv, index=False)
+        # project_stats.sort_values('combined_score', ascending=False).to_csv(project_csv, index=False)
+        # CHANGE: projects are now ordered by BERT F1 instead of the removed combined score.
+        project_stats.sort_values('avg_bert_f1', ascending=False).to_csv(project_csv, index=False)
         print(f"  Saved: {project_csv}")
 
         overall_metrics = {
@@ -391,9 +472,10 @@ class SummaryEvaluator:
             'avg_bert_precision': float(merged['bert_precision'].mean()),
             'avg_bert_recall': float(merged['bert_recall'].mean()),
             'avg_bert_f1': float(merged['bert_f1'].mean()),
-            'combined_score': float(
-                (merged['cosine_similarity'].mean() + merged['bert_f1'].mean()) / 2.0
-            ),
+            # CHANGE: combined score no longer computed
+            # 'combined_score': float(
+            #     (merged['cosine_similarity'].mean() + merged['bert_f1'].mean()) / 2.0
+            # ),
             'cosine_std': float(merged['cosine_similarity'].std(ddof=0)),
             'bert_f1_std': float(merged['bert_f1'].std(ddof=0)),
         }
@@ -404,7 +486,7 @@ class SummaryEvaluator:
         print(f"  Avg BERT Precision: {overall_metrics['avg_bert_precision']:.4f}")
         print(f"  Avg BERT Recall: {overall_metrics['avg_bert_recall']:.4f}")
         print(f"  Avg BERT F1: {overall_metrics['avg_bert_f1']:.4f}")
-        print(f"  Combined Score: {overall_metrics['combined_score']:.4f}")
+        # print(f"  Combined Score: {overall_metrics['combined_score']:.4f}")  # CHANGE: combined score removed
 
         return MethodEvaluationResult(
             method=method_name,
@@ -438,7 +520,10 @@ class VisualizationManager:
     ) -> None:
         combined_data = []
         method_order = []
-        allowed_methods = {'NLG', 'SWUM', 'LLM (Mixtral)'}
+        # allowed_methods = {'NLG', 'SWUM', 'LLM (Mixtral)'}
+        # CHANGE: the GPT and Mistral (concise) runs are plotted too. Non-concise runs stay out of the
+        # plot, as the Mixtral non-concise run always has.
+        allowed_methods = {'NLG', 'SWUM', LLM_MIXTRAL, LLM_GPT, LLM_MISTRAL}
         for result in results:
             if result.method not in allowed_methods:
                 continue
@@ -454,11 +539,21 @@ class VisualizationManager:
 
         all_data = pd.concat(combined_data, ignore_index=True)
 
-        fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+        # fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+        # CHANGE: widen the figure when more than four methods are plotted so the labels do not overlap.
+        fig, axes = plt.subplots(1, 2, figsize=(max(16, 4 * len(method_order)), 6))
+        # colors = {
+        #     'NLG': '#e74c3c',
+        #     'SWUM': '#3498db',
+        #     'LLM (Mixtral)': '#f39c12',
+        # }
+        # CHANGE: colours for the GPT and Mistral runs; without them plot_palette fell back to None.
         colors = {
             'NLG': '#e74c3c',
             'SWUM': '#3498db',
-            'LLM (Mixtral)': '#f39c12',
+            LLM_MIXTRAL: '#f39c12',
+            LLM_GPT: '#2ecc71',
+            LLM_MISTRAL: '#9b59b6',
         }
         # plot_palette = colors  # Original fixed palette usage retained for reference per user instructions
         plot_palette = colors if set(method_order).issubset(colors.keys()) else None
@@ -557,6 +652,11 @@ class SummaryEvaluationPipeline:
 
             if not csv_path.exists():
                 print(f"WARNING: {display_name} CSV not found: {csv_path}")
+                # CHANGE: a skipped method keeps the score files of an earlier run in the output folder,
+                # and build_final_results.py / calculate_wilcoxon_tests.py would still read them.
+                stale_csv = self.config.output_dir / f'{method_name.lower()}_vs_human_class_scores.csv'
+                if stale_csv.exists():
+                    print(f"WARNING: {stale_csv} is from an earlier run and was NOT updated.")
                 continue
 
             try:
@@ -609,9 +709,10 @@ class SummaryEvaluationPipeline:
                 handle.write("EVALUATION SUMMARY: Generated vs Human Summaries\n")
                 handle.write("=" * 60 + "\n\n")
                 for result in results:
-                    method_info = ""
-                    if result.method == 'LLM (Mixtral)':
-                        method_info = " (Mixtral-8x22B)"
+                    # method_info = ""
+                    # if result.method == 'LLM (Mixtral)':
+                    #     method_info = " (Mixtral-8x22B)"
+                    method_info = method_info_suffix(result.method)  # CHANGE: model name for every LLM run
                     metrics = result.metrics
                     handle.write(f"\n{result.method}{method_info}:\n")
                     handle.write(f"  Classes Evaluated: {metrics['classes_evaluated']}\n")
@@ -623,7 +724,7 @@ class SummaryEvaluationPipeline:
                     handle.write(
                         f"  Avg BERT F1: {metrics['avg_bert_f1']:.4f} (±{metrics['bert_f1_std']:.4f})\n"
                     )
-                    handle.write(f"  Combined Score: {metrics['combined_score']:.4f}\n")
+                    # handle.write(f"  Combined Score: {metrics['combined_score']:.4f}\n")  # CHANGE: combined score removed
 
             formatted_overall = pd.DataFrame(result.metrics for result in results)
             float_cols = [
@@ -631,7 +732,7 @@ class SummaryEvaluationPipeline:
                 'avg_bert_precision',
                 'avg_bert_recall',
                 'avg_bert_f1',
-                'combined_score',
+                # 'combined_score',  # CHANGE: combined score removed
                 'cosine_std',
                 'bert_f1_std',
             ]
@@ -646,9 +747,10 @@ class SummaryEvaluationPipeline:
                 handle.write(formatted_overall.to_string(index=False))
                 handle.write("\n\nDetailed Metrics by Method:\n")
                 for result in results:
-                    method_info = ""
-                    if result.method == 'LLM (Mixtral)':
-                        method_info = " (Mixtral-8x22B)"
+                    # method_info = ""
+                    # if result.method == 'LLM (Mixtral)':
+                    #     method_info = " (Mixtral-8x22B)"
+                    method_info = method_info_suffix(result.method)  # CHANGE: model name for every LLM run
                     metrics = result.metrics
                     handle.write(f"\n{result.method}{method_info}\n")
                     handle.write(f"  Projects Evaluated: {metrics['projects_evaluated']}\n")
@@ -657,7 +759,7 @@ class SummaryEvaluationPipeline:
                     handle.write(f"  Avg BERT Precision: {metrics['avg_bert_precision']:.4f}\n")
                     handle.write(f"  Avg BERT Recall: {metrics['avg_bert_recall']:.4f}\n")
                     handle.write(f"  Avg BERT F1: {metrics['avg_bert_f1']:.4f}\n")
-                    handle.write(f"  Combined Score: {metrics['combined_score']:.4f}\n")
+                    # handle.write(f"  Combined Score: {metrics['combined_score']:.4f}\n")  # CHANGE: combined score removed
         except OSError as exc:
             print(f"ERROR writing summary files: {exc}")
             return
@@ -685,7 +787,8 @@ def parse_arguments(argv: Optional[List[str]]) -> argparse.Namespace:
     parser.add_argument(
         '--human-csv',
         type=Path,
-        default=Path('input/DPS_Human_Summaries.csv'),
+        # default=Path('input/DPS_Human_Summaries.csv'),
+        default=HUMAN_SUMMARIES_CSV,
         help='Path to human summaries CSV file',
     )
     parser.add_argument(
@@ -700,17 +803,56 @@ def parse_arguments(argv: Optional[List[str]]) -> argparse.Namespace:
         default=Path('output/summary-output/swum_summaries.csv'),
         help='Path to SWUM summaries CSV file',
     )
+    # parser.add_argument(
+    #     '--dps-llm-csv',
+    #     type=Path,
+    #     default=Path('output/summary-output/llm_summaries.csv'),
+    #     help='Path to LLM (Mixtral) summaries CSV file',
+    # )
+    # CHANGE: Mixtral is no longer scored by default; pass its CSV to include it,
+    # e.g. --dps-llm-csv output/summary-output/llm_summaries.csv
     parser.add_argument(
         '--dps-llm-csv',
         type=Path,
-        default=Path('output/summary-output/llm_summaries.csv'),
-        help='Path to LLM (Mixtral) summaries CSV file',
+        default=None,
+        help='Optional path to LLM (Mixtral) summaries CSV file (not evaluated unless given)',
     )
     parser.add_argument(
         '--dps-llm-nonconcise-csv',
         type=Path,
         default=None,
         help='Optional path to LLM non-concise summaries CSV file',
+    )
+    # CHANGE: the GPT and Mistral runs of the Java LLM pipeline, evaluated by default. A missing CSV
+    # is skipped with a warning, so the script still runs before those summaries are generated.
+    parser.add_argument(
+        '--gpt-csv',
+        type=Path,
+        default=Path('output/summary-output/llm_summaries_gpt.csv'),
+        help='Path to LLM (GPT) summaries CSV file (mvn exec:java@llm-gpt)',
+    )
+    parser.add_argument(
+        '--mistral-csv',
+        type=Path,
+        default=Path('output/summary-output/llm_summaries_mistral.csv'),
+        help='Path to LLM (Mistral) summaries CSV file (mvn exec:java@llm-mistral)',
+    )
+    parser.add_argument(
+        '--gpt-nonconcise-csv',
+        type=Path,
+        default=Path('output/summary-output/llm_summaries_nonconcise_gpt.csv'),
+        help='Path to LLM (GPT Non-Concise) summaries CSV file (mvn exec:java@llm-gpt-nonconcise)',
+    )
+    parser.add_argument(
+        '--mistral-nonconcise-csv',
+        type=Path,
+        default=Path('output/summary-output/llm_summaries_nonconcise_mistral.csv'),
+        help='Path to LLM (Mistral Non-Concise) summaries CSV file (mvn exec:java@llm-mistral-nonconcise)',
+    )
+    parser.add_argument(
+        '--skip-gpt-mistral',
+        action='store_true',
+        help='Do not evaluate the GPT and Mistral runs (e.g. when scoring a length-controlled Mixtral corpus with --dps-llm-csv)',
     )
     parser.add_argument(
         '--output-dir',
@@ -723,6 +865,16 @@ def parse_arguments(argv: Optional[List[str]]) -> argparse.Namespace:
 
 def main(argv: Optional[List[str]] = None) -> None:
     args = parse_arguments(argv)
+    # config = EvaluationConfig(
+    #     human_csv=args.human_csv,
+    #     nlg_csv=args.nlg_csv,
+    #     swum_csv=args.swum_csv,
+    #     dps_llm_csv=args.dps_llm_csv,
+    #     output_dir=args.output_dir,
+    #     dps_llm_nonconcise_csv=args.dps_llm_nonconcise_csv,
+    # )
+    # CHANGE: pass the GPT/Mistral paths too, unless --skip-gpt-mistral was given.
+    skip = args.skip_gpt_mistral
     config = EvaluationConfig(
         human_csv=args.human_csv,
         nlg_csv=args.nlg_csv,
@@ -730,6 +882,10 @@ def main(argv: Optional[List[str]] = None) -> None:
         dps_llm_csv=args.dps_llm_csv,
         output_dir=args.output_dir,
         dps_llm_nonconcise_csv=args.dps_llm_nonconcise_csv,
+        gpt_csv=None if skip else args.gpt_csv,
+        mistral_csv=None if skip else args.mistral_csv,
+        gpt_nonconcise_csv=None if skip else args.gpt_nonconcise_csv,
+        mistral_nonconcise_csv=None if skip else args.mistral_nonconcise_csv,
     )
     pipeline = SummaryEvaluationPipeline(config)
     pipeline.run()

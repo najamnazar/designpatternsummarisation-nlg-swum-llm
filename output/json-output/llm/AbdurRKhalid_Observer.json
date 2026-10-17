@@ -1,7 +1,7 @@
 {
 	"final_summary" : "",
 	"design_pattern" : [ {
-		"observer" : {
+		"Observer" : {
 			"EventListener" : {
 				"concrete_observer" : [ "EmailNotificationListener", "LogOpenListener" ],
 				"publisher" : {

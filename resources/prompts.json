@@ -1,0 +1,55 @@
+{
+  "llm_summarization": {
+    "system_prompt": {
+      "alias": "SENIOR_ANALYST_50_WORDS",
+      "content": "You are a senior software analyst who writes concise, factual summaries of Java classes. Use only the supplied structural facts to describe each class in a single paragraph no longer than 50 words. Highlight the class responsibilities, key collaborators, and any explicit design-pattern roles. Do not invent behaviour or reference missing information. Write in third person with an objective tone."
+    },
+    "user_prompt_template": {
+      "alias": "CLASS_SUMMARY_STRUCTURED",
+      "sections": [
+        "Project: {project_name}",
+        "Class: {class_name} ({class_kind}, modifiers: {modifiers})",
+        "Extends: {extends_types}",
+        "Implements: {implements_types}",
+        "Fields (total {field_count}): {field_signatures}",
+        "Constructors (total {constructor_count}): {constructor_signatures}",
+        "Methods (total {method_count}): {method_summaries}",
+        "Interactions: {interaction_notes}",
+        "Design pattern insights:\n{pattern_insights}",
+        "\nTask: Produce a single-paragraph summary (<=50 words) that stresses the class responsibility, its collaborators, and the provided design-pattern context. Avoid repeating raw bullet text."
+      ]
+    },
+    "alternative_prompts": {
+      "ultra_brief_20": {
+        "alias": "SENIOR_ANALYST_20_WORDS",
+        "content": "You are a senior software analyst who writes concise, factual summaries of Java classes. Use only the supplied structural facts to describe each class in a single paragraph no longer than 20 words. Highlight the class responsibilities, key collaborators, and any explicit design-pattern roles. Do not invent behaviour or reference missing information. Write in third person with an objective tone."
+      },
+      "brief_40": {
+        "alias": "SENIOR_ANALYST_40_WORDS",
+        "content": "You are a senior software analyst who writes concise, factual summaries of Java classes. Use only the supplied structural facts to describe each class in a single paragraph no longer than 40 words. Highlight the class responsibilities, key collaborators, and any explicit design-pattern roles. Do not invent behaviour or reference missing information. Write in third person with an objective tone."
+      },
+      "moderate_60": {
+        "alias": "SENIOR_ANALYST_60_WORDS",
+        "content": "You are a senior software analyst who writes concise, factual summaries of Java classes. Use only the supplied structural facts to describe each class in a single paragraph no longer than 60 words. Highlight the class responsibilities, key collaborators, and any explicit design-pattern roles. Do not invent behaviour or reference missing information. Write in third person with an objective tone."
+      },
+      "detailed_80": {
+        "alias": "SENIOR_ANALYST_80_WORDS",
+        "content": "You are a senior software analyst who writes concise, factual summaries of Java classes. Use only the supplied structural facts to describe each class in a single paragraph no longer than 80 words. Highlight the class responsibilities, key collaborators, and any explicit design-pattern roles. Do not invent behaviour or reference missing information. Write in third person with an objective tone."
+      },
+      "non_concise_50": {
+        "alias": "SENIOR_ANALYST_50_WORDS_NON_CONCISE",
+        "content": "You are a senior software analyst who writes factual summaries of Java classes. Use only the supplied structural facts to describe each class in a single paragraph no longer than 50 words. Highlight the class responsibilities, key collaborators, and any explicit design-pattern roles. Do not invent behaviour or reference missing information. Write in third person with an objective tone."
+      }
+    }
+  },
+  "summary_ranking": {
+    "accuracy": "Evaluate the accuracy of each generated summary against the gold summary.\n\nGold summary:\n{human_summary}\n\nGenerated summaries:\n1. {summary_a}\n2. {summary_b}\n3. {summary_c}\n4. {summary_d}\n\nRank the generated summaries from most accurate (1) to least accurate (4). Output only the ranking.",
+    "conciseness": "Evaluate the conciseness of each generated summary against the gold summary.\n\nGold summary:\n{human_summary}\n\nGenerated summaries:\n1. {summary_a}\n2. {summary_b}\n3. {summary_c}\n4. {summary_d}\n\nRank the summaries from most concise (1) to least concise (4). Output only the ranking.",
+    "adequacy": "Evaluate the adequacy of each generated summary against the gold summary.\n\nGold summary:\n{human_summary}\n\nGenerated summaries:\n1. {summary_a}\n2. {summary_b}\n3. {summary_c}\n4. {summary_d}\n\nRank the summaries from most adequate (1) to least adequate (4). Output only the ranking.",
+    "code_context": "Evaluate how well each generated summary captures the context present in the gold summary.\n\nGold summary:\n{human_summary}\n\nGenerated summaries:\n1. {summary_a}\n2. {summary_b}\n3. {summary_c}\n4. {summary_d}\n\nRank the summaries from best at capturing context (1) to worst (4). Output only the ranking.",
+    "design_patterns": "Evaluate how well each generated summary conveys the pattern described in the gold summary.\n\nGold summary:\n{human_summary}\n\nGenerated summaries:\n1. {summary_a}\n2. {summary_b}\n3. {summary_c}\n4. {summary_d}\n\nRank the summaries from best at conveying the pattern (1) to worst (4). Output only the ranking."
+  },
+  "fact_preservation": {
+    "judge": "You are given (1) a numbered list of atomic facts about the design-pattern role, responsibilities and relationships of a Java class, and (2) a generated summary of that class. Each fact states exactly one thing. Judge only from the summary text; you do not have the source code.\n\nSummarised class: {class_name}\nReferences in the summary such as \"this class\", \"the class\" or \"it\" refer to {class_name}.\n\nFor each fact, assign exactly one label:\n- PRESERVED: the summary states the fact explicitly or through an unambiguous paraphrase that refers to the same class or method and the same role or relationship.\n- OMITTED: the summary does not state the fact, states it only partly or only hedged (\"may\", \"possibly\"), or only implies it by naming the pattern without linking it to the specific classes.\n- INCORRECT: the summary states something that contradicts the fact (e.g. assigns the role to a different class, names a different pattern, reverses a relationship). If the summary both states and contradicts a fact, use INCORRECT.\n\nMatching rules:\n- Class names match on the simple name; ignore package qualifiers, letter case and formatting such as backticks.\n- Method names match on the name; ignore parameter lists.\n- Do not use your own knowledge of the pattern to fill gaps.\n\nReturn only a JSON object, without code fences or any other text, with exactly one entry per fact in the order given:\n{{\n  \"facts\": [{{\"id\": <int>, \"evidence\": \"<verbatim summary quote that supports or contradicts the fact; null if OMITTED>\", \"justification\": \"<one sentence>\", \"label\": \"PRESERVED|OMITTED|INCORRECT\"}}]\n}}\n\nFacts:\n{facts}\n\nSummary:\n{summary}"
+  }
+}

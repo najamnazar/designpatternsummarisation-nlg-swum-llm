@@ -1,7 +1,7 @@
 {
   "project_name" : "summary_NLG",
   "swum_version" : "1.0",
-  "generated_timestamp" : 1766308894182,
+  "generated_timestamp" : 1791969636746,
   "class_summaries" : {
     "WindowsOSFactory" : {
       "class_name" : "WindowsOSFactory",
@@ -11,7 +11,7 @@
           "method_name" : "createButton",
           "return_type" : "Button",
           "parameters" : "",
-          "swum_summary" : "This method creates product objects as part of the abstract_factory pattern.",
+          "swum_summary" : "This method creates product objects as part of the Abstract Factory pattern.",
           "swum_actions" : "create",
           "swum_objects" : "Button",
           "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Button))"
@@ -20,13 +20,13 @@
           "method_name" : "createCheckBox",
           "return_type" : "CheckBox",
           "parameters" : "",
-          "swum_summary" : "This method creates product objects as part of the abstract_factory pattern.",
+          "swum_summary" : "This method creates product objects as part of the Abstract Factory pattern.",
           "swum_actions" : "create, Check",
           "swum_objects" : "",
           "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Check Box))"
         }
       },
-      "swum_class_summary" : "The WindowsOSFactory class acts as a factory in the abstract_factory pattern and provides methods to create, create, check for managing factory."
+      "swum_class_summary" : "The WindowsOSFactory class acts as a factory in the Abstract Factory pattern and provides methods to create, create, check for managing factory."
     },
     "WindowsButton" : {
       "class_name" : "WindowsButton",
@@ -36,13 +36,13 @@
           "method_name" : "paint",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method performs. The WindowsButton class acts as a product in the abstract_factory pattern.",
+          "swum_summary" : "This method performs. The WindowsButton class acts as a product in the Abstract Factory pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE paint)"
         }
       },
-      "swum_class_summary" : "The WindowsButton class acts as a product in the abstract_factory pattern for managing button."
+      "swum_class_summary" : "The WindowsButton class acts as a product in the Abstract Factory pattern for managing button."
     },
     "Button" : {
       "class_name" : "Button",
@@ -52,13 +52,13 @@
           "method_name" : "paint",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method performs. The Button class acts as an abstract product in the abstract_factory pattern.",
+          "swum_summary" : "This method performs. The Button class acts as an abstract product in the Abstract Factory pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE paint)"
         }
       },
-      "swum_class_summary" : "The Button class acts as an abstract product in the abstract_factory pattern for managing button."
+      "swum_class_summary" : "The Button class acts as an abstract product in the Abstract Factory pattern for managing button."
     },
     "Test" : {
       "class_name" : "Test",
@@ -84,13 +84,13 @@
           "method_name" : "paint",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method performs. The CheckBox class acts as an abstract product in the abstract_factory pattern.",
+          "swum_summary" : "This method performs. The CheckBox class acts as an abstract product in the Abstract Factory pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE paint)"
         }
       },
-      "swum_class_summary" : "The CheckBox class acts as an abstract product in the abstract_factory pattern."
+      "swum_class_summary" : "The CheckBox class acts as an abstract product in the Abstract Factory pattern."
     },
     "MacOSFactory" : {
       "class_name" : "MacOSFactory",
@@ -100,7 +100,7 @@
           "method_name" : "createButton",
           "return_type" : "Button",
           "parameters" : "",
-          "swum_summary" : "This method creates product objects as part of the abstract_factory pattern.",
+          "swum_summary" : "This method creates product objects as part of the Abstract Factory pattern.",
           "swum_actions" : "create",
           "swum_objects" : "Button",
           "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Button))"
@@ -109,13 +109,13 @@
           "method_name" : "createCheckBox",
           "return_type" : "CheckBox",
           "parameters" : "",
-          "swum_summary" : "This method creates product objects as part of the abstract_factory pattern.",
+          "swum_summary" : "This method creates product objects as part of the Abstract Factory pattern.",
           "swum_actions" : "create, Check",
           "swum_objects" : "",
           "swum_parse_tree" : "(VERB_PHRASE create (OBJECT Check Box))"
         }
       },
-      "swum_class_summary" : "The MacOSFactory class acts as a factory in the abstract_factory pattern and provides methods to create, create, check for managing factory."
+      "swum_class_summary" : "The MacOSFactory class acts as a factory in the Abstract Factory pattern and provides methods to create, create, check for managing factory."
     },
     "MacOSButton" : {
       "class_name" : "MacOSButton",
@@ -125,13 +125,13 @@
           "method_name" : "paint",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method performs. The MacOSButton class acts as a product in the abstract_factory pattern.",
+          "swum_summary" : "This method performs. The MacOSButton class acts as a product in the Abstract Factory pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE paint)"
         }
       },
-      "swum_class_summary" : "The MacOSButton class acts as a product in the abstract_factory pattern for managing button."
+      "swum_class_summary" : "The MacOSButton class acts as a product in the Abstract Factory pattern for managing button."
     },
     "WindowsCheckBox" : {
       "class_name" : "WindowsCheckBox",
@@ -141,13 +141,13 @@
           "method_name" : "paint",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method performs. The WindowsCheckBox class acts as a product in the abstract_factory pattern.",
+          "swum_summary" : "This method performs. The WindowsCheckBox class acts as a product in the Abstract Factory pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE paint)"
         }
       },
-      "swum_class_summary" : "The WindowsCheckBox class acts as a product in the abstract_factory pattern."
+      "swum_class_summary" : "The WindowsCheckBox class acts as a product in the Abstract Factory pattern."
     },
     "Application" : {
       "class_name" : "Application",
@@ -173,13 +173,13 @@
           "method_name" : "paint",
           "return_type" : "void",
           "parameters" : "",
-          "swum_summary" : "This method performs. The MacOSCheckBox class acts as a product in the abstract_factory pattern.",
+          "swum_summary" : "This method performs. The MacOSCheckBox class acts as a product in the Abstract Factory pattern.",
           "swum_actions" : "",
           "swum_objects" : "",
           "swum_parse_tree" : "(NOUN_PHRASE paint)"
         }
       },
-      "swum_class_summary" : "The MacOSCheckBox class acts as a product in the abstract_factory pattern."
+      "swum_class_summary" : "The MacOSCheckBox class acts as a product in the Abstract Factory pattern."
     },
     "GUIFactory" : {
       "class_name" : "GUIFactory",
@@ -207,9 +207,9 @@
       "swum_class_summary" : "The GUIFactory class is part of the Factory pattern and provides methods to create, create, check for managing factory."
     }
   },
-  "swum_project_summary" : "This software project contains 11 classes with 14 methods. The system implements the abstract_factory design pattern. Primary operations include Check, create. Key objects manipulated are Button.",
+  "swum_project_summary" : "This software project contains 11 classes with 14 methods. The system implements the AbstractFactory design pattern. Primary operations include Check, create. Key objects manipulated are Button.",
   "design_patterns" : [ {
-    "abstract_factory" : {
+    "AbstractFactory" : {
       "GUIFactory" : {
         "abstract_product" : {
           "Button" : [ "WindowsButton", "MacOSButton" ],

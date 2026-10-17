@@ -1,5 +1,7 @@
 package dps_swum.swum.context;
 
+import common.designpatternidentifier.PatternNames;
+
 /**
  * Holds design pattern context information specific to a method.
  * <p>
@@ -93,7 +95,9 @@ public class MethodPatternContext {
             desc.append(" for ").append(relatedClass);
         }
         
-        desc.append(" as part of the ").append(pattern).append(" pattern");
+        // CHANGE: readable pattern name ("Abstract Factory") instead of the raw key ("abstract_factory").
+        // desc.append(" as part of the ").append(pattern).append(" pattern");
+        desc.append(" as part of the ").append(PatternNames.toDisplayName(pattern)).append(" pattern");
         
         return desc.toString();
     }

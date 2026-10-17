@@ -62,8 +62,33 @@ public final class DotEnvLoader {
             }
             String key = line.substring(0, equalsIndex).trim();
             String value = line.substring(equalsIndex + 1).trim();
-            values.put(key, value);
+            // CHANGE: strip one pair of matching surrounding quotes, as python-dotenv does. Without this,
+            // OPENROUTER_API_KEY="sk-..." worked for the Python scripts but the Java pipeline sent the
+            // quotes as part of the key. Also accept an optional "export " prefix (shell-style .env files).
+            // values.put(key, value);
+            if (key.startsWith("export ")) {
+                key = key.substring("export ".length()).trim();
+            }
+            values.put(key, stripMatchingQuotes(value));
         }
         return values;
+    }
+
+    /**
+     * Removes one pair of matching single or double quotes surrounding a value.
+     * CHANGE: added so quoted .env values behave the same in Java and Python.
+     *
+     * @param value the raw value (already trimmed)
+     * @return the value without surrounding quotes
+     */
+    static String stripMatchingQuotes(String value) {
+        if (value.length() >= 2) {
+            char first = value.charAt(0);
+            char last = value.charAt(value.length() - 1);
+            if ((first == '"' || first == '\'') && first == last) {
+                return value.substring(1, value.length() - 1);
+            }
+        }
+        return value;
     }
 }

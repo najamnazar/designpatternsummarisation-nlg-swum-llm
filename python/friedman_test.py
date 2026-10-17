@@ -1,37 +1,45 @@
-"""Friedman test comparing DPS_NLG, DPS_LLM, and DPS_SWUM across 5 criteria.
+"""Friedman tests comparing the four DPS methods across the 5 ranking criteria.
+
+Input is the four-way LLM-judge ranking written by rank_summaries_four_way.py
+(evaluation-results/four_way_ranking_detail.csv). The methods and criteria are
+imported from that script, so both always use the same lists:
+    DPS_NLG, DPS_LLM (GPT), DPS_LLM (Mistral), DPS_SWUM
 
 Two-level analysis:
   PART 1 — Five per-criterion Friedman tests.
-            Each test uses n ≈ 150 class files as blocks and k = 3 systems
-            as treatments (one test per criterion).
+            Each test uses the class files as blocks (n <= 150) and k = 4
+            methods as treatments (one test per criterion).
   PART 2 — One cross-criteria Friedman test.
-            Uses n = 5 criteria as blocks, k = 3 systems as treatments.
-            Each cell is the mean score of a system on that criterion.
+            Uses n = 5 criteria as blocks, k = 4 methods as treatments.
+            Each cell is the mean points of a method on that criterion.
 
-Scoring convention (from multi_criteria_rankings.csv):
-    1st place = 3 pts,  2nd place = 2 pts,  3rd place = 1 pt
+Scoring convention (the *_points_<slug> columns of the detail CSV):
+    1st place = 4 pts,  2nd = 3 pts,  3rd = 2 pts,  4th = 1 pt
 
-Post-hoc pairwise Wilcoxon signed-rank tests (Bonferroni-corrected) are run
-for any significant Friedman result where n >= 10.  For Part 2 (n = 5) the
-pairwise mean-rank differences are reported as a descriptive alternative.
+Only classes the ranking script marked as ranked, with a valid judgement for
+the criterion, are used. Each such row must give the four methods the points
+4, 3, 2 and 1 exactly once; any other row stops the script with an error.
 
-Results are printed to the console and appended to evaluation-results/results.txt.
+Post-hoc pairwise Wilcoxon signed-rank tests (Bonferroni-corrected over the
+6 method pairs) are run for any significant Friedman result where n >= 10.
+For Part 2 (n = 5) the pairwise mean differences are reported as a
+descriptive alternative.
 
-Systems mapping in the CSV:
-    summary_a / total_points_a  →  DPS_NLG
-    summary_b / total_points_b  →  DPS_LLM
-    summary_c / total_points_c  →  DPS_SWUM
+Results are printed to the console and written to a delimited block in
+evaluation-results/results.txt (replaced on re-run).
 """
 
 from __future__ import annotations
 
 from datetime import datetime
-from pathlib import Path
+from itertools import combinations
 from typing import NamedTuple, Optional
 
 import numpy as np
 import pandas as pd
 from scipy.stats import friedmanchisquare, wilcoxon
+
+from rank_summaries_four_way import CRITERIA, DETAIL_CSV, METHODS, RESULTS_TXT, Method
 
 
 # ---------------------------------------------------------------------------
@@ -39,52 +47,72 @@ from scipy.stats import friedmanchisquare, wilcoxon
 # ---------------------------------------------------------------------------
 
 ALPHA = 0.05
-K = 3                               # number of systems (treatments)
-BONFERRONI_PAIRS = 3                # C(3,2) pairwise comparisons
-ALPHA_ADJ = ALPHA / BONFERRONI_PAIRS  # = 0.01667
+K = len(METHODS)                                # number of methods (treatments)
+METHOD_PAIRS = list(combinations(METHODS, 2))   # C(4,2) = 6 pairwise comparisons
+BONFERRONI_PAIRS = len(METHOD_PAIRS)
+ALPHA_ADJ = ALPHA / BONFERRONI_PAIRS            # = 0.00833
+MIN_POSTHOC_BLOCKS = 10                         # below this, pairwise Wilcoxon is not run
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-RANKINGS_CSV = BASE_DIR / "evaluation-results" / "multi_criteria_rankings.csv"
-RESULTS_TXT  = BASE_DIR / "evaluation-results" / "results.txt"
+# Points the ranking script gives to positions 1st..4th; every valid row holds each once.
+EXPECTED_POINTS = list(range(K, 0, -1))
 
-CRITERIA = [
-    ("accuracy",        "ACCURACY"),
-    ("conciseness",     "CONCISENESS"),
-    ("adequacy",        "ADEQUACY"),
-    ("code_context",    "CODE CONTEXT"),
-    ("design_patterns", "DESIGN PATTERN"),
-]
+# Marker delimiting this script's block inside results.txt, so that re-running
+# replaces the previous results instead of stacking a second, contradictory copy.
+BLOCK_START = "<<<BEGIN FRIEDMAN TESTS>>>"
+BLOCK_END = "<<<END FRIEDMAN TESTS>>>"
 
-SYSTEMS = ["DPS_NLG", "DPS_LLM", "DPS_SWUM"]  # maps to a, b, c in the CSV
+NAME_WIDTH = max(len(m.label) for m in METHODS)
+PAIR_WIDTH = 2 * NAME_WIDTH + 4
 
 
 # ---------------------------------------------------------------------------
 # Data helpers
 # ---------------------------------------------------------------------------
 
-def decode_scores(
-    df: pd.DataFrame, criterion: str
-) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """Return per-system score arrays (values 3/2/1) for one criterion.
+def points_column(criterion: str, method: Method) -> str:
+    return f"{criterion}_points_{method.slug}"
 
-    Columns *_rank_1st / _2nd / _3rd encode which system (1=NLG, 2=LLM,
-    3=SWUM) holds each rank position.  Rows containing any NaN are dropped
-    so all three returned arrays have identical length.
+
+def load_rankings() -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Return (all rows, ranked rows) of the four-way detail CSV, after checking its columns."""
+    if not DETAIL_CSV.exists():
+        raise FileNotFoundError(
+            f"Rankings file not found: {DETAIL_CSV}\n"
+            "Run python/rank_summaries_four_way.py first."
+        )
+
+    df_all = pd.read_csv(DETAIL_CSV)
+    required = ["status"]
+    for crit_key, _ in CRITERIA:
+        required.append(f"{crit_key}_valid")
+        required.extend(points_column(crit_key, m) for m in METHODS)
+    missing = [c for c in required if c not in df_all.columns]
+    if missing:
+        raise ValueError(f"{DETAIL_CSV.name} is missing columns: {', '.join(missing)}")
+
+    return df_all, df_all[df_all["status"] == "ranked"].copy()
+
+
+def criterion_scores(df: pd.DataFrame, criterion: str) -> np.ndarray:
+    """Return an (n, K) array of points for one criterion, columns in METHODS order.
+
+    Rows with an invalid judgement or a missing value are dropped, so every
+    column has the same length. Each remaining row must be a permutation of
+    EXPECTED_POINTS; anything else means the detail CSV is corrupt.
     """
-    c1 = f"{criterion}_rank_1st"
-    c2 = f"{criterion}_rank_2nd"
-    c3 = f"{criterion}_rank_3rd"
+    valid = df[f"{criterion}_valid"].astype(str).str.lower() == "true"
+    cols = [points_column(criterion, m) for m in METHODS]
+    sub = df.loc[valid, cols].dropna()
+    scores = sub.to_numpy(dtype=float)
 
-    sub = df[[c1, c2, c3]].dropna()
-    r1 = sub[c1].values
-    r2 = sub[c2].values
-    r3 = sub[c3].values
-
-    def scores_for(sys_id: int) -> np.ndarray:
-        # Exactly one of the three conditions is True per row.
-        return ((r1 == sys_id) * 3 + (r2 == sys_id) * 2 + (r3 == sys_id) * 1).astype(float)
-
-    return scores_for(1), scores_for(2), scores_for(3)
+    bad = ~np.all(np.sort(scores, axis=1)[:, ::-1] == EXPECTED_POINTS, axis=1)
+    if bad.any():
+        rows = ", ".join(str(i) for i in sub.index[bad][:10])
+        raise ValueError(
+            f"{criterion}: {int(bad.sum())} row(s) do not give points "
+            f"{EXPECTED_POINTS} once each (CSV rows {rows})"
+        )
+    return scores
 
 
 def kendalls_w(chi2: float, n: int, k: int) -> float:
@@ -108,6 +136,10 @@ def concordance_label(W: float) -> str:
     return "weak"
 
 
+def pair_label(a: Method, b: Method) -> str:
+    return f"{a.label} vs {b.label}"
+
+
 # ---------------------------------------------------------------------------
 # Post-hoc pairwise Wilcoxon (Bonferroni-corrected)
 # ---------------------------------------------------------------------------
@@ -119,30 +151,33 @@ class PostHocResult(NamedTuple):
     p_adj: Optional[float]
     significant: bool
     direction: str
-    median_diff: float
+    a_higher: int
+    b_higher: int
     note: str = ""
 
 
-def pairwise_posthoc(
-    sa: np.ndarray, sb: np.ndarray, sc: np.ndarray
-) -> list[PostHocResult]:
-    """Run three pairwise Wilcoxon signed-rank tests with Bonferroni correction."""
-    pairs: list[tuple[str, np.ndarray, np.ndarray]] = [
-        ("DPS_NLG  vs DPS_LLM ", sa, sb),
-        ("DPS_NLG  vs DPS_SWUM", sa, sc),
-        ("DPS_LLM  vs DPS_SWUM", sb, sc),
-    ]
+def pairwise_posthoc(scores: np.ndarray) -> list[PostHocResult]:
+    """Run a Wilcoxon signed-rank test for every method pair, Bonferroni-corrected.
 
+    The direction names the method ranked higher in more classes; with points
+    that are a ranking, the median difference is often 0 and says little.
+    """
+    index = {m.slug: i for i, m in enumerate(METHODS)}
     results: list[PostHocResult] = []
-    for label, x, y in pairs:
-        diff = (x - y).astype(float)
-        med = float(np.median(diff))
+
+    for a, b in METHOD_PAIRS:
+        x = scores[:, index[a.slug]]
+        y = scores[:, index[b.slug]]
+        diff = x - y
+        a_higher = int((diff > 0).sum())
+        b_higher = int((diff < 0).sum())
+        label = pair_label(a, b)
 
         if np.all(diff == 0.0):
             results.append(PostHocResult(
                 label=label, w_stat=None, p_raw=None, p_adj=None,
-                significant=False, direction="tie", median_diff=med,
-                note="all differences = 0",
+                significant=False, direction="tie", a_higher=a_higher,
+                b_higher=b_higher, note="all differences = 0",
             ))
             continue
 
@@ -151,28 +186,23 @@ def pairwise_posthoc(
         except ValueError as exc:
             results.append(PostHocResult(
                 label=label, w_stat=None, p_raw=None, p_adj=None,
-                significant=False, direction="n/a", median_diff=med,
-                note=str(exc),
+                significant=False, direction="n/a", a_higher=a_higher,
+                b_higher=b_higher, note=str(exc),
             ))
             continue
 
         p_adj = min(p_raw * BONFERRONI_PAIRS, 1.0)
-        sig = p_adj < ALPHA
-
-        if med > 0:
-            name1 = label.split("vs")[0].strip()
-            name2 = label.split("vs")[1].strip()
-            direction = f"{name1} > {name2}"
-        elif med < 0:
-            name1 = label.split("vs")[0].strip()
-            name2 = label.split("vs")[1].strip()
-            direction = f"{name2} > {name1}"
+        if a_higher > b_higher:
+            direction = f"{a.label} > {b.label}"
+        elif b_higher > a_higher:
+            direction = f"{b.label} > {a.label}"
         else:
             direction = "tie"
 
         results.append(PostHocResult(
             label=label, w_stat=float(w_stat), p_raw=float(p_raw), p_adj=float(p_adj),
-            significant=sig, direction=direction, median_diff=med,
+            significant=p_adj < ALPHA, direction=direction,
+            a_higher=a_higher, b_higher=b_higher,
         ))
 
     return results
@@ -194,54 +224,56 @@ def fmt_posthoc_block(results: list[PostHocResult]) -> list[str]:
     lines = [
         "",
         f"  Post-hoc pairwise Wilcoxon signed-rank tests"
-        f" (Bonferroni α_adj = {ALPHA_ADJ:.4f}):",
-        f"  {'Comparison':<26} {'W-stat':>10} {'p (raw)':>12} "
-        f"{'p (adj)':>12} {'Sig?':>6}  Direction",
-        f"  {'-'*82}",
+        f" (Bonferroni over {BONFERRONI_PAIRS} pairs, α_adj = {ALPHA_ADJ:.4f}):",
+        f"  {'Comparison':<{PAIR_WIDTH}} {'W-stat':>10} {'p (raw)':>12} "
+        f"{'p (adj)':>12} {'Sig?':>6} {'A>B':>5} {'B>A':>5}  Direction",
+        f"  {'-' * (PAIR_WIDTH + 75)}",
     ]
     for r in results:
         if r.note:
-            lines.append(f"  {r.label:<26}  [skipped — {r.note}]")
+            lines.append(f"  {r.label:<{PAIR_WIDTH}}  [skipped — {r.note}]")
         else:
             sig_flag = "YES *" if r.significant else "no"
             lines.append(
-                f"  {r.label:<26} {r.w_stat:>10.2f} {r.p_raw:>12.6f} "
-                f"{r.p_adj:>12.6f} {sig_flag:>6}  {r.direction}"
+                f"  {r.label:<{PAIR_WIDTH}} {r.w_stat:>10.2f} {r.p_raw:>12.3e} "
+                f"{r.p_adj:>12.3e} {sig_flag:>6} {r.a_higher:>5d} {r.b_higher:>5d}"
+                f"  {r.direction}"
             )
+    lines.append("  (A>B / B>A = classes where the first / second method of the pair ranked higher)")
     return lines
 
 
+def method_list() -> str:
+    return ", ".join(m.label for m in METHODS)
+
+
 # ---------------------------------------------------------------------------
-# PART 1 — Per-criterion Friedman tests (n ≈ 150 blocks)
+# PART 1 — Per-criterion Friedman tests (class files as blocks)
 # ---------------------------------------------------------------------------
 
 def run_part1(df: pd.DataFrame) -> tuple[str, list[dict]]:
-    """One Friedman test per criterion; class files are blocks (n ≈ 150)."""
+    """One Friedman test per criterion; class files are blocks."""
     lines: list[str] = [
         fmt_section_header("PART 1: PER-CRITERION FRIEDMAN TESTS  (class files as blocks)"),
         "",
-        f"  Test design : one Friedman test per criterion",
-        f"  Blocks      : individual class files  (n ≈ 150 per test)",
-        f"  Treatments  : k = 3 systems  (DPS_NLG, DPS_LLM, DPS_SWUM)",
-        f"  Scoring     : 1st = 3 pts | 2nd = 2 pts | 3rd = 1 pt",
-        f"  H0          : no significant difference among the 3 systems",
+        "  Test design : one Friedman test per criterion",
+        "  Blocks      : individual class files with a valid judgement for the criterion",
+        f"  Treatments  : k = {K} methods  ({method_list()})",
+        "  Scoring     : 1st = 4 pts | 2nd = 3 pts | 3rd = 2 pts | 4th = 1 pt",
+        f"  H0          : no significant difference among the {K} methods",
         f"  α           : {ALPHA}  |  post-hoc Bonferroni α_adj = {ALPHA_ADJ:.4f}",
     ]
 
     summary_rows: list[dict] = []
 
     for crit_key, crit_label in CRITERIA:
-        sa, sb, sc = decode_scores(df, crit_key)
-        n = len(sa)
+        scores = criterion_scores(df, crit_key)
+        n = scores.shape[0]
 
-        chi2, pval = friedmanchisquare(sa, sb, sc)
+        chi2, pval = friedmanchisquare(*scores.T)
         W = kendalls_w(chi2, n, K)
 
-        means = {
-            "DPS_NLG":  float(sa.mean()),
-            "DPS_LLM":  float(sb.mean()),
-            "DPS_SWUM": float(sc.mean()),
-        }
+        means = {m.label: float(scores[:, i].mean()) for i, m in enumerate(METHODS)}
         best = max(means, key=means.get)
         sig = pval < ALPHA
 
@@ -250,130 +282,121 @@ def run_part1(df: pd.DataFrame) -> tuple[str, list[dict]]:
             SEP_LIGHT,
             f"  Criterion      : {crit_label}",
             f"  N (blocks)     : {n} class files",
-            f"  Friedman chi²  = {chi2:.4f}",
-            f"  p-value        = {pval:.6f}  "
+            f"  Friedman chi²  = {chi2:.4f}  (df = {K - 1})",
+            f"  p-value        = {pval:.6g}  "
             + ("  < 0.05  →  REJECT H0 *" if sig else "  >= 0.05  →  fail to reject H0"),
             f"  Kendall's W    = {W:.4f}  ({concordance_label(W)} concordance)",
             f"  Significant    : {'YES' if sig else 'NO'}",
             "",
-            "  Mean scores per system (higher = better ranked):",
+            "  Mean points per method (higher = better ranked; 4 = always 1st):",
         ]
 
-        for sys_name in SYSTEMS:
-            marker = "  <-- best" if sys_name == best else ""
-            lines.append(f"    {sys_name:<12s} : {means[sys_name]:.4f}{marker}")
+        for m in METHODS:
+            marker = "  <-- best" if m.label == best else ""
+            lines.append(f"    {m.label:<{NAME_WIDTH}} : {means[m.label]:.4f}{marker}")
 
-        if sig:
-            ph = pairwise_posthoc(sa, sb, sc)
-            lines.extend(fmt_posthoc_block(ph))
+        if sig and n >= MIN_POSTHOC_BLOCKS:
+            lines.extend(fmt_posthoc_block(pairwise_posthoc(scores)))
+        elif sig:
+            lines.append(
+                f"\n  Post-hoc tests : not conducted (n = {n} < {MIN_POSTHOC_BLOCKS} blocks)"
+            )
         else:
             lines.append(
                 "\n  Post-hoc tests : not conducted (overall Friedman not significant)"
             )
 
         summary_rows.append({
-            "criterion":  crit_label,
-            "n":          n,
-            "chi2":       chi2,
-            "p_value":    pval,
-            "kendalls_w": W,
+            "criterion":   crit_label,
+            "n":           n,
+            "chi2":        chi2,
+            "p_value":     pval,
+            "kendalls_w":  W,
             "significant": sig,
-            "best":       best,
+            "best":        best,
         })
 
     return "\n".join(lines), summary_rows
 
 
 # ---------------------------------------------------------------------------
-# PART 2 — Cross-criteria Friedman test (n = 5 criteria as blocks)
+# PART 2 — Cross-criteria Friedman test (criteria as blocks)
 # ---------------------------------------------------------------------------
 
 def run_part2(df: pd.DataFrame) -> str:
-    """One Friedman test with 5 criteria as blocks and 3 systems as treatments.
+    """One Friedman test with the 5 criteria as blocks and the methods as treatments.
 
-    Each cell in the 5 × 3 matrix is the mean score of a system on that
-    criterion, averaged across all class files.
+    Each cell in the 5 × K matrix is the mean points of a method on that
+    criterion, averaged across the class files valid for that criterion.
     """
+    criteria_names = ", ".join(label for _, label in CRITERIA)
     lines: list[str] = [
         fmt_section_header("PART 2: CROSS-CRITERIA FRIEDMAN TEST  (criteria as blocks)"),
         "",
         "  Test design : one Friedman test across all criteria",
-        "  Blocks      : n = 5 criteria  (ACCURACY, CONCISENESS, ADEQUACY,",
-        "                                  CODE CONTEXT, DESIGN PATTERN)",
-        "  Treatments  : k = 3 systems  (DPS_NLG, DPS_LLM, DPS_SWUM)",
-        "  Cell value  : mean score of system on criterion across all class files",
-        "  H0          : rank ordering of systems does not differ across criteria",
+        f"  Blocks      : n = {len(CRITERIA)} criteria  ({criteria_names})",
+        f"  Treatments  : k = {K} methods  ({method_list()})",
+        "  Cell value  : mean points of method on criterion across all class files",
+        "  H0          : rank ordering of methods does not differ across criteria",
         f"  α           : {ALPHA}",
         "",
     ]
 
-    # Build 5 × 3 mean-score matrix
-    mean_matrix = np.zeros((len(CRITERIA), K), dtype=float)
-    for i, (crit_key, _) in enumerate(CRITERIA):
-        sa, sb, sc = decode_scores(df, crit_key)
-        mean_matrix[i, 0] = sa.mean()
-        mean_matrix[i, 1] = sb.mean()
-        mean_matrix[i, 2] = sc.mean()
+    mean_matrix = np.array(
+        [criterion_scores(df, crit_key).mean(axis=0) for crit_key, _ in CRITERIA]
+    )
 
-    # Print the data matrix
-    lines += [
-        "  Mean score matrix:",
-        f"  {'Criterion':<22s} {'DPS_NLG':>10s} {'DPS_LLM':>10s} {'DPS_SWUM':>10s}",
-        f"  {'-' * 54}",
-    ]
+    col_width = max(NAME_WIDTH, 10)
+    header = f"  {'Criterion':<16s}" + "".join(f" {m.label:>{col_width}s}" for m in METHODS)
+    rule = f"  {'-' * (len(header) - 2)}"
+    lines += ["  Mean points matrix:", header, rule]
     for i, (_, crit_label) in enumerate(CRITERIA):
         row = mean_matrix[i]
         best_col = int(np.argmax(row))
-        markers = ["", "", ""]
-        markers[best_col] = " *"
-        lines.append(
-            f"  {crit_label:<22s} {row[0]:>9.4f}{markers[0]}"
-            f" {row[1]:>9.4f}{markers[1]}"
-            f" {row[2]:>9.4f}{markers[2]}"
+        cells = "".join(
+            f" {row[j]:>{col_width - 2}.4f}{' *' if j == best_col else '  '}"
+            for j in range(K)
         )
+        lines.append(f"  {crit_label:<16s}{cells}")
     col_means = mean_matrix.mean(axis=0)
     lines += [
-        f"  {'-' * 54}",
-        f"  {'COLUMN MEAN':<22s} {col_means[0]:>10.4f} {col_means[1]:>10.4f}"
-        f" {col_means[2]:>10.4f}",
-        "  (* = best system for that criterion)",
+        rule,
+        f"  {'COLUMN MEAN':<16s}" + "".join(f" {v:>{col_width - 2}.4f}  " for v in col_means),
+        "  (* = best method for that criterion)",
         "",
     ]
 
-    sa = mean_matrix[:, 0]
-    sb = mean_matrix[:, 1]
-    sc = mean_matrix[:, 2]
     n = len(CRITERIA)
-
-    chi2, pval = friedmanchisquare(sa, sb, sc)
+    chi2, pval = friedmanchisquare(*mean_matrix.T)
     W = kendalls_w(chi2, n, K)
     sig = pval < ALPHA
 
     lines += [
-        f"  Friedman chi²  = {chi2:.4f}",
-        f"  p-value        = {pval:.6f}  "
+        f"  Friedman chi²  = {chi2:.4f}  (df = {K - 1})",
+        f"  p-value        = {pval:.6g}  "
         + ("  < 0.05  →  REJECT H0 *" if sig else "  >= 0.05  →  fail to reject H0"),
         f"  Kendall's W    = {W:.4f}  ({concordance_label(W)} concordance)",
         f"  Significant    : {'YES' if sig else 'NO'}",
     ]
 
     if sig:
+        index = {m.slug: i for i, m in enumerate(METHODS)}
         lines += [
             "",
-            f"  Note: n = 5 blocks — Wilcoxon signed-rank requires n >= 6.",
-            f"  Pairwise mean-score differences (descriptive):",
-            f"  {'Comparison':<26} {'Mean diff':>10}  Direction",
-            f"  {'-' * 52}",
+            f"  Note: n = {n} blocks — too few for a Wilcoxon signed-rank test.",
+            "  Pairwise mean-points differences (descriptive):",
+            f"  {'Comparison':<{PAIR_WIDTH}} {'Mean diff':>10}  Direction",
+            f"  {'-' * (PAIR_WIDTH + 30)}",
         ]
-        pairs_desc = [
-            ("DPS_NLG  vs DPS_LLM ", sa - sb, "DPS_NLG",  "DPS_LLM"),
-            ("DPS_NLG  vs DPS_SWUM", sa - sc, "DPS_NLG",  "DPS_SWUM"),
-            ("DPS_LLM  vs DPS_SWUM", sb - sc, "DPS_LLM",  "DPS_SWUM"),
-        ]
-        for label, diff, n1, n2 in pairs_desc:
-            md = float(diff.mean())
-            direction = f"{n1} > {n2}" if md > 0 else (f"{n2} > {n1}" if md < 0 else "tie")
-            lines.append(f"  {label:<26} {md:>+10.4f}  {direction}")
+        for a, b in METHOD_PAIRS:
+            md = float((mean_matrix[:, index[a.slug]] - mean_matrix[:, index[b.slug]]).mean())
+            if md > 0:
+                direction = f"{a.label} > {b.label}"
+            elif md < 0:
+                direction = f"{b.label} > {a.label}"
+            else:
+                direction = "tie"
+            lines.append(f"  {pair_label(a, b):<{PAIR_WIDTH}} {md:>+10.4f}  {direction}")
     else:
         lines.append(
             "\n  Post-hoc : not conducted (overall Friedman not significant)"
@@ -390,20 +413,20 @@ def run_summary_table(summary_rows: list[dict]) -> str:
     lines: list[str] = [
         fmt_section_header("SUMMARY TABLE — PER-CRITERION FRIEDMAN RESULTS"),
         "",
-        f"  {'Criterion':<22s} {'n':>5s} {'chi²':>10s} {'p-value':>12s} "
-        f"{'Kendall W':>10s} {'Sig?':>5s}  Best System",
-        f"  {'-' * 76}",
+        f"  {'Criterion':<16s} {'n':>5s} {'chi²':>10s} {'p-value':>12s} "
+        f"{'Kendall W':>10s} {'Sig?':>5s}  Best Method",
+        f"  {'-' * 80}",
     ]
     for r in summary_rows:
         sig = "YES *" if r["significant"] else "no"
         lines.append(
-            f"  {r['criterion']:<22s} {r['n']:>5d} {r['chi2']:>10.4f} "
-            f"{r['p_value']:>12.6f} {r['kendalls_w']:>10.4f} {sig:>5s}  {r['best']}"
+            f"  {r['criterion']:<16s} {r['n']:>5d} {r['chi2']:>10.4f} "
+            f"{r['p_value']:>12.4g} {r['kendalls_w']:>10.4f} {sig:>5s}  {r['best']}"
         )
     lines += [
         "",
-        f"  α = {ALPHA}  |  post-hoc Bonferroni α_adj = {ALPHA_ADJ:.4f}",
-        f"  Kendall's W : 0.1 weak | 0.3 moderate | 0.5 strong | 0.7 very strong",
+        f"  α = {ALPHA}  |  post-hoc Bonferroni α_adj = {ALPHA_ADJ:.4f}  |  df = {K - 1}",
+        "  Kendall's W : 0.1 weak | 0.3 moderate | 0.5 strong | 0.7 very strong",
     ]
     return "\n".join(lines)
 
@@ -412,31 +435,43 @@ def run_summary_table(summary_rows: list[dict]) -> str:
 # Entry point
 # ---------------------------------------------------------------------------
 
-def main() -> None:
-    if not RANKINGS_CSV.exists():
-        raise FileNotFoundError(f"Rankings file not found: {RANKINGS_CSV}")
+def write_block(section: str) -> None:
+    """Write the section into results.txt, replacing any previous block."""
+    existing = RESULTS_TXT.read_text(encoding="utf-8") if RESULTS_TXT.exists() else ""
+    start = existing.find(BLOCK_START)
+    end = existing.find(BLOCK_END)
+    if start != -1 and end != -1:
+        updated = existing[:start] + section + existing[end + len(BLOCK_END) + 1:]
+    else:
+        separator = "" if not existing or existing.endswith("\n\n") else "\n\n"
+        updated = existing + separator + section
+    RESULTS_TXT.write_text(updated, encoding="utf-8")
 
-    df_all = pd.read_csv(RANKINGS_CSV)
-    df = df_all[df_all["status"] == "ranked"].copy()
+
+def main() -> None:
+    df_all, df = load_rankings()
+    if df.empty:
+        raise ValueError(f"{DETAIL_CSV.name} has no rows with status 'ranked'.")
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    title = " vs ".join(m.label for m in METHODS)
 
     header = "\n".join([
         "",
         SEP_HEAVY,
-        "FRIEDMAN TEST ANALYSIS — DPS_NLG vs DPS_LLM vs DPS_SWUM",
+        f"FRIEDMAN TEST ANALYSIS — {title}",
         SEP_HEAVY,
         f"  Run date   : {timestamp}",
-        f"  Data file  : {RANKINGS_CSV.name}",
+        f"  Data file  : {DETAIL_CSV.name}",
         f"  Total rows : {len(df_all)}  |  Rows used (status=ranked): {len(df)}",
         "",
-        "  Systems    :  A = DPS_NLG   |  B = DPS_LLM   |  C = DPS_SWUM",
-        "  Scoring    :  1st place = 3 pts  |  2nd = 2 pts  |  3rd = 1 pt",
+        f"  Methods    :  {method_list()}",
+        "  Scoring    :  1st place = 4 pts  |  2nd = 3 pts  |  3rd = 2 pts  |  4th = 1 pt",
         f"  Alpha      :  {ALPHA}",
         f"  Post-hoc   :  Wilcoxon signed-rank, Bonferroni α_adj = {ALPHA_ADJ:.4f}",
         "",
-        "  H0 (each Friedman test): no significant difference in scores",
-        "  among the three systems under the given criterion / criteria.",
+        "  H0 (each Friedman test): no significant difference in points",
+        f"  among the {K} methods under the given criterion / criteria.",
     ])
 
     print(header)
@@ -450,24 +485,20 @@ def main() -> None:
     summary_text = run_summary_table(summary_rows)
     print(summary_text)
 
-    footer = f"\n\n  All results appended to: {RESULTS_TXT}\n"
-    print(footer)
-
     # ------------------------------------------------------------------
-    # Append results to results.txt
+    # Write results into a delimited block in results.txt, replacing any
+    # previous block so the file never holds two versions of these tests.
     # ------------------------------------------------------------------
-    full_output = (
-        header + "\n"
+    write_block(
+        BLOCK_START + "\n"
+        + header + "\n"
         + part1_text + "\n"
         + part2_text + "\n"
         + summary_text + "\n"
+        + BLOCK_END + "\n"
     )
 
-    with open(RESULTS_TXT, "a", encoding="utf-8") as fh:
-        fh.write(full_output)
-        fh.write("\n")
-
-    print(f"Results successfully appended to: {RESULTS_TXT}")
+    print(f"\nResults successfully written to: {RESULTS_TXT}")
 
 
 if __name__ == "__main__":

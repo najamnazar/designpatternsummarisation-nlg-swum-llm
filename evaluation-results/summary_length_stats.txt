@@ -1,8 +1,0 @@
-Summary Length Statistics (words and non-whitespace characters)
-Shows averages and ranges for each source file.
-
-Source         | Count | AvgWords | MinWords | MaxWords | AvgChars | MinChars | MaxChars
-----------------------------------------------------------------------------------------
-swum_summaries |   150 |    13.61 |        3 |       31 |    76.31 |       13 |      173
-llm_summaries  |   150 |    42.51 |       28 |       57 |   268.60 |      168 |      405
-nlg_summaries  |   150 |    57.51 |       12 |      151 |   372.79 |       54 |      934

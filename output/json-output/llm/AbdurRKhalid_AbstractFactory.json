@@ -1,7 +1,7 @@
 {
 	"final_summary" : "",
 	"design_pattern" : [ {
-		"abstract_factory" : {
+		"AbstractFactory" : {
 			"GUIFactory" : {
 				"abstract_product" : {
 					"Button" : [ "WindowsButton", "MacOSButton" ],

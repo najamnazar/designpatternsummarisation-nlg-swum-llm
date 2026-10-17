@@ -1,0 +1,16 @@
+method,source,n_summaries,n_empty,avg_words,min_words,max_words,median_words,std_words,avg_chars,min_chars,max_chars,median_chars,std_chars
+DPS_NLG,output/summary-output/nlg_summaries.csv,150,0,107.92,12,1777,47.5,215.74,838.63,65,14662,312.5,1832.9
+DPS_SWUM,output/summary-output/swum_summaries.csv,150,0,13.85,3,32,15.0,7.15,88.91,15,198,94.0,45.66
+DPS_GPT,output/summary-output/llm_summaries_gpt.csv,150,0,35.44,19,48,35.0,5.52,276.31,149,440,272.0,53.67
+DPS_GPT_NONCONCISE,output/summary-output/llm_summaries_nonconcise_gpt.csv,150,0,36.07,20,50,36.0,5.74,278.23,160,432,272.0,55.25
+DPS_GPT_20,output/summary-output/llm_summaries_gpt_20.csv,150,0,16.06,7,20,16.0,2.03,135.35,43,220,132.0,25.33
+DPS_GPT_40,output/summary-output/llm_summaries_gpt_40.csv,150,0,29.4,16,40,29.0,4.89,231.59,119,381,226.0,46.57
+DPS_GPT_60,output/summary-output/llm_summaries_gpt_60.csv,150,0,40.77,23,55,41.0,6.83,312.7,168,479,307.0,63.99
+DPS_GPT_80,output/summary-output/llm_summaries_gpt_80.csv,150,0,47.93,23,66,47.0,9.21,361.47,186,605,342.5,87.19
+DPS_MISTRAL,output/summary-output/llm_summaries_mistral.csv,150,0,40.57,29,67,40.0,5.78,312.93,208,413,313.0,42.15
+DPS_MISTRAL_NONCONCISE,output/summary-output/llm_summaries_nonconcise_mistral.csv,150,0,40.76,30,59,40.0,5.26,313.35,215,461,306.0,43.19
+DPS_MISTRAL_20,output/summary-output/llm_summaries_mistral_20.csv,150,0,18.9,11,32,19.0,3.72,153.11,104,241,150.0,27.35
+DPS_MISTRAL_40,output/summary-output/llm_summaries_mistral_40.csv,150,0,35.09,22,45,35.0,4.86,272.03,196,373,274.5,39.82
+DPS_MISTRAL_60,output/summary-output/llm_summaries_mistral_60.csv,150,0,45.95,30,70,46.0,5.85,352.03,259,508,349.0,46.78
+DPS_MISTRAL_80,output/summary-output/llm_summaries_mistral_80.csv,150,0,58.98,41,75,59.0,7.03,447.95,318,633,446.0,57.63
+Human,input/ground-truth/DPS_Human_Summaries.csv,150,0,29.66,12,51,31.0,9.61,208.83,71,389,205.5,66.03

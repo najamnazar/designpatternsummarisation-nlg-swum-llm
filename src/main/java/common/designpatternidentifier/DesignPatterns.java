@@ -4,7 +4,7 @@ import java.util.*;
 import org.apache.commons.collections4.MultiValuedMap;
 
 import dps_nlg.summarygenerator.SentenceGenerator;
-import common.utils.Utils;
+// import common.utils.Utils; // CHANGE: no longer used, see PatternNames.toPlainText
 
 public abstract class DesignPatterns {
     protected String patternName;
@@ -14,7 +14,10 @@ public abstract class DesignPatterns {
 
     public DesignPatterns(String patternName) {
         this.patternName = patternName;
-        this.patternNameAsText = Utils.convertToPlainText(patternName);
+        // CHANGE: keys are now PascalCase (e.g. "AbstractFactory"), so derive the lower-case sentence
+        // form with PatternNames; it gives the same text as before ("abstract factory").
+        // this.patternNameAsText = Utils.convertToPlainText(patternName);
+        this.patternNameAsText = PatternNames.toPlainText(patternName);
     }
 
     public String getPatternName() {

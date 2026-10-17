@@ -2,46 +2,532 @@
 OVERALL ANALYSIS
 ============================================================
 
-              method  projects_evaluated  classes_evaluated avg_cosine avg_bert_precision avg_bert_recall avg_bert_f1 combined_score cosine_std bert_f1_std
-                 NLG                   3                150     0.1657             0.8361          0.8596      0.8473         0.5065     0.0797      0.0228
-                SWUM                   3                150     0.2532             0.8932          0.8589      0.8754         0.5643     0.1014      0.0174
-       LLM (Mixtral)                   3                150     0.3351             0.8702          0.8901      0.8799         0.6075     0.1348      0.0188
-LLM (Non-Concise 50)                   3                150     0.3275             0.8685          0.8901      0.8790         0.6033     0.1286      0.0188
+                   method  projects_evaluated  classes_evaluated avg_cosine avg_bert_precision avg_bert_recall avg_bert_f1 cosine_std bert_f1_std
+                      NLG                   3                150     0.1702             0.8363          0.8609      0.8479     0.0840      0.0299
+                     SWUM                   3                150     0.2587             0.8995          0.8623      0.8802     0.1050      0.0185
+                LLM (GPT)                   3                150     0.2418             0.8698          0.8833      0.8764     0.0983      0.0181
+            LLM (Mistral)                   3                150     0.3093             0.8637          0.8926      0.8778     0.1247      0.0172
+    LLM (GPT Non-Concise)                   3                150     0.2391             0.8697          0.8834      0.8764     0.0921      0.0182
+LLM (Mistral Non-Concise)                   3                150     0.3114             0.8641          0.8937      0.8785     0.1224      0.0177
 
 Detailed Metrics by Method:
 
 NLG
   Projects Evaluated: 3
   Classes Evaluated: 150
-  Avg Cosine Similarity: 0.1657
-  Avg BERT Precision: 0.8361
-  Avg BERT Recall: 0.8596
-  Avg BERT F1: 0.8473
-  Combined Score: 0.5065
+  Avg Cosine Similarity: 0.1702
+  Avg BERT Precision: 0.8363
+  Avg BERT Recall: 0.8609
+  Avg BERT F1: 0.8479
 
 SWUM
   Projects Evaluated: 3
   Classes Evaluated: 150
-  Avg Cosine Similarity: 0.2532
-  Avg BERT Precision: 0.8932
-  Avg BERT Recall: 0.8589
-  Avg BERT F1: 0.8754
-  Combined Score: 0.5643
+  Avg Cosine Similarity: 0.2587
+  Avg BERT Precision: 0.8995
+  Avg BERT Recall: 0.8623
+  Avg BERT F1: 0.8802
 
-LLM (Mixtral) (Mixtral-8x22B)
+LLM (GPT) (openai/gpt-6.1-sol)
   Projects Evaluated: 3
   Classes Evaluated: 150
-  Avg Cosine Similarity: 0.3351
-  Avg BERT Precision: 0.8702
-  Avg BERT Recall: 0.8901
-  Avg BERT F1: 0.8799
-  Combined Score: 0.6075
+  Avg Cosine Similarity: 0.2418
+  Avg BERT Precision: 0.8698
+  Avg BERT Recall: 0.8833
+  Avg BERT F1: 0.8764
 
-LLM (Non-Concise 50)
+LLM (Mistral) (mistralai/mistral-small-2603)
   Projects Evaluated: 3
   Classes Evaluated: 150
-  Avg Cosine Similarity: 0.3275
-  Avg BERT Precision: 0.8685
-  Avg BERT Recall: 0.8901
-  Avg BERT F1: 0.8790
-  Combined Score: 0.6033
+  Avg Cosine Similarity: 0.3093
+  Avg BERT Precision: 0.8637
+  Avg BERT Recall: 0.8926
+  Avg BERT F1: 0.8778
+
+LLM (GPT Non-Concise) (openai/gpt-6.1-sol)
+  Projects Evaluated: 3
+  Classes Evaluated: 150
+  Avg Cosine Similarity: 0.2391
+  Avg BERT Precision: 0.8697
+  Avg BERT Recall: 0.8834
+  Avg BERT F1: 0.8764
+
+LLM (Mistral Non-Concise) (mistralai/mistral-small-2603)
+  Projects Evaluated: 3
+  Classes Evaluated: 150
+  Avg Cosine Similarity: 0.3114
+  Avg BERT Precision: 0.8641
+  Avg BERT Recall: 0.8937
+  Avg BERT F1: 0.8785
+
+
+<<<BEGIN WILCOXON SIGNED-RANK TESTS>>>
+============================================================
+WILCOXON SIGNED-RANK TESTS (PAIRED)
+============================================================
+Generated at: 2026-10-14 23:20:51
+Dataset: paired per-file class scores
+Significance level (alpha): 0.05
+Tests: two-sided; metrics = cosine_similarity, bert_f1
+Effect size: matched-pairs rank-biserial r = (W+ - W-) / (W+ + W-)
+
+Input files:
+  - DPS_NLG: nlg_vs_human_class_scores.csv
+  - DPS_SWUM: swum_vs_human_class_scores.csv
+  - DPS_GPT: llm (gpt)_vs_human_class_scores.csv
+  - DPS_GPT_NONCONCISE: llm (gpt non-concise)_vs_human_class_scores.csv
+  - DPS_MISTRAL: llm (mistral)_vs_human_class_scores.csv
+  - DPS_MISTRAL_NONCONCISE: llm (mistral non-concise)_vs_human_class_scores.csv
+
+Matched pairs before NaN filtering:
+  - DPS_NLG vs DPS_GPT: 150
+  - DPS_SWUM vs DPS_GPT: 150
+  - DPS_NLG vs DPS_GPT_NONCONCISE: 150
+  - DPS_SWUM vs DPS_GPT_NONCONCISE: 150
+  - DPS_NLG vs DPS_MISTRAL: 150
+  - DPS_SWUM vs DPS_MISTRAL: 150
+  - DPS_NLG vs DPS_MISTRAL_NONCONCISE: 150
+  - DPS_SWUM vs DPS_MISTRAL_NONCONCISE: 150
+
+comparison                           metric              n_pairs   W_stat        p_value       median_diff        r  magnitude    interpretation
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+DPS_NLG vs DPS_GPT                   cosine_similarity      150  1242.0000   1.09579e-16    -0.062109   -0.781 very large   significant; DPS_GPT tends higher
+DPS_SWUM vs DPS_GPT                  cosine_similarity      150  4707.0000     0.0730134     0.011176    0.169 small        not-significant; DPS_SWUM tends higher
+DPS_NLG vs DPS_GPT_NONCONCISE        cosine_similarity      150  1124.0000   1.66141e-17    -0.061617   -0.802 very large   significant; DPS_GPT_NONCONCISE tends higher
+DPS_SWUM vs DPS_GPT_NONCONCISE       cosine_similarity      150  4599.0000     0.0460014     0.017287    0.188 small        significant; DPS_SWUM tends higher
+DPS_NLG vs DPS_MISTRAL               cosine_similarity      150   372.0000   3.20083e-23    -0.132369   -0.934 very large   significant; DPS_MISTRAL tends higher
+DPS_SWUM vs DPS_MISTRAL              cosine_similarity      150  2792.0000    7.2145e-08    -0.053360   -0.507 large        significant; DPS_MISTRAL tends higher
+DPS_NLG vs DPS_MISTRAL_NONCONCISE    cosine_similarity      150   317.0000   1.13159e-23    -0.138449   -0.944 very large   significant; DPS_MISTRAL_NONCONCISE tends higher
+DPS_SWUM vs DPS_MISTRAL_NONCONCISE   cosine_similarity      150  2628.0000   1.24499e-08    -0.063586   -0.536 large        significant; DPS_MISTRAL_NONCONCISE tends higher
+DPS_NLG vs DPS_GPT                   bert_f1                150   534.0000    6.4379e-22    -0.020514   -0.906 very large   significant; DPS_GPT tends higher
+DPS_SWUM vs DPS_GPT                  bert_f1                150  4190.0000    0.00573144     0.004922    0.260 small        significant; DPS_SWUM tends higher
+DPS_NLG vs DPS_GPT_NONCONCISE        bert_f1                150   507.0000   3.92876e-22    -0.022880   -0.910 very large   significant; DPS_GPT_NONCONCISE tends higher
+DPS_SWUM vs DPS_GPT_NONCONCISE       bert_f1                150  4284.0000    0.00969854     0.004386    0.243 small        significant; DPS_SWUM tends higher
+DPS_NLG vs DPS_MISTRAL               bert_f1                150   342.0000   1.81768e-23    -0.023845   -0.940 very large   significant; DPS_MISTRAL tends higher
+DPS_SWUM vs DPS_MISTRAL              bert_f1                150  4641.0000     0.0552915     0.003619    0.180 small        not-significant; DPS_SWUM tends higher
+DPS_NLG vs DPS_MISTRAL_NONCONCISE    bert_f1                150   263.0000   4.03521e-24    -0.024204   -0.954 very large   significant; DPS_MISTRAL_NONCONCISE tends higher
+DPS_SWUM vs DPS_MISTRAL_NONCONCISE   bert_f1                150  5029.0000      0.234598     0.002613    0.112 small        not-significant; DPS_SWUM tends higher
+<<<END WILCOXON SIGNED-RANK TESTS>>>
+
+
+<<<BEGIN SUMMARY LENGTH STATISTICS>>>
+============================================================
+SUMMARY LENGTH STATISTICS (WORDS AND CHARACTERS PER SUMMARY)
+============================================================
+Generated at: 2026-10-16 17:46:21
+Words = whitespace-separated tokens; Chars = characters incl. spaces (whitespace normalised).
+
+Input files:
+  - DPS_NLG: output/summary-output/nlg_summaries.csv
+  - DPS_SWUM: output/summary-output/swum_summaries.csv
+  - DPS_GPT: output/summary-output/llm_summaries_gpt.csv
+  - DPS_GPT_NONCONCISE: output/summary-output/llm_summaries_nonconcise_gpt.csv
+  - DPS_GPT_20: output/summary-output/llm_summaries_gpt_20.csv
+  - DPS_GPT_40: output/summary-output/llm_summaries_gpt_40.csv
+  - DPS_GPT_60: output/summary-output/llm_summaries_gpt_60.csv
+  - DPS_GPT_80: output/summary-output/llm_summaries_gpt_80.csv
+  - DPS_MISTRAL: output/summary-output/llm_summaries_mistral.csv
+  - DPS_MISTRAL_NONCONCISE: output/summary-output/llm_summaries_nonconcise_mistral.csv
+  - DPS_MISTRAL_20: output/summary-output/llm_summaries_mistral_20.csv
+  - DPS_MISTRAL_40: output/summary-output/llm_summaries_mistral_40.csv
+  - DPS_MISTRAL_60: output/summary-output/llm_summaries_mistral_60.csv
+  - DPS_MISTRAL_80: output/summary-output/llm_summaries_mistral_80.csv
+  - Human: input/ground-truth/DPS_Human_Summaries.csv
+
+Method                      N  AvgWords  MinWords  MaxWords  AvgChars  MinChars  MaxChars
+-----------------------------------------------------------------------------------------
+DPS_NLG                   150    107.92        12      1777    838.63        65     14662
+DPS_SWUM                  150     13.85         3        32     88.91        15       198
+DPS_GPT                   150     35.44        19        48    276.31       149       440
+DPS_GPT_NONCONCISE        150     36.07        20        50    278.23       160       432
+DPS_GPT_20                150     16.06         7        20    135.35        43       220
+DPS_GPT_40                150     29.40        16        40    231.59       119       381
+DPS_GPT_60                150     40.77        23        55    312.70       168       479
+DPS_GPT_80                150     47.93        23        66    361.47       186       605
+DPS_MISTRAL               150     40.57        29        67    312.93       208       413
+DPS_MISTRAL_NONCONCISE    150     40.76        30        59    313.35       215       461
+DPS_MISTRAL_20            150     18.90        11        32    153.11       104       241
+DPS_MISTRAL_40            150     35.09        22        45    272.03       196       373
+DPS_MISTRAL_60            150     45.95        30        70    352.03       259       508
+DPS_MISTRAL_80            150     58.98        41        75    447.95       318       633
+Human                     150     29.66        12        51    208.83        71       389
+
+LaTeX:
+\begin{table}[htb]
+  \caption{Average, minimum, and maximum words and characters per summary}
+  \label{tab:wordstats}
+  \centering
+  \begin{tabular}{l@{\hspace{3pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{8pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r}
+    \toprule
+    \textbf{Method} & \textbf{Avg} & \textbf{Min} & \textbf{Max} & \textbf{Avg} & \textbf{Min} & \textbf{Max} \\
+     & \textbf{Words} & \textbf{Words} & \textbf{Words} & \textbf{Chars} & \textbf{Chars} & \textbf{Chars} \\
+    \midrule
+    DPS\_NLG & 107.92 & 12 & 1777 & 838.63 & 65 & 14662 \\
+    DPS\_SWUM & 13.85 & 3 & 32 & 88.91 & 15 & 198 \\
+    DPS\_GPT & 35.44 & 19 & 48 & 276.31 & 149 & 440 \\
+    DPS\_GPT\_NONCONCISE & 36.07 & 20 & 50 & 278.23 & 160 & 432 \\
+    DPS\_GPT\_20 & 16.06 & 7 & 20 & 135.35 & 43 & 220 \\
+    DPS\_GPT\_40 & 29.40 & 16 & 40 & 231.59 & 119 & 381 \\
+    DPS\_GPT\_60 & 40.77 & 23 & 55 & 312.70 & 168 & 479 \\
+    DPS\_GPT\_80 & 47.93 & 23 & 66 & 361.47 & 186 & 605 \\
+    DPS\_MISTRAL & 40.57 & 29 & 67 & 312.93 & 208 & 413 \\
+    DPS\_MISTRAL\_NONCONCISE & 40.76 & 30 & 59 & 313.35 & 215 & 461 \\
+    DPS\_MISTRAL\_20 & 18.90 & 11 & 32 & 153.11 & 104 & 241 \\
+    DPS\_MISTRAL\_40 & 35.09 & 22 & 45 & 272.03 & 196 & 373 \\
+    DPS\_MISTRAL\_60 & 45.95 & 30 & 70 & 352.03 & 259 & 508 \\
+    DPS\_MISTRAL\_80 & 58.98 & 41 & 75 & 447.95 & 318 & 633 \\
+    \midrule
+    Human & 29.66 & 12 & 51 & 208.83 & 71 & 389 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+<<<END SUMMARY LENGTH STATISTICS>>>
+
+
+<<<BEGIN FOUR-WAY SUMMARY RANKING>>>
+======================================================================
+FOUR-WAY MULTI-CRITERIA SUMMARY RANKING (LLM JUDGE, SINGLE ITERATION)
+======================================================================
+Generated at: 2026-10-16 23:48:45
+Judge model (RANK_SUMMARIES_MODEL): meta-llama/llama-4-maverick
+Max tokens (RANK_SUMMARIES_MAX_TOKENS): 50
+Prompts: resources/prompts.json [summary_ranking]
+Order shown to the judge: 1 = DPS_NLG, 2 = DPS_LLM (GPT), 3 = DPS_LLM (Mistral), 4 = DPS_SWUM
+Points per criterion: 1st = 4, 2nd = 3, 3rd = 2, 4th = 1
+Classes ranked: 150; skipped (missing summaries): 0
+Invalid judgements (unparseable reply or failed call): accuracy = 0, conciseness = 1, adequacy = 0, code_context = 0, design_patterns = 0
+
+Rank counts per criterion (1st/2nd/3rd/4th):
+Criterion       DPS_NLG            DPS_LLM (GPT)      DPS_LLM (Mistral)  DPS_SWUM           n
+ACCURACY        3/3/75/69          58/65/26/1         68/76/5/1          21/6/44/79         150
+CONCISENESS     1/45/8/95          2/77/59/11         5/26/79/39         141/1/3/4          149
+ADEQUACY        13/5/71/61         53/67/27/3         73/69/6/2          11/9/46/84         150
+CODE CONTEXT    4/3/84/59          50/79/19/2         86/59/4/1          10/9/43/88         150
+DESIGN PATTERN  5/2/71/72          42/67/38/3         69/70/10/1         34/11/31/74        150
+
+Mean points per criterion (4 = always 1st, 1 = always last):
+Criterion       DPS_NLG            DPS_LLM (GPT)      DPS_LLM (Mistral)  DPS_SWUM           
+ACCURACY        1.60               3.20               3.41               1.79               
+CONCISENESS     1.68               2.47               1.98               3.87               
+ADEQUACY        1.80               3.13               3.42               1.65               
+CODE CONTEXT    1.68               3.18               3.53               1.61               
+DESIGN PATTERN  1.60               2.99               3.38               2.03               
+OVERALL         1.67               3.00               3.15               2.19               
+
+Winner distribution (highest total points per class; ties listed together):
+  DPS_LLM (Mistral): 77/150 (51.3%)
+  DPS_LLM (GPT): 50/150 (33.3%)
+  DPS_SWUM: 16/150 (10.7%)
+  DPS_LLM (GPT), DPS_LLM (Mistral): 4/150 (2.7%)
+  DPS_NLG: 3/150 (2.0%)
+
+Head-to-head, DPS_LLM (GPT) vs DPS_LLM (Mistral) (classes where each was ranked higher):
+  ACCURACY                  DPS_LLM (GPT) 62, DPS_LLM (Mistral) 88 (n = 150)
+  CONCISENESS               DPS_LLM (GPT) 108, DPS_LLM (Mistral) 41 (n = 149)
+  ADEQUACY                  DPS_LLM (GPT) 57, DPS_LLM (Mistral) 93 (n = 150)
+  CODE CONTEXT              DPS_LLM (GPT) 53, DPS_LLM (Mistral) 97 (n = 150)
+  DESIGN PATTERN            DPS_LLM (GPT) 51, DPS_LLM (Mistral) 99 (n = 150)
+  OVERALL (total points)    DPS_LLM (GPT) 53, DPS_LLM (Mistral) 93, ties 4 (n = 150)
+
+LaTeX (rank counts):
+\begin{table}[htb]
+  \caption{Rank counts per criterion (1st/2nd/3rd/4th) from the four-way LLM-judge ranking}
+  \label{tab:fourwayrankcounts}
+  \centering
+  \begin{tabular}{lllllr}
+    \toprule
+    Metric & DPS\_NLG & DPS\_LLM (GPT) & DPS\_LLM (Mistral) & DPS\_SWUM & n \\
+    \midrule
+    ACCURACY & 3 / 3 / 75 / 69 & 58 / 65 / 26 / 1 & 68 / 76 / 5 / 1 & 21 / 6 / 44 / 79 & 150 \\
+    CONCISENESS & 1 / 45 / 8 / 95 & 2 / 77 / 59 / 11 & 5 / 26 / 79 / 39 & 141 / 1 / 3 / 4 & 149 \\
+    ADEQUACY & 13 / 5 / 71 / 61 & 53 / 67 / 27 / 3 & 73 / 69 / 6 / 2 & 11 / 9 / 46 / 84 & 150 \\
+    CODE CONTEXT & 4 / 3 / 84 / 59 & 50 / 79 / 19 / 2 & 86 / 59 / 4 / 1 & 10 / 9 / 43 / 88 & 150 \\
+    DESIGN PATTERN & 5 / 2 / 71 / 72 & 42 / 67 / 38 / 3 & 69 / 70 / 10 / 1 & 34 / 11 / 31 / 74 & 150 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+LaTeX (mean points):
+\begin{table}[htb]
+  \caption{Mean points per criterion from the four-way LLM-judge ranking (4 = always first, 1 = always last)}
+  \label{tab:fourwaymeanpoints}
+  \centering
+  \begin{tabular}{lrrrr}
+    \toprule
+    Metric & DPS\_NLG & DPS\_LLM (GPT) & DPS\_LLM (Mistral) & DPS\_SWUM \\
+    \midrule
+    ACCURACY & 1.60 & 3.20 & 3.41 & 1.79 \\
+    CONCISENESS & 1.68 & 2.47 & 1.98 & 3.87 \\
+    ADEQUACY & 1.80 & 3.13 & 3.42 & 1.65 \\
+    CODE CONTEXT & 1.68 & 3.18 & 3.53 & 1.61 \\
+    DESIGN PATTERN & 1.60 & 2.99 & 3.38 & 2.03 \\
+    \midrule
+    OVERALL & 1.67 & 3.00 & 3.15 & 2.19 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+<<<END FOUR-WAY SUMMARY RANKING>>>
+
+
+<<<BEGIN FRIEDMAN TESTS>>>
+
+========================================================================
+FRIEDMAN TEST ANALYSIS — DPS_NLG vs DPS_LLM (GPT) vs DPS_LLM (Mistral) vs DPS_SWUM
+========================================================================
+  Run date   : 2026-10-17 00:31:43
+  Data file  : four_way_ranking_detail.csv
+  Total rows : 150  |  Rows used (status=ranked): 150
+
+  Methods    :  DPS_NLG, DPS_LLM (GPT), DPS_LLM (Mistral), DPS_SWUM
+  Scoring    :  1st place = 4 pts  |  2nd = 3 pts  |  3rd = 2 pts  |  4th = 1 pt
+  Alpha      :  0.05
+  Post-hoc   :  Wilcoxon signed-rank, Bonferroni α_adj = 0.0083
+
+  H0 (each Friedman test): no significant difference in points
+  among the 4 methods under the given criterion / criteria.
+
+========================================================================
+PART 1: PER-CRITERION FRIEDMAN TESTS  (class files as blocks)
+========================================================================
+
+  Test design : one Friedman test per criterion
+  Blocks      : individual class files with a valid judgement for the criterion
+  Treatments  : k = 4 methods  (DPS_NLG, DPS_LLM (GPT), DPS_LLM (Mistral), DPS_SWUM)
+  Scoring     : 1st = 4 pts | 2nd = 3 pts | 3rd = 2 pts | 4th = 1 pt
+  H0          : no significant difference among the 4 methods
+  α           : 0.05  |  post-hoc Bonferroni α_adj = 0.0083
+
+------------------------------------------------------------------------
+  Criterion      : ACCURACY
+  N (blocks)     : 150 class files
+  Friedman chi²  = 235.9280  (df = 3)
+  p-value        = 7.22844e-51    < 0.05  →  REJECT H0 *
+  Kendall's W    = 0.5243  (strong concordance)
+  Significant    : YES
+
+  Mean points per method (higher = better ranked; 4 = always 1st):
+    DPS_NLG           : 1.6000
+    DPS_LLM (GPT)     : 3.2000
+    DPS_LLM (Mistral) : 3.4067  <-- best
+    DPS_SWUM          : 1.7933
+
+  Post-hoc pairwise Wilcoxon signed-rank tests (Bonferroni over 6 pairs, α_adj = 0.0083):
+  Comparison                                 W-stat      p (raw)      p (adj)   Sig?   A>B   B>A  Direction
+  -----------------------------------------------------------------------------------------------------------------
+  DPS_NLG vs DPS_LLM (GPT)                   293.00    6.840e-25    4.104e-24  YES *     5   145  DPS_LLM (GPT) > DPS_NLG
+  DPS_NLG vs DPS_LLM (Mistral)               232.00    3.356e-25    2.013e-24  YES *     5   145  DPS_LLM (Mistral) > DPS_NLG
+  DPS_NLG vs DPS_SWUM                       5137.00    2.937e-01    1.000e+00     no    80    70  DPS_NLG > DPS_SWUM
+  DPS_LLM (GPT) vs DPS_LLM (Mistral)        4565.00    2.156e-02    1.294e-01     no    62    88  DPS_LLM (Mistral) > DPS_LLM (GPT)
+  DPS_LLM (GPT) vs DPS_SWUM                 1567.50    5.423e-15    3.254e-14  YES *   123    27  DPS_LLM (GPT) > DPS_SWUM
+  DPS_LLM (Mistral) vs DPS_SWUM              666.00    1.398e-21    8.390e-21  YES *   128    22  DPS_LLM (Mistral) > DPS_SWUM
+  (A>B / B>A = classes where the first / second method of the pair ranked higher)
+
+------------------------------------------------------------------------
+  Criterion      : CONCISENESS
+  N (blocks)     : 149 class files
+  Friedman chi²  = 253.0993  (df = 3)
+  p-value        = 1.39788e-54    < 0.05  →  REJECT H0 *
+  Kendall's W    = 0.5662  (strong concordance)
+  Significant    : YES
+
+  Mean points per method (higher = better ranked; 4 = always 1st):
+    DPS_NLG           : 1.6779
+    DPS_LLM (GPT)     : 2.4698
+    DPS_LLM (Mistral) : 1.9799
+    DPS_SWUM          : 3.8725  <-- best
+
+  Post-hoc pairwise Wilcoxon signed-rank tests (Bonferroni over 6 pairs, α_adj = 0.0083):
+  Comparison                                 W-stat      p (raw)      p (adj)   Sig?   A>B   B>A  Direction
+  -----------------------------------------------------------------------------------------------------------------
+  DPS_NLG vs DPS_LLM (GPT)                  2423.00    6.031e-10    3.618e-09  YES *    46   103  DPS_LLM (GPT) > DPS_NLG
+  DPS_NLG vs DPS_LLM (Mistral)              4692.00    7.945e-02    4.767e-01     no    51    98  DPS_LLM (Mistral) > DPS_NLG
+  DPS_NLG vs DPS_SWUM                        181.50    2.589e-26    1.553e-25  YES *     4   145  DPS_SWUM > DPS_NLG
+  DPS_LLM (GPT) vs DPS_LLM (Mistral)        2952.00    1.597e-08    9.581e-08  YES *   108    41  DPS_LLM (GPT) > DPS_LLM (Mistral)
+  DPS_LLM (GPT) vs DPS_SWUM                  584.00    2.194e-22    1.317e-21  YES *     8   141  DPS_SWUM > DPS_LLM (GPT)
+  DPS_LLM (Mistral) vs DPS_SWUM              600.00    3.664e-22    2.199e-21  YES *     7   142  DPS_SWUM > DPS_LLM (Mistral)
+  (A>B / B>A = classes where the first / second method of the pair ranked higher)
+
+------------------------------------------------------------------------
+  Criterion      : ADEQUACY
+  N (blocks)     : 150 class files
+  Friedman chi²  = 221.9120  (df = 3)
+  p-value        = 7.75168e-48    < 0.05  →  REJECT H0 *
+  Kendall's W    = 0.4931  (moderate concordance)
+  Significant    : YES
+
+  Mean points per method (higher = better ranked; 4 = always 1st):
+    DPS_NLG           : 1.8000
+    DPS_LLM (GPT)     : 3.1333
+    DPS_LLM (Mistral) : 3.4200  <-- best
+    DPS_SWUM          : 1.6467
+
+  Post-hoc pairwise Wilcoxon signed-rank tests (Bonferroni over 6 pairs, α_adj = 0.0083):
+  Comparison                                 W-stat      p (raw)      p (adj)   Sig?   A>B   B>A  Direction
+  -----------------------------------------------------------------------------------------------------------------
+  DPS_NLG vs DPS_LLM (GPT)                  1332.50    1.179e-16    7.076e-16  YES *    16   134  DPS_LLM (GPT) > DPS_NLG
+  DPS_NLG vs DPS_LLM (Mistral)               705.50    2.126e-21    1.276e-20  YES *    16   134  DPS_LLM (Mistral) > DPS_NLG
+  DPS_NLG vs DPS_SWUM                       5010.00    1.916e-01    1.000e+00     no    88    62  DPS_NLG > DPS_SWUM
+  DPS_LLM (GPT) vs DPS_LLM (Mistral)        4229.00    2.827e-03    1.696e-02  YES *    57    93  DPS_LLM (Mistral) > DPS_LLM (GPT)
+  DPS_LLM (GPT) vs DPS_SWUM                 1165.50    6.914e-18    4.148e-17  YES *   129    21  DPS_LLM (GPT) > DPS_SWUM
+  DPS_LLM (Mistral) vs DPS_SWUM              428.00    2.025e-23    1.215e-22  YES *   136    14  DPS_LLM (Mistral) > DPS_SWUM
+  (A>B / B>A = classes where the first / second method of the pair ranked higher)
+
+------------------------------------------------------------------------
+  Criterion      : CODE CONTEXT
+  N (blocks)     : 150 class files
+  Friedman chi²  = 270.0560  (df = 3)
+  p-value        = 3.00159e-58    < 0.05  →  REJECT H0 *
+  Kendall's W    = 0.6001  (strong concordance)
+  Significant    : YES
+
+  Mean points per method (higher = better ranked; 4 = always 1st):
+    DPS_NLG           : 1.6800
+    DPS_LLM (GPT)     : 3.1800
+    DPS_LLM (Mistral) : 3.5333  <-- best
+    DPS_SWUM          : 1.6067
+
+  Post-hoc pairwise Wilcoxon signed-rank tests (Bonferroni over 6 pairs, α_adj = 0.0083):
+  Comparison                                 W-stat      p (raw)      p (adj)   Sig?   A>B   B>A  Direction
+  -----------------------------------------------------------------------------------------------------------------
+  DPS_NLG vs DPS_LLM (GPT)                   452.50    1.235e-23    7.407e-23  YES *     6   144  DPS_LLM (GPT) > DPS_NLG
+  DPS_NLG vs DPS_LLM (Mistral)               265.00    7.077e-25    4.246e-24  YES *     7   143  DPS_LLM (Mistral) > DPS_NLG
+  DPS_NLG vs DPS_SWUM                       5180.50    3.265e-01    1.000e+00     no    89    61  DPS_NLG > DPS_SWUM
+  DPS_LLM (GPT) vs DPS_LLM (Mistral)        3832.50    1.325e-04    7.952e-04  YES *    53    97  DPS_LLM (Mistral) > DPS_LLM (GPT)
+  DPS_LLM (GPT) vs DPS_SWUM                  995.00    5.263e-19    3.158e-18  YES *   130    20  DPS_LLM (GPT) > DPS_SWUM
+  DPS_LLM (Mistral) vs DPS_SWUM              327.00    2.040e-24    1.224e-23  YES *   140    10  DPS_LLM (Mistral) > DPS_SWUM
+  (A>B / B>A = classes where the first / second method of the pair ranked higher)
+
+------------------------------------------------------------------------
+  Criterion      : DESIGN PATTERN
+  N (blocks)     : 150 class files
+  Friedman chi²  = 183.5120  (df = 3)
+  p-value        = 1.53814e-39    < 0.05  →  REJECT H0 *
+  Kendall's W    = 0.4078  (moderate concordance)
+  Significant    : YES
+
+  Mean points per method (higher = better ranked; 4 = always 1st):
+    DPS_NLG           : 1.6000
+    DPS_LLM (GPT)     : 2.9867
+    DPS_LLM (Mistral) : 3.3800  <-- best
+    DPS_SWUM          : 2.0333
+
+  Post-hoc pairwise Wilcoxon signed-rank tests (Bonferroni over 6 pairs, α_adj = 0.0083):
+  Comparison                                 W-stat      p (raw)      p (adj)   Sig?   A>B   B>A  Direction
+  -----------------------------------------------------------------------------------------------------------------
+  DPS_NLG vs DPS_LLM (GPT)                   694.00    1.164e-21    6.985e-21  YES *     8   142  DPS_LLM (GPT) > DPS_NLG
+  DPS_NLG vs DPS_LLM (Mistral)               303.00    5.625e-25    3.375e-24  YES *     6   144  DPS_LLM (Mistral) > DPS_NLG
+  DPS_NLG vs DPS_SWUM                       4307.50    7.912e-03    4.747e-02  YES *    76    74  DPS_NLG > DPS_SWUM
+  DPS_LLM (GPT) vs DPS_LLM (Mistral)        3619.00    1.976e-05    1.186e-04  YES *    51    99  DPS_LLM (Mistral) > DPS_LLM (GPT)
+  DPS_LLM (GPT) vs DPS_SWUM                 2619.50    4.662e-09    2.797e-08  YES *   105    45  DPS_LLM (GPT) > DPS_SWUM
+  DPS_LLM (Mistral) vs DPS_SWUM             1431.00    8.063e-16    4.838e-15  YES *   114    36  DPS_LLM (Mistral) > DPS_SWUM
+  (A>B / B>A = classes where the first / second method of the pair ranked higher)
+
+========================================================================
+PART 2: CROSS-CRITERIA FRIEDMAN TEST  (criteria as blocks)
+========================================================================
+
+  Test design : one Friedman test across all criteria
+  Blocks      : n = 5 criteria  (ACCURACY, CONCISENESS, ADEQUACY, CODE CONTEXT, DESIGN PATTERN)
+  Treatments  : k = 4 methods  (DPS_NLG, DPS_LLM (GPT), DPS_LLM (Mistral), DPS_SWUM)
+  Cell value  : mean points of method on criterion across all class files
+  H0          : rank ordering of methods does not differ across criteria
+  α           : 0.05
+
+  Mean points matrix:
+  Criterion                  DPS_NLG     DPS_LLM (GPT) DPS_LLM (Mistral)          DPS_SWUM
+  ----------------------------------------------------------------------------------------
+  ACCURACY                  1.6000            3.2000            3.4067 *          1.7933  
+  CONCISENESS               1.6779            2.4698            1.9799            3.8725 *
+  ADEQUACY                  1.8000            3.1333            3.4200 *          1.6467  
+  CODE CONTEXT              1.6800            3.1800            3.5333 *          1.6067  
+  DESIGN PATTERN            1.6000            2.9867            3.3800 *          2.0333  
+  ----------------------------------------------------------------------------------------
+  COLUMN MEAN               1.6716            2.9940            3.1440            2.1905  
+  (* = best method for that criterion)
+
+  Friedman chi²  = 8.7600  (df = 3)
+  p-value        = 0.032658    < 0.05  →  REJECT H0 *
+  Kendall's W    = 0.5840  (strong concordance)
+  Significant    : YES
+
+  Note: n = 5 blocks — too few for a Wilcoxon signed-rank test.
+  Pairwise mean-points differences (descriptive):
+  Comparison                              Mean diff  Direction
+  --------------------------------------------------------------------
+  DPS_NLG vs DPS_LLM (GPT)                  -1.3224  DPS_LLM (GPT) > DPS_NLG
+  DPS_NLG vs DPS_LLM (Mistral)              -1.4724  DPS_LLM (Mistral) > DPS_NLG
+  DPS_NLG vs DPS_SWUM                       -0.5189  DPS_SWUM > DPS_NLG
+  DPS_LLM (GPT) vs DPS_LLM (Mistral)        -0.1500  DPS_LLM (Mistral) > DPS_LLM (GPT)
+  DPS_LLM (GPT) vs DPS_SWUM                 +0.8035  DPS_LLM (GPT) > DPS_SWUM
+  DPS_LLM (Mistral) vs DPS_SWUM             +0.9535  DPS_LLM (Mistral) > DPS_SWUM
+
+========================================================================
+SUMMARY TABLE — PER-CRITERION FRIEDMAN RESULTS
+========================================================================
+
+  Criterion            n       chi²      p-value  Kendall W  Sig?  Best Method
+  --------------------------------------------------------------------------------
+  ACCURACY           150   235.9280    7.228e-51     0.5243 YES *  DPS_LLM (Mistral)
+  CONCISENESS        149   253.0993    1.398e-54     0.5662 YES *  DPS_SWUM
+  ADEQUACY           150   221.9120    7.752e-48     0.4931 YES *  DPS_LLM (Mistral)
+  CODE CONTEXT       150   270.0560    3.002e-58     0.6001 YES *  DPS_LLM (Mistral)
+  DESIGN PATTERN     150   183.5120    1.538e-39     0.4078 YES *  DPS_LLM (Mistral)
+
+  α = 0.05  |  post-hoc Bonferroni α_adj = 0.0083  |  df = 3
+  Kendall's W : 0.1 weak | 0.3 moderate | 0.5 strong | 0.7 very strong
+<<<END FRIEDMAN TESTS>>>
+
+
+<<<BEGIN FACT PRESERVATION>>>
+==============================================================================
+DESIGN-PATTERN FACT PRESERVATION (LLM judge against facts extracted from the DPS JSON)
+==============================================================================
+Generated: 2026-10-17 12:09:49
+Judge model: meta-llama/llama-4-maverick
+Temperature: 0.0
+Completion tokens: 100 per fact, at most 2048 per call
+Fact caps per class: role 5, field 5, constructor 5, method 3, call 5
+Prompt: resources/prompts.json [fact_preservation.judge]
+Fact source: output/json-output/nlg
+Classes: 150 evaluated, 150 with facts
+Facts: 678 in total; detector 135, parser 543
+Judgements (asked / valid / cut off / re-asked): DPS_NLG 150/150/0/0; DPS_LLM (GPT) 150/150/0/0; DPS_LLM (Mistral) 150/150/0/0; DPS_SWUM 150/150/0/0
+Classes compared (valid judgement for all four methods): 150
+
+ALL FACTS (classes compared only)
+Method                Facts  Preserved   Omitted  Incorrect  Macro pres.
+DPS_NLG                 678      86.4%     11.1%       2.5%        87.7%
+DPS_LLM (GPT)           678      68.3%     30.4%       1.3%        78.6%
+DPS_LLM (Mistral)       678      60.6%     37.9%       1.5%        72.4%
+DPS_SWUM                678      20.2%     77.9%       1.9%        22.0%
+
+PRESERVED RATE BY FACT SOURCE AND TYPE (facts per method in brackets)
+Scope                        DPS_NLG         DPS_LLM (GPT)     DPS_LLM (Mistral)              DPS_SWUM
+detector                 83.0% (135)           40.7% (135)           51.1% (135)           54.1% (135)
+parser                   87.3% (543)           75.1% (543)           63.0% (543)           11.8% (543)
+role                     83.0% (135)           40.7% (135)           51.1% (135)           54.1% (135)
+kind                     100.0% (36)            91.7% (36)            97.2% (36)             2.8% (36)
+inheritance             100.0% (111)           88.3% (111)           79.3% (111)            3.6% (111)
+constructor                0.0% (24)            87.5% (24)            25.0% (24)             0.0% (24)
+field                     10.0% (30)            83.3% (30)            80.0% (30)             0.0% (30)
+method                   93.1% (260)           76.5% (260)           66.9% (260)           22.7% (260)
+call                     100.0% (82)            39.0% (82)            18.3% (82)             0.0% (82)
+
+Evidence quotes not found verbatim in the summary (PRESERVED/INCORRECT labels): DPS_NLG 114, DPS_LLM (GPT) 53, DPS_LLM (Mistral) 57, DPS_SWUM 15
+
+\begin{table}[htbp]
+  \centering
+  \caption{Design-pattern fact preservation (LLM judge; 150 classes).}
+  \label{tab:fact-preservation}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    Method & Facts & Preserved & Omitted & Incorrect & Macro preserved \\
+    \midrule
+    DPS\_NLG & 678 & 86.4\% & 11.1\% & 2.5\% & 87.7\% \\
+    DPS\_LLM (GPT) & 678 & 68.3\% & 30.4\% & 1.3\% & 78.6\% \\
+    DPS\_LLM (Mistral) & 678 & 60.6\% & 37.9\% & 1.5\% & 72.4\% \\
+    DPS\_SWUM & 678 & 20.2\% & 77.9\% & 1.9\% & 22.0\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+<<<END FACT PRESERVATION>>>

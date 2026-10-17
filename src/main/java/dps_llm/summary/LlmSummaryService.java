@@ -2,6 +2,7 @@ package dps_llm.summary;
 
 import dps_llm.client.LlmClient;
 import dps_llm.client.LlmClientException;
+import common.designpatternidentifier.PatternNames;
 import dps_llm.model.ClassFeatureSnapshot;
 import dps_llm.prompt.LlmPromptBuilder;
 
@@ -121,6 +122,7 @@ public class LlmSummaryService {
         int successfulSummaries = 0;
         int skippedClasses = 0;
         int failedSummaries = 0;
+        int alreadySummarised = 0; // CHANGE: classes already in the CSV when resuming (--resume)
 
         for (Map.Entry<String, HashMap> entry : projectFileMap.entrySet()) {
             String className = entry.getKey();
@@ -134,10 +136,28 @@ public class LlmSummaryService {
                 continue;
             }
 
-            processedClasses++;
+            // processedClasses++;
             ClassFeatureSnapshot snapshot = snapshotOpt.get();
+            // CHANGE: with --resume, classes already in the CSV are skipped before any API call.
+            if (writer.hasRow(projectDisplayName, snapshot.getSourceFile())) {
+                System.out.printf("  Already summarised %s/%s, skipping (--resume).%n", projectDisplayName, className);
+                alreadySummarised++;
+                continue;
+            }
+            processedClasses++;
             String userPrompt = promptBuilder.buildUserPrompt(snapshot);
-            Optional<String> summary = llmClient.createSummary(promptBuilder.getSystemPrompt(), userPrompt);
+            // CHANGE: catch API failures per class. Previously one LlmClientException (e.g. a 429 rate limit)
+            // escaped this loop and dropped every remaining class in the project, while the whole project was
+            // counted as a single failure. LlmClient now retries transient errors before giving up.
+            // Optional<String> summary = llmClient.createSummary(promptBuilder.getSystemPrompt(), userPrompt);
+            Optional<String> summary;
+            try {
+                summary = llmClient.createSummary(promptBuilder.getSystemPrompt(), userPrompt);
+            } catch (LlmClientException e) {
+                System.err.println("LLM request failed for " + className + " in project " + projectDisplayName + ": " + e.getMessage());
+                failedSummaries++;
+                continue;
+            }
             
             if (summary.isEmpty()) {
                 System.err.println("LLM returned no content for " + className + " in project " + projectDisplayName);
@@ -150,7 +170,8 @@ public class LlmSummaryService {
             System.out.printf("  Generated LLM summary for %s/%s%n", projectDisplayName, className);
         }
 
-        return new SummaryStats(processedClasses, successfulSummaries, skippedClasses, failedSummaries);
+        // return new SummaryStats(processedClasses, successfulSummaries, skippedClasses, failedSummaries);
+        return new SummaryStats(processedClasses, successfulSummaries, skippedClasses, failedSummaries, alreadySummarised);
     }
 
     private Map<String, List<String>> buildPatternInsights(Object summaryNlgObj, Object designPatternObj) {
@@ -158,7 +179,9 @@ public class LlmSummaryService {
         if (summaryNlgObj instanceof Map) {
             Map<?, ?> patternMap = (Map<?, ?>) summaryNlgObj;
             for (Map.Entry<?, ?> patternEntry : patternMap.entrySet()) {
-                String patternName = String.valueOf(patternEntry.getKey());
+                // CHANGE: readable pattern name in the prompt ("Abstract Factory") instead of the raw key.
+                // String patternName = String.valueOf(patternEntry.getKey());
+                String patternName = PatternNames.toDisplayName(String.valueOf(patternEntry.getKey()));
                 Object value = patternEntry.getValue();
                 if (!(value instanceof Map)) {
                     continue;
@@ -190,7 +213,9 @@ public class LlmSummaryService {
                 }
                 Map<?, ?> patternMap = (Map<?, ?>) patternNode;
                 for (Map.Entry<?, ?> entry : patternMap.entrySet()) {
-                    String patternName = String.valueOf(entry.getKey());
+                    // CHANGE: readable pattern name in the prompt ("Abstract Factory") instead of the raw key.
+                    // String patternName = String.valueOf(entry.getKey());
+                    String patternName = PatternNames.toDisplayName(String.valueOf(entry.getKey()));
                     Set<String> classNames = extractClassNames(entry.getValue());
                     for (String className : classNames) {
                         perClass.computeIfAbsent(className, key -> new ArrayList<>())
@@ -241,12 +266,18 @@ public class LlmSummaryService {
         private final int successfulSummaries;
         private final int skippedClasses;
         private final int failedSummaries;
+        private final int alreadySummarised;
 
         SummaryStats(int processedClasses, int successfulSummaries, int skippedClasses, int failedSummaries) {
+            this(processedClasses, successfulSummaries, skippedClasses, failedSummaries, 0);
+        }
+
+        SummaryStats(int processedClasses, int successfulSummaries, int skippedClasses, int failedSummaries, int alreadySummarised) {
             this.processedClasses = processedClasses;
             this.successfulSummaries = successfulSummaries;
             this.skippedClasses = skippedClasses;
             this.failedSummaries = failedSummaries;
+            this.alreadySummarised = alreadySummarised;
         }
 
         public static SummaryStats empty() {
@@ -269,8 +300,14 @@ public class LlmSummaryService {
             return failedSummaries;
         }
 
+        /** Classes left out because the CSV already had them (--resume). */
+        public int getAlreadySummarised() {
+            return alreadySummarised;
+        }
+
         public boolean hasResults() {
-            return processedClasses > 0 || successfulSummaries > 0 || skippedClasses > 0 || failedSummaries > 0;
+            // return processedClasses > 0 || successfulSummaries > 0 || skippedClasses > 0 || failedSummaries > 0;
+            return processedClasses > 0 || successfulSummaries > 0 || skippedClasses > 0 || failedSummaries > 0 || alreadySummarised > 0;
         }
     }
 }

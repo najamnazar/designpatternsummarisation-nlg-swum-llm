@@ -65,12 +65,16 @@ public class PromptManager {
             
             JsonNode root = objectMapper.readTree(is);
             
-            // Load LLM summarization prompts
-            loadCategoryPrompts(root, "llm_summarization");
-            loadCategoryPrompts(root, "code_review");
-            loadCategoryPrompts(root, "refactoring");
-            loadCategoryPrompts(root, "test_generation");
-            loadCategoryPrompts(root, "documentation");
+            // CHANGE: load every top-level category instead of a hard-coded list. Only "llm_summarization"
+            // exists in prompts.json today (the other four names were never present), so a new category
+            // previously needed a code change. Categories without system_prompt/alternative_prompts
+            // (e.g. "summary_ranking", which the Python scripts use) are skipped by loadCategoryPrompts.
+            // loadCategoryPrompts(root, "llm_summarization");
+            // loadCategoryPrompts(root, "code_review");
+            // loadCategoryPrompts(root, "refactoring");
+            // loadCategoryPrompts(root, "test_generation");
+            // loadCategoryPrompts(root, "documentation");
+            root.fieldNames().forEachRemaining(category -> loadCategoryPrompts(root, category));
             
         } catch (IOException e) {
             throw new IllegalStateException("Failed to load prompts.json", e);

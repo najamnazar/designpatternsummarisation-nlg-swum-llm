@@ -12,7 +12,9 @@ import common.utils.Utils;
 // Visitor is a behavioral design pattern that lets you separate algorithms from the objects on which they operate.
 public class VisitorPattern extends DesignPatterns {
     public VisitorPattern() {
-        super("visitor");
+        // CHANGE: pattern keys use the AbstractFactory style (see PatternNames); was super("visitor").
+        // super("visitor");
+        super(PatternNames.VISITOR);
     }
 
     @Override

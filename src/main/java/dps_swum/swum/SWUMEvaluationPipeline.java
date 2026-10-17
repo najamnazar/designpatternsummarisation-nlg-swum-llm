@@ -4,8 +4,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
-import java.io.FileWriter;
+// import java.io.FileWriter; // CHANGE: replaced by explicit UTF-8 writers
 import java.io.IOException;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -95,7 +97,9 @@ public class SWUMEvaluationPipeline {
         JsonNode originalJson = objectMapper.readTree(new File(inputFilePath));
         JsonNode swumJson = swumSummarizer.processProjectJson(originalJson);
 
-        try (FileWriter writer = new FileWriter(outputFilePath)) {
+        // CHANGE: write UTF-8 explicitly instead of the platform default charset.
+        // try (FileWriter writer = new FileWriter(outputFilePath)) {
+        try (Writer writer = Files.newBufferedWriter(Paths.get(outputFilePath), StandardCharsets.UTF_8)) {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(writer, swumJson);
         }
 
@@ -160,7 +164,9 @@ public class SWUMEvaluationPipeline {
         Files.createDirectories(Paths.get(SUMMARY_OUTPUT_DIR));
         File summaryFile = new File(SUMMARY_OUTPUT_DIR, "pipeline_summary.txt");
 
-        try (FileWriter writer = new FileWriter(summaryFile)) {
+        // CHANGE: write UTF-8 explicitly instead of the platform default charset.
+        // try (FileWriter writer = new FileWriter(summaryFile)) {
+        try (Writer writer = Files.newBufferedWriter(summaryFile.toPath(), StandardCharsets.UTF_8)) {
             writer.write("=== SWUM Processing Summary ===\n\n");
             writer.write(String.format("Projects processed: %d%n", processedCount));
             writer.write(String.format("SWUM output directory: %s%n%n", swumDir.getAbsolutePath()));

@@ -12,7 +12,9 @@ import common.utils.Utils;
 // Observer is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
 public class ObserverPattern extends DesignPatterns {
     public ObserverPattern() {
-        super("observer");
+        // CHANGE: pattern keys use the AbstractFactory style (see PatternNames); was super("observer").
+        // super("observer");
+        super(PatternNames.OBSERVER);
     }
 
     @Override

@@ -47,6 +47,13 @@ public class LlmClient {
     private final HttpClient httpClient;
     private final ObjectMapper mapper = new ObjectMapper();
 
+    // CHANGE: retry settings. The class Javadoc promised retry logic but none existed, so a single
+    // rate-limit (429) or transient server error (5xx) lost the summary. Requests are now retried
+    // with exponential backoff (2s, 4s, 8s), honouring a numeric Retry-After header when present.
+    private static final int MAX_ATTEMPTS = 4;
+    private static final long INITIAL_BACKOFF_MILLIS = 2_000L;
+    private static final long MAX_BACKOFF_MILLIS = 60_000L;
+
     /**
      * Constructs a new LLM client with the specified configuration.
      * 
@@ -113,33 +120,107 @@ public class LlmClient {
             throw new IllegalArgumentException("userPrompt must not be null");
         }
 
+        // CHANGE: wrap the single request in a retry loop for 429, 5xx and network (IO) errors.
+        // Other non-2xx statuses (e.g. 400 bad request, 401 bad key) still fail immediately.
+        // Original implementation (single attempt):
+        // try {
+        //     String payload = buildPayload(systemPrompt, userPrompt);
+        //     HttpRequest.Builder requestBuilder = ...;  // same request as built below
+        //     HttpResponse<String> response = httpClient.send(requestBuilder.build(), HttpResponse.BodyHandlers.ofString());
+        //     if (response.statusCode() < 200 || response.statusCode() >= 300) {
+        //         throw new LlmClientException(String.format("LLM request failed (%d): %s", response.statusCode(), response.body()));
+        //     }
+        //     return extractMessage(response.body());
+        // } catch (InterruptedException e) {
+        //     Thread.currentThread().interrupt();
+        //     throw new LlmClientException("LLM request interrupted", e);
+        // } catch (IOException e) {
+        //     throw new LlmClientException("LLM request error: " + (e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName()), e);
+        // }
+        HttpRequest request;
         try {
-            String payload = buildPayload(systemPrompt, userPrompt);
-            HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
-                    .uri(URI.create(apiUrl))
-                    .timeout(Duration.ofSeconds(60))
-                    .header("Content-Type", "application/json")
-                    .header("Authorization", "Bearer " + apiKey)
-                    .POST(HttpRequest.BodyPublishers.ofString(payload));
+            request = buildRequest(buildPayload(systemPrompt, userPrompt));
+        } catch (IOException e) {
+            throw new LlmClientException("Failed to build LLM request: " + e.getMessage(), e);
+        }
 
-            if (httpReferer != null && !httpReferer.isBlank()) {
-                requestBuilder.header("HTTP-Referer", httpReferer);
+        long backoffMillis = INITIAL_BACKOFF_MILLIS;
+        for (int attempt = 1; ; attempt++) {
+            boolean lastAttempt = attempt >= MAX_ATTEMPTS;
+            try {
+                HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+                int status = response.statusCode();
+                if (status >= 200 && status < 300) {
+                    return extractMessage(response.body());
+                }
+                String failure = String.format("LLM request failed (%d): %s", status, response.body());
+                if (!isRetryableStatus(status) || lastAttempt) {
+                    throw new LlmClientException(failure);
+                }
+                long waitMillis = retryAfterMillis(response).orElse(backoffMillis);
+                System.err.printf("  %s - retrying in %d ms (attempt %d/%d)%n", failure, waitMillis, attempt + 1, MAX_ATTEMPTS);
+                sleep(waitMillis);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new LlmClientException("LLM request interrupted", e);
+            } catch (IOException e) {
+                String message = "LLM request error: " + (e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName());
+                if (lastAttempt) {
+                    throw new LlmClientException(message, e);
+                }
+                System.err.printf("  %s - retrying in %d ms (attempt %d/%d)%n", message, backoffMillis, attempt + 1, MAX_ATTEMPTS);
+                sleep(backoffMillis);
             }
-            if (title != null && !title.isBlank()) {
-                requestBuilder.header("X-Title", title);
-            }
+            backoffMillis = Math.min(backoffMillis * 2, MAX_BACKOFF_MILLIS);
+        }
+    }
 
-            HttpResponse<String> response = httpClient.send(requestBuilder.build(), HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode() < 200 || response.statusCode() >= 300) {
-                throw new LlmClientException(String.format("LLM request failed (%d): %s", response.statusCode(), response.body()));
-            }
+    /**
+     * Builds the HTTP request once so retries resend the identical payload.
+     * CHANGE: extracted from createSummary when the retry loop was added.
+     */
+    private HttpRequest buildRequest(String payload) {
+        HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
+                .uri(URI.create(apiUrl))
+                .timeout(Duration.ofSeconds(60))
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + apiKey)
+                .POST(HttpRequest.BodyPublishers.ofString(payload));
 
-            return extractMessage(response.body());
+        if (httpReferer != null && !httpReferer.isBlank()) {
+            requestBuilder.header("HTTP-Referer", httpReferer);
+        }
+        if (title != null && !title.isBlank()) {
+            requestBuilder.header("X-Title", title);
+        }
+        return requestBuilder.build();
+    }
+
+    /** CHANGE: rate limits (429) and server-side errors (5xx) are worth retrying; client errors are not. */
+    private static boolean isRetryableStatus(int status) {
+        return status == 429 || status >= 500;
+    }
+
+    /** CHANGE: honour a numeric Retry-After header (seconds), capped at MAX_BACKOFF_MILLIS. */
+    private static Optional<Long> retryAfterMillis(HttpResponse<?> response) {
+        Optional<String> header = response.headers().firstValue("Retry-After");
+        if (header.isEmpty()) {
+            return Optional.empty();
+        }
+        try {
+            long seconds = Long.parseLong(header.get().trim());
+            return Optional.of(Math.min(Math.max(seconds, 0L) * 1000L, MAX_BACKOFF_MILLIS));
+        } catch (NumberFormatException e) {
+            return Optional.empty(); // HTTP-date form is not used by OpenRouter; fall back to backoff
+        }
+    }
+
+    private static void sleep(long millis) throws LlmClientException {
+        try {
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            throw new LlmClientException("LLM request interrupted", e);
-        } catch (IOException e) {
-            throw new LlmClientException("LLM request error: " + (e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName()), e);
+            throw new LlmClientException("LLM request interrupted while waiting to retry", e);
         }
     }
 

@@ -9,11 +9,18 @@ import dps_swum.swum.context.PatternContextExtractor;
 import dps_swum.swum.grammar.SWUMGrammarParser;
 import dps_swum.swum.model.SWUMStructure;
 
+import common.designpatternidentifier.PatternNames;
+import common.utils.CsvUtils;
 import common.utils.ProjectPathFormatter;
 
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+// import java.io.FileWriter; // CHANGE: replaced by explicit UTF-8 writers
 import java.io.IOException;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -44,7 +51,9 @@ public class SWUMSummarizer {
     private ObjectMapper objectMapper;
     
     // Static CSV writer for accumulating all SWUM summaries
-    private static FileWriter csvWriter = null;
+    private static final String CSV_PATH = "output/summary-output/swum_summaries.csv";
+    // private static FileWriter csvWriter = null; // CHANGE: FileWriter used the platform default charset
+    private static BufferedWriter csvWriter = null; // CHANGE: UTF-8 writer from CsvUtils.openUtf8Writer
     private static boolean csvHeaderWritten = false;
     
     /**
@@ -125,7 +134,9 @@ public class SWUMSummarizer {
         }
         
         // Write output
-        try (FileWriter writer = new FileWriter(outputPath)) {
+        // CHANGE: write JSON as UTF-8 explicitly instead of the platform default charset.
+        // try (FileWriter writer = new FileWriter(outputPath)) {
+        try (Writer writer = Files.newBufferedWriter(Paths.get(outputPath), StandardCharsets.UTF_8)) {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(writer, swumOutput);
         }
         
@@ -137,22 +148,23 @@ public class SWUMSummarizer {
      */
     private static void initializeCsvWriter() throws IOException {
         if (csvWriter == null) {
-            // Ensure summary-output directory exists
-            File summaryOutputDir = new File("output/summary-output");
-            if (!summaryOutputDir.exists()) {
-                summaryOutputDir.mkdirs();
-            }
-            
-            File csvFile = new File("output/summary-output/swum_summaries.csv");
-            csvWriter = new FileWriter(csvFile, false); // false = overwrite existing file
-            
+            // CHANGE: CsvUtils.openUtf8Writer creates the directory and writes UTF-8 on every platform.
+            // Original implementation (platform default charset):
+            // File summaryOutputDir = new File("output/summary-output");
+            // if (!summaryOutputDir.exists()) {
+            //     summaryOutputDir.mkdirs();
+            // }
+            // File csvFile = new File("output/summary-output/swum_summaries.csv");
+            // csvWriter = new FileWriter(csvFile, false); // false = overwrite existing file
+            csvWriter = CsvUtils.openUtf8Writer(CSV_PATH); // overwrites any existing file
+
             // Write CSV header
             if (!csvHeaderWritten) {
-                csvWriter.write("Project,Folder Name,File Name,Summary\n");
+                csvWriter.write(CsvUtils.SUMMARY_HEADER + "\n");
                 csvHeaderWritten = true;
             }
-            
-            System.out.println("Initialized SWUM CSV summary file: " + csvFile.getAbsolutePath());
+
+            System.out.println("Initialized SWUM CSV summary file: " + new File(CSV_PATH).getAbsolutePath());
         }
     }
     
@@ -164,35 +176,38 @@ public class SWUMSummarizer {
             initializeCsvWriter();
         }
 
-        // Clean up the summary for CSV format
-        String cleanSummary = summary.replace("\"", "\"\""); // Escape quotes
-        cleanSummary = cleanSummary.replace("\r\n", " ").replace("\n", " ").replace("\r", " "); // Remove newlines
-        cleanSummary = cleanSummary.trim();
-
-        // Limit summary length to prevent CSV issues
-        if (cleanSummary.length() > 1000) {
-            cleanSummary = cleanSummary.substring(0, 1000) + "...";
-        }
+        // CHANGE: summaries are no longer truncated (the 1000-character cap could also split an
+        // escaped "" pair and corrupt the row); escaping now lives in CsvUtils.
+        // Original implementation:
+        // String cleanSummary = summary.replace("\"", "\"\""); // Escape quotes
+        // cleanSummary = cleanSummary.replace("\r\n", " ").replace("\n", " ").replace("\r", " "); // Remove newlines
+        // cleanSummary = cleanSummary.trim();
+        // // Limit summary length to prevent CSV issues
+        // if (cleanSummary.length() > 1000) {
+        //     cleanSummary = cleanSummary.substring(0, 1000) + "...";
+        // }
+        // ProjectPathFormatter.Parts parts = ProjectPathFormatter.split(projectName);
+        // String escapedProject = escape(parts.projectName());
+        // String escapedFolder = escape(parts.folderName());
+        // String escapedFile = escape(fileName);
+        // csvWriter.write(String.format("\"%s\",\"%s\",\"%s\",\"%s\"\n",
+        //         escapedProject,
+        //         escapedFolder,
+        //         escapedFile,
+        //         cleanSummary));
 
         ProjectPathFormatter.Parts parts = ProjectPathFormatter.split(projectName);
-        String escapedProject = escape(parts.projectName());
-        String escapedFolder = escape(parts.folderName());
-        String escapedFile = escape(fileName);
-
-        csvWriter.write(String.format("\"%s\",\"%s\",\"%s\",\"%s\"\n",
-                escapedProject,
-                escapedFolder,
-                escapedFile,
-                cleanSummary));
+        csvWriter.write(CsvUtils.formatRow(parts.projectName(), parts.folderName(), fileName, summary));
         csvWriter.flush(); // Ensure data is written immediately
     }
 
-    private static String escape(String value) {
-        if (value == null) {
-            return "";
-        }
-        return value.replace("\"", "\"\"").trim();
-    }
+    // CHANGE: replaced by CsvUtils.escapeField.
+    // private static String escape(String value) {
+    //     if (value == null) {
+    //         return "";
+    //     }
+    //     return value.replace("\"", "\"\"").trim();
+    // }
     
     /**
      * Closes the CSV writer - call this when all processing is complete
@@ -644,7 +659,9 @@ public class SWUMSummarizer {
                 List<String> patternNames = new ArrayList<>();
                 for (JsonNode pattern : patterns) {
                     if (pattern.has("pattern")) {
-                        patternNames.add(pattern.get("pattern").asText());
+                        // CHANGE: readable pattern name ("Abstract Factory") instead of the raw key.
+                        // patternNames.add(pattern.get("pattern").asText());
+                        patternNames.add(PatternNames.toDisplayName(pattern.get("pattern").asText()));
                     }
                 }
                 
@@ -711,7 +728,9 @@ public class SWUMSummarizer {
         
         // Add pattern information if available
         if (fileData.has("pattern")) {
-            String pattern = fileData.get("pattern").asText();
+            // CHANGE: readable pattern name ("Abstract Factory") instead of the raw key.
+            // String pattern = fileData.get("pattern").asText();
+            String pattern = PatternNames.toDisplayName(fileData.get("pattern").asText());
             summary.append(" implementing ").append(pattern).append(" pattern");
         }
         

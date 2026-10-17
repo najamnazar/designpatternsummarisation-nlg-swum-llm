@@ -2,6 +2,8 @@ package dps_swum.swum.context;
 
 import java.util.*;
 
+import common.designpatternidentifier.PatternNames;
+
 /**
  * Holds comprehensive design pattern context information for a class.
  * <p>
@@ -126,7 +128,10 @@ public class PatternContext {
             }
             
             desc.append("acts as ").append(formatArticle(role)).append(" ")
-                .append(formatRole(role)).append(" in the ").append(pattern).append(" pattern");
+                // CHANGE: readable pattern name ("in the Abstract Factory pattern") instead of the raw key
+                // (previously "in the abstract_factory pattern").
+                // .append(formatRole(role)).append(" in the ").append(pattern).append(" pattern");
+                .append(formatRole(role)).append(" in the ").append(PatternNames.toDisplayName(pattern)).append(" pattern");
         }
         
         return desc.toString();

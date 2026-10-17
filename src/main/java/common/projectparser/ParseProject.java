@@ -13,7 +13,7 @@ import com.github.javaparser.symbolsolver.javaparsermodel.declarations.JavaParse
 import common.designpatternidentifier.CheckPattern;
 
 import dps_nlg.summarygenerator.Summarise;
-import common.utils.*;
+import common.utils.*; // includes ProjectDiscovery (sorted directory listing)
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -242,27 +242,39 @@ public class ParseProject {
      * @return CompilationUnit or null if parsing fails
      */
     private CompilationUnit parseFileToCompilationUnit(File file) {
+        // CHANGE: removed leftover debug logging that special-cased ElfWeapon.java and OrcWeapon.java
+        // (files not present in the current input set). Behaviour is otherwise unchanged.
+        // Original implementation:
+        // try {
+        //     // Special logging for the problematic record files
+        //     if (file.getName().equals("ElfWeapon.java") || file.getName().equals("OrcWeapon.java")) {
+        //         System.out.println("DEBUG: Attempting to parse record file: " + file.getAbsolutePath());
+        //     }
+        //     CompilationUnit cu = StaticJavaParser.parse(file);
+        //     if (file.getName().equals("ElfWeapon.java") || file.getName().equals("OrcWeapon.java")) {
+        //         System.out.println("DEBUG: Successfully parsed " + file.getName() + " - Types found: " + cu.getTypes().size());
+        //     }
+        //     return cu;
+        // } catch (Exception e) {
+        //     System.out.println("WARNING: Skipping file due to parse exception: " + file.getName() + " - " + e.getClass().getSimpleName() + ": " + e.getMessage());
+        //     if (file.getName().equals("ElfWeapon.java") || file.getName().equals("OrcWeapon.java")) {
+        //         e.printStackTrace();
+        //     }
+        //     return null;
+        // } catch (Error e) {
+        //     System.out.println("ERROR: Skipping file due to parse error: " + file.getName() + " - " + e.getClass().getSimpleName() + ": " + e.getMessage());
+        //     if (file.getName().equals("ElfWeapon.java") || file.getName().equals("OrcWeapon.java")) {
+        //         e.printStackTrace();
+        //     }
+        //     return null;
+        // }
         try {
-            // Special logging for the problematic record files
-            if (file.getName().equals("ElfWeapon.java") || file.getName().equals("OrcWeapon.java")) {
-                System.out.println("DEBUG: Attempting to parse record file: " + file.getAbsolutePath());
-            }
-            CompilationUnit cu = StaticJavaParser.parse(file);
-            if (file.getName().equals("ElfWeapon.java") || file.getName().equals("OrcWeapon.java")) {
-                System.out.println("DEBUG: Successfully parsed " + file.getName() + " - Types found: " + cu.getTypes().size());
-            }
-            return cu;
+            return StaticJavaParser.parse(file);
         } catch (Exception e) {
             System.out.println("WARNING: Skipping file due to parse exception: " + file.getName() + " - " + e.getClass().getSimpleName() + ": " + e.getMessage());
-            if (file.getName().equals("ElfWeapon.java") || file.getName().equals("OrcWeapon.java")) {
-                e.printStackTrace();
-            }
             return null;
         } catch (Error e) {
             System.out.println("ERROR: Skipping file due to parse error: " + file.getName() + " - " + e.getClass().getSimpleName() + ": " + e.getMessage());
-            if (file.getName().equals("ElfWeapon.java") || file.getName().equals("OrcWeapon.java")) {
-                e.printStackTrace();
-            }
             return null;
         }
     }
@@ -347,7 +359,10 @@ public class ParseProject {
         }
 
         if (dir.isDirectory()) {
-            for (File file1 : dir.listFiles()) {
+            // CHANGE: visit children in name order. Duplicate files (same name and content) are skipped
+            // after the first one seen, so unsorted listFiles() order made the result machine-dependent.
+            // for (File file1 : dir.listFiles()) {
+            for (File file1 : ProjectDiscovery.sortedChildren(dir, false)) {
                 fetchFiles(file1, fileList, srcPathList, libPathList);
             }
         } else if (Utils.getExtension(dir).equals("java")) {

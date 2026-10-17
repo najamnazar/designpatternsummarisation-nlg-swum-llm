@@ -14,7 +14,9 @@ import common.utils.Utils;
 // contain the behaviors.
 public class DecoratorPattern extends DesignPatterns {
     public DecoratorPattern() {
-        super("decorator");
+        // CHANGE: pattern keys use the AbstractFactory style (see PatternNames); was super("decorator").
+        // super("decorator");
+        super(PatternNames.DECORATOR);
     }
 
     @Override

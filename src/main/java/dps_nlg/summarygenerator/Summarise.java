@@ -1,7 +1,8 @@
 package dps_nlg.summarygenerator;
 
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+// import java.io.FileWriter;  // CHANGE: replaced by an explicit UTF-8 writer (see CsvUtils)
 import java.io.IOException;
 import java.util.*;
 
@@ -10,6 +11,8 @@ import org.apache.commons.collections4.MultiValuedMap;
 import simplenlg.framework.NLGFactory;
 import simplenlg.lexicon.Lexicon;
 import simplenlg.realiser.english.Realiser;
+import common.utils.CsvUtils;
+import common.designpatternidentifier.PatternNames;
 import common.utils.ProjectPathFormatter;
 import common.utils.Utils;
 
@@ -36,8 +39,11 @@ import common.utils.Utils;
  */
 public class Summarise {
     
+    private static final String CSV_PATH = "output/summary-output/nlg_summaries.csv";
+
     // Static CSV writer to accumulate all summaries
-    private static FileWriter csvWriter = null;
+    // private static FileWriter csvWriter = null; // CHANGE: FileWriter used the platform default charset
+    private static BufferedWriter csvWriter = null; // CHANGE: UTF-8 writer from CsvUtils.openUtf8Writer
     private static boolean csvHeaderWritten = false;
     
     /**
@@ -126,7 +132,10 @@ public class Summarise {
                         if (!fileSummary.isEmpty()) {
                             fileSummary += " ";
                         }
-                        fileSummary += designPattern + ": " + classDescription;
+                        // CHANGE: write the readable pattern name ("Abstract Factory: ...") rather than the
+                        // internal key (previously "abstract_factory: ..."), matching the human and LLM summaries.
+                        // fileSummary += designPattern + ": " + classDescription;
+                        fileSummary += PatternNames.toDisplayName(designPattern) + ": " + classDescription;
                     }
                 }
             } else {
@@ -168,22 +177,23 @@ public class Summarise {
      */
     private static void initializeCsvWriter() throws IOException {
         if (csvWriter == null) {
-            // Ensure summary-output directory exists
-            File summaryOutputDir = new File("output/summary-output");
-            if (!summaryOutputDir.exists()) {
-                summaryOutputDir.mkdirs();
-            }
-            
-            File csvFile = new File("output/summary-output/nlg_summaries.csv");
-            csvWriter = new FileWriter(csvFile, false); // false = overwrite existing file
-            
+            // CHANGE: CsvUtils.openUtf8Writer creates the directory and writes UTF-8 on every platform.
+            // Original implementation (platform default charset):
+            // File summaryOutputDir = new File("output/summary-output");
+            // if (!summaryOutputDir.exists()) {
+            //     summaryOutputDir.mkdirs();
+            // }
+            // File csvFile = new File("output/summary-output/nlg_summaries.csv");
+            // csvWriter = new FileWriter(csvFile, false); // false = overwrite existing file
+            csvWriter = CsvUtils.openUtf8Writer(CSV_PATH); // overwrites any existing file
+
             // Write CSV header
             if (!csvHeaderWritten) {
-                csvWriter.write("Project,Folder Name,File Name,Summary\n");
+                csvWriter.write(CsvUtils.SUMMARY_HEADER + "\n");
                 csvHeaderWritten = true;
             }
-            
-            System.out.println("Initialized CSV summary file: " + csvFile.getAbsolutePath());
+
+            System.out.println("Initialized CSV summary file: " + new File(CSV_PATH).getAbsolutePath());
         }
     }
 
@@ -195,35 +205,39 @@ public class Summarise {
             initializeCsvWriter();
         }
 
-        // Clean up the summary for CSV format
-        String cleanSummary = summary.replace("\"", "\"\""); // Escape quotes
-        cleanSummary = cleanSummary.replace("\r\n", " ").replace("\n", " ").replace("\r", " "); // Remove newlines
-        cleanSummary = cleanSummary.trim();
-
-        // Limit summary length to prevent CSV issues
-        if (cleanSummary.length() > 1000) {
-            cleanSummary = cleanSummary.substring(0, 1000) + "...";
-        }
+        // CHANGE: summaries are no longer truncated. The 1000-character cap cut 21 of the 150 NLG
+        // summaries, which skewed the length and similarity metrics; escaping and newline removal
+        // now live in CsvUtils, shared with the SWUM and LLM writers.
+        // Original implementation:
+        // String cleanSummary = summary.replace("\"", "\"\""); // Escape quotes
+        // cleanSummary = cleanSummary.replace("\r\n", " ").replace("\n", " ").replace("\r", " "); // Remove newlines
+        // cleanSummary = cleanSummary.trim();
+        // // Limit summary length to prevent CSV issues
+        // if (cleanSummary.length() > 1000) {
+        //     cleanSummary = cleanSummary.substring(0, 1000) + "...";
+        // }
+        // ProjectPathFormatter.Parts parts = ProjectPathFormatter.split(projectPath);
+        // String projectName = escape(parts.projectName());
+        // String folderName = escape(parts.folderName());
+        // String cleanFileName = escape(fileName);
+        // csvWriter.write(String.format("\"%s\",\"%s\",\"%s\",\"%s\"\n",
+        //         projectName,
+        //         folderName,
+        //         cleanFileName,
+        //         cleanSummary));
 
         ProjectPathFormatter.Parts parts = ProjectPathFormatter.split(projectPath);
-        String projectName = escape(parts.projectName());
-        String folderName = escape(parts.folderName());
-        String cleanFileName = escape(fileName);
-
-        csvWriter.write(String.format("\"%s\",\"%s\",\"%s\",\"%s\"\n",
-                projectName,
-                folderName,
-                cleanFileName,
-                cleanSummary));
+        csvWriter.write(CsvUtils.formatRow(parts.projectName(), parts.folderName(), fileName, summary));
         csvWriter.flush(); // Ensure data is written immediately
     }
 
-    private static String escape(String value) {
-        if (value == null) {
-            return "";
-        }
-        return value.replace("\"", "\"\"").trim();
-    }
+    // CHANGE: replaced by CsvUtils.escapeField.
+    // private static String escape(String value) {
+    //     if (value == null) {
+    //         return "";
+    //     }
+    //     return value.replace("\"", "\"\"").trim();
+    // }
 
     /**
      * Close the CSV writer - call this when all processing is complete

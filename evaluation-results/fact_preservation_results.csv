@@ -1,0 +1,349 @@
+section,scope,method,metric,value
+run,,,generated_at,2026-10-17 12:09:49
+run,,,judge_model,meta-llama/llama-4-maverick
+run,,,temperature,0.0
+run,,,tokens_per_fact,100
+run,,,max_tokens,2048
+run,,,fact_caps,"role 5, field 5, constructor 5, method 3, call 5"
+run,,,classes_evaluated,150
+run,,,classes_compared,150
+judgements,,DPS_NLG,asked,150
+judgements,,DPS_NLG,valid,150
+judgements,,DPS_NLG,truncated,0
+judgements,,DPS_NLG,retried,0
+judgements,,DPS_NLG,evidence_not_found,114
+judgements,,DPS_LLM (GPT),asked,150
+judgements,,DPS_LLM (GPT),valid,150
+judgements,,DPS_LLM (GPT),truncated,0
+judgements,,DPS_LLM (GPT),retried,0
+judgements,,DPS_LLM (GPT),evidence_not_found,53
+judgements,,DPS_LLM (Mistral),asked,150
+judgements,,DPS_LLM (Mistral),valid,150
+judgements,,DPS_LLM (Mistral),truncated,0
+judgements,,DPS_LLM (Mistral),retried,0
+judgements,,DPS_LLM (Mistral),evidence_not_found,57
+judgements,,DPS_SWUM,asked,150
+judgements,,DPS_SWUM,valid,150
+judgements,,DPS_SWUM,truncated,0
+judgements,,DPS_SWUM,retried,0
+judgements,,DPS_SWUM,evidence_not_found,15
+preservation,all:all facts,DPS_NLG,facts,678
+preservation,all:all facts,DPS_NLG,preserved,586
+preservation,all:all facts,DPS_NLG,omitted,75
+preservation,all:all facts,DPS_NLG,incorrect,17
+preservation,all:all facts,DPS_NLG,preserved_rate,0.8643
+preservation,all:all facts,DPS_NLG,omitted_rate,0.1106
+preservation,all:all facts,DPS_NLG,incorrect_rate,0.0251
+preservation,all:all facts,DPS_NLG,macro_preserved_rate,0.8766
+preservation,all:all facts,DPS_LLM (GPT),facts,678
+preservation,all:all facts,DPS_LLM (GPT),preserved,463
+preservation,all:all facts,DPS_LLM (GPT),omitted,206
+preservation,all:all facts,DPS_LLM (GPT),incorrect,9
+preservation,all:all facts,DPS_LLM (GPT),preserved_rate,0.6829
+preservation,all:all facts,DPS_LLM (GPT),omitted_rate,0.3038
+preservation,all:all facts,DPS_LLM (GPT),incorrect_rate,0.0133
+preservation,all:all facts,DPS_LLM (GPT),macro_preserved_rate,0.786
+preservation,all:all facts,DPS_LLM (Mistral),facts,678
+preservation,all:all facts,DPS_LLM (Mistral),preserved,411
+preservation,all:all facts,DPS_LLM (Mistral),omitted,257
+preservation,all:all facts,DPS_LLM (Mistral),incorrect,10
+preservation,all:all facts,DPS_LLM (Mistral),preserved_rate,0.6062
+preservation,all:all facts,DPS_LLM (Mistral),omitted_rate,0.3791
+preservation,all:all facts,DPS_LLM (Mistral),incorrect_rate,0.0147
+preservation,all:all facts,DPS_LLM (Mistral),macro_preserved_rate,0.7244
+preservation,all:all facts,DPS_SWUM,facts,678
+preservation,all:all facts,DPS_SWUM,preserved,137
+preservation,all:all facts,DPS_SWUM,omitted,528
+preservation,all:all facts,DPS_SWUM,incorrect,13
+preservation,all:all facts,DPS_SWUM,preserved_rate,0.2021
+preservation,all:all facts,DPS_SWUM,omitted_rate,0.7788
+preservation,all:all facts,DPS_SWUM,incorrect_rate,0.0192
+preservation,all:all facts,DPS_SWUM,macro_preserved_rate,0.2201
+preservation,source:detector,DPS_NLG,facts,135
+preservation,source:detector,DPS_NLG,preserved,112
+preservation,source:detector,DPS_NLG,omitted,9
+preservation,source:detector,DPS_NLG,incorrect,14
+preservation,source:detector,DPS_NLG,preserved_rate,0.8296
+preservation,source:detector,DPS_NLG,omitted_rate,0.0667
+preservation,source:detector,DPS_NLG,incorrect_rate,0.1037
+preservation,source:detector,DPS_NLG,macro_preserved_rate,0.8328
+preservation,source:detector,DPS_LLM (GPT),facts,135
+preservation,source:detector,DPS_LLM (GPT),preserved,55
+preservation,source:detector,DPS_LLM (GPT),omitted,71
+preservation,source:detector,DPS_LLM (GPT),incorrect,9
+preservation,source:detector,DPS_LLM (GPT),preserved_rate,0.4074
+preservation,source:detector,DPS_LLM (GPT),omitted_rate,0.5259
+preservation,source:detector,DPS_LLM (GPT),incorrect_rate,0.0667
+preservation,source:detector,DPS_LLM (GPT),macro_preserved_rate,0.5472
+preservation,source:detector,DPS_LLM (Mistral),facts,135
+preservation,source:detector,DPS_LLM (Mistral),preserved,69
+preservation,source:detector,DPS_LLM (Mistral),omitted,57
+preservation,source:detector,DPS_LLM (Mistral),incorrect,9
+preservation,source:detector,DPS_LLM (Mistral),preserved_rate,0.5111
+preservation,source:detector,DPS_LLM (Mistral),omitted_rate,0.4222
+preservation,source:detector,DPS_LLM (Mistral),incorrect_rate,0.0667
+preservation,source:detector,DPS_LLM (Mistral),macro_preserved_rate,0.6497
+preservation,source:detector,DPS_SWUM,facts,135
+preservation,source:detector,DPS_SWUM,preserved,73
+preservation,source:detector,DPS_SWUM,omitted,59
+preservation,source:detector,DPS_SWUM,incorrect,3
+preservation,source:detector,DPS_SWUM,preserved_rate,0.5407
+preservation,source:detector,DPS_SWUM,omitted_rate,0.437
+preservation,source:detector,DPS_SWUM,incorrect_rate,0.0222
+preservation,source:detector,DPS_SWUM,macro_preserved_rate,0.7303
+preservation,source:parser,DPS_NLG,facts,543
+preservation,source:parser,DPS_NLG,preserved,474
+preservation,source:parser,DPS_NLG,omitted,66
+preservation,source:parser,DPS_NLG,incorrect,3
+preservation,source:parser,DPS_NLG,preserved_rate,0.8729
+preservation,source:parser,DPS_NLG,omitted_rate,0.1215
+preservation,source:parser,DPS_NLG,incorrect_rate,0.0055
+preservation,source:parser,DPS_NLG,macro_preserved_rate,0.8896
+preservation,source:parser,DPS_LLM (GPT),facts,543
+preservation,source:parser,DPS_LLM (GPT),preserved,408
+preservation,source:parser,DPS_LLM (GPT),omitted,135
+preservation,source:parser,DPS_LLM (GPT),incorrect,0
+preservation,source:parser,DPS_LLM (GPT),preserved_rate,0.7514
+preservation,source:parser,DPS_LLM (GPT),omitted_rate,0.2486
+preservation,source:parser,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,source:parser,DPS_LLM (GPT),macro_preserved_rate,0.8706
+preservation,source:parser,DPS_LLM (Mistral),facts,543
+preservation,source:parser,DPS_LLM (Mistral),preserved,342
+preservation,source:parser,DPS_LLM (Mistral),omitted,200
+preservation,source:parser,DPS_LLM (Mistral),incorrect,1
+preservation,source:parser,DPS_LLM (Mistral),preserved_rate,0.6298
+preservation,source:parser,DPS_LLM (Mistral),omitted_rate,0.3683
+preservation,source:parser,DPS_LLM (Mistral),incorrect_rate,0.0018
+preservation,source:parser,DPS_LLM (Mistral),macro_preserved_rate,0.7756
+preservation,source:parser,DPS_SWUM,facts,543
+preservation,source:parser,DPS_SWUM,preserved,64
+preservation,source:parser,DPS_SWUM,omitted,469
+preservation,source:parser,DPS_SWUM,incorrect,10
+preservation,source:parser,DPS_SWUM,preserved_rate,0.1179
+preservation,source:parser,DPS_SWUM,omitted_rate,0.8637
+preservation,source:parser,DPS_SWUM,incorrect_rate,0.0184
+preservation,source:parser,DPS_SWUM,macro_preserved_rate,0.1274
+preservation,fact_type:role,DPS_NLG,facts,135
+preservation,fact_type:role,DPS_NLG,preserved,112
+preservation,fact_type:role,DPS_NLG,omitted,9
+preservation,fact_type:role,DPS_NLG,incorrect,14
+preservation,fact_type:role,DPS_NLG,preserved_rate,0.8296
+preservation,fact_type:role,DPS_NLG,omitted_rate,0.0667
+preservation,fact_type:role,DPS_NLG,incorrect_rate,0.1037
+preservation,fact_type:role,DPS_NLG,macro_preserved_rate,0.8328
+preservation,fact_type:role,DPS_LLM (GPT),facts,135
+preservation,fact_type:role,DPS_LLM (GPT),preserved,55
+preservation,fact_type:role,DPS_LLM (GPT),omitted,71
+preservation,fact_type:role,DPS_LLM (GPT),incorrect,9
+preservation,fact_type:role,DPS_LLM (GPT),preserved_rate,0.4074
+preservation,fact_type:role,DPS_LLM (GPT),omitted_rate,0.5259
+preservation,fact_type:role,DPS_LLM (GPT),incorrect_rate,0.0667
+preservation,fact_type:role,DPS_LLM (GPT),macro_preserved_rate,0.5472
+preservation,fact_type:role,DPS_LLM (Mistral),facts,135
+preservation,fact_type:role,DPS_LLM (Mistral),preserved,69
+preservation,fact_type:role,DPS_LLM (Mistral),omitted,57
+preservation,fact_type:role,DPS_LLM (Mistral),incorrect,9
+preservation,fact_type:role,DPS_LLM (Mistral),preserved_rate,0.5111
+preservation,fact_type:role,DPS_LLM (Mistral),omitted_rate,0.4222
+preservation,fact_type:role,DPS_LLM (Mistral),incorrect_rate,0.0667
+preservation,fact_type:role,DPS_LLM (Mistral),macro_preserved_rate,0.6497
+preservation,fact_type:role,DPS_SWUM,facts,135
+preservation,fact_type:role,DPS_SWUM,preserved,73
+preservation,fact_type:role,DPS_SWUM,omitted,59
+preservation,fact_type:role,DPS_SWUM,incorrect,3
+preservation,fact_type:role,DPS_SWUM,preserved_rate,0.5407
+preservation,fact_type:role,DPS_SWUM,omitted_rate,0.437
+preservation,fact_type:role,DPS_SWUM,incorrect_rate,0.0222
+preservation,fact_type:role,DPS_SWUM,macro_preserved_rate,0.7303
+preservation,fact_type:kind,DPS_NLG,facts,36
+preservation,fact_type:kind,DPS_NLG,preserved,36
+preservation,fact_type:kind,DPS_NLG,omitted,0
+preservation,fact_type:kind,DPS_NLG,incorrect,0
+preservation,fact_type:kind,DPS_NLG,preserved_rate,1.0
+preservation,fact_type:kind,DPS_NLG,omitted_rate,0.0
+preservation,fact_type:kind,DPS_NLG,incorrect_rate,0.0
+preservation,fact_type:kind,DPS_NLG,macro_preserved_rate,1.0
+preservation,fact_type:kind,DPS_LLM (GPT),facts,36
+preservation,fact_type:kind,DPS_LLM (GPT),preserved,33
+preservation,fact_type:kind,DPS_LLM (GPT),omitted,3
+preservation,fact_type:kind,DPS_LLM (GPT),incorrect,0
+preservation,fact_type:kind,DPS_LLM (GPT),preserved_rate,0.9167
+preservation,fact_type:kind,DPS_LLM (GPT),omitted_rate,0.0833
+preservation,fact_type:kind,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,fact_type:kind,DPS_LLM (GPT),macro_preserved_rate,0.9167
+preservation,fact_type:kind,DPS_LLM (Mistral),facts,36
+preservation,fact_type:kind,DPS_LLM (Mistral),preserved,35
+preservation,fact_type:kind,DPS_LLM (Mistral),omitted,1
+preservation,fact_type:kind,DPS_LLM (Mistral),incorrect,0
+preservation,fact_type:kind,DPS_LLM (Mistral),preserved_rate,0.9722
+preservation,fact_type:kind,DPS_LLM (Mistral),omitted_rate,0.0278
+preservation,fact_type:kind,DPS_LLM (Mistral),incorrect_rate,0.0
+preservation,fact_type:kind,DPS_LLM (Mistral),macro_preserved_rate,0.9722
+preservation,fact_type:kind,DPS_SWUM,facts,36
+preservation,fact_type:kind,DPS_SWUM,preserved,1
+preservation,fact_type:kind,DPS_SWUM,omitted,25
+preservation,fact_type:kind,DPS_SWUM,incorrect,10
+preservation,fact_type:kind,DPS_SWUM,preserved_rate,0.0278
+preservation,fact_type:kind,DPS_SWUM,omitted_rate,0.6944
+preservation,fact_type:kind,DPS_SWUM,incorrect_rate,0.2778
+preservation,fact_type:kind,DPS_SWUM,macro_preserved_rate,0.0278
+preservation,fact_type:inheritance,DPS_NLG,facts,111
+preservation,fact_type:inheritance,DPS_NLG,preserved,111
+preservation,fact_type:inheritance,DPS_NLG,omitted,0
+preservation,fact_type:inheritance,DPS_NLG,incorrect,0
+preservation,fact_type:inheritance,DPS_NLG,preserved_rate,1.0
+preservation,fact_type:inheritance,DPS_NLG,omitted_rate,0.0
+preservation,fact_type:inheritance,DPS_NLG,incorrect_rate,0.0
+preservation,fact_type:inheritance,DPS_NLG,macro_preserved_rate,1.0
+preservation,fact_type:inheritance,DPS_LLM (GPT),facts,111
+preservation,fact_type:inheritance,DPS_LLM (GPT),preserved,98
+preservation,fact_type:inheritance,DPS_LLM (GPT),omitted,13
+preservation,fact_type:inheritance,DPS_LLM (GPT),incorrect,0
+preservation,fact_type:inheritance,DPS_LLM (GPT),preserved_rate,0.8829
+preservation,fact_type:inheritance,DPS_LLM (GPT),omitted_rate,0.1171
+preservation,fact_type:inheritance,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,fact_type:inheritance,DPS_LLM (GPT),macro_preserved_rate,0.9432
+preservation,fact_type:inheritance,DPS_LLM (Mistral),facts,111
+preservation,fact_type:inheritance,DPS_LLM (Mistral),preserved,88
+preservation,fact_type:inheritance,DPS_LLM (Mistral),omitted,22
+preservation,fact_type:inheritance,DPS_LLM (Mistral),incorrect,1
+preservation,fact_type:inheritance,DPS_LLM (Mistral),preserved_rate,0.7928
+preservation,fact_type:inheritance,DPS_LLM (Mistral),omitted_rate,0.1982
+preservation,fact_type:inheritance,DPS_LLM (Mistral),incorrect_rate,0.009
+preservation,fact_type:inheritance,DPS_LLM (Mistral),macro_preserved_rate,0.8765
+preservation,fact_type:inheritance,DPS_SWUM,facts,111
+preservation,fact_type:inheritance,DPS_SWUM,preserved,4
+preservation,fact_type:inheritance,DPS_SWUM,omitted,107
+preservation,fact_type:inheritance,DPS_SWUM,incorrect,0
+preservation,fact_type:inheritance,DPS_SWUM,preserved_rate,0.036
+preservation,fact_type:inheritance,DPS_SWUM,omitted_rate,0.964
+preservation,fact_type:inheritance,DPS_SWUM,incorrect_rate,0.0
+preservation,fact_type:inheritance,DPS_SWUM,macro_preserved_rate,0.0417
+preservation,fact_type:constructor,DPS_NLG,facts,24
+preservation,fact_type:constructor,DPS_NLG,preserved,0
+preservation,fact_type:constructor,DPS_NLG,omitted,23
+preservation,fact_type:constructor,DPS_NLG,incorrect,1
+preservation,fact_type:constructor,DPS_NLG,preserved_rate,0.0
+preservation,fact_type:constructor,DPS_NLG,omitted_rate,0.9583
+preservation,fact_type:constructor,DPS_NLG,incorrect_rate,0.0417
+preservation,fact_type:constructor,DPS_NLG,macro_preserved_rate,0.0
+preservation,fact_type:constructor,DPS_LLM (GPT),facts,24
+preservation,fact_type:constructor,DPS_LLM (GPT),preserved,21
+preservation,fact_type:constructor,DPS_LLM (GPT),omitted,3
+preservation,fact_type:constructor,DPS_LLM (GPT),incorrect,0
+preservation,fact_type:constructor,DPS_LLM (GPT),preserved_rate,0.875
+preservation,fact_type:constructor,DPS_LLM (GPT),omitted_rate,0.125
+preservation,fact_type:constructor,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,fact_type:constructor,DPS_LLM (GPT),macro_preserved_rate,0.9091
+preservation,fact_type:constructor,DPS_LLM (Mistral),facts,24
+preservation,fact_type:constructor,DPS_LLM (Mistral),preserved,6
+preservation,fact_type:constructor,DPS_LLM (Mistral),omitted,18
+preservation,fact_type:constructor,DPS_LLM (Mistral),incorrect,0
+preservation,fact_type:constructor,DPS_LLM (Mistral),preserved_rate,0.25
+preservation,fact_type:constructor,DPS_LLM (Mistral),omitted_rate,0.75
+preservation,fact_type:constructor,DPS_LLM (Mistral),incorrect_rate,0.0
+preservation,fact_type:constructor,DPS_LLM (Mistral),macro_preserved_rate,0.2727
+preservation,fact_type:constructor,DPS_SWUM,facts,24
+preservation,fact_type:constructor,DPS_SWUM,preserved,0
+preservation,fact_type:constructor,DPS_SWUM,omitted,24
+preservation,fact_type:constructor,DPS_SWUM,incorrect,0
+preservation,fact_type:constructor,DPS_SWUM,preserved_rate,0.0
+preservation,fact_type:constructor,DPS_SWUM,omitted_rate,1.0
+preservation,fact_type:constructor,DPS_SWUM,incorrect_rate,0.0
+preservation,fact_type:constructor,DPS_SWUM,macro_preserved_rate,0.0
+preservation,fact_type:field,DPS_NLG,facts,30
+preservation,fact_type:field,DPS_NLG,preserved,3
+preservation,fact_type:field,DPS_NLG,omitted,27
+preservation,fact_type:field,DPS_NLG,incorrect,0
+preservation,fact_type:field,DPS_NLG,preserved_rate,0.1
+preservation,fact_type:field,DPS_NLG,omitted_rate,0.9
+preservation,fact_type:field,DPS_NLG,incorrect_rate,0.0
+preservation,fact_type:field,DPS_NLG,macro_preserved_rate,0.04
+preservation,fact_type:field,DPS_LLM (GPT),facts,30
+preservation,fact_type:field,DPS_LLM (GPT),preserved,25
+preservation,fact_type:field,DPS_LLM (GPT),omitted,5
+preservation,fact_type:field,DPS_LLM (GPT),incorrect,0
+preservation,fact_type:field,DPS_LLM (GPT),preserved_rate,0.8333
+preservation,fact_type:field,DPS_LLM (GPT),omitted_rate,0.1667
+preservation,fact_type:field,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,fact_type:field,DPS_LLM (GPT),macro_preserved_rate,0.82
+preservation,fact_type:field,DPS_LLM (Mistral),facts,30
+preservation,fact_type:field,DPS_LLM (Mistral),preserved,24
+preservation,fact_type:field,DPS_LLM (Mistral),omitted,6
+preservation,fact_type:field,DPS_LLM (Mistral),incorrect,0
+preservation,fact_type:field,DPS_LLM (Mistral),preserved_rate,0.8
+preservation,fact_type:field,DPS_LLM (Mistral),omitted_rate,0.2
+preservation,fact_type:field,DPS_LLM (Mistral),incorrect_rate,0.0
+preservation,fact_type:field,DPS_LLM (Mistral),macro_preserved_rate,0.78
+preservation,fact_type:field,DPS_SWUM,facts,30
+preservation,fact_type:field,DPS_SWUM,preserved,0
+preservation,fact_type:field,DPS_SWUM,omitted,30
+preservation,fact_type:field,DPS_SWUM,incorrect,0
+preservation,fact_type:field,DPS_SWUM,preserved_rate,0.0
+preservation,fact_type:field,DPS_SWUM,omitted_rate,1.0
+preservation,fact_type:field,DPS_SWUM,incorrect_rate,0.0
+preservation,fact_type:field,DPS_SWUM,macro_preserved_rate,0.0
+preservation,fact_type:method,DPS_NLG,facts,260
+preservation,fact_type:method,DPS_NLG,preserved,242
+preservation,fact_type:method,DPS_NLG,omitted,16
+preservation,fact_type:method,DPS_NLG,incorrect,2
+preservation,fact_type:method,DPS_NLG,preserved_rate,0.9308
+preservation,fact_type:method,DPS_NLG,omitted_rate,0.0615
+preservation,fact_type:method,DPS_NLG,incorrect_rate,0.0077
+preservation,fact_type:method,DPS_NLG,macro_preserved_rate,0.9294
+preservation,fact_type:method,DPS_LLM (GPT),facts,260
+preservation,fact_type:method,DPS_LLM (GPT),preserved,199
+preservation,fact_type:method,DPS_LLM (GPT),omitted,61
+preservation,fact_type:method,DPS_LLM (GPT),incorrect,0
+preservation,fact_type:method,DPS_LLM (GPT),preserved_rate,0.7654
+preservation,fact_type:method,DPS_LLM (GPT),omitted_rate,0.2346
+preservation,fact_type:method,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,fact_type:method,DPS_LLM (GPT),macro_preserved_rate,0.8519
+preservation,fact_type:method,DPS_LLM (Mistral),facts,260
+preservation,fact_type:method,DPS_LLM (Mistral),preserved,174
+preservation,fact_type:method,DPS_LLM (Mistral),omitted,86
+preservation,fact_type:method,DPS_LLM (Mistral),incorrect,0
+preservation,fact_type:method,DPS_LLM (Mistral),preserved_rate,0.6692
+preservation,fact_type:method,DPS_LLM (Mistral),omitted_rate,0.3308
+preservation,fact_type:method,DPS_LLM (Mistral),incorrect_rate,0.0
+preservation,fact_type:method,DPS_LLM (Mistral),macro_preserved_rate,0.7523
+preservation,fact_type:method,DPS_SWUM,facts,260
+preservation,fact_type:method,DPS_SWUM,preserved,59
+preservation,fact_type:method,DPS_SWUM,omitted,201
+preservation,fact_type:method,DPS_SWUM,incorrect,0
+preservation,fact_type:method,DPS_SWUM,preserved_rate,0.2269
+preservation,fact_type:method,DPS_SWUM,omitted_rate,0.7731
+preservation,fact_type:method,DPS_SWUM,incorrect_rate,0.0
+preservation,fact_type:method,DPS_SWUM,macro_preserved_rate,0.2083
+preservation,fact_type:call,DPS_NLG,facts,82
+preservation,fact_type:call,DPS_NLG,preserved,82
+preservation,fact_type:call,DPS_NLG,omitted,0
+preservation,fact_type:call,DPS_NLG,incorrect,0
+preservation,fact_type:call,DPS_NLG,preserved_rate,1.0
+preservation,fact_type:call,DPS_NLG,omitted_rate,0.0
+preservation,fact_type:call,DPS_NLG,incorrect_rate,0.0
+preservation,fact_type:call,DPS_NLG,macro_preserved_rate,1.0
+preservation,fact_type:call,DPS_LLM (GPT),facts,82
+preservation,fact_type:call,DPS_LLM (GPT),preserved,32
+preservation,fact_type:call,DPS_LLM (GPT),omitted,50
+preservation,fact_type:call,DPS_LLM (GPT),incorrect,0
+preservation,fact_type:call,DPS_LLM (GPT),preserved_rate,0.3902
+preservation,fact_type:call,DPS_LLM (GPT),omitted_rate,0.6098
+preservation,fact_type:call,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,fact_type:call,DPS_LLM (GPT),macro_preserved_rate,0.5765
+preservation,fact_type:call,DPS_LLM (Mistral),facts,82
+preservation,fact_type:call,DPS_LLM (Mistral),preserved,15
+preservation,fact_type:call,DPS_LLM (Mistral),omitted,67
+preservation,fact_type:call,DPS_LLM (Mistral),incorrect,0
+preservation,fact_type:call,DPS_LLM (Mistral),preserved_rate,0.1829
+preservation,fact_type:call,DPS_LLM (Mistral),omitted_rate,0.8171
+preservation,fact_type:call,DPS_LLM (Mistral),incorrect_rate,0.0
+preservation,fact_type:call,DPS_LLM (Mistral),macro_preserved_rate,0.3676
+preservation,fact_type:call,DPS_SWUM,facts,82
+preservation,fact_type:call,DPS_SWUM,preserved,0
+preservation,fact_type:call,DPS_SWUM,omitted,82
+preservation,fact_type:call,DPS_SWUM,incorrect,0
+preservation,fact_type:call,DPS_SWUM,preserved_rate,0.0
+preservation,fact_type:call,DPS_SWUM,omitted_rate,1.0
+preservation,fact_type:call,DPS_SWUM,incorrect_rate,0.0
+preservation,fact_type:call,DPS_SWUM,macro_preserved_rate,0.0

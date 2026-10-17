@@ -1,5 +1,6 @@
 package dps_swum.swum.model;
 
+import common.designpatternidentifier.PatternNames;
 import dps_swum.swum.context.PatternContext;
 import dps_swum.swum.context.MethodPatternContext;
 
@@ -193,7 +194,9 @@ public class SWUMStructure {
                     summary.append(". The ").append(className).append(" class ").append(roleDesc);
                 }
             } else if (designPattern != null) {
-                summary.append(" as part of the ").append(designPattern).append(" pattern");
+                // CHANGE: readable pattern name ("Abstract Factory"), whatever spelling the key uses.
+                // summary.append(" as part of the ").append(designPattern).append(" pattern");
+                summary.append(" as part of the ").append(PatternNames.toDisplayName(designPattern)).append(" pattern");
             }
         }
         
@@ -224,7 +227,9 @@ public class SWUMStructure {
             }
         } else if (designPattern != null) {
             // Fallback to simple design pattern mention
-            summary.append(" is part of the ").append(designPattern).append(" pattern");
+            // CHANGE: readable pattern name ("Abstract Factory"), whatever spelling the key uses.
+            // summary.append(" is part of the ").append(designPattern).append(" pattern");
+            summary.append(" is part of the ").append(PatternNames.toDisplayName(designPattern)).append(" pattern");
         }
         
         // Add functional description based on actions/objects
@@ -284,7 +289,9 @@ public class SWUMStructure {
                     summary.append(" ").append(roleDesc);
                 }
             } else if (designPattern != null) {
-                summary.append(" is part of the ").append(designPattern).append(" pattern");
+                // CHANGE: readable pattern name ("Abstract Factory"), whatever spelling the key uses.
+                // summary.append(" is part of the ").append(designPattern).append(" pattern");
+                summary.append(" is part of the ").append(PatternNames.toDisplayName(designPattern)).append(" pattern");
             }
             
             if (!actions.isEmpty()) {

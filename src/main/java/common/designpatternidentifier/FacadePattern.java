@@ -11,7 +11,9 @@ import common.utils.Utils;
 // Facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
 public class FacadePattern extends DesignPatterns {
     public FacadePattern() {
-        super("facade");
+        // CHANGE: pattern keys use the AbstractFactory style (see PatternNames); was super("facade").
+        // super("facade");
+        super(PatternNames.FACADE);
     }
 
     @Override

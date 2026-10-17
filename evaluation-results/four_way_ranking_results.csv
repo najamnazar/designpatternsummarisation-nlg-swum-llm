@@ -1,0 +1,206 @@
+section,criterion,method,metric,value
+run,,,generated_at,2026-10-16 23:48:45
+run,,,judge_model,meta-llama/llama-4-maverick
+run,,,max_tokens,50
+run,,,prompts,resources/prompts.json [summary_ranking]
+run,,,order_shown_to_judge,"1 = DPS_NLG, 2 = DPS_LLM (GPT), 3 = DPS_LLM (Mistral), 4 = DPS_SWUM"
+run,,,points_per_criterion,"1st = 4, 2nd = 3, 3rd = 2, 4th = 1"
+run,,,classes_ranked,150
+run,,,classes_skipped,0
+judgements,accuracy,,invalid,0
+judgements,accuracy,,retried,0
+judgements,accuracy,,valid,150
+judgements,conciseness,,invalid,1
+judgements,conciseness,,retried,0
+judgements,conciseness,,valid,149
+judgements,adequacy,,invalid,0
+judgements,adequacy,,retried,0
+judgements,adequacy,,valid,150
+judgements,code_context,,invalid,0
+judgements,code_context,,retried,0
+judgements,code_context,,valid,150
+judgements,design_patterns,,invalid,0
+judgements,design_patterns,,retried,0
+judgements,design_patterns,,valid,150
+rank_counts,accuracy,DPS_NLG,1st,3
+rank_counts,accuracy,DPS_NLG,2nd,3
+rank_counts,accuracy,DPS_NLG,3rd,75
+rank_counts,accuracy,DPS_NLG,4th,69
+rank_counts,accuracy,DPS_NLG,n_valid,150
+mean_points,accuracy,DPS_NLG,mean_points,1.6
+mean_points,accuracy,DPS_NLG,mean_rank,3.4
+rank_counts,accuracy,DPS_LLM (GPT),1st,58
+rank_counts,accuracy,DPS_LLM (GPT),2nd,65
+rank_counts,accuracy,DPS_LLM (GPT),3rd,26
+rank_counts,accuracy,DPS_LLM (GPT),4th,1
+rank_counts,accuracy,DPS_LLM (GPT),n_valid,150
+mean_points,accuracy,DPS_LLM (GPT),mean_points,3.2
+mean_points,accuracy,DPS_LLM (GPT),mean_rank,1.8
+rank_counts,accuracy,DPS_LLM (Mistral),1st,68
+rank_counts,accuracy,DPS_LLM (Mistral),2nd,76
+rank_counts,accuracy,DPS_LLM (Mistral),3rd,5
+rank_counts,accuracy,DPS_LLM (Mistral),4th,1
+rank_counts,accuracy,DPS_LLM (Mistral),n_valid,150
+mean_points,accuracy,DPS_LLM (Mistral),mean_points,3.407
+mean_points,accuracy,DPS_LLM (Mistral),mean_rank,1.593
+rank_counts,accuracy,DPS_SWUM,1st,21
+rank_counts,accuracy,DPS_SWUM,2nd,6
+rank_counts,accuracy,DPS_SWUM,3rd,44
+rank_counts,accuracy,DPS_SWUM,4th,79
+rank_counts,accuracy,DPS_SWUM,n_valid,150
+mean_points,accuracy,DPS_SWUM,mean_points,1.793
+mean_points,accuracy,DPS_SWUM,mean_rank,3.207
+rank_counts,conciseness,DPS_NLG,1st,1
+rank_counts,conciseness,DPS_NLG,2nd,45
+rank_counts,conciseness,DPS_NLG,3rd,8
+rank_counts,conciseness,DPS_NLG,4th,95
+rank_counts,conciseness,DPS_NLG,n_valid,149
+mean_points,conciseness,DPS_NLG,mean_points,1.678
+mean_points,conciseness,DPS_NLG,mean_rank,3.322
+rank_counts,conciseness,DPS_LLM (GPT),1st,2
+rank_counts,conciseness,DPS_LLM (GPT),2nd,77
+rank_counts,conciseness,DPS_LLM (GPT),3rd,59
+rank_counts,conciseness,DPS_LLM (GPT),4th,11
+rank_counts,conciseness,DPS_LLM (GPT),n_valid,149
+mean_points,conciseness,DPS_LLM (GPT),mean_points,2.47
+mean_points,conciseness,DPS_LLM (GPT),mean_rank,2.53
+rank_counts,conciseness,DPS_LLM (Mistral),1st,5
+rank_counts,conciseness,DPS_LLM (Mistral),2nd,26
+rank_counts,conciseness,DPS_LLM (Mistral),3rd,79
+rank_counts,conciseness,DPS_LLM (Mistral),4th,39
+rank_counts,conciseness,DPS_LLM (Mistral),n_valid,149
+mean_points,conciseness,DPS_LLM (Mistral),mean_points,1.98
+mean_points,conciseness,DPS_LLM (Mistral),mean_rank,3.02
+rank_counts,conciseness,DPS_SWUM,1st,141
+rank_counts,conciseness,DPS_SWUM,2nd,1
+rank_counts,conciseness,DPS_SWUM,3rd,3
+rank_counts,conciseness,DPS_SWUM,4th,4
+rank_counts,conciseness,DPS_SWUM,n_valid,149
+mean_points,conciseness,DPS_SWUM,mean_points,3.872
+mean_points,conciseness,DPS_SWUM,mean_rank,1.128
+rank_counts,adequacy,DPS_NLG,1st,13
+rank_counts,adequacy,DPS_NLG,2nd,5
+rank_counts,adequacy,DPS_NLG,3rd,71
+rank_counts,adequacy,DPS_NLG,4th,61
+rank_counts,adequacy,DPS_NLG,n_valid,150
+mean_points,adequacy,DPS_NLG,mean_points,1.8
+mean_points,adequacy,DPS_NLG,mean_rank,3.2
+rank_counts,adequacy,DPS_LLM (GPT),1st,53
+rank_counts,adequacy,DPS_LLM (GPT),2nd,67
+rank_counts,adequacy,DPS_LLM (GPT),3rd,27
+rank_counts,adequacy,DPS_LLM (GPT),4th,3
+rank_counts,adequacy,DPS_LLM (GPT),n_valid,150
+mean_points,adequacy,DPS_LLM (GPT),mean_points,3.133
+mean_points,adequacy,DPS_LLM (GPT),mean_rank,1.867
+rank_counts,adequacy,DPS_LLM (Mistral),1st,73
+rank_counts,adequacy,DPS_LLM (Mistral),2nd,69
+rank_counts,adequacy,DPS_LLM (Mistral),3rd,6
+rank_counts,adequacy,DPS_LLM (Mistral),4th,2
+rank_counts,adequacy,DPS_LLM (Mistral),n_valid,150
+mean_points,adequacy,DPS_LLM (Mistral),mean_points,3.42
+mean_points,adequacy,DPS_LLM (Mistral),mean_rank,1.58
+rank_counts,adequacy,DPS_SWUM,1st,11
+rank_counts,adequacy,DPS_SWUM,2nd,9
+rank_counts,adequacy,DPS_SWUM,3rd,46
+rank_counts,adequacy,DPS_SWUM,4th,84
+rank_counts,adequacy,DPS_SWUM,n_valid,150
+mean_points,adequacy,DPS_SWUM,mean_points,1.647
+mean_points,adequacy,DPS_SWUM,mean_rank,3.353
+rank_counts,code_context,DPS_NLG,1st,4
+rank_counts,code_context,DPS_NLG,2nd,3
+rank_counts,code_context,DPS_NLG,3rd,84
+rank_counts,code_context,DPS_NLG,4th,59
+rank_counts,code_context,DPS_NLG,n_valid,150
+mean_points,code_context,DPS_NLG,mean_points,1.68
+mean_points,code_context,DPS_NLG,mean_rank,3.32
+rank_counts,code_context,DPS_LLM (GPT),1st,50
+rank_counts,code_context,DPS_LLM (GPT),2nd,79
+rank_counts,code_context,DPS_LLM (GPT),3rd,19
+rank_counts,code_context,DPS_LLM (GPT),4th,2
+rank_counts,code_context,DPS_LLM (GPT),n_valid,150
+mean_points,code_context,DPS_LLM (GPT),mean_points,3.18
+mean_points,code_context,DPS_LLM (GPT),mean_rank,1.82
+rank_counts,code_context,DPS_LLM (Mistral),1st,86
+rank_counts,code_context,DPS_LLM (Mistral),2nd,59
+rank_counts,code_context,DPS_LLM (Mistral),3rd,4
+rank_counts,code_context,DPS_LLM (Mistral),4th,1
+rank_counts,code_context,DPS_LLM (Mistral),n_valid,150
+mean_points,code_context,DPS_LLM (Mistral),mean_points,3.533
+mean_points,code_context,DPS_LLM (Mistral),mean_rank,1.467
+rank_counts,code_context,DPS_SWUM,1st,10
+rank_counts,code_context,DPS_SWUM,2nd,9
+rank_counts,code_context,DPS_SWUM,3rd,43
+rank_counts,code_context,DPS_SWUM,4th,88
+rank_counts,code_context,DPS_SWUM,n_valid,150
+mean_points,code_context,DPS_SWUM,mean_points,1.607
+mean_points,code_context,DPS_SWUM,mean_rank,3.393
+rank_counts,design_patterns,DPS_NLG,1st,5
+rank_counts,design_patterns,DPS_NLG,2nd,2
+rank_counts,design_patterns,DPS_NLG,3rd,71
+rank_counts,design_patterns,DPS_NLG,4th,72
+rank_counts,design_patterns,DPS_NLG,n_valid,150
+mean_points,design_patterns,DPS_NLG,mean_points,1.6
+mean_points,design_patterns,DPS_NLG,mean_rank,3.4
+rank_counts,design_patterns,DPS_LLM (GPT),1st,42
+rank_counts,design_patterns,DPS_LLM (GPT),2nd,67
+rank_counts,design_patterns,DPS_LLM (GPT),3rd,38
+rank_counts,design_patterns,DPS_LLM (GPT),4th,3
+rank_counts,design_patterns,DPS_LLM (GPT),n_valid,150
+mean_points,design_patterns,DPS_LLM (GPT),mean_points,2.987
+mean_points,design_patterns,DPS_LLM (GPT),mean_rank,2.013
+rank_counts,design_patterns,DPS_LLM (Mistral),1st,69
+rank_counts,design_patterns,DPS_LLM (Mistral),2nd,70
+rank_counts,design_patterns,DPS_LLM (Mistral),3rd,10
+rank_counts,design_patterns,DPS_LLM (Mistral),4th,1
+rank_counts,design_patterns,DPS_LLM (Mistral),n_valid,150
+mean_points,design_patterns,DPS_LLM (Mistral),mean_points,3.38
+mean_points,design_patterns,DPS_LLM (Mistral),mean_rank,1.62
+rank_counts,design_patterns,DPS_SWUM,1st,34
+rank_counts,design_patterns,DPS_SWUM,2nd,11
+rank_counts,design_patterns,DPS_SWUM,3rd,31
+rank_counts,design_patterns,DPS_SWUM,4th,74
+rank_counts,design_patterns,DPS_SWUM,n_valid,150
+mean_points,design_patterns,DPS_SWUM,mean_points,2.033
+mean_points,design_patterns,DPS_SWUM,mean_rank,2.967
+mean_points,overall,DPS_NLG,mean_points,1.672
+mean_points,overall,DPS_NLG,mean_rank,3.328
+mean_points,overall,DPS_LLM (GPT),mean_points,2.995
+mean_points,overall,DPS_LLM (GPT),mean_rank,2.005
+mean_points,overall,DPS_LLM (Mistral),mean_points,3.146
+mean_points,overall,DPS_LLM (Mistral),mean_rank,1.854
+mean_points,overall,DPS_SWUM,mean_points,2.188
+mean_points,overall,DPS_SWUM,mean_rank,2.812
+winner_distribution,,DPS_LLM (Mistral),classes,77
+winner_distribution,,DPS_LLM (Mistral),percent,51.3
+winner_distribution,,DPS_LLM (GPT),classes,50
+winner_distribution,,DPS_LLM (GPT),percent,33.3
+winner_distribution,,DPS_SWUM,classes,16
+winner_distribution,,DPS_SWUM,percent,10.7
+winner_distribution,,"DPS_LLM (GPT), DPS_LLM (Mistral)",classes,4
+winner_distribution,,"DPS_LLM (GPT), DPS_LLM (Mistral)",percent,2.7
+winner_distribution,,DPS_NLG,classes,3
+winner_distribution,,DPS_NLG,percent,2.0
+head_to_head_gpt_vs_mistral,accuracy,DPS_LLM (GPT),ranked_higher,62
+head_to_head_gpt_vs_mistral,accuracy,DPS_LLM (Mistral),ranked_higher,88
+head_to_head_gpt_vs_mistral,accuracy,,ties,0
+head_to_head_gpt_vs_mistral,accuracy,,n,150
+head_to_head_gpt_vs_mistral,conciseness,DPS_LLM (GPT),ranked_higher,108
+head_to_head_gpt_vs_mistral,conciseness,DPS_LLM (Mistral),ranked_higher,41
+head_to_head_gpt_vs_mistral,conciseness,,ties,0
+head_to_head_gpt_vs_mistral,conciseness,,n,149
+head_to_head_gpt_vs_mistral,adequacy,DPS_LLM (GPT),ranked_higher,57
+head_to_head_gpt_vs_mistral,adequacy,DPS_LLM (Mistral),ranked_higher,93
+head_to_head_gpt_vs_mistral,adequacy,,ties,0
+head_to_head_gpt_vs_mistral,adequacy,,n,150
+head_to_head_gpt_vs_mistral,code_context,DPS_LLM (GPT),ranked_higher,53
+head_to_head_gpt_vs_mistral,code_context,DPS_LLM (Mistral),ranked_higher,97
+head_to_head_gpt_vs_mistral,code_context,,ties,0
+head_to_head_gpt_vs_mistral,code_context,,n,150
+head_to_head_gpt_vs_mistral,design_patterns,DPS_LLM (GPT),ranked_higher,51
+head_to_head_gpt_vs_mistral,design_patterns,DPS_LLM (Mistral),ranked_higher,99
+head_to_head_gpt_vs_mistral,design_patterns,,ties,0
+head_to_head_gpt_vs_mistral,design_patterns,,n,150
+head_to_head_gpt_vs_mistral,overall,DPS_LLM (GPT),ranked_higher,53
+head_to_head_gpt_vs_mistral,overall,DPS_LLM (Mistral),ranked_higher,93
+head_to_head_gpt_vs_mistral,overall,,ties,4
+head_to_head_gpt_vs_mistral,overall,,n,150

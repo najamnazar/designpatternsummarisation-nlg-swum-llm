@@ -13,7 +13,9 @@ import common.utils.Utils;
 // class has only one instance, while providing a global access point to this instance.
 public class SingletonPattern extends DesignPatterns {
     public SingletonPattern() {
-        super("singleton");
+        // CHANGE: pattern keys use the AbstractFactory style (see PatternNames); was super("singleton").
+        // super("singleton");
+        super(PatternNames.SINGLETON);
     }
 
     // Singleton:

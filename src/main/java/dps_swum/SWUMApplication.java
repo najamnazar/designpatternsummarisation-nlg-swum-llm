@@ -40,18 +40,23 @@ public class SWUMApplication {
         System.out.println("Starting SWUM-based Design Pattern Summarizer...");
         
         // Check if JSON output directory exists
-        File jsonOutputDir = new File("output/json-output");
+        // CHANGE: SWUMEvaluationPipeline reads output/json-output/nlg, so check that folder rather
+        // than its parent (which exists even when the NLG pipeline has not been run).
+        // File jsonOutputDir = new File("output/json-output");
+        File jsonOutputDir = new File("output/json-output/nlg");
         if (!jsonOutputDir.exists()) {
             System.err.println("Error: JSON output directory not found at: " + jsonOutputDir.getAbsolutePath());
             System.err.println("Please run the DPS-NLG project first to generate JSON files.");
             return;
         }
         
-        // Create SWUM output directory
-        File swumOutputDir = new File("output/swum-output");
-        if (!swumOutputDir.exists()) {
-            swumOutputDir.mkdirs();
-        }
+        // CHANGE: the pipeline writes to output/json-output/swum and creates it itself; the old
+        // output/swum-output folder was created here but never written to.
+        // File swumOutputDir = new File("output/swum-output");
+        // if (!swumOutputDir.exists()) {
+        //     swumOutputDir.mkdirs();
+        // }
+        File swumOutputDir = new File("output/json-output/swum");
         
         try {
             // Run SWUM evaluation pipeline

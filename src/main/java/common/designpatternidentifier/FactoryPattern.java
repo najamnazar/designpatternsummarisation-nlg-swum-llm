@@ -14,7 +14,9 @@ import common.utils.Utils;
 public class FactoryPattern extends DesignPatterns {
 
     public FactoryPattern() {
-        super("factory_method");
+        // CHANGE: pattern keys use the AbstractFactory style (see PatternNames); was super("factory_method").
+        // super("factory_method");
+        super(PatternNames.FACTORY_METHOD);
     }
 
     // Factory:

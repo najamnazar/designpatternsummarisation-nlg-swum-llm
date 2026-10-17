@@ -1,5 +1,10 @@
 # Python dependencies for SWUM vs DPS evaluation
 
+# CHANGE: also look in PyTorch's CPU-only index, so pip installs the CPU build of torch (about
+# 200 MB) instead of the default CUDA build, which pulls several GB of nvidia-* packages.
+# BERTScore runs on the CPU here; remove this line on a machine with an NVIDIA GPU.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 # Core data processing
 pandas>=2.0.0
 numpy>=1.24.0
@@ -15,9 +20,12 @@ scikit-learn>=1.3.0
 scipy>=1.11.0
 bert-score>=0.3.13
 transformers>=4.37.0
-nltk>=3.8.1
-rouge-score>=0.1.2
-frugalscore>=0.0.4
+# CHANGE: BLEU/NIST (nltk), ROUGE-L (rouge-score) and FrugalScore were only used by
+# evaluate_nlg_additional_metrics.py, which has been removed, so these are no longer installed.
+# ("frugalscore" is also not on PyPI, which made pip abort the whole install.)
+# nltk>=3.8.1
+# rouge-score>=0.1.2
+# frugalscore>=0.0.4
 
 # Visualization
 matplotlib>=3.7.0
@@ -27,3 +35,5 @@ seaborn>=0.12.0
 # Uncomment the appropriate version for your system:
 # torch>=2.0.0  # For CPU
 # torch>=2.0.0+cu118 --index-url https://download.pytorch.org/whl/cu118  # For CUDA 11.8
+# CHANGE: listed explicitly; the --extra-index-url line above makes this the CPU build.
+torch>=2.0.0

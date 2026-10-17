@@ -5,10 +5,15 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import common.projectparser.ParseProject;
+import common.utils.ProjectDiscovery;
+import common.utils.ProjectPaths;
 import dps_llm.client.LlmClient;
 import dps_llm.client.LlmClientException;
 import dps_llm.config.DotEnvLoader;
+import dps_llm.config.LlmModel;
+import dps_llm.config.LlmRunOptions;
 import dps_llm.prompt.LlmPromptBuilder;
+import dps_llm.prompt.PromptManager;
 import dps_llm.summary.LlmSummaryService;
 import dps_llm.summary.LlmSummaryService.SummaryStats;
 import dps_llm.summary.LlmSummaryWriter;
@@ -49,10 +54,22 @@ public class DpsLlmApplication {
 
     private static final String DEFAULT_LLM_SUMMARY_PATH = "output/summary-output/llm_summaries.csv"; // Default path for standard 50-word summaries
     // private static final String DEFAULT_LLM_SUMMARY_PATH = "output/summary-output/llm_summaries_nonconcise.csv"; // Non-concise path retained for quick reactivation when required
-    private static final String DEFAULT_PROMPT_ALIAS = "SENIOR_ANALYST_50_WORDS"; // Fallback prompt alias when no overrides are provided
+    // CHANGE: the prompt alias now comes from LlmRunOptions (--nonconcise picks the non-concise one).
+    // private static final String DEFAULT_PROMPT_ALIAS = "SENIOR_ANALYST_50_WORDS"; // Fallback prompt alias when no overrides are provided
     // private static final String DEFAULT_PROMPT_ALIAS = "SENIOR_ANALYST_50_WORDS_NON_CONCISE"; // Alternate alias kept for runs that require non-concise summaries
     private static final String PROMPT_ALIAS_CONFIG_KEY = "LLM_PROMPT_ALIASES"; // Config key that enables multi-prompt execution from prompts.json
     private static final String PROMPT_ALIAS_PROPERTY = "llm.prompt.aliases"; // JVM property alternative for specifying prompt aliases
+
+    private final LlmRunOptions options; // Model and prompt selected by --gpt / --mistral [--nonconcise]
+    private final LlmModel llmModel; // Model selected by --gpt / --mistral
+
+    // DpsLlmApplication(LlmModel llmModel) {
+    //     this.llmModel = llmModel;
+    // }
+    DpsLlmApplication(LlmRunOptions options) {
+        this.options = options;
+        this.llmModel = options.model();
+    }
 
     /**
      * Application entry point.
@@ -61,11 +78,27 @@ public class DpsLlmApplication {
      * that occur during execution, exiting with status code 1 on failure.
      * </p>
      * 
-     * @param args command line arguments (currently unused)
+     * @param args {@code --gpt} or {@code --mistral}, selecting the model id from GPT_MODEL or MISTRAL_MODEL,
+     *             optionally with {@code --nonconcise} to use the non-concise prompt
      */
     public static void main(String[] args) {
+        // CHANGE: the model is chosen on the command line instead of through OPENROUTER_MODEL.
+        // LlmModel model;
+        LlmRunOptions options;
         try {
-            new DpsLlmApplication().run();
+            // model = LlmModel.fromArgs(args);
+            options = LlmRunOptions.parse(args);
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            // System.err.println(LlmModel.USAGE);
+            System.err.println(LlmRunOptions.USAGE);
+            System.exit(2);
+            return;
+        }
+        try {
+            // new DpsLlmApplication().run();
+            // new DpsLlmApplication(model).run();
+            new DpsLlmApplication(options).run();
         } catch (IOException e) {
             System.err.println("Fatal IO error: " + e.getMessage());
             e.printStackTrace();
@@ -117,13 +150,23 @@ public class DpsLlmApplication {
             return;
         }
 
-        String model = resolveValue(dotEnv, "OPENROUTER_MODEL");
+        // CHANGE: the model id comes from GPT_MODEL or MISTRAL_MODEL, picked by the --gpt / --mistral flag.
+        // String model = resolveValue(dotEnv, "OPENROUTER_MODEL");
+        String model = resolveValue(dotEnv, llmModel.envKey());
         if (model == null) {
-            System.out.println("OPENROUTER_MODEL not set. Populate .env or export an environment variable before running the LLM pipeline.");
+            System.out.println(llmModel.envKey() + " not set. Populate .env or export an environment variable before running the LLM pipeline with --" + llmModel.flag() + ".");
             return;
         }
+        System.out.printf("Model: %s (--%s, from %s)%n", model, llmModel.flag(), llmModel.envKey());
+        System.out.printf("Prompt: %s%s%n", options.promptAlias(), options.nonConcise() ? " (--nonconcise)" : "");
+        if (options.resume()) {
+            System.out.println("Resume: keeping existing rows in the output CSV and only generating missing summaries (--resume).");
+        }
 
-        int maxTokens = resolveInt(dotEnv, "OPENROUTER_MAX_TOKENS", 256);
+        // CHANGE: .env now names this OPENROUTER_MAX_COMPLETION_TOKENS; the old key is still accepted.
+        // int maxTokens = resolveInt(dotEnv, "OPENROUTER_MAX_TOKENS", 256);
+        int maxTokens = resolveInt(dotEnv, "OPENROUTER_MAX_COMPLETION_TOKENS",
+                resolveInt(dotEnv, "OPENROUTER_MAX_TOKENS", 256));
         double temperature = resolveDouble(dotEnv, "OPENROUTER_TEMPERATURE", 0.2);
         String referer = resolveValue(dotEnv, "OPENROUTER_HTTP_REFERER");
         String title = resolveValue(dotEnv, "OPENROUTER_TITLE");
@@ -131,9 +174,17 @@ public class DpsLlmApplication {
         LlmClient client = new LlmClient(apiUrl, apiKey, model, maxTokens, temperature, referer, title);
         // LlmSummaryService summaryService = new LlmSummaryService(client); // Single-prompt execution retained for reference
 
-        File inputRoot = new File("input");
+        // CHANGE (input layout): the Java sources moved to input/corpus/<Project>/<Pattern>/.
+        // Scanning input/ would make "corpus" the project name of every row.
+        // File inputRoot = new File("input");
+        // if (!inputRoot.exists() || !inputRoot.isDirectory()) {
+        //     System.out.println("No projects found in input directory.");
+        //     return;
+        // }
+        File inputRoot = new File(ProjectPaths.CORPUS_DIR);
         if (!inputRoot.exists() || !inputRoot.isDirectory()) {
-            System.out.println("No projects found in input directory.");
+            System.out.println("No projects found: corpus directory " + inputRoot.getAbsolutePath()
+                    + " is missing (expected " + ProjectPaths.CORPUS_DIR + "/<Project>/<Pattern>/*.java).");
             return;
         }
 
@@ -143,7 +194,7 @@ public class DpsLlmApplication {
             return;
         }
 
-        projectDirs.sort(Comparator.comparing(File::getPath));
+        projectDirs.sort(Comparator.comparing(File::getPath)); // CHANGE: now redundant (ProjectDiscovery already sorts) but harmless
 
         int projectLimit = resolveProjectLimit(dotEnv);
         if (projectLimit > 0 && projectLimit < projectDirs.size()) {
@@ -168,7 +219,11 @@ public class DpsLlmApplication {
             String sysProp = System.getProperty("llm.summary.path");
             configuredOutput = firstNonBlank(sysProp);
         }
-        String outputCsvPath = configuredOutput != null ? configuredOutput : DEFAULT_LLM_SUMMARY_PATH;
+        // CHANGE: each model writes its own CSV by default (llm_summaries_gpt.csv / llm_summaries_mistral.csv),
+        // so a run never overwrites the canonical Mixtral summaries in llm_summaries.csv.
+        // String outputCsvPath = configuredOutput != null ? configuredOutput : DEFAULT_LLM_SUMMARY_PATH;
+        // String outputCsvPath = configuredOutput != null ? configuredOutput : llmModel.defaultOutputPath();
+        String outputCsvPath = configuredOutput != null ? configuredOutput : options.defaultOutputPath();
 
         /*
          * Previous multi-prompt execution retained for reference. Uncomment to regenerate the
@@ -213,7 +268,8 @@ public class DpsLlmApplication {
         //         }
         //     }
         // }
-        List<PromptRunContext> promptRuns = createPromptRunContexts(dotEnv, client, outputCsvPath); // Build contexts from configuration so any prompt alias can run without code edits
+        // List<PromptRunContext> promptRuns = createPromptRunContexts(dotEnv, client, outputCsvPath);
+        List<PromptRunContext> promptRuns = createPromptRunContexts(dotEnv, client, outputCsvPath, configuredOutput != null); // Build contexts from configuration so any prompt alias can run without code edits
         try {
             for (File projectDir : projectDirs) {
                 projectsAttempted++;
@@ -253,6 +309,9 @@ public class DpsLlmApplication {
             System.out.printf("    Summaries generated: %d%n", totals.getTotalSummariesGenerated());
             System.out.printf("    Failed summaries: %d%n", totals.getTotalFailures());
             System.out.printf("    Classes skipped: %d%n", totals.getTotalSkipped());
+            if (options.resume()) {
+                System.out.printf("    Already in CSV (--resume): %d%n", totals.getTotalAlreadySummarised());
+            }
         });
         System.out.println("Default single-output path retained for compatibility: " + outputCsvPath);
     }
@@ -388,52 +447,55 @@ public class DpsLlmApplication {
      * @throws IOException if directory creation fails
      */
     private void createDirectories() throws IOException {
-        String[] directories = {"output", "output/json-output", "output/json-output/llm", "output/summary-output", "reference"};
-        for (String dir : directories) {
-            File file = new File(dir);
-            if (!file.exists() && !file.mkdirs()) {
-                throw new IOException("Unable to create directory: " + dir);
-            }
-        }
+        // CHANGE: dropped "reference", which was created but never used; creation is shared via ProjectDiscovery.
+        // String[] directories = {"output", "output/json-output", "output/json-output/llm", "output/summary-output", "reference"};
+        // for (String dir : directories) {
+        //     File file = new File(dir);
+        //     if (!file.exists() && !file.mkdirs()) {
+        //         throw new IOException("Unable to create directory: " + dir);
+        //     }
+        // }
+        ProjectDiscovery.createDirectories("output", "output/json-output", "output/json-output/llm", "output/summary-output");
     }
 
     /**
      * Recursively discovers all directories containing Java files.
+     * <p>
+     * CHANGE: delegates to {@link ProjectDiscovery}, which is shared with the NLG pipeline and
+     * returns directories sorted by path, so both pipelines visit projects in the same order.
+     * </p>
      * 
      * @param root the root directory to search
      * @return list of directories containing .java files
      */
     private List<File> findAllProjectDirectories(File root) {
-        List<File> projectDirs = new ArrayList<>();
-        findProjectDirectoriesRecursive(root, projectDirs);
-        return projectDirs;
+        return ProjectDiscovery.findProjectDirectories(root);
+        // Original implementation:
+        // List<File> projectDirs = new ArrayList<>();
+        // findProjectDirectoriesRecursive(root, projectDirs);
+        // return projectDirs;
     }
 
-    /**
-     * Recursively searches for directories containing Java files.
-     * 
-     * @param directory the directory to search
-     * @param projectDirs accumulator list for discovered project directories
-     */
-    private void findProjectDirectoriesRecursive(File directory, List<File> projectDirs) {
-        if (!directory.isDirectory()) {
-            return;
-        }
-
-        File[] javaFiles = directory.listFiles((dir, name) -> name.endsWith(".java"));
-        boolean hasJavaFiles = javaFiles != null && javaFiles.length > 0;
-
-        if (hasJavaFiles) {
-            projectDirs.add(directory);
-        }
-
-        File[] subdirs = directory.listFiles(File::isDirectory);
-        if (subdirs != null) {
-            for (File subdir : subdirs) {
-                findProjectDirectoriesRecursive(subdir, projectDirs);
-            }
-        }
-    }
+    // CHANGE: replaced by ProjectDiscovery.findProjectDirectories.
+    // private void findProjectDirectoriesRecursive(File directory, List<File> projectDirs) {
+    //     if (!directory.isDirectory()) {
+    //         return;
+    //     }
+    //
+    //     File[] javaFiles = directory.listFiles((dir, name) -> name.endsWith(".java"));
+    //     boolean hasJavaFiles = javaFiles != null && javaFiles.length > 0;
+    //
+    //     if (hasJavaFiles) {
+    //         projectDirs.add(directory);
+    //     }
+    //
+    //     File[] subdirs = directory.listFiles(File::isDirectory);
+    //     if (subdirs != null) {
+    //         for (File subdir : subdirs) {
+    //             findProjectDirectoriesRecursive(subdir, projectDirs);
+    //         }
+    //     }
+    // }
 
     /**
      * Sanitizes a relative path to create a valid filename identifier.
@@ -546,18 +608,23 @@ public class DpsLlmApplication {
      */
     private List<PromptRunContext> createPromptRunContexts(Map<String, String> dotEnv,
                                                            LlmClient client,
-                                                           String defaultOutputPath) throws IOException {
+                                                           String defaultOutputPath,
+                                                           boolean outputConfigured) throws IOException {
         List<PromptRunContext> contexts = new ArrayList<>();
         String config = resolvePromptAliasConfig(dotEnv);
         boolean defaultConsumed = false;
-        String safeDefault = firstNonBlank(defaultOutputPath) == null ? DEFAULT_LLM_SUMMARY_PATH : defaultOutputPath;
+        // String safeDefault = firstNonBlank(defaultOutputPath) == null ? DEFAULT_LLM_SUMMARY_PATH : defaultOutputPath;
+        String safeDefault = firstNonBlank(defaultOutputPath) == null ? options.defaultOutputPath() : defaultOutputPath;
         try {
             if (config == null || config.isBlank()) {
-                contexts.add(new PromptRunContext(DEFAULT_PROMPT_ALIAS, safeDefault, client));
+                contexts.add(new PromptRunContext(options.promptAlias(), safeDefault, client, options.resume()));
                 return contexts;
             }
 
             String[] entries = config.split("[;,]");
+            // CHANGE: resolve every alias/output pair first and validate all aliases before any writer is
+            // opened, so an unknown alias later in the list cannot leave earlier CSVs truncated.
+            List<String[]> pending = new ArrayList<>();
             for (String entry : entries) {
                 if (entry == null) {
                     continue;
@@ -583,14 +650,30 @@ public class DpsLlmApplication {
 
                 String resolvedOutput = firstNonBlank(customOutput);
                 if (resolvedOutput == null) {
-                    if (!defaultConsumed) {
+                    // CHANGE: the first alias used to take this run's default CSV whatever it was, so
+                    // LLM_PROMPT_ALIASES=SENIOR_ANALYST_50_WORDS_NON_CONCISE overwrote the concise
+                    // llm_summaries_<model>.csv. Now only an explicit LLM_SUMMARY_PATH or this run's own
+                    // prompt takes it; any other alias gets its own file.
+                    // if (!defaultConsumed) {
+                    if (!defaultConsumed && (outputConfigured || alias.equals(options.promptAlias()))) {
                         resolvedOutput = safeDefault;
                         defaultConsumed = true;
                     } else {
                         resolvedOutput = buildDefaultOutputPath(alias);
                     }
                 }
-                contexts.add(new PromptRunContext(alias, resolvedOutput, client));
+                // contexts.add(new PromptRunContext(alias, resolvedOutput, client)); // CHANGE: deferred until all aliases are validated
+                pending.add(new String[] {alias, resolvedOutput});
+            }
+            for (String[] aliasAndOutput : pending) {
+                if (!PromptManager.getInstance().hasPrompt(aliasAndOutput[0])) {
+                    throw new IllegalArgumentException("Unknown prompt alias '" + aliasAndOutput[0] + "' in "
+                            + PROMPT_ALIAS_CONFIG_KEY + ". Available aliases: "
+                            + new java.util.TreeSet<>(PromptManager.getInstance().getAvailableAliases()));
+                }
+            }
+            for (String[] aliasAndOutput : pending) {
+                contexts.add(new PromptRunContext(aliasAndOutput[0], aliasAndOutput[1], client, options.resume()));
             }
         } catch (IOException | RuntimeException ex) {
             closePromptRuns(contexts);
@@ -598,7 +681,7 @@ public class DpsLlmApplication {
         }
 
         if (contexts.isEmpty()) {
-            contexts.add(new PromptRunContext(DEFAULT_PROMPT_ALIAS, safeDefault, client));
+            contexts.add(new PromptRunContext(options.promptAlias(), safeDefault, client, options.resume()));
         }
         return contexts;
     }
@@ -618,20 +701,8 @@ public class DpsLlmApplication {
      * Derives a deterministic CSV filename for a prompt alias so each run records summaries separately.
      */
     private String buildDefaultOutputPath(String alias) {
-        if (alias == null || alias.isBlank()) {
-            return DEFAULT_LLM_SUMMARY_PATH;
-        }
-        if (DEFAULT_PROMPT_ALIAS.equals(alias)) {
-            return DEFAULT_LLM_SUMMARY_PATH;
-        }
-        String sanitized = alias.toLowerCase().replaceAll("[^a-z0-9]+", "_");
-        if (sanitized.isBlank()) {
-            sanitized = "custom";
-        }
-        while (sanitized.contains("__")) {
-            sanitized = sanitized.replace("__", "_");
-        }
-        return "output/summary-output/llm_summaries_" + sanitized + ".csv";
+        // CHANGE: naming moved to LlmRunOptions, so the non-concise prompt maps to llm_summaries_nonconcise_<model>.csv.
+        return options.outputPathFor(alias);
     }
 
     /**
@@ -659,7 +730,8 @@ public class DpsLlmApplication {
         private final LlmSummaryService summaryService;
         private final LlmSummaryWriter writer;
 
-        PromptRunContext(String alias, String outputCsvPath, LlmClient client) throws IOException {
+        // PromptRunContext(String alias, String outputCsvPath, LlmClient client) throws IOException {
+        PromptRunContext(String alias, String outputCsvPath, LlmClient client, boolean resume) throws IOException {
             if (alias == null || alias.trim().isEmpty()) {
                 throw new IllegalArgumentException("Prompt alias must not be blank");
             }
@@ -669,11 +741,23 @@ public class DpsLlmApplication {
             if (client == null) {
                 throw new IllegalArgumentException("LlmClient must not be null");
             }
+            // CHANGE: validate the alias before LlmSummaryWriter opens (and truncates) the output CSV.
+            // Previously an unknown alias (e.g. a typo in LLM_PROMPT_ALIASES) was only detected when the
+            // first class was summarised, after the CSV had already been emptied, so a typo could wipe
+            // the canonical llm_summaries.csv.
+            if (!PromptManager.getInstance().hasPrompt(alias)) {
+                throw new IllegalArgumentException("Unknown prompt alias '" + alias + "'. Available aliases: "
+                        + new java.util.TreeSet<>(PromptManager.getInstance().getAvailableAliases()));
+            }
             this.alias = alias;
             this.outputCsvPath = outputCsvPath;
             // this.summaryService = new LlmSummaryService(client); // Original single-prompt builder retained for reference
             this.summaryService = new LlmSummaryService(client, new LlmPromptBuilder(alias)); // Inject prompt-specific builder for multi-run execution
-            this.writer = new LlmSummaryWriter(outputCsvPath);
+            // this.writer = new LlmSummaryWriter(outputCsvPath);
+            this.writer = new LlmSummaryWriter(outputCsvPath, resume); // CHANGE: --resume appends instead of truncating
+            if (resume) {
+                System.out.printf("[%s] Resuming %s: %d summaries already present.%n", alias, outputCsvPath, writer.existingRowCount());
+            }
         }
 
         @Override
@@ -690,6 +774,7 @@ public class DpsLlmApplication {
         private int totalSummariesGenerated;
         private int totalFailures;
         private int totalSkipped;
+        private int totalAlreadySummarised;
 
         SummaryAccumulator(String alias, String outputPath) {
             this.outputPath = outputPath;
@@ -702,6 +787,7 @@ public class DpsLlmApplication {
                 totalSummariesGenerated += stats.getSuccessfulSummaries();
                 totalFailures += stats.getFailedSummaries();
                 totalSkipped += stats.getSkippedClasses();
+                totalAlreadySummarised += stats.getAlreadySummarised();
                 if (stats.getSuccessfulSummaries() > 0) {
                     projectsWithSummaries++;
                 }
@@ -739,6 +825,10 @@ public class DpsLlmApplication {
 
         int getTotalSkipped() {
             return totalSkipped;
+        }
+
+        int getTotalAlreadySummarised() {
+            return totalAlreadySummarised;
         }
     }
 }

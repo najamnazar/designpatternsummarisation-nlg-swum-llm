@@ -11,7 +11,9 @@ import common.utils.Utils;
 // Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate.
 public class AdapterPattern extends DesignPatterns {
     public AdapterPattern() {
-        super("adapter");
+        // CHANGE: pattern keys use the AbstractFactory style (see PatternNames); was super("adapter").
+        // super("adapter");
+        super(PatternNames.ADAPTER);
     }
 
     @Override

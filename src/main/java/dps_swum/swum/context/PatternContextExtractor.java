@@ -1,5 +1,6 @@
 package dps_swum.swum.context;
 
+import common.designpatternidentifier.PatternNames;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.*;
 
@@ -262,8 +263,14 @@ public class PatternContextExtractor {
             for (String pattern : classContext.getPatterns()) {
                 String role = classContext.getPatternRole(pattern);
                 
+                // CHANGE: compare spelling-independently. Pattern keys are now "Observer", "AbstractFactory",
+                // etc., so the old lower-case literal checks would silently stop matching; normalise() also
+                // accepts the old snake_case keys still present in older JSON output.
+                String normalisedPattern = PatternNames.normalise(pattern);
+
                 // Observer pattern methods
-                if (pattern.equals("observer")) {
+                // if (pattern.equals("observer")) {
+                if (normalisedPattern.equals("observer")) {
                     if (role != null && role.contains("publisher")) {
                         if (lowerMethodName.contains("subscribe") || lowerMethodName.contains("attach") 
                                 || lowerMethodName.contains("register") || lowerMethodName.contains("add")) {
@@ -285,7 +292,8 @@ public class PatternContextExtractor {
                     }
                 }
                 // Factory pattern methods
-                else if (pattern.contains("factory")) {
+                // else if (pattern.contains("factory")) {
+                else if (normalisedPattern.contains("factory")) {
                     if (role != null && role.contains("factory")) {
                         if (lowerMethodName.contains("create") || lowerMethodName.contains("make") 
                                 || lowerMethodName.contains("get") || lowerMethodName.contains("build")) {
@@ -295,7 +303,8 @@ public class PatternContextExtractor {
                     }
                 }
                 // Singleton pattern methods
-                else if (pattern.equals("singleton")) {
+                // else if (pattern.equals("singleton")) {
+                else if (normalisedPattern.equals("singleton")) {
                     if (lowerMethodName.contains("getinstance") || lowerMethodName.contains("get_instance") 
                             || lowerMethodName.equals("getinstance")) {
                         methodContext.setPatternBehavior("returns the singleton instance");
@@ -303,7 +312,8 @@ public class PatternContextExtractor {
                     }
                 }
                 // Visitor pattern methods
-                else if (pattern.equals("visitor")) {
+                // else if (pattern.equals("visitor")) {
+                else if (normalisedPattern.equals("visitor")) {
                     if (role != null && role.contains("element")) {
                         if (lowerMethodName.contains("accept")) {
                             methodContext.setPatternBehavior("accepts visitor");

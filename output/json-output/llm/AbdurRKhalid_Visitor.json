@@ -452,7 +452,7 @@
 		}
 	},
 	"design_pattern" : [ {
-		"visitor" : {
+		"Visitor" : {
 			"ComputerPart" : {
 				"concrete_element" : [ "Monitor", "Mouse", "Keyboard", "Computer" ],
 				"visitor" : {
