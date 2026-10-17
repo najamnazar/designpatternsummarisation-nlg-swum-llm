@@ -80,3 +80,40 @@ bin/
 **/.git/
 **/.git
 **/.gitmodules
+
+# ---- Personal work / scratch areas ----
+archive/
+scratch/
+tmp/
+notes/
+*.local.*
+
+# ---- Intermediate / backup versions of results ----
+*_before_*.csv          # e.g. four_way_ranking_detail_before_rescore.csv
+*_backup*
+*_old.*
+*.bak
+*.orig
+
+# ---- Console dumps and raw LLM responses (can be regenerated) ----
+*_console_output.txt    # e.g. ranking_console_output.txt
+*_raw.jsonl             # fact_preservation_raw.jsonl is ~1.1 MB of raw judge output
+
+# ---- Office lock files (you have .xlsx annotation files) ----
+~$*
+
+# ---- OS and editor junk ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# ---- Jupyter / test coverage ----
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+
+# ---- Local Claude Code / AI tool settings ----
+.claude/settings.local.json
+CLAUDE.local.md
