@@ -1,0 +1,5 @@
+method,labels,human_preserved_rate,human_omitted_rate,human_incorrect_rate,human_macro_preserved_rate,judge_preserved_rate,judge_omitted_rate,judge_incorrect_rate,judge_macro_preserved_rate,human_rank,judge_rank,judge_preserved_rate_all_150
+DPS_NLG,141,0.6454,0.2766,0.0780,0.6293,0.8511,0.1206,0.0284,0.8531,1,1,0.8569
+DPS_LLM (GPT),141,0.5816,0.3972,0.0213,0.7263,0.6879,0.3050,0.0071,0.8127,2,2,0.6785
+DPS_LLM (Mistral),141,0.4752,0.4965,0.0284,0.5796,0.6312,0.3688,0.0000,0.7685,3,3,0.6106
+DPS_SWUM,141,0.0426,0.9220,0.0355,0.0611,0.1915,0.7872,0.0213,0.2437,4,4,0.1991

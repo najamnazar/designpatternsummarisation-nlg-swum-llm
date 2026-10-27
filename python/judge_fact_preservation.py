@@ -22,6 +22,31 @@ Facts (each states exactly one thing):
 Counts, line numbers and body line types are not used: summaries do not state them, so they
 would only add OMITTED labels to every method. Facts of a type beyond its cap are left out.
 
+Every fact is also reported under the reviewer's information categories:
+    pattern role     role
+    responsibility   method, constructor, field
+    relationship     inheritance, call
+    identity         kind
+and every role fact is marked "same pattern" or "other pattern": whether the pattern the detector
+names is the pattern folder the class comes from (the detector also reports patterns it finds
+in other folders, e.g. Observer roles among the Abstract Factory classes).
+
+Corpora (--corpora):
+    default      the four default summaries (NLG, GPT, Mistral, SWUM): the four-way comparison
+    word-limits  those four plus the GPT and Mistral summaries written to 20/40/60/80-word limits
+                 (output/summary-output/llm_summaries_{gpt,mistral}_{20,40,60,80}.csv). The facts
+                 and the prompt are the same, so the default replies are reused from the cache and
+                 only the eight word-limit corpora are new calls. Results go to separate files.
+
+Evidence quotes: the judge quotes the summary for each label. evidence_found records whether the
+quote is in the summary verbatim. evidence_match refines it: "verbatim"; "fragments" when the
+judge joined parts of the summary with "..." and every part is verbatim; "not_found" otherwise.
+"fragments" is lenient: each part is matched on its own, and a part can be a single word, so it
+says the words are in the summary, not that they support the label; that needs a manual check.
+A quote that is not verbatim is not necessarily wrong (the judge may combine or reword passages),
+so the preserved rate counting only verbatim quotes, and only verbatim or fragment quotes, is
+reported as a sensitivity check, not as an error count.
+
 Configuration comes from .env; the code has no fallback values for it:
     OPENROUTER_API_KEY                   API key (not needed for --dry-run)
     OPENROUTER_API_URL                   endpoint, unless FACT_JUDGE_API_URL is set
@@ -44,12 +69,16 @@ Prompt: resources/prompts.json, section "fact_preservation", key "judge"
 
 Outputs (evaluation-results/):
     fact_preservation_facts.csv     the extracted facts, one row per fact
-    fact_preservation_raw.jsonl     every judge reply, appended as it arrives (the resume cache)
-    fact_preservation_verdicts.csv  one row per fact and method: label, evidence, justification
+    fact_preservation_raw.jsonl     every judge reply, appended as it arrives (the resume cache, shared
+                                    by both corpus sets)
+    fact_preservation_verdicts.csv  one row per fact and method: label, evidence, justification,
+                                    evidence match, summary length in words
     fact_preservation_detail.csv    one row per class and method: validity and label counts
-    fact_preservation_summary.csv   per method and fact scope: label counts and rates
+    fact_preservation_summary.csv   per method and fact scope: label counts, rates, mean summary length
     fact_preservation_results.csv   every figure of the results.txt block, one row each
     results.txt                     delimited block (replaced on re-run), plain-text and LaTeX tables
+With --corpora word-limits the four per-run tables are written as fact_preservation_word_limits_*.csv
+instead, and results.txt gets a separate block; the default outputs are left untouched.
 
 Usage:
     python python/judge_fact_preservation.py --dry-run         extract and check the facts only, no API calls
@@ -59,6 +88,8 @@ Usage:
     python python/judge_fact_preservation.py --reparse         no API calls: rebuild all outputs from the saved replies
     python python/judge_fact_preservation.py --retry-invalid   as a normal run, and ask once more for each
                                                                saved reply that is not valid
+    python python/judge_fact_preservation.py --corpora word-limits [--dry-run | --reparse | ...]
+                                                               the same, for the 20/40/60/80-word corpora
 A saved reply is reused only for exactly the same request (prompt, model, temperature and max
 tokens), so changing the prompt, the facts or a setting in .env asks the judge again.
 """
@@ -110,6 +141,45 @@ RESULTS_TXT = EVAL_DIR / "results.txt"
 BLOCK_START = "<<<BEGIN FACT PRESERVATION>>>"
 BLOCK_END = "<<<END FACT PRESERVATION>>>"
 
+# The GPT and Mistral summaries generated with an explicit target length in words.
+WORD_LIMITS = (20, 40, 60, 80)
+WORD_LIMIT_METHODS: Tuple[Method, ...] = tuple(
+    Method(f"{family} {words}w", f"{slug}_{words}", f"llm_summaries_{slug}_{words}.csv")
+    for slug, family in (("gpt", "GPT"), ("mistral", "Mistral"))
+    for words in WORD_LIMITS
+)
+
+
+@dataclass(frozen=True)
+class CorpusSet:
+    """The summaries judged in one run and where that run's outputs go."""
+    name: str
+    title: str
+    methods: Tuple[Method, ...]
+    verdicts_csv: Path
+    detail_csv: Path
+    summary_csv: Path
+    results_csv: Path
+    block_start: str
+    block_end: str
+
+
+CORPUS_SETS: Dict[str, CorpusSet] = {
+    "default": CorpusSet(
+        "default", "DESIGN-PATTERN FACT PRESERVATION (LLM judge against facts extracted from the DPS JSON)",
+        tuple(METHODS), VERDICTS_CSV, DETAIL_CSV, SUMMARY_CSV, RESULTS_CSV, BLOCK_START, BLOCK_END),
+    # The default corpora are included so the word-limit corpora are compared with NLG and SWUM on the
+    # same classes; their replies are already cached, so only the eight word-limit corpora cost calls.
+    "word-limits": CorpusSet(
+        "word-limits", "DESIGN-PATTERN FACT PRESERVATION UNDER 20/40/60/80-WORD LIMITS (LLM judge)",
+        tuple(METHODS) + WORD_LIMIT_METHODS,
+        EVAL_DIR / "fact_preservation_word_limits_verdicts.csv",
+        EVAL_DIR / "fact_preservation_word_limits_detail.csv",
+        EVAL_DIR / "fact_preservation_word_limits_summary.csv",
+        EVAL_DIR / "fact_preservation_word_limits_results.csv",
+        "<<<BEGIN FACT PRESERVATION WORD LIMITS>>>", "<<<END FACT PRESERVATION WORD LIMITS>>>"),
+}
+
 # --------------------------------------------------------------------------- fixed vocabulary
 
 # The three labels the prompt defines; the reply is rejected if it uses anything else.
@@ -126,6 +196,25 @@ FACT_TYPES: Tuple[Tuple[str, str], ...] = (
     ("call", "parser"),
 )
 SOURCES = ("detector", "parser")
+
+# The reviewer's information categories (pattern names sit inside the role facts).
+FACT_CATEGORIES = {
+    "role": "pattern role",
+    "method": "responsibility",
+    "constructor": "responsibility",
+    "field": "responsibility",
+    "inheritance": "relationship",
+    "call": "relationship",
+    "kind": "identity",
+}
+CATEGORIES = ("pattern role", "responsibility", "relationship", "identity")
+
+# Whether a role fact names the pattern of the folder its class comes from.
+ROLE_PATTERNS = ("same pattern", "other pattern")
+
+# Evidence-match values, from strictest to loosest; "" when the judge gave no quote.
+EVIDENCE_MATCHES = ("verbatim", "fragments", "not_found")
+ELLIPSIS = re.compile(r"\.{3,}|…")
 
 # Top-level keys of a DPS JSON file that are not a pattern section of per-class parser data.
 NON_CLASS_KEYS = {"final_summary", "design_pattern", "summary_NLG"}
@@ -302,6 +391,11 @@ class Fact:
     fact_type: str
     source: str
     text: str
+    role_pattern: str = ""  # role facts only: "same pattern" or "other pattern"
+
+    @property
+    def category(self) -> str:
+        return FACT_CATEGORIES[self.fact_type]
 
 
 @dataclass
@@ -413,8 +507,11 @@ class ClassFactBuilder:
               roles: Sequence[RoleAssignment]) -> None:
         name = target.class_name
         peer_names = set(peers)
+        role_facts = self._role_facts(name, roles)
+        # The text names the pattern, so equal texts always have the same pattern.
+        role_pattern_of = {text: self._role_pattern(pattern, target.design_pattern) for text, pattern in role_facts}
         candidates: Dict[str, List[str]] = {
-            "role": self._role_facts(name, roles),
+            "role": [text for text, _ in role_facts],
             "kind": self._kind_facts(name, parsed),
             "inheritance": self._inheritance_facts(name, parsed),
             "constructor": self._constructor_facts(name, parsed, peer_names),
@@ -433,26 +530,33 @@ class ClassFactBuilder:
                 target.dropped[fact_type] += len(texts) - limit
                 texts = texts[:limit]
             for text in texts:
-                target.facts.append(Fact(next_id, fact_type, source, text))
+                target.facts.append(Fact(next_id, fact_type, source, text, role_pattern_of.get(text, "")))
                 next_id += 1
 
     # ----- detector
 
     @staticmethod
-    def _role_facts(name: str, roles: Sequence[RoleAssignment]) -> List[str]:
-        """The class's own roles first, then the classes the detector lists directly under it."""
+    def _role_facts(name: str, roles: Sequence[RoleAssignment]) -> List[Tuple[str, str]]:
+        """(text, detector pattern): the class's own roles first, then the classes the detector lists directly under it."""
         key = name.lower()
         own, children = [], []
         for r in roles:
             pattern = humanise_pattern(r.pattern)
             if r.subject.lower() == key:
                 if r.parent is None:
-                    own.append(f"{name} is the {r.role} in the {pattern} pattern.")
+                    own.append((f"{name} is the {r.role} in the {pattern} pattern.", r.pattern))
                 else:
-                    own.append(f"{name} is {with_article(r.role)} for {r.parent} in the {pattern} pattern.")
+                    own.append((f"{name} is {with_article(r.role)} for {r.parent} in the {pattern} pattern.", r.pattern))
             elif r.parent is not None and r.parent.lower() == key:
-                children.append(f"{r.subject} is {with_article(r.role)} for {name} in the {pattern} pattern.")
+                children.append((f"{r.subject} is {with_article(r.role)} for {name} in the {pattern} pattern.", r.pattern))
         return own + children
+
+    @staticmethod
+    def _role_pattern(detector_pattern: str, folder_pattern: str) -> str:
+        """'same pattern' when the detector's pattern is the class's pattern folder, else 'other pattern'."""
+        def norm(s: str) -> str:
+            return re.sub(r"[^a-z]", "", s.lower())
+        return ROLE_PATTERNS[0] if norm(detector_pattern) == norm(folder_pattern) else ROLE_PATTERNS[1]
 
     # ----- parser
 
@@ -612,6 +716,7 @@ class FactVerdict:
     evidence: str
     justification: str
     evidence_found: Optional[bool]  # quote found verbatim in the summary; None when there is no quote
+    evidence_match: str = ""  # "verbatim", "fragments" or "not_found"; "" when there is no quote
 
 
 @dataclass(frozen=True)
@@ -699,6 +804,7 @@ class ReplyParser:
                 evidence=evidence,
                 justification=str(entry.get("justification") or "").strip(),
                 evidence_found=self._quote_in(evidence, summary) if evidence else None,
+                evidence_match=self._match(evidence, summary),
             )
         missing = [i for i in expected if i not in verdicts]
         if missing:
@@ -724,6 +830,20 @@ class ReplyParser:
         def norm(s: str) -> str:
             return re.sub(r"\s+", " ", s.replace("`", "")).strip().strip("\"'.").lower()
         return norm(quote) in norm(summary)
+
+    @classmethod
+    def _match(cls, quote: str, summary: str) -> str:
+        """'verbatim', 'fragments' (parts joined with '...', each verbatim) or 'not_found'; '' for no quote."""
+        if not quote:
+            return ""
+        if cls._quote_in(quote, summary):
+            return "verbatim"
+        if ELLIPSIS.search(quote):
+            parts = [p.strip(" ,;:") for p in ELLIPSIS.split(quote)]
+            parts = [p for p in parts if p.strip("\"'.")]
+            if parts and all(cls._quote_in(p, summary) for p in parts):
+                return "fragments"
+        return "not_found"
 
 
 class JudgementStore:
@@ -820,6 +940,10 @@ class EvaluationItem:
     def label(self) -> str:
         return f"{self.project}/{self.design_pattern}/{self.file_name}"
 
+    def words(self, method: Method) -> int:
+        """Length of the method's summary in whitespace-separated words, as in summary_length_stats.py."""
+        return len(self.summaries.get(method.slug, "").split())
+
 
 @dataclass
 class Judgement:
@@ -845,19 +969,28 @@ class Judgement:
 class ResultBuilder:
     """Turns the judgements into the output tables and the results.txt block.
 
-    Rates compare the methods on the same classes: only classes for which all four
-    judgements are valid are counted, so one invalid reply cannot favour a method.
+    Rates compare the methods on the same classes: only classes for which every method's
+    judgement is valid are counted, so one invalid reply cannot favour a method.
     """
 
+    FACT_COLUMNS = ["project", "design_pattern", "file", "class_name", "fact_id", "fact_type", "source",
+                    "category", "role_pattern", "fact_text"]
+    VERDICT_COLUMNS = ["project", "design_pattern", "file", "method", "method_slug", "summary_words", "fact_id",
+                       "fact_type", "source", "category", "role_pattern", "fact_text", "label", "evidence",
+                       "evidence_found", "evidence_match", "justification", "in_comparison"]
+
     def __init__(self, judgements: List[Judgement], items: List[EvaluationItem],
-                 settings: FactJudgeSettings) -> None:
+                 settings: FactJudgeSettings, corpus_set: CorpusSet) -> None:
         self.judgements = judgements
         self.items = items
         self.settings = settings
+        self.corpus_set = corpus_set
+        self.methods = corpus_set.methods
         by_class: Dict[str, List[Judgement]] = {}
         for j in judgements:
             by_class.setdefault(j.item.match_key, []).append(j)
-        self.common_keys = {k for k, js in by_class.items() if len(js) == len(METHODS) and all(j.valid for j in js)}
+        self.common_keys = {k for k, js in by_class.items()
+                            if len(js) == len(self.methods) and all(j.valid for j in js)}
 
     # ----- tables
 
@@ -870,9 +1003,8 @@ class ResultBuilder:
                 rows.append({"project": item.project, "design_pattern": item.design_pattern,
                              "file": item.file_name, "class_name": item.facts.class_name,
                              "fact_id": f.fact_id, "fact_type": f.fact_type, "source": f.source,
-                             "fact_text": f.text})
-        return pd.DataFrame(rows, columns=["project", "design_pattern", "file", "class_name",
-                                           "fact_id", "fact_type", "source", "fact_text"])
+                             "category": f.category, "role_pattern": f.role_pattern, "fact_text": f.text})
+        return pd.DataFrame(rows, columns=self.FACT_COLUMNS)
 
     def verdicts_table(self) -> pd.DataFrame:
         rows = []
@@ -884,18 +1016,22 @@ class ResultBuilder:
                 fact = facts[v.fact_id]
                 rows.append({"project": j.item.project, "design_pattern": j.item.design_pattern,
                              "file": j.item.file_name, "method": j.method.label, "method_slug": j.method.slug,
+                             "summary_words": j.item.words(j.method),
                              "fact_id": v.fact_id, "fact_type": fact.fact_type, "source": fact.source,
+                             "category": fact.category, "role_pattern": fact.role_pattern,
                              "fact_text": fact.text, "label": v.label, "evidence": v.evidence,
-                             "evidence_found": v.evidence_found, "justification": v.justification,
+                             "evidence_found": v.evidence_found, "evidence_match": v.evidence_match,
+                             "justification": v.justification,
                              "in_comparison": j.item.match_key in self.common_keys})
-        return pd.DataFrame(rows)
+        return pd.DataFrame(rows, columns=self.VERDICT_COLUMNS)
 
     def detail_table(self) -> pd.DataFrame:
         rows = []
         for item in self.items:
-            for m in METHODS:
+            for m in self.methods:
                 row = {"project": item.project, "design_pattern": item.design_pattern, "file": item.file_name,
                        "method": m.label, "status": item.status,
+                       "summary_words": item.words(m) if item.summaries.get(m.slug) else None,
                        "n_facts": len(item.facts.facts) if item.facts else 0}
                 j = next((x for x in self.judgements if x.item is item and x.method is m), None)
                 if j is not None:
@@ -912,32 +1048,50 @@ class ResultBuilder:
                 rows.append(row)
         return pd.DataFrame(rows)
 
-    def summary_table(self, verdicts: pd.DataFrame) -> pd.DataFrame:
-        """Per method and scope (all facts, each source, each fact type): label counts and rates."""
-        compared = verdicts[verdicts["in_comparison"]] if not verdicts.empty else verdicts
+    @staticmethod
+    def scopes() -> List[Tuple[str, str, Optional[str]]]:
+        """(scope, value, verdicts column): all facts, each source, category, fact type, and role pattern."""
         scopes: List[Tuple[str, str, Optional[str]]] = [("all", "", None)]
         scopes += [("source", s, "source") for s in SOURCES]
+        scopes += [("category", c, "category") for c in CATEGORIES]
         scopes += [("fact_type", t, "fact_type") for t, _ in FACT_TYPES]
+        scopes += [("role_pattern", p, "role_pattern") for p in ROLE_PATTERNS]
+        return scopes
+
+    def summary_table(self, verdicts: pd.DataFrame) -> pd.DataFrame:
+        """Per method and scope: label counts and rates, the quote-match sensitivity rates and mean length."""
+        compared = verdicts[verdicts["in_comparison"]] if not verdicts.empty else verdicts
+        class_columns = ["project", "design_pattern", "file"]
         rows = []
-        for scope, value, column in scopes:
+        for scope, value, column in self.scopes():
             subset = compared if column is None or compared.empty else compared[compared[column] == value]
-            for m in METHODS:
+            for m in self.methods:
                 part = subset[subset["method_slug"] == m.slug] if not subset.empty else subset
                 n = len(part)
-                classes = part.groupby(["project", "design_pattern", "file"]).ngroups if n else 0
+                classes = part.groupby(class_columns).ngroups if n else 0
                 row = {"scope": scope, "value": value or "all facts", "method": m.label,
-                       "classes": int(classes), "facts": n}
+                       "classes": int(classes), "facts": n,
+                       # Mean over the classes in scope, each summary counted once.
+                       "mean_words": round(float(part.drop_duplicates(class_columns)["summary_words"].mean()), 1)
+                       if n else None}
                 for label in LABELS:
                     count = int((part["label"] == label).sum()) if n else 0
                     row[label.lower()] = count
                     row[f"{label.lower()}_rate"] = round(count / n, 4) if n else None
                 # Macro rate: the preserved share of each class's facts, averaged over classes.
                 if n:
-                    per_class = part.groupby(["project", "design_pattern", "file"])["label"].apply(
-                        lambda s: (s == "PRESERVED").mean())
+                    per_class = part.groupby(class_columns)["label"].apply(lambda s: (s == "PRESERVED").mean())
                     row["macro_preserved_rate"] = round(float(per_class.mean()), 4)
                 else:
                     row["macro_preserved_rate"] = None
+                # Sensitivity check: PRESERVED counted only when its quote is verbatim, or verbatim in parts.
+                preserved = part[part["label"] == "PRESERVED"] if n else part
+                verbatim = int((preserved["evidence_match"] == "verbatim").sum()) if n else 0
+                supported = int(preserved["evidence_match"].isin(["verbatim", "fragments"]).sum()) if n else 0
+                row["preserved_verbatim_quote"] = verbatim
+                row["preserved_verbatim_quote_rate"] = round(verbatim / n, 4) if n else None
+                row["preserved_verbatim_or_fragments"] = supported
+                row["preserved_verbatim_or_fragments_rate"] = round(supported / n, 4) if n else None
                 rows.append(row)
         return pd.DataFrame(rows)
 
@@ -945,7 +1099,7 @@ class ResultBuilder:
 
     def judgement_counts(self) -> Dict[str, Dict[str, int]]:
         counts: Dict[str, Dict[str, int]] = {}
-        for m in METHODS:
+        for m in self.methods:
             js = [j for j in self.judgements if j.method is m]
             counts[m.slug] = {
                 "asked": sum(j.record is not None for j in js),
@@ -955,30 +1109,47 @@ class ResultBuilder:
             }
         return counts
 
-    def evidence_not_found(self, verdicts: pd.DataFrame) -> Dict[str, int]:
-        if verdicts.empty:
-            return {m.slug: 0 for m in METHODS}
-        compared = verdicts[verdicts["in_comparison"]]
-        return {m.slug: int((compared[(compared["method_slug"] == m.slug)]["evidence_found"] == False).sum())  # noqa: E712
-                for m in METHODS}
+    def evidence_counts(self, verdicts: pd.DataFrame) -> Dict[str, Dict[str, int]]:
+        """Per method (classes compared, any label): quotes not verbatim, and how many of those are verbatim parts."""
+        counts: Dict[str, Dict[str, int]] = {}
+        compared = verdicts[verdicts["in_comparison"]] if not verdicts.empty else verdicts
+        for m in self.methods:
+            part = compared[compared["method_slug"] == m.slug] if not compared.empty else compared
+            counts[m.slug] = {
+                "evidence_not_found": int((part["evidence_found"] == False).sum()) if len(part) else 0,  # noqa: E712
+                "evidence_fragments": int((part["evidence_match"] == "fragments").sum()) if len(part) else 0,
+                "evidence_not_found_in_parts": int((part["evidence_match"] == "not_found").sum()) if len(part) else 0,
+            }
+        return counts
+
+    @staticmethod
+    def _pct(value: object) -> str:
+        return "-" if value is None or pd.isna(value) else f"{100 * float(value):.1f}%"
+
+    @staticmethod
+    def _words(value: object) -> str:
+        return "-" if value is None or pd.isna(value) else f"{float(value):.1f}"
+
+    @staticmethod
+    def _row_of(summary: pd.DataFrame, scope: str, value: str, method: Method) -> pd.Series:
+        return summary[(summary["scope"] == scope) & (summary["value"] == value)
+                       & (summary["method"] == method.label)].iloc[0]
 
     def format_block(self, summary: pd.DataFrame, verdicts: pd.DataFrame, generated_at: str) -> str:
+        body = (self._default_body(summary, verdicts) if self.corpus_set.name == "default"
+                else self._word_limit_body(summary, verdicts))
+        lines = [self.corpus_set.block_start, *self._header(generated_at), *body, self.corpus_set.block_end]
+        return "\n".join(lines) + "\n"
+
+    def _header(self, generated_at: str) -> List[str]:
         facts = self.facts_table()
         counts = self.judgement_counts()
-        not_found = self.evidence_not_found(verdicts)
         judged_items = [i for i in self.items if i.status == "judge"]
         skipped = Counter(i.status for i in self.items if i.status != "judge")
-
-        def pct(value: object) -> str:
-            return "-" if value is None or pd.isna(value) else f"{100 * float(value):.1f}%"
-
-        def row_of(scope: str, value: str, method: Method) -> pd.Series:
-            return summary[(summary["scope"] == scope) & (summary["value"] == value) & (summary["method"] == method.label)].iloc[0]
-
-        lines = [
-            BLOCK_START,
+        roles = facts[facts["fact_type"] == "role"]
+        return [
             "=" * 78,
-            "DESIGN-PATTERN FACT PRESERVATION (LLM judge against facts extracted from the DPS JSON)",
+            self.corpus_set.title,
             "=" * 78,
             f"Generated: {generated_at}",
             *self.settings.describe(),
@@ -988,44 +1159,108 @@ class ResultBuilder:
             + (f" (not judged: {', '.join(f'{k} {v}' for k, v in sorted(skipped.items()))})" if skipped else ""),
             f"Facts: {len(facts)} in total; " + ", ".join(
                 f"{s} {int((facts['source'] == s).sum())}" for s in SOURCES) if not facts.empty else "Facts: 0",
+            f"Role facts naming the class's own pattern / another pattern: "
+            + " / ".join(str(int((roles["role_pattern"] == p).sum())) for p in ROLE_PATTERNS),
             "Judgements (asked / valid / cut off / re-asked): " + "; ".join(
                 f"{m.label} {counts[m.slug]['asked']}/{counts[m.slug]['valid']}/"
-                f"{counts[m.slug]['truncated']}/{counts[m.slug]['retried']}" for m in METHODS),
-            f"Classes compared (valid judgement for all four methods): {len(self.common_keys)}",
+                f"{counts[m.slug]['truncated']}/{counts[m.slug]['retried']}" for m in self.methods),
+            f"Classes compared (valid judgement for all {len(self.methods)} methods): {len(self.common_keys)}",
+        ]
+
+    def _evidence_lines(self, summary: pd.DataFrame, verdicts: pd.DataFrame) -> List[str]:
+        evidence = self.evidence_counts(verdicts)
+        return [
+            "",
+            "EVIDENCE QUOTES (classes compared only). A quote that is not verbatim is not necessarily wrong:",
+            "the judge may join or reword passages. The two rates below are a sensitivity check, not an error count.",
+            "Quotes not found verbatim in the summary: "
+            + ", ".join(f"{m.label} {evidence[m.slug]['evidence_not_found']}" for m in self.methods),
+            "  of which parts joined with '...', each verbatim: "
+            + ", ".join(f"{m.label} {evidence[m.slug]['evidence_fragments']}" for m in self.methods),
+            "Preserved rate, counting only verbatim quotes: "
+            + ", ".join(f"{m.label} {self._pct(self._row_of(summary, 'all', 'all facts', m)['preserved_verbatim_quote_rate'])}"
+                        for m in self.methods),
+            "Preserved rate, counting verbatim quotes and verbatim parts: "
+            + ", ".join(f"{m.label} {self._pct(self._row_of(summary, 'all', 'all facts', m)['preserved_verbatim_or_fragments_rate'])}"
+                        for m in self.methods),
+        ]
+
+    def _default_body(self, summary: pd.DataFrame, verdicts: pd.DataFrame) -> List[str]:
+        pct, row_of = self._pct, lambda scope, value, m: self._row_of(summary, scope, value, m)
+        lines = [
             "",
             "ALL FACTS (classes compared only)",
-            f"{'Method':<20}{'Facts':>7}{'Preserved':>11}{'Omitted':>10}{'Incorrect':>11}{'Macro pres.':>13}",
+            f"{'Method':<20}{'Mean words':>11}{'Facts':>7}{'Preserved':>11}{'Omitted':>10}{'Incorrect':>11}{'Macro pres.':>13}",
         ]
-        for m in METHODS:
+        for m in self.methods:
             r = row_of("all", "all facts", m)
-            lines.append(f"{m.label:<20}{int(r['facts']):>7}{pct(r['preserved_rate']):>11}{pct(r['omitted_rate']):>10}"
-                         f"{pct(r['incorrect_rate']):>11}{pct(r['macro_preserved_rate']):>13}")
+            lines.append(f"{m.label:<20}{self._words(r['mean_words']):>11}{int(r['facts']):>7}{pct(r['preserved_rate']):>11}"
+                         f"{pct(r['omitted_rate']):>10}{pct(r['incorrect_rate']):>11}{pct(r['macro_preserved_rate']):>13}")
 
-        lines += ["", "PRESERVED RATE BY FACT SOURCE AND TYPE (facts per method in brackets)",
-                  f"{'Scope':<14}" + "".join(f"{m.label:>22}" for m in METHODS)]
-        for scope, value in [("source", s) for s in SOURCES] + [("fact_type", t) for t, _ in FACT_TYPES]:
+        lines += ["", "PRESERVED RATE BY FACT SOURCE, CATEGORY, TYPE AND ROLE PATTERN (facts per method in brackets)",
+                  f"{'Scope':<16}" + "".join(f"{m.label:>22}" for m in self.methods)]
+        for scope, value, _ in self.scopes()[1:]:
             cells = []
-            for m in METHODS:
+            for m in self.methods:
                 r = row_of(scope, value, m)
                 cells.append(f"{pct(r['preserved_rate'])} ({int(r['facts'])})")
-            lines.append(f"{value:<14}" + "".join(f"{c:>22}" for c in cells))
+            lines.append(f"{value:<16}" + "".join(f"{c:>22}" for c in cells))
 
-        lines += ["", "Evidence quotes not found verbatim in the summary (PRESERVED/INCORRECT labels): "
-                  + ", ".join(f"{m.label} {not_found[m.slug]}" for m in METHODS),
-                  "", r"\begin{table}[htbp]", r"  \centering",
+        lines += self._evidence_lines(summary, verdicts)
+        lines += ["", r"\begin{table}[htbp]", r"  \centering",
                   r"  \caption{Design-pattern fact preservation (LLM judge; "
                   + f"{len(self.common_keys)} classes" + r").}",
                   r"  \label{tab:fact-preservation}",
-                  r"  \begin{tabular}{lrrrrr}", r"    \toprule",
-                  r"    Method & Facts & Preserved & Omitted & Incorrect & Macro preserved \\",
+                  r"  \begin{tabular}{lrrrrrr}", r"    \toprule",
+                  r"    Method & Mean words & Facts & Preserved & Omitted & Incorrect & Macro preserved \\",
                   r"    \midrule"]
-        for m in METHODS:
+        for m in self.methods:
             r = row_of("all", "all facts", m)
             cells = [pct(r[c]).replace("%", r"\%") for c in
                      ("preserved_rate", "omitted_rate", "incorrect_rate", "macro_preserved_rate")]
-            lines.append(f"    {m.label.replace('_', chr(92) + '_')} & {int(r['facts'])} & " + " & ".join(cells) + r" \\")
-        lines += [r"    \bottomrule", r"  \end{tabular}", r"\end{table}", BLOCK_END]
-        return "\n".join(lines) + "\n"
+            lines.append(f"    {m.label.replace('_', chr(92) + '_')} & {self._words(r['mean_words'])} & "
+                         f"{int(r['facts'])} & " + " & ".join(cells) + r" \\")
+        lines += [r"    \bottomrule", r"  \end{tabular}", r"\end{table}"]
+        return lines
+
+    def _word_limit_body(self, summary: pd.DataFrame, verdicts: pd.DataFrame) -> List[str]:
+        """One row per corpus: with twelve corpora, the corpora go down the page, not across it."""
+        pct, row_of = self._pct, lambda scope, value, m: self._row_of(summary, scope, value, m)
+        lines = ["", "PRESERVED RATE BY CORPUS AND CATEGORY (classes compared only)",
+                 f"{'Corpus':<20}{'Mean words':>11}{'All':>8}" + "".join(f"{c:>16}" for c in CATEGORIES)
+                 + f"{'Incorrect':>11}"]
+        for m in self.methods:
+            r = row_of("all", "all facts", m)
+            lines.append(f"{m.label:<20}{self._words(r['mean_words']):>11}{pct(r['preserved_rate']):>8}"
+                         + "".join(f"{pct(row_of('category', c, m)['preserved_rate']):>16}" for c in CATEGORIES)
+                         + f"{pct(r['incorrect_rate']):>11}")
+
+        types = [t for t, _ in FACT_TYPES]
+        lines += ["", "PRESERVED RATE BY CORPUS AND FACT TYPE (classes compared only; role split by role pattern)",
+                  f"{'Corpus':<20}" + "".join(f"{t:>13}" for t in types) + "".join(f"{p:>15}" for p in ROLE_PATTERNS)]
+        for m in self.methods:
+            lines.append(f"{m.label:<20}" + "".join(f"{pct(row_of('fact_type', t, m)['preserved_rate']):>13}" for t in types)
+                         + "".join(f"{pct(row_of('role_pattern', p, m)['preserved_rate']):>15}" for p in ROLE_PATTERNS))
+        first = self.methods[0]
+        lines.append("Facts per corpus: " + ", ".join(
+            f"{v} {int(row_of(s, v, first)['facts'])}" for s, v, _ in self.scopes()
+            if s in ("all", "category", "fact_type", "role_pattern") and v) + f", all {int(row_of('all', 'all facts', first)['facts'])}")
+
+        lines += self._evidence_lines(summary, verdicts)
+        lines += ["", r"\begin{table}[htbp]", r"  \centering",
+                  r"  \caption{Design-pattern fact preservation by category under word limits (LLM judge; "
+                  + f"{len(self.common_keys)} classes" + r").}",
+                  r"  \label{tab:fact-preservation-word-limits}",
+                  r"  \begin{tabular}{lrrrrrr}", r"    \toprule",
+                  r"    Corpus & Mean words & All & Pattern role & Responsibility & Relationship & Identity \\",
+                  r"    \midrule"]
+        for m in self.methods:
+            r = row_of("all", "all facts", m)
+            cells = [pct(r["preserved_rate"])] + [pct(row_of("category", c, m)["preserved_rate"]) for c in CATEGORIES]
+            lines.append(f"    {m.label.replace('_', chr(92) + '_')} & {self._words(r['mean_words'])} & "
+                         + " & ".join(c.replace("%", r"\%") for c in cells) + r" \\")
+        lines += [r"    \bottomrule", r"  \end{tabular}", r"\end{table}"]
+        return lines
 
     def results_table(self, summary: pd.DataFrame, verdicts: pd.DataFrame, generated_at: str) -> pd.DataFrame:
         """Every figure of the results block as one long table (section, scope, method, metric, value)."""
@@ -1035,6 +1270,7 @@ class ResultBuilder:
             rows.append({"section": section, "scope": scope, "method": method, "metric": metric, "value": value})
 
         add("run", "generated_at", generated_at)
+        add("run", "corpora", self.corpus_set.name)
         add("run", "judge_model", self.settings.model)
         add("run", "temperature", self.settings.temperature)
         add("run", "tokens_per_fact", self.settings.tokens_per_fact)
@@ -1042,23 +1278,26 @@ class ResultBuilder:
         add("run", "fact_caps", self.settings.caps.describe())
         add("run", "classes_evaluated", len(self.items))
         add("run", "classes_compared", len(self.common_keys))
-        for m in METHODS:
+        evidence = self.evidence_counts(verdicts)
+        for m in self.methods:
             for metric, value in self.judgement_counts()[m.slug].items():
                 add("judgements", metric, value, method=m.label)
-            add("judgements", "evidence_not_found", self.evidence_not_found(verdicts)[m.slug], method=m.label)
+            for metric, value in evidence[m.slug].items():
+                add("judgements", metric, value, method=m.label)
         for _, r in summary.iterrows():
-            for metric in ("facts", "preserved", "omitted", "incorrect", "preserved_rate", "omitted_rate",
-                           "incorrect_rate", "macro_preserved_rate"):
+            for metric in ("facts", "mean_words", "preserved", "omitted", "incorrect", "preserved_rate", "omitted_rate",
+                           "incorrect_rate", "macro_preserved_rate", "preserved_verbatim_quote_rate",
+                           "preserved_verbatim_or_fragments_rate"):
                 add("preservation", metric, r[metric], scope=f"{r['scope']}:{r['value']}", method=r["method"])
         return pd.DataFrame(rows)
 
 
-def write_block(results_txt: Path, section: str) -> None:
-    """Write the section into results.txt, replacing any previous block of this script."""
+def write_block(results_txt: Path, section: str, block_start: str, block_end: str) -> None:
+    """Write the section into results.txt, replacing any previous block with the same markers."""
     existing = results_txt.read_text(encoding="utf-8") if results_txt.exists() else ""
-    start, end = existing.find(BLOCK_START), existing.find(BLOCK_END)
+    start, end = existing.find(block_start), existing.find(block_end)
     if start != -1 and end != -1:
-        updated = existing[:start] + section + existing[end + len(BLOCK_END) + 1:]
+        updated = existing[:start] + section + existing[end + len(block_end) + 1:]
     else:
         separator = "" if existing.endswith("\n\n") or not existing else "\n\n"
         updated = existing + separator + section
@@ -1070,9 +1309,11 @@ def write_block(results_txt: Path, section: str) -> None:
 class FactPreservationEvaluation:
     """Runs the evaluation: load inputs, extract facts, judge, and write the outputs."""
 
-    def __init__(self, mode: str, limit: Optional[int]) -> None:
+    def __init__(self, mode: str, limit: Optional[int], corpus_set: CorpusSet) -> None:
         self.mode = mode  # "dry-run", "run", "reparse" or "retry-invalid"
         self.limit = limit
+        self.corpus_set = corpus_set
+        self.methods = corpus_set.methods
         self.settings = FactJudgeSettings.from_env(ENV_FILE, need_api=mode in ("run", "retry-invalid"))
         self.template = PromptTemplate.load(PROMPTS_JSON, PROMPT_SECTION, PROMPT_KEY)
         self.repository = FactRepository(FACT_SOURCE_DIR, ClassFactBuilder(self.settings.caps))
@@ -1084,12 +1325,12 @@ class FactPreservationEvaluation:
 
     def load_items(self) -> List[EvaluationItem]:
         human = load_human_summaries()
-        summaries = {m.slug: load_method_summaries(m) for m in METHODS}
+        summaries = {m.slug: load_method_summaries(m) for m in self.methods}
         if self.limit is not None:
             human = human.head(self.limit)
         items = []
         for row in human.itertuples(index=False):
-            texts = {m.slug: summaries[m.slug].get(row.match_key, "") for m in METHODS}
+            texts = {m.slug: summaries[m.slug].get(row.match_key, "") for m in self.methods}
             facts = self.repository.facts_for(row.project, row.design_pattern, row.file_name, row.match_key)
             if any(not t for t in texts.values()):
                 status = "missing summary"
@@ -1136,11 +1377,14 @@ class FactPreservationEvaluation:
             print(f"{fact_type:<14}{source:<10}{per_type[fact_type]:>7}{classes:>9}{dropped[fact_type]:>17}")
         no_role = [i for i in judged if not any(f.source == "detector" for f in i.facts.facts)]
         print(f"Classes without a detector role fact: {len(no_role)}")
+        role_patterns = Counter(f.role_pattern for i in judged for f in i.facts.facts if f.fact_type == "role")
+        print("Role facts naming the class's own pattern / another pattern: "
+              + " / ".join(str(role_patterns[p]) for p in ROLE_PATTERNS))
         print(f"Classes with only method facts: "
               f"{sum(all(f.fact_type == 'method' for f in i.facts.facts) for i in judged)}")
         over = [i for i in judged if not self.settings.fits(len(i.facts.facts))]
         budget = sum(self.settings.token_budget(len(i.facts.facts)) for i in judged)
-        print(f"Completion-token ceiling for all {len(judged) * len(METHODS)} calls: {budget * len(METHODS)}")
+        print(f"Completion-token ceiling for all {len(judged) * len(self.methods)} calls: {budget * len(self.methods)}")
         if over:
             print(f"  WARNING: {len(over)} classes need more than FACT_JUDGE_MAX_TOKENS; their replies may be cut off:")
             for i in over:
@@ -1156,13 +1400,13 @@ class FactPreservationEvaluation:
         for line in self.settings.describe():
             print(line)
         print(f"Saved replies in {RAW_JSONL.name}: {len(store)}")
-        print(f"Classes to judge: {len(judged)} x {len(METHODS)} methods = {len(judged) * len(METHODS)} judgements")
+        print(f"Classes to judge: {len(judged)} x {len(self.methods)} methods = {len(judged) * len(self.methods)} judgements")
 
         judgements: List[Judgement] = []
         calls = 0
         for index, item in enumerate(judged, start=1):
             print(f"\n[{index}/{len(judged)}] {item.label} - {len(item.facts.facts)} facts")
-            for m in METHODS:
+            for m in self.methods:
                 judgement = self._judge_one(store, item, m)
                 calls += judgement.origin in ("new", "re-asked")
                 judgements.append(judgement)
@@ -1214,36 +1458,35 @@ class FactPreservationEvaluation:
 
     def write_outputs(self, items: List[EvaluationItem], judgements: List[Judgement]) -> None:
         EVAL_DIR.mkdir(parents=True, exist_ok=True)
-        builder = ResultBuilder(judgements, items, self.settings)
+        builder = ResultBuilder(judgements, items, self.settings, self.corpus_set)
         verdicts = builder.verdicts_table()
-        if verdicts.empty:
-            verdicts = pd.DataFrame(columns=["project", "design_pattern", "file", "method", "method_slug", "fact_id",
-                                             "fact_type", "source", "fact_text", "label", "evidence",
-                                             "evidence_found", "justification", "in_comparison"])
         summary = builder.summary_table(verdicts)
         generated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        verdicts.to_csv(VERDICTS_CSV, index=False)
-        builder.detail_table().to_csv(DETAIL_CSV, index=False)
-        summary.to_csv(SUMMARY_CSV, index=False)
-        builder.results_table(summary, verdicts, generated_at).to_csv(RESULTS_CSV, index=False)
+        cs = self.corpus_set
+        verdicts.to_csv(cs.verdicts_csv, index=False)
+        builder.detail_table().to_csv(cs.detail_csv, index=False)
+        summary.to_csv(cs.summary_csv, index=False)
+        builder.results_table(summary, verdicts, generated_at).to_csv(cs.results_csv, index=False)
         section = builder.format_block(summary, verdicts, generated_at)
-        write_block(RESULTS_TXT, section)
+        write_block(RESULTS_TXT, section, cs.block_start, cs.block_end)
 
         print("\n" + section)
-        for label, path in [("Verdicts", VERDICTS_CSV), ("Detail", DETAIL_CSV), ("Summary", SUMMARY_CSV),
-                            ("Results table", RESULTS_CSV), ("Results block", RESULTS_TXT),
+        for label, path in [("Verdicts", cs.verdicts_csv), ("Detail", cs.detail_csv), ("Summary", cs.summary_csv),
+                            ("Results table", cs.results_csv), ("Results block", RESULTS_TXT),
                             ("Raw replies", RAW_JSONL)]:
             print(f"{label} written to: {path}")
 
     def execute(self) -> None:
         self.banner("DESIGN-PATTERN FACT PRESERVATION")
         print(f"Mode: {self.mode}" + (f" (first {self.limit} classes)" if self.limit is not None else ""))
+        print(f"Corpora: {self.corpus_set.name} ({', '.join(m.label for m in self.methods)})")
         items = self.load_items()
         self.report_facts(items)
 
         EVAL_DIR.mkdir(parents=True, exist_ok=True)
-        ResultBuilder([], items, self.settings).facts_table().to_csv(FACTS_CSV, index=False)
+        # The facts do not depend on the corpora, so both corpus sets write the same facts file.
+        ResultBuilder([], items, self.settings, self.corpus_set).facts_table().to_csv(FACTS_CSV, index=False)
         print(f"\nFacts written to: {FACTS_CSV}")
         if self.mode == "dry-run":
             print("Dry run: no API calls made and no results written. Check the facts file, then run without --dry-run.")
@@ -1260,6 +1503,9 @@ def parse_arguments(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     )
     parser.add_argument("--limit", type=int, default=None,
                         help="Use only the first N classes (for a cheap trial run). Default: all.")
+    parser.add_argument("--corpora", choices=sorted(CORPUS_SETS), default="default",
+                        help="default: the four default summaries. word-limits: those four plus the GPT and Mistral "
+                             "20/40/60/80-word summaries, written to fact_preservation_word_limits_*.csv. Default: default.")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--dry-run", action="store_true",
                       help="Extract the facts, print the checks and write fact_preservation_facts.csv; no API calls.")
@@ -1278,7 +1524,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     args = parse_arguments(argv)
     mode = "dry-run" if args.dry_run else "reparse" if args.reparse else "retry-invalid" if args.retry_invalid else "run"
     try:
-        FactPreservationEvaluation(mode, args.limit).execute()
+        FactPreservationEvaluation(mode, args.limit, CORPUS_SETS[args.corpora]).execute()
     except Exception as exc:
         print(f"\nERROR: {exc}")
         import traceback

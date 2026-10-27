@@ -1,5 +1,6 @@
 section,scope,method,metric,value
-run,,,generated_at,2026-10-17 12:09:49
+run,,,generated_at,2026-10-19 19:19:12
+run,,,corpora,default
 run,,,judge_model,meta-llama/llama-4-maverick
 run,,,temperature,0.0
 run,,,tokens_per_fact,100
@@ -11,55 +12,76 @@ judgements,,DPS_NLG,asked,150
 judgements,,DPS_NLG,valid,150
 judgements,,DPS_NLG,truncated,0
 judgements,,DPS_NLG,retried,0
-judgements,,DPS_NLG,evidence_not_found,114
+judgements,,DPS_NLG,evidence_not_found,110
+judgements,,DPS_NLG,evidence_fragments,86
+judgements,,DPS_NLG,evidence_not_found_in_parts,24
 judgements,,DPS_LLM (GPT),asked,150
 judgements,,DPS_LLM (GPT),valid,150
 judgements,,DPS_LLM (GPT),truncated,0
 judgements,,DPS_LLM (GPT),retried,0
-judgements,,DPS_LLM (GPT),evidence_not_found,53
+judgements,,DPS_LLM (GPT),evidence_not_found,40
+judgements,,DPS_LLM (GPT),evidence_fragments,23
+judgements,,DPS_LLM (GPT),evidence_not_found_in_parts,17
 judgements,,DPS_LLM (Mistral),asked,150
 judgements,,DPS_LLM (Mistral),valid,150
 judgements,,DPS_LLM (Mistral),truncated,0
 judgements,,DPS_LLM (Mistral),retried,0
-judgements,,DPS_LLM (Mistral),evidence_not_found,57
+judgements,,DPS_LLM (Mistral),evidence_not_found,40
+judgements,,DPS_LLM (Mistral),evidence_fragments,22
+judgements,,DPS_LLM (Mistral),evidence_not_found_in_parts,18
 judgements,,DPS_SWUM,asked,150
 judgements,,DPS_SWUM,valid,150
 judgements,,DPS_SWUM,truncated,0
 judgements,,DPS_SWUM,retried,0
-judgements,,DPS_SWUM,evidence_not_found,15
+judgements,,DPS_SWUM,evidence_not_found,12
+judgements,,DPS_SWUM,evidence_fragments,9
+judgements,,DPS_SWUM,evidence_not_found_in_parts,3
 preservation,all:all facts,DPS_NLG,facts,678
-preservation,all:all facts,DPS_NLG,preserved,586
-preservation,all:all facts,DPS_NLG,omitted,75
-preservation,all:all facts,DPS_NLG,incorrect,17
-preservation,all:all facts,DPS_NLG,preserved_rate,0.8643
-preservation,all:all facts,DPS_NLG,omitted_rate,0.1106
-preservation,all:all facts,DPS_NLG,incorrect_rate,0.0251
-preservation,all:all facts,DPS_NLG,macro_preserved_rate,0.8766
+preservation,all:all facts,DPS_NLG,mean_words,107.9
+preservation,all:all facts,DPS_NLG,preserved,581
+preservation,all:all facts,DPS_NLG,omitted,81
+preservation,all:all facts,DPS_NLG,incorrect,16
+preservation,all:all facts,DPS_NLG,preserved_rate,0.8569
+preservation,all:all facts,DPS_NLG,omitted_rate,0.1195
+preservation,all:all facts,DPS_NLG,incorrect_rate,0.0236
+preservation,all:all facts,DPS_NLG,macro_preserved_rate,0.8764
+preservation,all:all facts,DPS_NLG,preserved_verbatim_quote_rate,0.7006
+preservation,all:all facts,DPS_NLG,preserved_verbatim_or_fragments_rate,0.8245
 preservation,all:all facts,DPS_LLM (GPT),facts,678
-preservation,all:all facts,DPS_LLM (GPT),preserved,463
-preservation,all:all facts,DPS_LLM (GPT),omitted,206
+preservation,all:all facts,DPS_LLM (GPT),mean_words,35.4
+preservation,all:all facts,DPS_LLM (GPT),preserved,460
+preservation,all:all facts,DPS_LLM (GPT),omitted,209
 preservation,all:all facts,DPS_LLM (GPT),incorrect,9
-preservation,all:all facts,DPS_LLM (GPT),preserved_rate,0.6829
-preservation,all:all facts,DPS_LLM (GPT),omitted_rate,0.3038
+preservation,all:all facts,DPS_LLM (GPT),preserved_rate,0.6785
+preservation,all:all facts,DPS_LLM (GPT),omitted_rate,0.3083
 preservation,all:all facts,DPS_LLM (GPT),incorrect_rate,0.0133
-preservation,all:all facts,DPS_LLM (GPT),macro_preserved_rate,0.786
+preservation,all:all facts,DPS_LLM (GPT),macro_preserved_rate,0.7881
+preservation,all:all facts,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.6254
+preservation,all:all facts,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.6549
 preservation,all:all facts,DPS_LLM (Mistral),facts,678
-preservation,all:all facts,DPS_LLM (Mistral),preserved,411
-preservation,all:all facts,DPS_LLM (Mistral),omitted,257
-preservation,all:all facts,DPS_LLM (Mistral),incorrect,10
-preservation,all:all facts,DPS_LLM (Mistral),preserved_rate,0.6062
-preservation,all:all facts,DPS_LLM (Mistral),omitted_rate,0.3791
-preservation,all:all facts,DPS_LLM (Mistral),incorrect_rate,0.0147
-preservation,all:all facts,DPS_LLM (Mistral),macro_preserved_rate,0.7244
+preservation,all:all facts,DPS_LLM (Mistral),mean_words,40.6
+preservation,all:all facts,DPS_LLM (Mistral),preserved,414
+preservation,all:all facts,DPS_LLM (Mistral),omitted,255
+preservation,all:all facts,DPS_LLM (Mistral),incorrect,9
+preservation,all:all facts,DPS_LLM (Mistral),preserved_rate,0.6106
+preservation,all:all facts,DPS_LLM (Mistral),omitted_rate,0.3761
+preservation,all:all facts,DPS_LLM (Mistral),incorrect_rate,0.0133
+preservation,all:all facts,DPS_LLM (Mistral),macro_preserved_rate,0.7308
+preservation,all:all facts,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.559
+preservation,all:all facts,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.59
 preservation,all:all facts,DPS_SWUM,facts,678
-preservation,all:all facts,DPS_SWUM,preserved,137
-preservation,all:all facts,DPS_SWUM,omitted,528
-preservation,all:all facts,DPS_SWUM,incorrect,13
-preservation,all:all facts,DPS_SWUM,preserved_rate,0.2021
-preservation,all:all facts,DPS_SWUM,omitted_rate,0.7788
-preservation,all:all facts,DPS_SWUM,incorrect_rate,0.0192
-preservation,all:all facts,DPS_SWUM,macro_preserved_rate,0.2201
+preservation,all:all facts,DPS_SWUM,mean_words,13.9
+preservation,all:all facts,DPS_SWUM,preserved,135
+preservation,all:all facts,DPS_SWUM,omitted,531
+preservation,all:all facts,DPS_SWUM,incorrect,12
+preservation,all:all facts,DPS_SWUM,preserved_rate,0.1991
+preservation,all:all facts,DPS_SWUM,omitted_rate,0.7832
+preservation,all:all facts,DPS_SWUM,incorrect_rate,0.0177
+preservation,all:all facts,DPS_SWUM,macro_preserved_rate,0.2163
+preservation,all:all facts,DPS_SWUM,preserved_verbatim_quote_rate,0.1844
+preservation,all:all facts,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.1947
 preservation,source:detector,DPS_NLG,facts,135
+preservation,source:detector,DPS_NLG,mean_words,72.9
 preservation,source:detector,DPS_NLG,preserved,112
 preservation,source:detector,DPS_NLG,omitted,9
 preservation,source:detector,DPS_NLG,incorrect,14
@@ -67,63 +89,263 @@ preservation,source:detector,DPS_NLG,preserved_rate,0.8296
 preservation,source:detector,DPS_NLG,omitted_rate,0.0667
 preservation,source:detector,DPS_NLG,incorrect_rate,0.1037
 preservation,source:detector,DPS_NLG,macro_preserved_rate,0.8328
+preservation,source:detector,DPS_NLG,preserved_verbatim_quote_rate,0.7407
+preservation,source:detector,DPS_NLG,preserved_verbatim_or_fragments_rate,0.8
 preservation,source:detector,DPS_LLM (GPT),facts,135
-preservation,source:detector,DPS_LLM (GPT),preserved,55
-preservation,source:detector,DPS_LLM (GPT),omitted,71
+preservation,source:detector,DPS_LLM (GPT),mean_words,35.6
+preservation,source:detector,DPS_LLM (GPT),preserved,57
+preservation,source:detector,DPS_LLM (GPT),omitted,69
 preservation,source:detector,DPS_LLM (GPT),incorrect,9
-preservation,source:detector,DPS_LLM (GPT),preserved_rate,0.4074
-preservation,source:detector,DPS_LLM (GPT),omitted_rate,0.5259
+preservation,source:detector,DPS_LLM (GPT),preserved_rate,0.4222
+preservation,source:detector,DPS_LLM (GPT),omitted_rate,0.5111
 preservation,source:detector,DPS_LLM (GPT),incorrect_rate,0.0667
-preservation,source:detector,DPS_LLM (GPT),macro_preserved_rate,0.5472
+preservation,source:detector,DPS_LLM (GPT),macro_preserved_rate,0.5533
+preservation,source:detector,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.4
+preservation,source:detector,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.4074
 preservation,source:detector,DPS_LLM (Mistral),facts,135
-preservation,source:detector,DPS_LLM (Mistral),preserved,69
-preservation,source:detector,DPS_LLM (Mistral),omitted,57
-preservation,source:detector,DPS_LLM (Mistral),incorrect,9
-preservation,source:detector,DPS_LLM (Mistral),preserved_rate,0.5111
-preservation,source:detector,DPS_LLM (Mistral),omitted_rate,0.4222
-preservation,source:detector,DPS_LLM (Mistral),incorrect_rate,0.0667
-preservation,source:detector,DPS_LLM (Mistral),macro_preserved_rate,0.6497
+preservation,source:detector,DPS_LLM (Mistral),mean_words,42.3
+preservation,source:detector,DPS_LLM (Mistral),preserved,72
+preservation,source:detector,DPS_LLM (Mistral),omitted,55
+preservation,source:detector,DPS_LLM (Mistral),incorrect,8
+preservation,source:detector,DPS_LLM (Mistral),preserved_rate,0.5333
+preservation,source:detector,DPS_LLM (Mistral),omitted_rate,0.4074
+preservation,source:detector,DPS_LLM (Mistral),incorrect_rate,0.0593
+preservation,source:detector,DPS_LLM (Mistral),macro_preserved_rate,0.6759
+preservation,source:detector,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.4222
+preservation,source:detector,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.4963
 preservation,source:detector,DPS_SWUM,facts,135
-preservation,source:detector,DPS_SWUM,preserved,73
-preservation,source:detector,DPS_SWUM,omitted,59
-preservation,source:detector,DPS_SWUM,incorrect,3
-preservation,source:detector,DPS_SWUM,preserved_rate,0.5407
-preservation,source:detector,DPS_SWUM,omitted_rate,0.437
-preservation,source:detector,DPS_SWUM,incorrect_rate,0.0222
-preservation,source:detector,DPS_SWUM,macro_preserved_rate,0.7303
+preservation,source:detector,DPS_SWUM,mean_words,18.3
+preservation,source:detector,DPS_SWUM,preserved,75
+preservation,source:detector,DPS_SWUM,omitted,58
+preservation,source:detector,DPS_SWUM,incorrect,2
+preservation,source:detector,DPS_SWUM,preserved_rate,0.5556
+preservation,source:detector,DPS_SWUM,omitted_rate,0.4296
+preservation,source:detector,DPS_SWUM,incorrect_rate,0.0148
+preservation,source:detector,DPS_SWUM,macro_preserved_rate,0.7364
+preservation,source:detector,DPS_SWUM,preserved_verbatim_quote_rate,0.5481
+preservation,source:detector,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.5481
 preservation,source:parser,DPS_NLG,facts,543
-preservation,source:parser,DPS_NLG,preserved,474
-preservation,source:parser,DPS_NLG,omitted,66
-preservation,source:parser,DPS_NLG,incorrect,3
-preservation,source:parser,DPS_NLG,preserved_rate,0.8729
-preservation,source:parser,DPS_NLG,omitted_rate,0.1215
-preservation,source:parser,DPS_NLG,incorrect_rate,0.0055
-preservation,source:parser,DPS_NLG,macro_preserved_rate,0.8896
+preservation,source:parser,DPS_NLG,mean_words,107.9
+preservation,source:parser,DPS_NLG,preserved,469
+preservation,source:parser,DPS_NLG,omitted,72
+preservation,source:parser,DPS_NLG,incorrect,2
+preservation,source:parser,DPS_NLG,preserved_rate,0.8637
+preservation,source:parser,DPS_NLG,omitted_rate,0.1326
+preservation,source:parser,DPS_NLG,incorrect_rate,0.0037
+preservation,source:parser,DPS_NLG,macro_preserved_rate,0.8908
+preservation,source:parser,DPS_NLG,preserved_verbatim_quote_rate,0.6906
+preservation,source:parser,DPS_NLG,preserved_verbatim_or_fragments_rate,0.8306
 preservation,source:parser,DPS_LLM (GPT),facts,543
-preservation,source:parser,DPS_LLM (GPT),preserved,408
-preservation,source:parser,DPS_LLM (GPT),omitted,135
+preservation,source:parser,DPS_LLM (GPT),mean_words,35.4
+preservation,source:parser,DPS_LLM (GPT),preserved,403
+preservation,source:parser,DPS_LLM (GPT),omitted,140
 preservation,source:parser,DPS_LLM (GPT),incorrect,0
-preservation,source:parser,DPS_LLM (GPT),preserved_rate,0.7514
-preservation,source:parser,DPS_LLM (GPT),omitted_rate,0.2486
+preservation,source:parser,DPS_LLM (GPT),preserved_rate,0.7422
+preservation,source:parser,DPS_LLM (GPT),omitted_rate,0.2578
 preservation,source:parser,DPS_LLM (GPT),incorrect_rate,0.0
-preservation,source:parser,DPS_LLM (GPT),macro_preserved_rate,0.8706
+preservation,source:parser,DPS_LLM (GPT),macro_preserved_rate,0.8725
+preservation,source:parser,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.6814
+preservation,source:parser,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.7164
 preservation,source:parser,DPS_LLM (Mistral),facts,543
+preservation,source:parser,DPS_LLM (Mistral),mean_words,40.6
 preservation,source:parser,DPS_LLM (Mistral),preserved,342
 preservation,source:parser,DPS_LLM (Mistral),omitted,200
 preservation,source:parser,DPS_LLM (Mistral),incorrect,1
 preservation,source:parser,DPS_LLM (Mistral),preserved_rate,0.6298
 preservation,source:parser,DPS_LLM (Mistral),omitted_rate,0.3683
 preservation,source:parser,DPS_LLM (Mistral),incorrect_rate,0.0018
-preservation,source:parser,DPS_LLM (Mistral),macro_preserved_rate,0.7756
+preservation,source:parser,DPS_LLM (Mistral),macro_preserved_rate,0.7802
+preservation,source:parser,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.593
+preservation,source:parser,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.6133
 preservation,source:parser,DPS_SWUM,facts,543
-preservation,source:parser,DPS_SWUM,preserved,64
-preservation,source:parser,DPS_SWUM,omitted,469
+preservation,source:parser,DPS_SWUM,mean_words,13.9
+preservation,source:parser,DPS_SWUM,preserved,60
+preservation,source:parser,DPS_SWUM,omitted,473
 preservation,source:parser,DPS_SWUM,incorrect,10
-preservation,source:parser,DPS_SWUM,preserved_rate,0.1179
-preservation,source:parser,DPS_SWUM,omitted_rate,0.8637
+preservation,source:parser,DPS_SWUM,preserved_rate,0.1105
+preservation,source:parser,DPS_SWUM,omitted_rate,0.8711
 preservation,source:parser,DPS_SWUM,incorrect_rate,0.0184
-preservation,source:parser,DPS_SWUM,macro_preserved_rate,0.1274
+preservation,source:parser,DPS_SWUM,macro_preserved_rate,0.1247
+preservation,source:parser,DPS_SWUM,preserved_verbatim_quote_rate,0.0939
+preservation,source:parser,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.1068
+preservation,category:pattern role,DPS_NLG,facts,135
+preservation,category:pattern role,DPS_NLG,mean_words,72.9
+preservation,category:pattern role,DPS_NLG,preserved,112
+preservation,category:pattern role,DPS_NLG,omitted,9
+preservation,category:pattern role,DPS_NLG,incorrect,14
+preservation,category:pattern role,DPS_NLG,preserved_rate,0.8296
+preservation,category:pattern role,DPS_NLG,omitted_rate,0.0667
+preservation,category:pattern role,DPS_NLG,incorrect_rate,0.1037
+preservation,category:pattern role,DPS_NLG,macro_preserved_rate,0.8328
+preservation,category:pattern role,DPS_NLG,preserved_verbatim_quote_rate,0.7407
+preservation,category:pattern role,DPS_NLG,preserved_verbatim_or_fragments_rate,0.8
+preservation,category:pattern role,DPS_LLM (GPT),facts,135
+preservation,category:pattern role,DPS_LLM (GPT),mean_words,35.6
+preservation,category:pattern role,DPS_LLM (GPT),preserved,57
+preservation,category:pattern role,DPS_LLM (GPT),omitted,69
+preservation,category:pattern role,DPS_LLM (GPT),incorrect,9
+preservation,category:pattern role,DPS_LLM (GPT),preserved_rate,0.4222
+preservation,category:pattern role,DPS_LLM (GPT),omitted_rate,0.5111
+preservation,category:pattern role,DPS_LLM (GPT),incorrect_rate,0.0667
+preservation,category:pattern role,DPS_LLM (GPT),macro_preserved_rate,0.5533
+preservation,category:pattern role,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.4
+preservation,category:pattern role,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.4074
+preservation,category:pattern role,DPS_LLM (Mistral),facts,135
+preservation,category:pattern role,DPS_LLM (Mistral),mean_words,42.3
+preservation,category:pattern role,DPS_LLM (Mistral),preserved,72
+preservation,category:pattern role,DPS_LLM (Mistral),omitted,55
+preservation,category:pattern role,DPS_LLM (Mistral),incorrect,8
+preservation,category:pattern role,DPS_LLM (Mistral),preserved_rate,0.5333
+preservation,category:pattern role,DPS_LLM (Mistral),omitted_rate,0.4074
+preservation,category:pattern role,DPS_LLM (Mistral),incorrect_rate,0.0593
+preservation,category:pattern role,DPS_LLM (Mistral),macro_preserved_rate,0.6759
+preservation,category:pattern role,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.4222
+preservation,category:pattern role,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.4963
+preservation,category:pattern role,DPS_SWUM,facts,135
+preservation,category:pattern role,DPS_SWUM,mean_words,18.3
+preservation,category:pattern role,DPS_SWUM,preserved,75
+preservation,category:pattern role,DPS_SWUM,omitted,58
+preservation,category:pattern role,DPS_SWUM,incorrect,2
+preservation,category:pattern role,DPS_SWUM,preserved_rate,0.5556
+preservation,category:pattern role,DPS_SWUM,omitted_rate,0.4296
+preservation,category:pattern role,DPS_SWUM,incorrect_rate,0.0148
+preservation,category:pattern role,DPS_SWUM,macro_preserved_rate,0.7364
+preservation,category:pattern role,DPS_SWUM,preserved_verbatim_quote_rate,0.5481
+preservation,category:pattern role,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.5481
+preservation,category:responsibility,DPS_NLG,facts,314
+preservation,category:responsibility,DPS_NLG,mean_words,111.1
+preservation,category:responsibility,DPS_NLG,preserved,240
+preservation,category:responsibility,DPS_NLG,omitted,72
+preservation,category:responsibility,DPS_NLG,incorrect,2
+preservation,category:responsibility,DPS_NLG,preserved_rate,0.7643
+preservation,category:responsibility,DPS_NLG,omitted_rate,0.2293
+preservation,category:responsibility,DPS_NLG,incorrect_rate,0.0064
+preservation,category:responsibility,DPS_NLG,macro_preserved_rate,0.8304
+preservation,category:responsibility,DPS_NLG,preserved_verbatim_quote_rate,0.5924
+preservation,category:responsibility,DPS_NLG,preserved_verbatim_or_fragments_rate,0.742
+preservation,category:responsibility,DPS_LLM (GPT),facts,314
+preservation,category:responsibility,DPS_LLM (GPT),mean_words,35.6
+preservation,category:responsibility,DPS_LLM (GPT),preserved,253
+preservation,category:responsibility,DPS_LLM (GPT),omitted,61
+preservation,category:responsibility,DPS_LLM (GPT),incorrect,0
+preservation,category:responsibility,DPS_LLM (GPT),preserved_rate,0.8057
+preservation,category:responsibility,DPS_LLM (GPT),omitted_rate,0.1943
+preservation,category:responsibility,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,category:responsibility,DPS_LLM (GPT),macro_preserved_rate,0.8641
+preservation,category:responsibility,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.7229
+preservation,category:responsibility,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.7675
+preservation,category:responsibility,DPS_LLM (Mistral),facts,314
+preservation,category:responsibility,DPS_LLM (Mistral),mean_words,40.7
+preservation,category:responsibility,DPS_LLM (Mistral),preserved,203
+preservation,category:responsibility,DPS_LLM (Mistral),omitted,111
+preservation,category:responsibility,DPS_LLM (Mistral),incorrect,0
+preservation,category:responsibility,DPS_LLM (Mistral),preserved_rate,0.6465
+preservation,category:responsibility,DPS_LLM (Mistral),omitted_rate,0.3535
+preservation,category:responsibility,DPS_LLM (Mistral),incorrect_rate,0.0
+preservation,category:responsibility,DPS_LLM (Mistral),macro_preserved_rate,0.731
+preservation,category:responsibility,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.6051
+preservation,category:responsibility,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.6274
+preservation,category:responsibility,DPS_SWUM,facts,314
+preservation,category:responsibility,DPS_SWUM,mean_words,13.9
+preservation,category:responsibility,DPS_SWUM,preserved,56
+preservation,category:responsibility,DPS_SWUM,omitted,258
+preservation,category:responsibility,DPS_SWUM,incorrect,0
+preservation,category:responsibility,DPS_SWUM,preserved_rate,0.1783
+preservation,category:responsibility,DPS_SWUM,omitted_rate,0.8217
+preservation,category:responsibility,DPS_SWUM,incorrect_rate,0.0
+preservation,category:responsibility,DPS_SWUM,macro_preserved_rate,0.185
+preservation,category:responsibility,DPS_SWUM,preserved_verbatim_quote_rate,0.1497
+preservation,category:responsibility,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.172
+preservation,category:relationship,DPS_NLG,facts,193
+preservation,category:relationship,DPS_NLG,mean_words,146.4
+preservation,category:relationship,DPS_NLG,preserved,193
+preservation,category:relationship,DPS_NLG,omitted,0
+preservation,category:relationship,DPS_NLG,incorrect,0
+preservation,category:relationship,DPS_NLG,preserved_rate,1.0
+preservation,category:relationship,DPS_NLG,omitted_rate,0.0
+preservation,category:relationship,DPS_NLG,incorrect_rate,0.0
+preservation,category:relationship,DPS_NLG,macro_preserved_rate,1.0
+preservation,category:relationship,DPS_NLG,preserved_verbatim_quote_rate,0.7927
+preservation,category:relationship,DPS_NLG,preserved_verbatim_or_fragments_rate,0.943
+preservation,category:relationship,DPS_LLM (GPT),facts,193
+preservation,category:relationship,DPS_LLM (GPT),mean_words,36.5
+preservation,category:relationship,DPS_LLM (GPT),preserved,117
+preservation,category:relationship,DPS_LLM (GPT),omitted,76
+preservation,category:relationship,DPS_LLM (GPT),incorrect,0
+preservation,category:relationship,DPS_LLM (GPT),preserved_rate,0.6062
+preservation,category:relationship,DPS_LLM (GPT),omitted_rate,0.3938
+preservation,category:relationship,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,category:relationship,DPS_LLM (GPT),macro_preserved_rate,0.8309
+preservation,category:relationship,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.5699
+preservation,category:relationship,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.5959
+preservation,category:relationship,DPS_LLM (Mistral),facts,193
+preservation,category:relationship,DPS_LLM (Mistral),mean_words,40.4
+preservation,category:relationship,DPS_LLM (Mistral),preserved,105
+preservation,category:relationship,DPS_LLM (Mistral),omitted,87
+preservation,category:relationship,DPS_LLM (Mistral),incorrect,1
+preservation,category:relationship,DPS_LLM (Mistral),preserved_rate,0.544
+preservation,category:relationship,DPS_LLM (Mistral),omitted_rate,0.4508
+preservation,category:relationship,DPS_LLM (Mistral),incorrect_rate,0.0052
+preservation,category:relationship,DPS_LLM (Mistral),macro_preserved_rate,0.7637
+preservation,category:relationship,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.5078
+preservation,category:relationship,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.5285
+preservation,category:relationship,DPS_SWUM,facts,193
+preservation,category:relationship,DPS_SWUM,mean_words,15.8
+preservation,category:relationship,DPS_SWUM,preserved,4
+preservation,category:relationship,DPS_SWUM,omitted,189
+preservation,category:relationship,DPS_SWUM,incorrect,0
+preservation,category:relationship,DPS_SWUM,preserved_rate,0.0207
+preservation,category:relationship,DPS_SWUM,omitted_rate,0.9793
+preservation,category:relationship,DPS_SWUM,incorrect_rate,0.0
+preservation,category:relationship,DPS_SWUM,macro_preserved_rate,0.0213
+preservation,category:relationship,DPS_SWUM,preserved_verbatim_quote_rate,0.0207
+preservation,category:relationship,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.0207
+preservation,category:identity,DPS_NLG,facts,36
+preservation,category:identity,DPS_NLG,mean_words,87.0
+preservation,category:identity,DPS_NLG,preserved,36
+preservation,category:identity,DPS_NLG,omitted,0
+preservation,category:identity,DPS_NLG,incorrect,0
+preservation,category:identity,DPS_NLG,preserved_rate,1.0
+preservation,category:identity,DPS_NLG,omitted_rate,0.0
+preservation,category:identity,DPS_NLG,incorrect_rate,0.0
+preservation,category:identity,DPS_NLG,macro_preserved_rate,1.0
+preservation,category:identity,DPS_NLG,preserved_verbatim_quote_rate,1.0
+preservation,category:identity,DPS_NLG,preserved_verbatim_or_fragments_rate,1.0
+preservation,category:identity,DPS_LLM (GPT),facts,36
+preservation,category:identity,DPS_LLM (GPT),mean_words,35.5
+preservation,category:identity,DPS_LLM (GPT),preserved,33
+preservation,category:identity,DPS_LLM (GPT),omitted,3
+preservation,category:identity,DPS_LLM (GPT),incorrect,0
+preservation,category:identity,DPS_LLM (GPT),preserved_rate,0.9167
+preservation,category:identity,DPS_LLM (GPT),omitted_rate,0.0833
+preservation,category:identity,DPS_LLM (GPT),incorrect_rate,0.0
+preservation,category:identity,DPS_LLM (GPT),macro_preserved_rate,0.9167
+preservation,category:identity,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.9167
+preservation,category:identity,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.9167
+preservation,category:identity,DPS_LLM (Mistral),facts,36
+preservation,category:identity,DPS_LLM (Mistral),mean_words,39.8
+preservation,category:identity,DPS_LLM (Mistral),preserved,34
+preservation,category:identity,DPS_LLM (Mistral),omitted,2
+preservation,category:identity,DPS_LLM (Mistral),incorrect,0
+preservation,category:identity,DPS_LLM (Mistral),preserved_rate,0.9444
+preservation,category:identity,DPS_LLM (Mistral),omitted_rate,0.0556
+preservation,category:identity,DPS_LLM (Mistral),incorrect_rate,0.0
+preservation,category:identity,DPS_LLM (Mistral),macro_preserved_rate,0.9444
+preservation,category:identity,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.9444
+preservation,category:identity,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.9444
+preservation,category:identity,DPS_SWUM,facts,36
+preservation,category:identity,DPS_SWUM,mean_words,14.4
+preservation,category:identity,DPS_SWUM,preserved,0
+preservation,category:identity,DPS_SWUM,omitted,26
+preservation,category:identity,DPS_SWUM,incorrect,10
+preservation,category:identity,DPS_SWUM,preserved_rate,0.0
+preservation,category:identity,DPS_SWUM,omitted_rate,0.7222
+preservation,category:identity,DPS_SWUM,incorrect_rate,0.2778
+preservation,category:identity,DPS_SWUM,macro_preserved_rate,0.0
+preservation,category:identity,DPS_SWUM,preserved_verbatim_quote_rate,0.0
+preservation,category:identity,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.0
 preservation,fact_type:role,DPS_NLG,facts,135
+preservation,fact_type:role,DPS_NLG,mean_words,72.9
 preservation,fact_type:role,DPS_NLG,preserved,112
 preservation,fact_type:role,DPS_NLG,omitted,9
 preservation,fact_type:role,DPS_NLG,incorrect,14
@@ -131,31 +353,43 @@ preservation,fact_type:role,DPS_NLG,preserved_rate,0.8296
 preservation,fact_type:role,DPS_NLG,omitted_rate,0.0667
 preservation,fact_type:role,DPS_NLG,incorrect_rate,0.1037
 preservation,fact_type:role,DPS_NLG,macro_preserved_rate,0.8328
+preservation,fact_type:role,DPS_NLG,preserved_verbatim_quote_rate,0.7407
+preservation,fact_type:role,DPS_NLG,preserved_verbatim_or_fragments_rate,0.8
 preservation,fact_type:role,DPS_LLM (GPT),facts,135
-preservation,fact_type:role,DPS_LLM (GPT),preserved,55
-preservation,fact_type:role,DPS_LLM (GPT),omitted,71
+preservation,fact_type:role,DPS_LLM (GPT),mean_words,35.6
+preservation,fact_type:role,DPS_LLM (GPT),preserved,57
+preservation,fact_type:role,DPS_LLM (GPT),omitted,69
 preservation,fact_type:role,DPS_LLM (GPT),incorrect,9
-preservation,fact_type:role,DPS_LLM (GPT),preserved_rate,0.4074
-preservation,fact_type:role,DPS_LLM (GPT),omitted_rate,0.5259
+preservation,fact_type:role,DPS_LLM (GPT),preserved_rate,0.4222
+preservation,fact_type:role,DPS_LLM (GPT),omitted_rate,0.5111
 preservation,fact_type:role,DPS_LLM (GPT),incorrect_rate,0.0667
-preservation,fact_type:role,DPS_LLM (GPT),macro_preserved_rate,0.5472
+preservation,fact_type:role,DPS_LLM (GPT),macro_preserved_rate,0.5533
+preservation,fact_type:role,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.4
+preservation,fact_type:role,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.4074
 preservation,fact_type:role,DPS_LLM (Mistral),facts,135
-preservation,fact_type:role,DPS_LLM (Mistral),preserved,69
-preservation,fact_type:role,DPS_LLM (Mistral),omitted,57
-preservation,fact_type:role,DPS_LLM (Mistral),incorrect,9
-preservation,fact_type:role,DPS_LLM (Mistral),preserved_rate,0.5111
-preservation,fact_type:role,DPS_LLM (Mistral),omitted_rate,0.4222
-preservation,fact_type:role,DPS_LLM (Mistral),incorrect_rate,0.0667
-preservation,fact_type:role,DPS_LLM (Mistral),macro_preserved_rate,0.6497
+preservation,fact_type:role,DPS_LLM (Mistral),mean_words,42.3
+preservation,fact_type:role,DPS_LLM (Mistral),preserved,72
+preservation,fact_type:role,DPS_LLM (Mistral),omitted,55
+preservation,fact_type:role,DPS_LLM (Mistral),incorrect,8
+preservation,fact_type:role,DPS_LLM (Mistral),preserved_rate,0.5333
+preservation,fact_type:role,DPS_LLM (Mistral),omitted_rate,0.4074
+preservation,fact_type:role,DPS_LLM (Mistral),incorrect_rate,0.0593
+preservation,fact_type:role,DPS_LLM (Mistral),macro_preserved_rate,0.6759
+preservation,fact_type:role,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.4222
+preservation,fact_type:role,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.4963
 preservation,fact_type:role,DPS_SWUM,facts,135
-preservation,fact_type:role,DPS_SWUM,preserved,73
-preservation,fact_type:role,DPS_SWUM,omitted,59
-preservation,fact_type:role,DPS_SWUM,incorrect,3
-preservation,fact_type:role,DPS_SWUM,preserved_rate,0.5407
-preservation,fact_type:role,DPS_SWUM,omitted_rate,0.437
-preservation,fact_type:role,DPS_SWUM,incorrect_rate,0.0222
-preservation,fact_type:role,DPS_SWUM,macro_preserved_rate,0.7303
+preservation,fact_type:role,DPS_SWUM,mean_words,18.3
+preservation,fact_type:role,DPS_SWUM,preserved,75
+preservation,fact_type:role,DPS_SWUM,omitted,58
+preservation,fact_type:role,DPS_SWUM,incorrect,2
+preservation,fact_type:role,DPS_SWUM,preserved_rate,0.5556
+preservation,fact_type:role,DPS_SWUM,omitted_rate,0.4296
+preservation,fact_type:role,DPS_SWUM,incorrect_rate,0.0148
+preservation,fact_type:role,DPS_SWUM,macro_preserved_rate,0.7364
+preservation,fact_type:role,DPS_SWUM,preserved_verbatim_quote_rate,0.5481
+preservation,fact_type:role,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.5481
 preservation,fact_type:kind,DPS_NLG,facts,36
+preservation,fact_type:kind,DPS_NLG,mean_words,87.0
 preservation,fact_type:kind,DPS_NLG,preserved,36
 preservation,fact_type:kind,DPS_NLG,omitted,0
 preservation,fact_type:kind,DPS_NLG,incorrect,0
@@ -163,7 +397,10 @@ preservation,fact_type:kind,DPS_NLG,preserved_rate,1.0
 preservation,fact_type:kind,DPS_NLG,omitted_rate,0.0
 preservation,fact_type:kind,DPS_NLG,incorrect_rate,0.0
 preservation,fact_type:kind,DPS_NLG,macro_preserved_rate,1.0
+preservation,fact_type:kind,DPS_NLG,preserved_verbatim_quote_rate,1.0
+preservation,fact_type:kind,DPS_NLG,preserved_verbatim_or_fragments_rate,1.0
 preservation,fact_type:kind,DPS_LLM (GPT),facts,36
+preservation,fact_type:kind,DPS_LLM (GPT),mean_words,35.5
 preservation,fact_type:kind,DPS_LLM (GPT),preserved,33
 preservation,fact_type:kind,DPS_LLM (GPT),omitted,3
 preservation,fact_type:kind,DPS_LLM (GPT),incorrect,0
@@ -171,23 +408,32 @@ preservation,fact_type:kind,DPS_LLM (GPT),preserved_rate,0.9167
 preservation,fact_type:kind,DPS_LLM (GPT),omitted_rate,0.0833
 preservation,fact_type:kind,DPS_LLM (GPT),incorrect_rate,0.0
 preservation,fact_type:kind,DPS_LLM (GPT),macro_preserved_rate,0.9167
+preservation,fact_type:kind,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.9167
+preservation,fact_type:kind,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.9167
 preservation,fact_type:kind,DPS_LLM (Mistral),facts,36
-preservation,fact_type:kind,DPS_LLM (Mistral),preserved,35
-preservation,fact_type:kind,DPS_LLM (Mistral),omitted,1
+preservation,fact_type:kind,DPS_LLM (Mistral),mean_words,39.8
+preservation,fact_type:kind,DPS_LLM (Mistral),preserved,34
+preservation,fact_type:kind,DPS_LLM (Mistral),omitted,2
 preservation,fact_type:kind,DPS_LLM (Mistral),incorrect,0
-preservation,fact_type:kind,DPS_LLM (Mistral),preserved_rate,0.9722
-preservation,fact_type:kind,DPS_LLM (Mistral),omitted_rate,0.0278
+preservation,fact_type:kind,DPS_LLM (Mistral),preserved_rate,0.9444
+preservation,fact_type:kind,DPS_LLM (Mistral),omitted_rate,0.0556
 preservation,fact_type:kind,DPS_LLM (Mistral),incorrect_rate,0.0
-preservation,fact_type:kind,DPS_LLM (Mistral),macro_preserved_rate,0.9722
+preservation,fact_type:kind,DPS_LLM (Mistral),macro_preserved_rate,0.9444
+preservation,fact_type:kind,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.9444
+preservation,fact_type:kind,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.9444
 preservation,fact_type:kind,DPS_SWUM,facts,36
-preservation,fact_type:kind,DPS_SWUM,preserved,1
-preservation,fact_type:kind,DPS_SWUM,omitted,25
+preservation,fact_type:kind,DPS_SWUM,mean_words,14.4
+preservation,fact_type:kind,DPS_SWUM,preserved,0
+preservation,fact_type:kind,DPS_SWUM,omitted,26
 preservation,fact_type:kind,DPS_SWUM,incorrect,10
-preservation,fact_type:kind,DPS_SWUM,preserved_rate,0.0278
-preservation,fact_type:kind,DPS_SWUM,omitted_rate,0.6944
+preservation,fact_type:kind,DPS_SWUM,preserved_rate,0.0
+preservation,fact_type:kind,DPS_SWUM,omitted_rate,0.7222
 preservation,fact_type:kind,DPS_SWUM,incorrect_rate,0.2778
-preservation,fact_type:kind,DPS_SWUM,macro_preserved_rate,0.0278
+preservation,fact_type:kind,DPS_SWUM,macro_preserved_rate,0.0
+preservation,fact_type:kind,DPS_SWUM,preserved_verbatim_quote_rate,0.0
+preservation,fact_type:kind,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.0
 preservation,fact_type:inheritance,DPS_NLG,facts,111
+preservation,fact_type:inheritance,DPS_NLG,mean_words,151.1
 preservation,fact_type:inheritance,DPS_NLG,preserved,111
 preservation,fact_type:inheritance,DPS_NLG,omitted,0
 preservation,fact_type:inheritance,DPS_NLG,incorrect,0
@@ -195,39 +441,54 @@ preservation,fact_type:inheritance,DPS_NLG,preserved_rate,1.0
 preservation,fact_type:inheritance,DPS_NLG,omitted_rate,0.0
 preservation,fact_type:inheritance,DPS_NLG,incorrect_rate,0.0
 preservation,fact_type:inheritance,DPS_NLG,macro_preserved_rate,1.0
+preservation,fact_type:inheritance,DPS_NLG,preserved_verbatim_quote_rate,0.7838
+preservation,fact_type:inheritance,DPS_NLG,preserved_verbatim_or_fragments_rate,0.9009
 preservation,fact_type:inheritance,DPS_LLM (GPT),facts,111
-preservation,fact_type:inheritance,DPS_LLM (GPT),preserved,98
-preservation,fact_type:inheritance,DPS_LLM (GPT),omitted,13
+preservation,fact_type:inheritance,DPS_LLM (GPT),mean_words,36.6
+preservation,fact_type:inheritance,DPS_LLM (GPT),preserved,94
+preservation,fact_type:inheritance,DPS_LLM (GPT),omitted,17
 preservation,fact_type:inheritance,DPS_LLM (GPT),incorrect,0
-preservation,fact_type:inheritance,DPS_LLM (GPT),preserved_rate,0.8829
-preservation,fact_type:inheritance,DPS_LLM (GPT),omitted_rate,0.1171
+preservation,fact_type:inheritance,DPS_LLM (GPT),preserved_rate,0.8468
+preservation,fact_type:inheritance,DPS_LLM (GPT),omitted_rate,0.1532
 preservation,fact_type:inheritance,DPS_LLM (GPT),incorrect_rate,0.0
-preservation,fact_type:inheritance,DPS_LLM (GPT),macro_preserved_rate,0.9432
+preservation,fact_type:inheritance,DPS_LLM (GPT),macro_preserved_rate,0.9348
+preservation,fact_type:inheritance,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.8198
+preservation,fact_type:inheritance,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.8288
 preservation,fact_type:inheritance,DPS_LLM (Mistral),facts,111
-preservation,fact_type:inheritance,DPS_LLM (Mistral),preserved,88
-preservation,fact_type:inheritance,DPS_LLM (Mistral),omitted,22
+preservation,fact_type:inheritance,DPS_LLM (Mistral),mean_words,40.6
+preservation,fact_type:inheritance,DPS_LLM (Mistral),preserved,89
+preservation,fact_type:inheritance,DPS_LLM (Mistral),omitted,21
 preservation,fact_type:inheritance,DPS_LLM (Mistral),incorrect,1
-preservation,fact_type:inheritance,DPS_LLM (Mistral),preserved_rate,0.7928
-preservation,fact_type:inheritance,DPS_LLM (Mistral),omitted_rate,0.1982
+preservation,fact_type:inheritance,DPS_LLM (Mistral),preserved_rate,0.8018
+preservation,fact_type:inheritance,DPS_LLM (Mistral),omitted_rate,0.1892
 preservation,fact_type:inheritance,DPS_LLM (Mistral),incorrect_rate,0.009
-preservation,fact_type:inheritance,DPS_LLM (Mistral),macro_preserved_rate,0.8765
+preservation,fact_type:inheritance,DPS_LLM (Mistral),macro_preserved_rate,0.8807
+preservation,fact_type:inheritance,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.7477
+preservation,fact_type:inheritance,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.7748
 preservation,fact_type:inheritance,DPS_SWUM,facts,111
+preservation,fact_type:inheritance,DPS_SWUM,mean_words,16.6
 preservation,fact_type:inheritance,DPS_SWUM,preserved,4
 preservation,fact_type:inheritance,DPS_SWUM,omitted,107
 preservation,fact_type:inheritance,DPS_SWUM,incorrect,0
 preservation,fact_type:inheritance,DPS_SWUM,preserved_rate,0.036
 preservation,fact_type:inheritance,DPS_SWUM,omitted_rate,0.964
 preservation,fact_type:inheritance,DPS_SWUM,incorrect_rate,0.0
-preservation,fact_type:inheritance,DPS_SWUM,macro_preserved_rate,0.0417
+preservation,fact_type:inheritance,DPS_SWUM,macro_preserved_rate,0.0247
+preservation,fact_type:inheritance,DPS_SWUM,preserved_verbatim_quote_rate,0.036
+preservation,fact_type:inheritance,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.036
 preservation,fact_type:constructor,DPS_NLG,facts,24
+preservation,fact_type:constructor,DPS_NLG,mean_words,90.8
 preservation,fact_type:constructor,DPS_NLG,preserved,0
-preservation,fact_type:constructor,DPS_NLG,omitted,23
-preservation,fact_type:constructor,DPS_NLG,incorrect,1
+preservation,fact_type:constructor,DPS_NLG,omitted,24
+preservation,fact_type:constructor,DPS_NLG,incorrect,0
 preservation,fact_type:constructor,DPS_NLG,preserved_rate,0.0
-preservation,fact_type:constructor,DPS_NLG,omitted_rate,0.9583
-preservation,fact_type:constructor,DPS_NLG,incorrect_rate,0.0417
+preservation,fact_type:constructor,DPS_NLG,omitted_rate,1.0
+preservation,fact_type:constructor,DPS_NLG,incorrect_rate,0.0
 preservation,fact_type:constructor,DPS_NLG,macro_preserved_rate,0.0
+preservation,fact_type:constructor,DPS_NLG,preserved_verbatim_quote_rate,0.0
+preservation,fact_type:constructor,DPS_NLG,preserved_verbatim_or_fragments_rate,0.0
 preservation,fact_type:constructor,DPS_LLM (GPT),facts,24
+preservation,fact_type:constructor,DPS_LLM (GPT),mean_words,38.3
 preservation,fact_type:constructor,DPS_LLM (GPT),preserved,21
 preservation,fact_type:constructor,DPS_LLM (GPT),omitted,3
 preservation,fact_type:constructor,DPS_LLM (GPT),incorrect,0
@@ -235,15 +496,21 @@ preservation,fact_type:constructor,DPS_LLM (GPT),preserved_rate,0.875
 preservation,fact_type:constructor,DPS_LLM (GPT),omitted_rate,0.125
 preservation,fact_type:constructor,DPS_LLM (GPT),incorrect_rate,0.0
 preservation,fact_type:constructor,DPS_LLM (GPT),macro_preserved_rate,0.9091
+preservation,fact_type:constructor,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.875
+preservation,fact_type:constructor,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.875
 preservation,fact_type:constructor,DPS_LLM (Mistral),facts,24
-preservation,fact_type:constructor,DPS_LLM (Mistral),preserved,6
-preservation,fact_type:constructor,DPS_LLM (Mistral),omitted,18
+preservation,fact_type:constructor,DPS_LLM (Mistral),mean_words,42.8
+preservation,fact_type:constructor,DPS_LLM (Mistral),preserved,8
+preservation,fact_type:constructor,DPS_LLM (Mistral),omitted,16
 preservation,fact_type:constructor,DPS_LLM (Mistral),incorrect,0
-preservation,fact_type:constructor,DPS_LLM (Mistral),preserved_rate,0.25
-preservation,fact_type:constructor,DPS_LLM (Mistral),omitted_rate,0.75
+preservation,fact_type:constructor,DPS_LLM (Mistral),preserved_rate,0.3333
+preservation,fact_type:constructor,DPS_LLM (Mistral),omitted_rate,0.6667
 preservation,fact_type:constructor,DPS_LLM (Mistral),incorrect_rate,0.0
-preservation,fact_type:constructor,DPS_LLM (Mistral),macro_preserved_rate,0.2727
+preservation,fact_type:constructor,DPS_LLM (Mistral),macro_preserved_rate,0.3636
+preservation,fact_type:constructor,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.2917
+preservation,fact_type:constructor,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.3333
 preservation,fact_type:constructor,DPS_SWUM,facts,24
+preservation,fact_type:constructor,DPS_SWUM,mean_words,14.2
 preservation,fact_type:constructor,DPS_SWUM,preserved,0
 preservation,fact_type:constructor,DPS_SWUM,omitted,24
 preservation,fact_type:constructor,DPS_SWUM,incorrect,0
@@ -251,7 +518,10 @@ preservation,fact_type:constructor,DPS_SWUM,preserved_rate,0.0
 preservation,fact_type:constructor,DPS_SWUM,omitted_rate,1.0
 preservation,fact_type:constructor,DPS_SWUM,incorrect_rate,0.0
 preservation,fact_type:constructor,DPS_SWUM,macro_preserved_rate,0.0
+preservation,fact_type:constructor,DPS_SWUM,preserved_verbatim_quote_rate,0.0
+preservation,fact_type:constructor,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.0
 preservation,fact_type:field,DPS_NLG,facts,30
+preservation,fact_type:field,DPS_NLG,mean_words,103.2
 preservation,fact_type:field,DPS_NLG,preserved,3
 preservation,fact_type:field,DPS_NLG,omitted,27
 preservation,fact_type:field,DPS_NLG,incorrect,0
@@ -259,7 +529,10 @@ preservation,fact_type:field,DPS_NLG,preserved_rate,0.1
 preservation,fact_type:field,DPS_NLG,omitted_rate,0.9
 preservation,fact_type:field,DPS_NLG,incorrect_rate,0.0
 preservation,fact_type:field,DPS_NLG,macro_preserved_rate,0.04
+preservation,fact_type:field,DPS_NLG,preserved_verbatim_quote_rate,0.1
+preservation,fact_type:field,DPS_NLG,preserved_verbatim_or_fragments_rate,0.1
 preservation,fact_type:field,DPS_LLM (GPT),facts,30
+preservation,fact_type:field,DPS_LLM (GPT),mean_words,37.5
 preservation,fact_type:field,DPS_LLM (GPT),preserved,25
 preservation,fact_type:field,DPS_LLM (GPT),omitted,5
 preservation,fact_type:field,DPS_LLM (GPT),incorrect,0
@@ -267,15 +540,21 @@ preservation,fact_type:field,DPS_LLM (GPT),preserved_rate,0.8333
 preservation,fact_type:field,DPS_LLM (GPT),omitted_rate,0.1667
 preservation,fact_type:field,DPS_LLM (GPT),incorrect_rate,0.0
 preservation,fact_type:field,DPS_LLM (GPT),macro_preserved_rate,0.82
+preservation,fact_type:field,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.8333
+preservation,fact_type:field,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.8333
 preservation,fact_type:field,DPS_LLM (Mistral),facts,30
-preservation,fact_type:field,DPS_LLM (Mistral),preserved,24
-preservation,fact_type:field,DPS_LLM (Mistral),omitted,6
+preservation,fact_type:field,DPS_LLM (Mistral),mean_words,42.8
+preservation,fact_type:field,DPS_LLM (Mistral),preserved,22
+preservation,fact_type:field,DPS_LLM (Mistral),omitted,8
 preservation,fact_type:field,DPS_LLM (Mistral),incorrect,0
-preservation,fact_type:field,DPS_LLM (Mistral),preserved_rate,0.8
-preservation,fact_type:field,DPS_LLM (Mistral),omitted_rate,0.2
+preservation,fact_type:field,DPS_LLM (Mistral),preserved_rate,0.7333
+preservation,fact_type:field,DPS_LLM (Mistral),omitted_rate,0.2667
 preservation,fact_type:field,DPS_LLM (Mistral),incorrect_rate,0.0
-preservation,fact_type:field,DPS_LLM (Mistral),macro_preserved_rate,0.78
+preservation,fact_type:field,DPS_LLM (Mistral),macro_preserved_rate,0.74
+preservation,fact_type:field,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.7
+preservation,fact_type:field,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.7333
 preservation,fact_type:field,DPS_SWUM,facts,30
+preservation,fact_type:field,DPS_SWUM,mean_words,15.2
 preservation,fact_type:field,DPS_SWUM,preserved,0
 preservation,fact_type:field,DPS_SWUM,omitted,30
 preservation,fact_type:field,DPS_SWUM,incorrect,0
@@ -283,39 +562,54 @@ preservation,fact_type:field,DPS_SWUM,preserved_rate,0.0
 preservation,fact_type:field,DPS_SWUM,omitted_rate,1.0
 preservation,fact_type:field,DPS_SWUM,incorrect_rate,0.0
 preservation,fact_type:field,DPS_SWUM,macro_preserved_rate,0.0
+preservation,fact_type:field,DPS_SWUM,preserved_verbatim_quote_rate,0.0
+preservation,fact_type:field,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.0
 preservation,fact_type:method,DPS_NLG,facts,260
-preservation,fact_type:method,DPS_NLG,preserved,242
-preservation,fact_type:method,DPS_NLG,omitted,16
+preservation,fact_type:method,DPS_NLG,mean_words,111.1
+preservation,fact_type:method,DPS_NLG,preserved,237
+preservation,fact_type:method,DPS_NLG,omitted,21
 preservation,fact_type:method,DPS_NLG,incorrect,2
-preservation,fact_type:method,DPS_NLG,preserved_rate,0.9308
-preservation,fact_type:method,DPS_NLG,omitted_rate,0.0615
+preservation,fact_type:method,DPS_NLG,preserved_rate,0.9115
+preservation,fact_type:method,DPS_NLG,omitted_rate,0.0808
 preservation,fact_type:method,DPS_NLG,incorrect_rate,0.0077
-preservation,fact_type:method,DPS_NLG,macro_preserved_rate,0.9294
+preservation,fact_type:method,DPS_NLG,macro_preserved_rate,0.9271
+preservation,fact_type:method,DPS_NLG,preserved_verbatim_quote_rate,0.7038
+preservation,fact_type:method,DPS_NLG,preserved_verbatim_or_fragments_rate,0.8846
 preservation,fact_type:method,DPS_LLM (GPT),facts,260
-preservation,fact_type:method,DPS_LLM (GPT),preserved,199
-preservation,fact_type:method,DPS_LLM (GPT),omitted,61
+preservation,fact_type:method,DPS_LLM (GPT),mean_words,35.6
+preservation,fact_type:method,DPS_LLM (GPT),preserved,207
+preservation,fact_type:method,DPS_LLM (GPT),omitted,53
 preservation,fact_type:method,DPS_LLM (GPT),incorrect,0
-preservation,fact_type:method,DPS_LLM (GPT),preserved_rate,0.7654
-preservation,fact_type:method,DPS_LLM (GPT),omitted_rate,0.2346
+preservation,fact_type:method,DPS_LLM (GPT),preserved_rate,0.7962
+preservation,fact_type:method,DPS_LLM (GPT),omitted_rate,0.2038
 preservation,fact_type:method,DPS_LLM (GPT),incorrect_rate,0.0
-preservation,fact_type:method,DPS_LLM (GPT),macro_preserved_rate,0.8519
+preservation,fact_type:method,DPS_LLM (GPT),macro_preserved_rate,0.8727
+preservation,fact_type:method,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.6962
+preservation,fact_type:method,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.75
 preservation,fact_type:method,DPS_LLM (Mistral),facts,260
-preservation,fact_type:method,DPS_LLM (Mistral),preserved,174
-preservation,fact_type:method,DPS_LLM (Mistral),omitted,86
+preservation,fact_type:method,DPS_LLM (Mistral),mean_words,40.7
+preservation,fact_type:method,DPS_LLM (Mistral),preserved,173
+preservation,fact_type:method,DPS_LLM (Mistral),omitted,87
 preservation,fact_type:method,DPS_LLM (Mistral),incorrect,0
-preservation,fact_type:method,DPS_LLM (Mistral),preserved_rate,0.6692
-preservation,fact_type:method,DPS_LLM (Mistral),omitted_rate,0.3308
+preservation,fact_type:method,DPS_LLM (Mistral),preserved_rate,0.6654
+preservation,fact_type:method,DPS_LLM (Mistral),omitted_rate,0.3346
 preservation,fact_type:method,DPS_LLM (Mistral),incorrect_rate,0.0
-preservation,fact_type:method,DPS_LLM (Mistral),macro_preserved_rate,0.7523
+preservation,fact_type:method,DPS_LLM (Mistral),macro_preserved_rate,0.7593
+preservation,fact_type:method,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.6231
+preservation,fact_type:method,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.6423
 preservation,fact_type:method,DPS_SWUM,facts,260
-preservation,fact_type:method,DPS_SWUM,preserved,59
-preservation,fact_type:method,DPS_SWUM,omitted,201
+preservation,fact_type:method,DPS_SWUM,mean_words,13.9
+preservation,fact_type:method,DPS_SWUM,preserved,56
+preservation,fact_type:method,DPS_SWUM,omitted,204
 preservation,fact_type:method,DPS_SWUM,incorrect,0
-preservation,fact_type:method,DPS_SWUM,preserved_rate,0.2269
-preservation,fact_type:method,DPS_SWUM,omitted_rate,0.7731
+preservation,fact_type:method,DPS_SWUM,preserved_rate,0.2154
+preservation,fact_type:method,DPS_SWUM,omitted_rate,0.7846
 preservation,fact_type:method,DPS_SWUM,incorrect_rate,0.0
-preservation,fact_type:method,DPS_SWUM,macro_preserved_rate,0.2083
+preservation,fact_type:method,DPS_SWUM,macro_preserved_rate,0.206
+preservation,fact_type:method,DPS_SWUM,preserved_verbatim_quote_rate,0.1808
+preservation,fact_type:method,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.2077
 preservation,fact_type:call,DPS_NLG,facts,82
+preservation,fact_type:call,DPS_NLG,mean_words,285.7
 preservation,fact_type:call,DPS_NLG,preserved,82
 preservation,fact_type:call,DPS_NLG,omitted,0
 preservation,fact_type:call,DPS_NLG,incorrect,0
@@ -323,23 +617,32 @@ preservation,fact_type:call,DPS_NLG,preserved_rate,1.0
 preservation,fact_type:call,DPS_NLG,omitted_rate,0.0
 preservation,fact_type:call,DPS_NLG,incorrect_rate,0.0
 preservation,fact_type:call,DPS_NLG,macro_preserved_rate,1.0
+preservation,fact_type:call,DPS_NLG,preserved_verbatim_quote_rate,0.8049
+preservation,fact_type:call,DPS_NLG,preserved_verbatim_or_fragments_rate,1.0
 preservation,fact_type:call,DPS_LLM (GPT),facts,82
-preservation,fact_type:call,DPS_LLM (GPT),preserved,32
-preservation,fact_type:call,DPS_LLM (GPT),omitted,50
+preservation,fact_type:call,DPS_LLM (GPT),mean_words,37.4
+preservation,fact_type:call,DPS_LLM (GPT),preserved,23
+preservation,fact_type:call,DPS_LLM (GPT),omitted,59
 preservation,fact_type:call,DPS_LLM (GPT),incorrect,0
-preservation,fact_type:call,DPS_LLM (GPT),preserved_rate,0.3902
-preservation,fact_type:call,DPS_LLM (GPT),omitted_rate,0.6098
+preservation,fact_type:call,DPS_LLM (GPT),preserved_rate,0.2805
+preservation,fact_type:call,DPS_LLM (GPT),omitted_rate,0.7195
 preservation,fact_type:call,DPS_LLM (GPT),incorrect_rate,0.0
-preservation,fact_type:call,DPS_LLM (GPT),macro_preserved_rate,0.5765
+preservation,fact_type:call,DPS_LLM (GPT),macro_preserved_rate,0.5
+preservation,fact_type:call,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.2317
+preservation,fact_type:call,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.2805
 preservation,fact_type:call,DPS_LLM (Mistral),facts,82
-preservation,fact_type:call,DPS_LLM (Mistral),preserved,15
-preservation,fact_type:call,DPS_LLM (Mistral),omitted,67
+preservation,fact_type:call,DPS_LLM (Mistral),mean_words,39.4
+preservation,fact_type:call,DPS_LLM (Mistral),preserved,16
+preservation,fact_type:call,DPS_LLM (Mistral),omitted,66
 preservation,fact_type:call,DPS_LLM (Mistral),incorrect,0
-preservation,fact_type:call,DPS_LLM (Mistral),preserved_rate,0.1829
-preservation,fact_type:call,DPS_LLM (Mistral),omitted_rate,0.8171
+preservation,fact_type:call,DPS_LLM (Mistral),preserved_rate,0.1951
+preservation,fact_type:call,DPS_LLM (Mistral),omitted_rate,0.8049
 preservation,fact_type:call,DPS_LLM (Mistral),incorrect_rate,0.0
-preservation,fact_type:call,DPS_LLM (Mistral),macro_preserved_rate,0.3676
+preservation,fact_type:call,DPS_LLM (Mistral),macro_preserved_rate,0.3735
+preservation,fact_type:call,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.1829
+preservation,fact_type:call,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.1951
 preservation,fact_type:call,DPS_SWUM,facts,82
+preservation,fact_type:call,DPS_SWUM,mean_words,14.8
 preservation,fact_type:call,DPS_SWUM,preserved,0
 preservation,fact_type:call,DPS_SWUM,omitted,82
 preservation,fact_type:call,DPS_SWUM,incorrect,0
@@ -347,3 +650,93 @@ preservation,fact_type:call,DPS_SWUM,preserved_rate,0.0
 preservation,fact_type:call,DPS_SWUM,omitted_rate,1.0
 preservation,fact_type:call,DPS_SWUM,incorrect_rate,0.0
 preservation,fact_type:call,DPS_SWUM,macro_preserved_rate,0.0
+preservation,fact_type:call,DPS_SWUM,preserved_verbatim_quote_rate,0.0
+preservation,fact_type:call,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.0
+preservation,role_pattern:same pattern,DPS_NLG,facts,98
+preservation,role_pattern:same pattern,DPS_NLG,mean_words,58.8
+preservation,role_pattern:same pattern,DPS_NLG,preserved,79
+preservation,role_pattern:same pattern,DPS_NLG,omitted,7
+preservation,role_pattern:same pattern,DPS_NLG,incorrect,12
+preservation,role_pattern:same pattern,DPS_NLG,preserved_rate,0.8061
+preservation,role_pattern:same pattern,DPS_NLG,omitted_rate,0.0714
+preservation,role_pattern:same pattern,DPS_NLG,incorrect_rate,0.1224
+preservation,role_pattern:same pattern,DPS_NLG,macro_preserved_rate,0.8236
+preservation,role_pattern:same pattern,DPS_NLG,preserved_verbatim_quote_rate,0.7041
+preservation,role_pattern:same pattern,DPS_NLG,preserved_verbatim_or_fragments_rate,0.7653
+preservation,role_pattern:same pattern,DPS_LLM (GPT),facts,98
+preservation,role_pattern:same pattern,DPS_LLM (GPT),mean_words,35.6
+preservation,role_pattern:same pattern,DPS_LLM (GPT),preserved,48
+preservation,role_pattern:same pattern,DPS_LLM (GPT),omitted,45
+preservation,role_pattern:same pattern,DPS_LLM (GPT),incorrect,5
+preservation,role_pattern:same pattern,DPS_LLM (GPT),preserved_rate,0.4898
+preservation,role_pattern:same pattern,DPS_LLM (GPT),omitted_rate,0.4592
+preservation,role_pattern:same pattern,DPS_LLM (GPT),incorrect_rate,0.051
+preservation,role_pattern:same pattern,DPS_LLM (GPT),macro_preserved_rate,0.5661
+preservation,role_pattern:same pattern,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.4898
+preservation,role_pattern:same pattern,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.4898
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),facts,98
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),mean_words,42.0
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),preserved,63
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),omitted,34
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),incorrect,1
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),preserved_rate,0.6429
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),omitted_rate,0.3469
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),incorrect_rate,0.0102
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),macro_preserved_rate,0.783
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.5204
+preservation,role_pattern:same pattern,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.6224
+preservation,role_pattern:same pattern,DPS_SWUM,facts,98
+preservation,role_pattern:same pattern,DPS_SWUM,mean_words,18.7
+preservation,role_pattern:same pattern,DPS_SWUM,preserved,55
+preservation,role_pattern:same pattern,DPS_SWUM,omitted,42
+preservation,role_pattern:same pattern,DPS_SWUM,incorrect,1
+preservation,role_pattern:same pattern,DPS_SWUM,preserved_rate,0.5612
+preservation,role_pattern:same pattern,DPS_SWUM,omitted_rate,0.4286
+preservation,role_pattern:same pattern,DPS_SWUM,incorrect_rate,0.0102
+preservation,role_pattern:same pattern,DPS_SWUM,macro_preserved_rate,0.7871
+preservation,role_pattern:same pattern,DPS_SWUM,preserved_verbatim_quote_rate,0.5612
+preservation,role_pattern:same pattern,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.5612
+preservation,role_pattern:other pattern,DPS_NLG,facts,37
+preservation,role_pattern:other pattern,DPS_NLG,mean_words,111.0
+preservation,role_pattern:other pattern,DPS_NLG,preserved,33
+preservation,role_pattern:other pattern,DPS_NLG,omitted,2
+preservation,role_pattern:other pattern,DPS_NLG,incorrect,2
+preservation,role_pattern:other pattern,DPS_NLG,preserved_rate,0.8919
+preservation,role_pattern:other pattern,DPS_NLG,omitted_rate,0.0541
+preservation,role_pattern:other pattern,DPS_NLG,incorrect_rate,0.0541
+preservation,role_pattern:other pattern,DPS_NLG,macro_preserved_rate,0.8977
+preservation,role_pattern:other pattern,DPS_NLG,preserved_verbatim_quote_rate,0.8378
+preservation,role_pattern:other pattern,DPS_NLG,preserved_verbatim_or_fragments_rate,0.8919
+preservation,role_pattern:other pattern,DPS_LLM (GPT),facts,37
+preservation,role_pattern:other pattern,DPS_LLM (GPT),mean_words,37.7
+preservation,role_pattern:other pattern,DPS_LLM (GPT),preserved,9
+preservation,role_pattern:other pattern,DPS_LLM (GPT),omitted,24
+preservation,role_pattern:other pattern,DPS_LLM (GPT),incorrect,4
+preservation,role_pattern:other pattern,DPS_LLM (GPT),preserved_rate,0.2432
+preservation,role_pattern:other pattern,DPS_LLM (GPT),omitted_rate,0.6486
+preservation,role_pattern:other pattern,DPS_LLM (GPT),incorrect_rate,0.1081
+preservation,role_pattern:other pattern,DPS_LLM (GPT),macro_preserved_rate,0.2841
+preservation,role_pattern:other pattern,DPS_LLM (GPT),preserved_verbatim_quote_rate,0.1622
+preservation,role_pattern:other pattern,DPS_LLM (GPT),preserved_verbatim_or_fragments_rate,0.1892
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),facts,37
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),mean_words,44.5
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),preserved,9
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),omitted,21
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),incorrect,7
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),preserved_rate,0.2432
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),omitted_rate,0.5676
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),incorrect_rate,0.1892
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),macro_preserved_rate,0.2386
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),preserved_verbatim_quote_rate,0.1622
+preservation,role_pattern:other pattern,DPS_LLM (Mistral),preserved_verbatim_or_fragments_rate,0.1622
+preservation,role_pattern:other pattern,DPS_SWUM,facts,37
+preservation,role_pattern:other pattern,DPS_SWUM,mean_words,21.2
+preservation,role_pattern:other pattern,DPS_SWUM,preserved,20
+preservation,role_pattern:other pattern,DPS_SWUM,omitted,16
+preservation,role_pattern:other pattern,DPS_SWUM,incorrect,1
+preservation,role_pattern:other pattern,DPS_SWUM,preserved_rate,0.5405
+preservation,role_pattern:other pattern,DPS_SWUM,omitted_rate,0.4324
+preservation,role_pattern:other pattern,DPS_SWUM,incorrect_rate,0.027
+preservation,role_pattern:other pattern,DPS_SWUM,macro_preserved_rate,0.6402
+preservation,role_pattern:other pattern,DPS_SWUM,preserved_verbatim_quote_rate,0.5135
+preservation,role_pattern:other pattern,DPS_SWUM,preserved_verbatim_or_fragments_rate,0.5135

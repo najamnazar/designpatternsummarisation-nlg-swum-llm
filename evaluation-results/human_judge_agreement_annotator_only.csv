@@ -1,0 +1,22 @@
+section,method,value,count
+code_check,,Correct,128
+code_check,,Incorrect,13
+unsupported_claim,DPS_NLG,Yes,23
+unsupported_claim,DPS_NLG,No,7
+unsupported_claim,DPS_LLM (GPT),No,15
+unsupported_claim,DPS_LLM (GPT),Yes,15
+unsupported_claim,DPS_LLM (Mistral),Yes,20
+unsupported_claim,DPS_LLM (Mistral),No,10
+unsupported_claim,DPS_SWUM,No,28
+unsupported_claim,DPS_SWUM,Yes,2
+extra_facts,DPS_NLG,Incorrect,29
+extra_facts,DPS_NLG,Omitted,18
+extra_facts,DPS_LLM (GPT),Omitted,32
+extra_facts,DPS_LLM (GPT),Incorrect,13
+extra_facts,DPS_LLM (GPT),Preserved,2
+extra_facts,DPS_LLM (Mistral),Omitted,25
+extra_facts,DPS_LLM (Mistral),Incorrect,14
+extra_facts,DPS_LLM (Mistral),Preserved,8
+extra_facts,DPS_SWUM,Omitted,45
+extra_facts,DPS_SWUM,Incorrect,1
+extra_facts,DPS_SWUM,Preserved,1

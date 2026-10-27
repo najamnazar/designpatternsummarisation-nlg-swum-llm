@@ -1,0 +1,193 @@
+Human annotation vs LLM judge (fact preservation): reference notes
+Generated: 2026-10-27
+
+======================================================================
+1. Deanonymised copy of the annotated workbook
+======================================================================
+
+File: design_pattern_preservation_annotation_deanonymised.xlsx (repository root)
+
+- Copy of design_pattern_preservation_annotation.xlsx (annotated version saved 2026-10-27).
+- The tool behind each summary letter is looked up per file in
+  evaluation-results/manual_annotation_key.csv and added:
+  - file sheets F01-F30: tool name next to each summary (column K) and in the
+    judgement headers ("Summary A" -> "Summary A / DPS_NLG");
+  - All Annotations: new column M "Tool (deanonymised)" (filter extended to it);
+  - Files: new columns L-O with the tool of summaries A-D;
+  - Extra Facts: new column L listing the tools of A-D for that row's file.
+- Formulas are replaced by the values last calculated in the annotated file,
+  so the copy is a fixed record and shows the same values in Excel and LibreOffice.
+- Checks done:
+  - 43,734 original cells compared: 0 differ apart from the added tool labels.
+  - All 30 files complete: 141 facts checked, 564 of 564 summary judgements,
+    30 x 4 unsupported-claim answers, 47 extra facts.
+  - The copy opens and renders in LibreOffice.
+- The anonymised workbook itself was not changed.
+
+======================================================================
+2. What was compared
+======================================================================
+
+- Judge: meta-llama/llama-4-maverick, temperature 0, default corpora
+  (evaluation-results/fact_preservation_verdicts.csv). The annotator never saw
+  the judge's labels, evidence or justifications.
+- Unit: one fact x one summary. 141 facts x 4 summaries = 564 label pairs,
+  each Preserved / Omitted / Incorrect.
+- Join: on (project, pattern, file, tool, fact_id); all 564 matched and the
+  fact texts are identical in the workbook and the judge output.
+- Statistics:
+  - % agreement and Cohen's kappa, for the three labels and for
+    Preserved vs not Preserved (binary).
+  - Gwet's AC1: like kappa, but not pulled down when one label dominates
+    (e.g. SWUM, where 92% of human labels are Omitted).
+  - 95% CIs: bootstrap over the 30 files (2,000 resamples), because labels
+    within a file are not independent.
+  - Score level: each summary's preserved rate (share of its facts labelled
+    Preserved), human vs judge: Spearman, Pearson, ICC(A,1) (absolute agreement).
+  - Ranking: the order of the four tools within each file, Kendall's tau-b and
+    the share of tool pairs ordered the same way (as in the TOSEM analysis).
+- Script: python/human_judge_agreement.py
+  Full figures: the HUMAN-JUDGE AGREEMENT block of evaluation-results/results.txt and the
+  human_judge_agreement_*.csv files (labels, metrics, confusion, summaries,
+  tools, per_file, annotator_only).
+
+======================================================================
+3. Headline results
+======================================================================
+
+Label level (564 pairs)
+                                      Agree   kappa [95% CI]      AC1
+  All labels (3 classes)              82%     0.67 [0.57, 0.75]   0.76
+  Preserved vs not (binary)           84%     0.68 [0.58, 0.76]   0.67
+  Only facts correct in the code      84%     0.70 [0.59, 0.78]   0.79
+    (512 pairs; 13 facts the annotator marked incorrect removed)
+
+  -> substantial agreement (Landis & Koch 0.61-0.80).
+
+By tool                    Agree   kappa [95% CI]      AC1
+  DPS_NLG                  76%     0.42 [0.21, 0.62]   0.70
+  DPS_LLM (GPT)            88%     0.75 [0.58, 0.88]   0.84
+  DPS_LLM (Mistral)        83%     0.67 [0.49, 0.78]   0.77
+  DPS_SWUM                 83%     0.36 [0.17, 0.55]   0.80
+  - SWUM's low kappa with 83% agreement is the prevalence effect (almost every
+    label is Omitted); AC1 0.80 shows agreement is in fact good there.
+  - NLG is the weakest: the judge credits its method lists (section 4).
+
+By fact category           Agree   kappa
+  relationship (inheritance, call)   94%   0.88
+  identity (kind)                    88%   0.69
+  pattern role                       78%   0.59
+  responsibility (method, field, constructor)  76%   0.57
+  - Method calls: 100% agreement (76 pairs). Methods: 73%, kappa 0.52.
+
+Summary level (120 summaries)
+  - Preserved rate, human vs judge: Spearman 0.80, Pearson 0.80, ICC(A,1) 0.73.
+  - The judge's rate is higher by +0.17 on average (Wilcoxon p < .001);
+    identical for 63 of 120 summaries.
+  - Within tool: GPT ICC 0.83, Mistral 0.64, SWUM 0.37, NLG 0.20.
+
+Tool ranking
+  Preserved rate on the 30 files    Human    Judge   (Judge, all 150 classes)
+    DPS_NLG                         64.5%    85.1%   85.7%
+    DPS_LLM (GPT)                   58.2%    68.8%   67.8%
+    DPS_LLM (Mistral)               47.5%    63.1%   61.1%
+    DPS_SWUM                         4.3%    19.1%   19.9%
+  - Same order for both raters: NLG > GPT > Mistral > SWUM.
+  - Per file: tool pairs ordered the same way in 116 of 118 untied pairs (98%);
+    mean Kendall tau-b 0.85 (29 files); same best tool in 29 of 30 files.
+  - The judge's rates on these 30 files are close to its rates on all 150
+    classes, so the sample is representative of the judge's full run.
+  - Note: with macro averaging (mean of per-summary rates) the human puts GPT
+    (72.6%) above NLG (62.9%); the judge keeps NLG first (85.3% vs 81.3%).
+    The NLG > GPT order therefore depends on the averaging for the human labels.
+
+======================================================================
+4. Where they disagree: the judge is more lenient
+======================================================================
+
+Confusion matrix (rows = judge, columns = human)
+                 Preserved  Omitted  Incorrect   total
+  Preserved            243       75         15     333
+  Omitted                1      218          4     223
+  Incorrect              2        2          4       8
+  total                246      295         23     564
+
+- 90 of the 101 disagreements are the judge saying Preserved where the human
+  did not; only 3 go the other way (McNemar p < .001).
+- When the human says Preserved, the judge agrees 99% of the time; when the
+  judge says Preserved, the human agrees 73% of the time.
+- The judge rarely uses Incorrect (8 times vs 23 for the human) and matches the
+  human on only 4 of them. Incorrect labels are too few to evaluate separately.
+
+Causes, from the annotator's notes and the judge's evidence:
+1. "X overrides method m" (36 pairs; 22 of them NLG). NLG summaries list the
+   methods ("The 3 methods of BossVisitor are visitEngineer ..."). The judge
+   counts the listing as Preserved; the annotator requires the summary to say
+   the method overrides/implements an inherited one.
+2. Interface methods "X defines method m" (14 pairs, Preserved -> Incorrect).
+   The annotator marked these facts Incorrect in the code (interfaces declare,
+   not define, methods) and then labelled the summaries Incorrect too, although
+   the instructions say to judge the fact as written. These 14 pairs are the
+   main reason the 13 incorrect facts reach only 65% agreement; removing them
+   gives kappa 0.70.
+3. Pattern roles without the partner class (10 pairs; 8 SWUM). "MacOSFactory
+   acts as a factory in the Abstract Factory pattern" was accepted by the judge
+   for "MacOSFactory is a concrete factory for GUIFactory"; the annotator
+   followed the prompt's rule that naming the pattern without linking the
+   specific classes is Omitted.
+4. Loose paraphrases in LLM summaries (inheritance 10, constructor 3, some
+   methods). E.g. "with bean-name awareness" accepted for "implements
+   BeanNameAware"; "including parent ... information" for "defines
+   visitParentName".
+5. Vague SWUM method mentions ("provides methods to create, create, create")
+   accepted for a specific create method (8 "defines" pairs).
+
+Effect on the paper's numbers: the judge's preserved rates are inflated by
+about 10-20 points (most for NLG, Mistral and SWUM, least for GPT), but the
+ordering of the tools is the same as the annotator's.
+
+======================================================================
+5. Annotator-only findings (no judge counterpart)
+======================================================================
+
+Fact extraction (code check of the 141 facts)
+- 128 Correct, 13 Incorrect (91% correct).
+- 7 of the 13: interface methods phrased "defines" rather than "declares".
+- Real extraction errors: Flower (F19) given Abstract Factory and Observer
+  roles and "extends Plant" (implements) and a private constructor (public);
+  Mouse (F27) "extends ComputerPart" (implements); LazyInitializationDirector
+  (F25) INSTANCE field belongs to the nested holder class.
+
+Unsupported claims about the pattern (summaries with "Yes", of 30)
+  DPS_NLG 23   DPS_LLM (Mistral) 20   DPS_LLM (GPT) 15   DPS_SWUM 2
+
+Extra facts the extracted facts miss (47 in 22 files: 24 method calls,
+17 pattern roles, 3 fields, 3 constructors)
+                       Preserved  Omitted  Incorrect
+  DPS_NLG                      0       18         29
+  DPS_LLM (GPT)                2       32         13
+  DPS_LLM (Mistral)            8       25         14
+  DPS_SWUM                     1       45          1
+- Of the 17 extra pattern-role facts, the annotator labelled the summary
+  Incorrect for NLG 17, Mistral 14, GPT 13, SWUM 1. The notes show these are
+  summaries that deny any design pattern ("No explicit design pattern is
+  applied") in classes whose code or Javadoc shows one.
+- So the fact-based score does not capture wrong pattern statements: NLG ranks
+  first on preserved facts but has the most unsupported claims and wrong
+  pattern statements. Worth reporting next to the preservation rates.
+
+======================================================================
+6. For the paper
+======================================================================
+
+- The judge agrees with the annotator substantially (kappa 0.67, 82%) and
+  ranks the tools in the same order (98% of pairs within files), so its
+  ranking can be reported as validated.
+- Its absolute preserved rates are optimistic: 59% Preserved vs 44% for the
+  human on the same 564 pairs. Report them as upper bounds or give the human
+  rates for the 30-file sample alongside.
+- The leniency is greatest for NLG method lists and SWUM role sentences, so
+  the gap between NLG and the LLMs is smaller under human labels (and
+  reverses with macro averaging).
+- One annotator only: this is judge-human agreement, not inter-annotator
+  agreement.

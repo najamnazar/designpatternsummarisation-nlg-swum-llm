@@ -1,0 +1,121 @@
+file_id,project,design_pattern,file,letter,method,n_facts,human_preserved_rate,judge_preserved_rate,human_incorrect,judge_incorrect,difference
+F01,AbdurRKhalid,AbstractFactory,MacOSFactory.java,A,DPS_NLG,4,1.0000,1.0000,0,0,0.0000
+F01,AbdurRKhalid,AbstractFactory,MacOSFactory.java,B,DPS_SWUM,4,0.0000,0.2500,0,0,0.2500
+F01,AbdurRKhalid,AbstractFactory,MacOSFactory.java,C,DPS_LLM (GPT),4,0.5000,0.5000,0,0,0.0000
+F01,AbdurRKhalid,AbstractFactory,MacOSFactory.java,D,DPS_LLM (Mistral),4,0.7500,1.0000,0,0,0.2500
+F02,AbdurRKhalid,AbstractFactory,WindowsButton.java,A,DPS_NLG,3,0.6667,0.6667,1,1,0.0000
+F02,AbdurRKhalid,AbstractFactory,WindowsButton.java,B,DPS_SWUM,3,0.0000,0.3333,0,0,0.3333
+F02,AbdurRKhalid,AbstractFactory,WindowsButton.java,C,DPS_LLM (Mistral),3,0.6667,1.0000,0,0,0.3333
+F02,AbdurRKhalid,AbstractFactory,WindowsButton.java,D,DPS_LLM (GPT),3,1.0000,1.0000,0,0,0.0000
+F03,JamesZBL,AbstractFactory,YoungTeamFactory.java,A,DPS_SWUM,5,0.0000,0.8000,0,0,0.8000
+F03,JamesZBL,AbstractFactory,YoungTeamFactory.java,B,DPS_LLM (GPT),5,1.0000,1.0000,0,0,0.0000
+F03,JamesZBL,AbstractFactory,YoungTeamFactory.java,C,DPS_LLM (Mistral),5,1.0000,1.0000,0,0,0.0000
+F03,JamesZBL,AbstractFactory,YoungTeamFactory.java,D,DPS_NLG,5,1.0000,1.0000,0,0,0.0000
+F04,SpringFramework,AbstractFactory,ClientHttpRequestFactory.java,A,DPS_NLG,2,0.5000,1.0000,1,0,0.5000
+F04,SpringFramework,AbstractFactory,ClientHttpRequestFactory.java,B,DPS_SWUM,2,0.0000,0.5000,1,1,0.5000
+F04,SpringFramework,AbstractFactory,ClientHttpRequestFactory.java,C,DPS_LLM (GPT),2,1.0000,1.0000,0,0,0.0000
+F04,SpringFramework,AbstractFactory,ClientHttpRequestFactory.java,D,DPS_LLM (Mistral),2,0.5000,1.0000,1,0,0.5000
+F05,AbdurRKhalid,Adapter,RoundHole.java,A,DPS_SWUM,2,0.0000,0.5000,0,0,0.5000
+F05,AbdurRKhalid,Adapter,RoundHole.java,B,DPS_LLM (Mistral),2,0.0000,1.0000,0,0,1.0000
+F05,AbdurRKhalid,Adapter,RoundHole.java,C,DPS_LLM (GPT),2,1.0000,1.0000,0,0,0.0000
+F05,AbdurRKhalid,Adapter,RoundHole.java,D,DPS_NLG,2,0.5000,0.5000,1,0,0.0000
+F06,JamesZBL,Adapter,Driver.java,A,DPS_SWUM,6,0.1667,0.1667,0,0,0.0000
+F06,JamesZBL,Adapter,Driver.java,B,DPS_LLM (Mistral),6,0.8333,1.0000,0,0,0.1667
+F06,JamesZBL,Adapter,Driver.java,C,DPS_LLM (GPT),6,1.0000,1.0000,0,0,0.0000
+F06,JamesZBL,Adapter,Driver.java,D,DPS_NLG,6,0.5000,0.6667,0,0,0.1667
+F07,SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,A,DPS_NLG,8,0.8750,0.8750,0,0,0.0000
+F07,SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,B,DPS_LLM (GPT),8,0.2500,0.2500,0,0,0.0000
+F07,SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,C,DPS_LLM (Mistral),8,0.2500,0.1250,0,0,-0.1250
+F07,SpringFramework,Adapter,IsolationLevelDataSourceAdapter.java,D,DPS_SWUM,8,0.0000,0.0000,0,0,0.0000
+F08,AbdurRKhalid,Decorator,DataSourceDecorator.java,A,DPS_NLG,5,0.2000,0.6000,0,0,0.4000
+F08,AbdurRKhalid,Decorator,DataSourceDecorator.java,B,DPS_LLM (GPT),5,1.0000,1.0000,0,0,0.0000
+F08,AbdurRKhalid,Decorator,DataSourceDecorator.java,C,DPS_LLM (Mistral),5,0.6000,0.8000,0,0,0.2000
+F08,AbdurRKhalid,Decorator,DataSourceDecorator.java,D,DPS_SWUM,5,0.0000,0.4000,0,0,0.4000
+F09,JamesZBL,Decorator,CarpenterOperation.java,A,DPS_LLM (GPT),5,0.8000,0.8000,0,1,0.0000
+F09,JamesZBL,Decorator,CarpenterOperation.java,B,DPS_SWUM,5,0.0000,0.2000,0,0,0.2000
+F09,JamesZBL,Decorator,CarpenterOperation.java,C,DPS_LLM (Mistral),5,0.2000,0.8000,0,0,0.6000
+F09,JamesZBL,Decorator,CarpenterOperation.java,D,DPS_NLG,5,0.2000,1.0000,1,0,0.8000
+F10,SpringFramework,Decorator,WebSocketHandlerDecorator.java,A,DPS_SWUM,5,0.0000,0.0000,0,0,0.0000
+F10,SpringFramework,Decorator,WebSocketHandlerDecorator.java,B,DPS_LLM (Mistral),5,0.0000,0.0000,0,0,0.0000
+F10,SpringFramework,Decorator,WebSocketHandlerDecorator.java,C,DPS_NLG,5,0.4000,1.0000,0,0,0.6000
+F10,SpringFramework,Decorator,WebSocketHandlerDecorator.java,D,DPS_LLM (GPT),5,0.2000,0.2000,0,0,0.0000
+F11,AbdurRKhalid,Facade,BitrateReader.java,A,DPS_LLM (Mistral),2,1.0000,1.0000,0,0,0.0000
+F11,AbdurRKhalid,Facade,BitrateReader.java,B,DPS_NLG,2,1.0000,1.0000,0,0,0.0000
+F11,AbdurRKhalid,Facade,BitrateReader.java,C,DPS_LLM (GPT),2,1.0000,1.0000,0,0,0.0000
+F11,AbdurRKhalid,Facade,BitrateReader.java,D,DPS_SWUM,2,1.0000,1.0000,0,0,0.0000
+F12,JamesZBL,Facade,CourseFacade.java,A,DPS_LLM (GPT),4,1.0000,1.0000,0,0,0.0000
+F12,JamesZBL,Facade,CourseFacade.java,B,DPS_LLM (Mistral),4,1.0000,1.0000,0,0,0.0000
+F12,JamesZBL,Facade,CourseFacade.java,C,DPS_NLG,4,0.7500,0.7500,0,0,0.0000
+F12,JamesZBL,Facade,CourseFacade.java,D,DPS_SWUM,4,0.2500,0.2500,0,0,0.0000
+F13,SpringFramework,Facade,TransactionTemplate.java,A,DPS_NLG,7,0.5714,1.0000,0,0,0.4286
+F13,SpringFramework,Facade,TransactionTemplate.java,B,DPS_LLM (GPT),7,0.4286,0.4286,0,0,0.0000
+F13,SpringFramework,Facade,TransactionTemplate.java,C,DPS_LLM (Mistral),7,0.1429,0.2857,0,0,0.1429
+F13,SpringFramework,Facade,TransactionTemplate.java,D,DPS_SWUM,7,0.0000,0.1429,0,0,0.1429
+F14,AbdurRKhalid,FactoryMethod,WindowsDialog.java,A,DPS_NLG,3,0.6667,1.0000,0,0,0.3333
+F14,AbdurRKhalid,FactoryMethod,WindowsDialog.java,B,DPS_LLM (GPT),3,1.0000,1.0000,0,0,0.0000
+F14,AbdurRKhalid,FactoryMethod,WindowsDialog.java,C,DPS_SWUM,3,0.0000,0.3333,0,0,0.3333
+F14,AbdurRKhalid,FactoryMethod,WindowsDialog.java,D,DPS_LLM (Mistral),3,1.0000,1.0000,0,0,0.0000
+F15,JamesZBL,FactoryMethod,FoodType.java,A,DPS_NLG,1,1.0000,1.0000,0,0,0.0000
+F15,JamesZBL,FactoryMethod,FoodType.java,B,DPS_LLM (GPT),1,1.0000,1.0000,0,0,0.0000
+F15,JamesZBL,FactoryMethod,FoodType.java,C,DPS_SWUM,1,0.0000,0.0000,0,0,0.0000
+F15,JamesZBL,FactoryMethod,FoodType.java,D,DPS_LLM (Mistral),1,1.0000,1.0000,0,0,0.0000
+F16,SpringFramework,FactoryMethod,AdaptableJobFactory.java,A,DPS_LLM (Mistral),4,0.7500,0.7500,0,0,0.0000
+F16,SpringFramework,FactoryMethod,AdaptableJobFactory.java,B,DPS_NLG,4,0.7500,1.0000,0,0,0.2500
+F16,SpringFramework,FactoryMethod,AdaptableJobFactory.java,C,DPS_LLM (GPT),4,0.7500,1.0000,0,0,0.2500
+F16,SpringFramework,FactoryMethod,AdaptableJobFactory.java,D,DPS_SWUM,4,0.0000,0.0000,0,0,0.0000
+F17,SpringFramework,FactoryMethod,JobDetailFactoryBean.java,A,DPS_SWUM,9,0.0000,0.0000,0,0,0.0000
+F17,SpringFramework,FactoryMethod,JobDetailFactoryBean.java,B,DPS_NLG,9,0.6667,1.0000,0,0,0.3333
+F17,SpringFramework,FactoryMethod,JobDetailFactoryBean.java,C,DPS_LLM (GPT),9,0.1111,0.4444,0,0,0.3333
+F17,SpringFramework,FactoryMethod,JobDetailFactoryBean.java,D,DPS_LLM (Mistral),9,0.1111,0.4444,0,0,0.3333
+F18,AbdurRKhalid,Memento,TextWindow.java,A,DPS_LLM (Mistral),3,1.0000,1.0000,0,0,0.0000
+F18,AbdurRKhalid,Memento,TextWindow.java,B,DPS_LLM (GPT),3,1.0000,1.0000,0,0,0.0000
+F18,AbdurRKhalid,Memento,TextWindow.java,C,DPS_SWUM,3,0.0000,0.6667,0,0,0.6667
+F18,AbdurRKhalid,Memento,TextWindow.java,D,DPS_NLG,3,0.6667,1.0000,0,0,0.3333
+F19,JamesZBL,Memento,Flower.java,A,DPS_LLM (Mistral),15,0.0667,0.1333,0,0,0.0667
+F19,JamesZBL,Memento,Flower.java,B,DPS_NLG,15,0.7333,0.7333,0,0,0.0000
+F19,JamesZBL,Memento,Flower.java,C,DPS_LLM (GPT),15,0.0667,0.1333,0,0,0.0667
+F19,JamesZBL,Memento,Flower.java,D,DPS_SWUM,15,0.0000,0.0667,0,0,0.0667
+F20,SpringFramework,Memento,SavepointManager.java,A,DPS_NLG,4,0.2500,1.0000,3,0,0.7500
+F20,SpringFramework,Memento,SavepointManager.java,B,DPS_LLM (GPT),4,1.0000,1.0000,0,0,0.0000
+F20,SpringFramework,Memento,SavepointManager.java,C,DPS_SWUM,4,0.0000,0.2500,0,1,0.2500
+F20,SpringFramework,Memento,SavepointManager.java,D,DPS_LLM (Mistral),4,1.0000,1.0000,0,0,0.0000
+F21,AbdurRKhalid,Observer,EventListener.java,A,DPS_NLG,6,0.8333,0.6667,1,2,-0.1667
+F21,AbdurRKhalid,Observer,EventListener.java,B,DPS_LLM (GPT),6,0.3333,0.5000,1,0,0.1667
+F21,AbdurRKhalid,Observer,EventListener.java,C,DPS_LLM (Mistral),6,0.3333,0.5000,1,0,0.1667
+F21,AbdurRKhalid,Observer,EventListener.java,D,DPS_SWUM,6,0.1667,0.3333,2,0,0.1667
+F22,JamesZBL,Observer,Northern.java,A,DPS_LLM (GPT),3,1.0000,1.0000,0,0,0.0000
+F22,JamesZBL,Observer,Northern.java,B,DPS_NLG,3,0.6667,1.0000,0,0,0.3333
+F22,JamesZBL,Observer,Northern.java,C,DPS_LLM (Mistral),3,0.6667,0.6667,0,0,0.0000
+F22,JamesZBL,Observer,Northern.java,D,DPS_SWUM,3,0.0000,0.6667,0,0,0.6667
+F23,SpringFramework,Observer,ApplicationListener.java,A,DPS_NLG,5,0.8000,1.0000,1,0,0.2000
+F23,SpringFramework,Observer,ApplicationListener.java,B,DPS_SWUM,5,0.0000,0.0000,1,0,0.0000
+F23,SpringFramework,Observer,ApplicationListener.java,C,DPS_LLM (GPT),5,0.6000,1.0000,1,0,0.4000
+F23,SpringFramework,Observer,ApplicationListener.java,D,DPS_LLM (Mistral),5,0.6000,0.8000,1,0,0.2000
+F24,AbdurRKhalid,Singleton,Singleton.java,A,DPS_SWUM,3,0.0000,0.0000,0,0,0.0000
+F24,AbdurRKhalid,Singleton,Singleton.java,B,DPS_LLM (Mistral),3,0.6667,1.0000,0,0,0.3333
+F24,AbdurRKhalid,Singleton,Singleton.java,C,DPS_LLM (GPT),3,1.0000,1.0000,0,0,0.0000
+F24,AbdurRKhalid,Singleton,Singleton.java,D,DPS_NLG,3,0.3333,0.3333,0,0,0.0000
+F25,JamesZBL,Singleton,LazyInitializationDirector.java,A,DPS_LLM (Mistral),4,1.0000,1.0000,0,0,0.0000
+F25,JamesZBL,Singleton,LazyInitializationDirector.java,B,DPS_LLM (GPT),4,1.0000,1.0000,0,0,0.0000
+F25,JamesZBL,Singleton,LazyInitializationDirector.java,C,DPS_NLG,4,0.5000,0.5000,0,0,0.0000
+F25,JamesZBL,Singleton,LazyInitializationDirector.java,D,DPS_SWUM,4,0.2500,0.2500,0,0,0.0000
+F26,SpringFramework,Singleton,SmartInitializingSingleton.java,A,DPS_LLM (Mistral),2,0.5000,1.0000,1,0,0.5000
+F26,SpringFramework,Singleton,SmartInitializingSingleton.java,B,DPS_LLM (GPT),2,1.0000,1.0000,0,0,0.0000
+F26,SpringFramework,Singleton,SmartInitializingSingleton.java,C,DPS_NLG,2,0.5000,1.0000,1,0,0.5000
+F26,SpringFramework,Singleton,SmartInitializingSingleton.java,D,DPS_SWUM,2,0.0000,0.0000,1,1,0.0000
+F27,AbdurRKhalid,Visitor,Mouse.java,A,DPS_LLM (Mistral),5,1.0000,1.0000,0,0,0.0000
+F27,AbdurRKhalid,Visitor,Mouse.java,B,DPS_NLG,5,0.6000,0.8000,1,1,0.2000
+F27,AbdurRKhalid,Visitor,Mouse.java,C,DPS_LLM (GPT),5,1.0000,1.0000,0,0,0.0000
+F27,AbdurRKhalid,Visitor,Mouse.java,D,DPS_SWUM,5,0.0000,0.2000,0,0,0.2000
+F28,JamesZBL,Visitor,BossVisitor.java,A,DPS_NLG,4,0.2500,1.0000,0,0,0.7500
+F28,JamesZBL,Visitor,BossVisitor.java,B,DPS_SWUM,4,0.0000,0.0000,0,0,0.0000
+F28,JamesZBL,Visitor,BossVisitor.java,C,DPS_LLM (Mistral),4,0.2500,1.0000,0,0,0.7500
+F28,JamesZBL,Visitor,BossVisitor.java,D,DPS_LLM (GPT),4,0.2500,1.0000,0,0,0.7500
+F29,JamesZBL,Visitor,Unit.java,A,DPS_LLM (Mistral),4,0.5000,0.7500,0,0,0.2500
+F29,JamesZBL,Visitor,Unit.java,B,DPS_NLG,4,0.5000,0.5000,0,0,0.0000
+F29,JamesZBL,Visitor,Unit.java,C,DPS_SWUM,4,0.0000,0.0000,0,0,0.0000
+F29,JamesZBL,Visitor,Unit.java,D,DPS_LLM (GPT),4,0.5000,0.7500,1,0,0.2500
+F30,SpringFramework,Visitor,BeanDefinitionVisitor.java,A,DPS_LLM (Mistral),8,0.0000,0.0000,0,0,0.0000
+F30,SpringFramework,Visitor,BeanDefinitionVisitor.java,B,DPS_LLM (GPT),8,0.0000,0.3750,0,0,0.3750
+F30,SpringFramework,Visitor,BeanDefinitionVisitor.java,C,DPS_SWUM,8,0.0000,0.0000,0,0,0.0000
+F30,SpringFramework,Visitor,BeanDefinitionVisitor.java,D,DPS_NLG,8,1.0000,1.0000,0,0,0.0000
